@@ -27,4 +27,26 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Authour: Jackson A. Chegenye
+     * ---
+     * Register incoming middleware parameter requests for both roles & permissions.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure  $next
+     * @param  string  $role
+     * @return mixed
+     */
+
+    public function roles(){}
+
+    public function hasRole($name){}
+
+    public function can($permission){} 
+
+    public function ability($roles, $permissions, $options){}
+    
+    public function attachRole($role){}
+
 }
