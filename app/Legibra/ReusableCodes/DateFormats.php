@@ -1,6 +1,6 @@
 <?php 
 
-namespace JCHEGENYE\JTech\ReusableCodes;
+namespace Afraa\Legibra\ReusableCodes;
 
 {
 
@@ -26,7 +26,8 @@ namespace JCHEGENYE\JTech\ReusableCodes;
 
                 'DateType1' => date('M d, Y'),
                 'DateType2' => date('D, d-M-y H:i T'),
-                'DateType3' => date('M,Y')
+                'DateType3' => date('M,Y'),
+                'DateType4' => date('Y-m-d-H:i:s')
                 
             );
 

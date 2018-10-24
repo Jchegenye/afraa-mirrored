@@ -1,6 +1,6 @@
 <?php 
 
-namespace JCHEGENYE\JTech\ReusableCodes;
+namespace Afraa\Legibra\ReusableCodes;
 use Afraa\Legibra\ReusableCodes\DateFormats;
 
 {
@@ -26,10 +26,10 @@ use Afraa\Legibra\ReusableCodes\DateFormats;
             
             //Fetch available date formats.
             $date = new DateFormats();
-            $DateType3 = $date->date();
+            $DateType4 = $date->date();
 
             //Verification code format
-            $code =  "Afraa" . str_random(42) . $DateType3['DateType1'];
+            $code =  env('APP_NAME', 'Afraa') . str_random(42) . $DateType4['DateType4'];
             return $code;
 
         }

@@ -4,8 +4,8 @@ namespace Afraa\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
-use Afraa\Legibra\Model\Admin\Dashboard\UserPermission;
-use Afraa\Legibra\Model\Users\User;
+use Afraa\Model\Admin\Users\User;
+use Afraa\Model\Admin\Dashboard\UserPermission;
 use Afraa\Legibra\ReusableCodes\DateFormats;
 use Afraa\Legibra\ReusableCodes\VerificationCodeGenerator;
 use Symfony\Component\Yaml\Yaml;
@@ -45,19 +45,19 @@ class InitilizeApp extends Command
      * @author Jackson A. Chegenye
      * @return mixed
      */
-    public function handle()
+    public function handle(Request $code)
     {
 
         //Execute console command process
         $this->info('Initialization in progress ...');
 
         //Locate YML file
-        $file = app_path().'/.initialize.yml';
+        $file = app_path().'/.initializeApp.yml';
 
         //Check file existance. 
         if ( ! file_exists($file))
         {
-            $this->error('The file initialize.yml does not exist!');
+            $this->error('The file /.initializeApp.yml does not exist!');
 
         }else{
 
@@ -74,16 +74,14 @@ class InitilizeApp extends Command
                 $root_username = $value['username'];
                 $root_email = $value['email'];
                 $root_password = $value['password'];
+                $root_role = $value['role'];
 
                 //Check if Root user already exists
-                $query = User::where('email','=','dd@legibra.com')->first();
+                $query = User::where('uid','=', 'Afraa_1')->first();
 
                 //Also fetch the permissions
                 $permissions = $this->getAllPermissions();
-
-                //Lets Get the DATES class we had set
-                $date = new DateFormats();
-                $DateType1 = $date->date();
+                $jsonPermissions = json_encode($permissions);
 
                 //Append generated code for registration verification
                 $new_code = new VerificationCodeGenerator();
@@ -97,24 +95,12 @@ class InitilizeApp extends Command
                         $user = new User;
 
                             $user->name = $root_name;
-                            $user->uid = $root_uid;
+                            $user->uid = env('APP_NAME', 'Afraa'). "_" . $root_uid;
                             $user->username = $root_username;
                             $user->email = $root_email;
                             $user->password = Hash::make($root_password);
-
-                            $user->role = [
-                                'member_role',
-                                'access_to_members_list',
-                                'access_to_member_profile',
-                                'access_to_admin_routes',
-                                'access_to_workbench',
-                                'can_give_permissions',
-                                'can_approve_a_member',
-                                'can_lock_user',
-                                'can_delete_an_account'
-                            ];
-                            $user->user_status = 'member';
-                            $user->signed_date = $DateType1['DateType1'];
+                            $user->role = $root_role;
+                            $user->permission = $jsonPermissions;
                             $user->verification_token = $code;
                             $user->confirmation_code = '1';
 
@@ -126,21 +112,11 @@ class InitilizeApp extends Command
 
                     $this->info('Root user exists. We are updating permissions ...');
 
-                    $user = User::where('email','=','chegenyejackson@gmail.com')
+                    $user = User::where('uid','=', 'Afraa_1')
                         ->first();
-                    $user->uid = $root_uid;
-                    $user->role = [
-                        'member_role',
-                        'access_to_members_list',
-                        'access_to_member_profile',
-                        'access_to_admin_routes',
-                        'access_to_workbench',
-                        'can_give_permissions',
-                        'can_approve_a_member',
-                        'can_lock_user',
-                        'can_delete_an_account'
-                    ];
-                    $user->user_status = 'member';
+                        $user->role = $root_role;
+                        $user->verification_token = $code;
+                        $user->permission = $jsonPermissions;
                     $user->save();
 
                 }
@@ -151,14 +127,26 @@ class InitilizeApp extends Command
     }
 
     /**
-     * Collect all admin/superadmin/root/ permissions.
+     * Collect all available role's permissions i.e. Deligates, Admin, Manager etc.
      *
      * @author Jackson A. Chegenye
-     * @return mixed
+     * @return array
      */
-    public function getAllPermissions(){
+    public static function getAllPermissions(){
 
+        $permissions = array(
+            'member_role',
+            'access_to_members_list',
+            'access_to_member_profile',
+            'access_to_admin_routes',
+            'access_to_workbench',
+            'can_give_permissions',
+            'can_approve_a_member',
+            'can_lock_user',
+            'can_delete_an_account'
+        );
 
+        return $permissions;
 
     }
 }
