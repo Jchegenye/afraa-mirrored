@@ -1,0 +1,20 @@
+## ADMIN PERMISSIONS
+Access Dashboard & Manage Profile:
+    name: access_to_profile
+    description: Admin can access dashboard & manage there profile by performing CRUD.
+Access Dashboard & Manage Users:
+    name: access_to_manage_users
+    description: Admin can access dashboard & manage users i.e (Delegates) by assigning roles, perform CRUD e.t.c.
+Access Dashboard & Manage Programme:
+    name: access_to_manage_programme
+    description: Admin can access dashboard & manage programme by adding programmes/details, add speaker(s), add venue info, add time notification, view all programmes.
+Access Dashboard & Manage Exibitors:
+    name: access_to_manage_exibitors
+    description: Admin can access dashboard & manage exibitor(s) by adding exibitor(s) & other details + floor plan, confirm exibitor(s), delegate(one), view all exibitor(s).
+Access Dashboard & Manage Sponsors:
+    name: access_to_manage_sponsors
+    description: Admin can access dashboard & manage sponsor(s) by adding sponsor(s) & other details, view all sponsor(s).
+Access Dashboard & Manage More:
+    name: access_to_manage_more
+    description: Admin can access dashboard & manage more event(s) such us General event info, add exibitor(s) floorplan, social event(s), host airline(s), media entrie(s), organiser(s)
+## MANAGER PERMISSIONS

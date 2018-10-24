@@ -1,0 +1,15 @@
+## SUPER ADMIN / ROOT USER DETAILS
+Chegenye Asumu Jackson:
+  name: Chegenye Jackson
+  username: jchegenye
+  email: chegenyejackson@gmail.com
+  password: admin
+  uid: 1
+  role: admin
+Dancan Ngara Kimani:
+  name: Kimani Dancan
+  username: ngara
+  email: chegenyejackson@gmail.com
+  password: admin
+  uid: 2
+  role: admin
