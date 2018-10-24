@@ -47,6 +47,7 @@ class InitilizeApp extends Command
      */
     public function handle(Request $code)
     {
+        $appName = env('APP_NAME', 'Afraa');
 
         //Execute console command process
         $this->info('Initialization in progress ...');
@@ -70,14 +71,14 @@ class InitilizeApp extends Command
 
                 //Lets loop through the value array to get the other details.
                 $root_name = $value['name'];
-                $root_uid = $value['uid'];
+                $root_uid = $appName. "-" . $value['uid']; //Generate our owl uid
                 $root_username = $value['username'];
                 $root_email = $value['email'];
                 $root_password = $value['password'];
                 $root_role = $value['role'];
 
                 //Check if Root user already exists
-                $query = User::where('uid','=', 'Afraa_1')->first();
+                $query = User::where('uid','=', $root_uid)->first();
 
                 //Also fetch the permissions
                 $permissions = $this->getAllPermissions();
@@ -90,34 +91,34 @@ class InitilizeApp extends Command
                 //Only create a root user non existing.
                 if (empty($query)) {
 
-                    $this->info('Root user does not exist. We are creating one ...');
-
                         $user = new User;
 
                             $user->name = $root_name;
-                            $user->uid = env('APP_NAME', 'Afraa'). "_" . $root_uid;
+                            $user->uid = $root_uid;
                             $user->username = $root_username;
                             $user->email = $root_email;
                             $user->password = Hash::make($root_password);
                             $user->role = $root_role;
                             $user->permission = $jsonPermissions;
                             $user->verification_token = $code;
-                            $user->confirmation_code = '1';
+                            $user->confirmation_code = '1'; //true(1) or false(0)
 
                         $user->save();
 
                     $this->info('Root created ' . $name);
 
-                }else{
+                }
+                else{
 
-                    $this->info('Root user exists. We are updating permissions ...');
+                    //Lets update existing admin(s).
+                    $updatePermissions = User::where('uid','=',$root_uid)->update(
+                        [   
+                            'role' => $root_role,
+                            'permission' => $jsonPermissions,
+                        ]
+                    );
 
-                    $user = User::where('uid','=', 'Afraa_1')
-                        ->first();
-                        $user->role = $root_role;
-                        $user->verification_token = $code;
-                        $user->permission = $jsonPermissions;
-                    $user->save();
+                    $this->info('We are updating user '. $name);
 
                 }
             }

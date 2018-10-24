@@ -22,10 +22,10 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('role')->unique();
+            $table->string('role');
             $table->json('permission');
             $table->string('verification_token')->unique();
-            $table->string('confirmation_code')->unique();
+            $table->string('confirmation_code');
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
