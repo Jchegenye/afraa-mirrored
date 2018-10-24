@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\InitilizeApp::class,
+        Commands\Permissions::class,
     ];
 
     /**
@@ -27,6 +28,7 @@ class Kernel extends ConsoleKernel
         // $schedule->command('inspire')
         //          ->hourly();
         $schedule->command('afraa:initialize')->daily();
+        $schedule->command('afraa:permissions')->daily();
     }
 
     /**

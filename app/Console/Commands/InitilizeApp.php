@@ -57,7 +57,7 @@ class InitilizeApp extends Command
         //Check file existance. 
         if ( ! file_exists($file))
         {
-            $this->error('The file /.initializeApp.yml does not exist!');
+            $this->error('The file .initializeApp.yml does not exist!');
 
         }else{
 

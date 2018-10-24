@@ -1,11 +1,12 @@
-<?php 
+<?php
 
 namespace Afraa\Model\Admin\Dashboard;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserPermission extends Model
+class UserPermissions extends Model
 {
+    
     /**
      * The attributes that are mass assignable.
      * 
@@ -19,6 +20,6 @@ class UserPermission extends Model
      * @author Jackson A. Chegenye
      * @var string
      */
-    protected $table = "permissions";
+    protected $table = "user_permissions";
 
 }
