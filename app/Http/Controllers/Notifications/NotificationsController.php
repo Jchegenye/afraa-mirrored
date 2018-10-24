@@ -1,9 +1,10 @@
 <?php
 
-namespace Afraa\Http\Controllers;
+namespace Afraa\Http\Controllers\Notifications;
 
 use App\Notifications;
 use Illuminate\Http\Request;
+use Afraa\Http\Controllers\Controller;
 
 class NotificationsController extends Controller
 {
@@ -15,8 +16,8 @@ class NotificationsController extends Controller
     public function index()
     {
         //
-        $notifications = \App\Notifications::all();
-        return view('index',compact('notifications'));
+        $notifications = \Afraa\Notifications::all();
+        return view('notifications.index',compact('notifications'));
     }
 
     /**
@@ -27,7 +28,7 @@ class NotificationsController extends Controller
     public function create()
     {
         //
-        return view('create');
+        return view('notifications.create');
     }
 
     /**
@@ -39,14 +40,12 @@ class NotificationsController extends Controller
     public function store(Request $request)
     {
         //
-        $notifications = new \App\Notifications;
+        $notifications = new \Afraa\Notifications;
 
         $notifications->title = $request->get('title');
         $notifications->description = $request->get('description');
 
-        $date = date_create($request->get('send_time'));
-        $format = date_format($date,"Y-m-d");
-        $notifications->send_time = strtotime($format);
+        $notifications->send_time = $request->get('send_time');
 
         $notifications->save();
 
@@ -73,8 +72,8 @@ class NotificationsController extends Controller
     public function edit($id)
     {
         //
-        $notifications = \App\Notifications::find($id);
-        return view('edit',compact('notifications','id'));
+        $notifications = \Afraa\Notifications::find($id);
+        return view('notifications.edit',compact('notifications','id'));
     }
 
     /**
@@ -87,14 +86,12 @@ class NotificationsController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $notifications = new \App\Notifications;
+        $notifications = new \Afraa\Notifications;
 
         $notifications->title = $request->get('title');
         $notifications->description = $request->get('description');
 
-        $date = date_create($request->get('send_time'));
-        $format = date_format($date,"Y-m-d");
-        $notifications->send_time = strtotime($format);
+        $notifications->send_time = $request->get('send_time');
 
         $notifications->save();
 
@@ -110,7 +107,7 @@ class NotificationsController extends Controller
     public function destroy($id)
     {
         //
-        $notifications = \App\Notifications::find($id);
+        $notifications = \Afraa\Notifications::find($id);
         $notifications->delete();
         return redirect('notifications')->with('success','Information has been deleted');
     }

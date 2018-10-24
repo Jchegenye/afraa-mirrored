@@ -20,3 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('programme', 'Programme\ProgrammeController');
+
+Route::resource('notifications','Notifications\NotificationsController');
