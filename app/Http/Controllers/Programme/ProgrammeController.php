@@ -1,9 +1,10 @@
 <?php
 
-namespace Afraa\Http\Controllers;
+namespace Afraa\Http\Controllers\Programme;
 
 use App\Programme;
 use Illuminate\Http\Request;
+use Afraa\Http\Controllers\Controller;
 
 class ProgrammeController extends Controller
 {
@@ -15,8 +16,9 @@ class ProgrammeController extends Controller
     public function index()
     {
         //
-        $programme = \App\Programme::all();
-        return view('index',compact('programme'));
+        $programme = \Afraa\Programme::all();
+
+        return view('programme.index',compact('programme'));
     }
 
     /**
@@ -27,7 +29,7 @@ class ProgrammeController extends Controller
     public function create()
     {
         //
-        return view('create');
+        return view('programme.create');
     }
 
     /**
@@ -39,7 +41,7 @@ class ProgrammeController extends Controller
     public function store(Request $request)
     {
         //
-        $programme= new \App\Programme;
+        $programme= new \Afraa\Programme;
 
         $programme->title=$request->get('title');
         $programme->description=$request->get('description');
@@ -47,17 +49,21 @@ class ProgrammeController extends Controller
         $programme->speaker_id=$request->get('speaker_id');
         $programme->moderator_id=$request->get('moderator_id');
 
-        $start_time=date_create($request->get('start_time'));
-        $start_time_format = date_format($start_time,"Y-m-d");
-        $programme->start_time = strtotime($start_time_format);
+        $programme->start_time = $request->get('start_time');
+        $programme->end_time = $request->get('end_time');
+        $programme->date = $request->get('date');
 
-        $end_time=date_create($request->get('end_time'));
-        $end_time_format = date_format($end_time,"Y-m-d");
-        $programme->end_time = strtotime($end_time_format);
+        // $start_time=date_create($request->get('start_time'));
+        // $start_time_format = date_format($start_time,"Y-m-d");
+        // $programme->start_time = strtotime($start_time_format);
 
-        $date=date_create($request->get('date'));
-        $format = date_format($date,"Y-m-d");
-        $programme->date = strtotime($format);
+        // $end_time=date_create($request->get('end_time'));
+        // $end_time_format = date_format($end_time,"Y-m-d");
+        // $programme->end_time = strtotime($end_time_format);
+
+        // $date=date_create($request->get('date'));
+        // $format = date_format($date,"Y-m-d");
+        // $programme->date = strtotime($format);
 
         $programme->save();
 
@@ -84,8 +90,8 @@ class ProgrammeController extends Controller
     public function edit($id)
     {
         //
-        $programme = \App\Programme::find($id);
-        return view('edit',compact('programme','id'));
+        $programme = \Afraa\Programme::find($id);
+        return view('programme.edit',compact('programme','id'));
     }
 
     /**
@@ -98,7 +104,7 @@ class ProgrammeController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $programme= \App\Programme::find($id);
+        $programme= \Afraa\Programme::find($id);
 
         $programme->title=$request->get('title');
         $programme->description=$request->get('description');
@@ -106,17 +112,9 @@ class ProgrammeController extends Controller
         $programme->speaker_id=$request->get('speaker_id');
         $programme->moderator_id=$request->get('moderator_id');
 
-        $start_time=date_create($request->get('start_time'));
-        $start_time_format = date_format($start_time,"Y-m-d");
-        $programme->start_time = strtotime($start_time_format);
-
-        $end_time=date_create($request->get('end_time'));
-        $end_time_format = date_format($end_time,"Y-m-d");
-        $programme->end_time = strtotime($end_time_format);
-
-        $date=date_create($request->get('date'));
-        $format = date_format($date,"Y-m-d");
-        $programme->date = strtotime($format);
+        $programme->start_time = $request->get('start_time');
+        $programme->end_time = $request->get('end_time');
+        $programme->date = $request->get('date');
 
         $programme->save();
 
@@ -132,7 +130,7 @@ class ProgrammeController extends Controller
     public function destroy($id)
     {
         //
-        $programme = \App\Programme::find($id);
+        $programme = \Afraa\Programme::find($id);
         $programme->delete();
         return redirect('programme')->with('success','Information has been deleted');
     }
