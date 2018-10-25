@@ -45,10 +45,9 @@ Route::group(['namespace' => 'Auth\Users'], function()
     Route::get('login', [
         'uses' => 'LoginController@show'
     ]);
-    Route::post('login', [
-        'as'    => 'login',
-        'uses' => 'LoginController@login'
-    ]);
+    Route::post('login', 'LoginController@login');
+    Route::post('logout', 'LoginController@logout')->name('logout');
+
 
     // | Reset Password
     Route::get('reset-password', [

@@ -2,22 +2,52 @@
 
 namespace Afraa\Http\Controllers\Auth\Users;
 
+use Afraa\Model\Admin\Users\User;
 use Illuminate\Http\Request;
 use Afraa\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
 {
-    
+    /*
+    |--------------------------------------------------------------------------
+    | Login Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles authenticating users for the application and
+    | redirecting them to your home screen. The controller uses a trait
+    | to conveniently provide its functionality to your applications.
+    |
+    */
+
     /**
      * Show login page.
      *
      * @author Jackson A. Chegenye
      * @return string
      */
-    public function show(){
+    // public function show(){
 
-        return view('auth.users.login');
+    //     return view('auth.users.login');
 
+    // }
+
+    use AuthenticatesUsers;
+
+    /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+    protected $redirectTo = '/home';
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
     }
-
 }
