@@ -38,6 +38,13 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    /**
+     * Restricting User Access for Un-Verified Users
+     * 
+     * @author Jackson A. Chegenye
+     * @param  array  $user
+     * @return array $request
+     */
     public function authenticated(Request $request, $user)
     {
     if (!$user->verified) {

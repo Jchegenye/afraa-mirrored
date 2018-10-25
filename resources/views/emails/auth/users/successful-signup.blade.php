@@ -143,7 +143,7 @@
 											<table width="100%" cellpadding="0" cellspacing="0">
 												<tr>
 													<td data-color="title" data-size="size title" data-min="25" data-max="45" data-link-color="link title color" data-link-style="text-decoration:none; color:#292c34;" class="title" align="left" style="color:#675C5C; padding:0 0 24px;">
-														Dear {{$name}},
+														Dear {{$user['name']}},
 													</td>
 												</tr>
 												<tr>
@@ -151,10 +151,10 @@
 														Welcome, you have successfully joined us. 
 														
 														<br/><br/>
-														We hope that this is your email <span style="color: #3b68b1; cursor: pointer;">{{$email}}</span>
+														We hope that this is your email <span style="color: #3b68b1; cursor: pointer;">{{$user['email']}}</span>
 														
 														<br/><br/>
-														Kindly <a href="{{$confirm_url}}" target="_blunk" style="color: #3b68b1; cursor: pointer; text-decoration: none;">click here</a> to verify your account. We just need to know that your the owner of this account.
+														Kindly <a href="{{url('user/verify', $user->verifyUser->token)}}" target="_blunk" style="color: #3b68b1; cursor: pointer; text-decoration: none;">click here</a> to verify your account. We just need to know that your the owner of this account.
 														
 														<br/><br/>
 														If you have any issues, kindly contact our <a href="http://afraa.org/index.php?option=com_contact&view=contact&id=3&Itemid=431" target="_blunk" style="color: #3b68b1; cursor: pointer; text-decoration: none;">Support Team</a>

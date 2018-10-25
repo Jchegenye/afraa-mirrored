@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Http\Request;
 
 class VerifyMail extends Mailable
 {
@@ -13,6 +14,7 @@ class VerifyMail extends Mailable
 
     public $user;
     protected $primaryKey = 'uid';
+
     /**
      * Create a new message instance.
      *
@@ -25,12 +27,19 @@ class VerifyMail extends Mailable
 
     /**
      * Build the message.
-     *
+     * 
+     * @author Jackson A. Chegenye
      * @return $this
      */
-    public function build()
+    public function build(Request $user)
     {
-        return $this->view('emails.auth.users.verifyUser');
+
+        $sender = getenv('SUPPORT_EMAIL');
+
+        return  $this->subject('Registration | African Airlines Association')
+                        ->from($sender, 'African Airlines Association' )
+                        ->to($user->email, $user->name)
+                        ->view('emails.auth.users.verifyUser');
         
     }
 }

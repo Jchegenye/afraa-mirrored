@@ -52,7 +52,7 @@ class RegisterController extends Controller
     }
 
     /**
-     * Show regisration page.
+     * Show regisration form.
      *
      * @author Jackson A. Chegenye
      * @return string
@@ -73,11 +73,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|unique:users,name|min:4',
-            'email' => 'email|unique:users,email|required',
-            'password' => 'required|min:6|max:20|unique:users,password',
-            'password_confirmation' => 'required|same:password',
-            'g-recaptcha-response' => 'required',
+            // 'name' => 'required|unique:users,name|min:4',
+            // 'email' => 'email|unique:users,email|required',
+            // 'password' => 'required|min:6|max:20|unique:users,password',
+            // 'password_confirmation' => 'required|same:password',
+            // 'g-recaptcha-response' => 'required',
         ]);
     }
 
@@ -205,17 +205,52 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
+        //Get the auto-generated code from REUSABLE CODE
+        // $new_code = new VerificationCodeGenerator();
+        // $code = $new_code->generateRegistrationVerifyCode($code);
         
-        $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-        ]);
+        //Fetch the first USER ID
+        $users_uid = User::orderBy('uid', 'DESC')->take(1)->get();
+
+        //Finally we get to store all our documents here
+        $user = new User;
+
+        //Attache guest permission temporary
+        $permission = [
+            'access_to_guest_page',
+        ];
+        $getPermission = json_encode($permission);
+
+        //Lets auto generate unique USER ID
+        if ($users_uid->isEmpty()) {
+            $user->uid=3;
+        }
+        else {
+            foreach ($users_uid as $count) {
+                $uid = $count->uid;
+                $user->uid = $uid+3;
+            }
+        }
+        
+        $user->name = Input::get('name');
+        $user->email = Input::get('email');
+        $user->password = Hash::make(Input::get('password'));
+        $user->remember_token = Input::get('_token');
+        $user->role = 'guest';
+        
+        $user->permission = $getPermission;
+        //$user->verification_token = $code;
+        $user->confirmation_code = '0';
+        $user->save();
+
         $verifyUser = VerifyUser::create([
             'user_uid' => $user->uid,
             'token' => sha1(time())
         ]);
+
         \Mail::to($user->email)->send(new VerifyMail($user));
+
         return $user;
 
     }

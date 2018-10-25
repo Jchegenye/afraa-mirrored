@@ -4,7 +4,6 @@ namespace Afraa;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 
@@ -48,21 +47,43 @@ class User extends Authenticatable
      * @param  string  $role
      * @return mixed
      */
-
     public function roles(){}
-
     public function hasRole($name){}
-
     //public function can($permission){} 
-
     public function ability($roles, $permissions, $options){}
-    
     public function attachRole($role){}
 
-    
+    /**
+     * Register one-to-one relationship between User and VerifyUser Model
+     * 
+     * @author Jackson A. Chegenye
+     * @var array
+     */
     public function verifyUser()
     {
         return $this->hasOne('Afraa\Model\Admin\Users\VerifyUser');
     }
+
+    /**
+     * Sends the password reset notification.
+     *
+     * @param  string $token
+     *
+     * @return void
+     */
+    // public function sendPasswordResetNotification($token)
+    // {
+    //     $this->notify(new CustomPassword($token));
+    // }
+    // class CustomPassword extends ResetPassword
+    // {
+    //     public function toMail($notifiable)
+    //     {
+    //         return (new MailMessage)
+    //             ->line('We are sending this email because we recieved a forgot password request.')
+    //             ->action('Reset Password', url(config('app.url') . route('password.reset', $this->token, false)))
+    //             ->line('If you did not request a password reset, no further action is required. Please contact us if you did not submit this request.');
+    //     }
+    // }
 
 }
