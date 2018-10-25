@@ -5,7 +5,7 @@ namespace Afraa\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
 use Afraa\Model\Admin\Users\User;
-use Afraa\Model\Admin\Dashboard\UserPermission;
+use Afraa\Model\Admin\Dashboard\UserPermissions;
 use Afraa\Legibra\ReusableCodes\DateFormats;
 use Afraa\Legibra\ReusableCodes\VerificationCodeGenerator;
 use Symfony\Component\Yaml\Yaml;
@@ -47,6 +47,7 @@ class InitilizeApp extends Command
      */
     public function handle(Request $code)
     {
+        $appName = env('APP_NAME', 'Afraa');
 
         //Execute console command process
         $this->info('Initialization in progress ...');
@@ -70,16 +71,16 @@ class InitilizeApp extends Command
 
                 //Lets loop through the value array to get the other details.
                 $root_name = $value['name'];
-                $root_uid = $value['uid'];
+                $uid = $value['uid']; //Generate our owl uid
                 $root_username = $value['username'];
                 $root_email = $value['email'];
                 $root_password = $value['password'];
                 $root_role = $value['role'];
 
                 //Check if Root user already exists
-                $query = User::where('uid','=', 'Afraa_1')->first();
+                $query = User::where('uid','=', $uid)->first();
 
-                //Also fetch the permissions
+                //Attach all retrieved permissions to admin role
                 $permissions = $this->getAllPermissions();
                 $jsonPermissions = json_encode($permissions);
 
@@ -90,34 +91,33 @@ class InitilizeApp extends Command
                 //Only create a root user non existing.
                 if (empty($query)) {
 
-                    $this->info('Root user does not exist. We are creating one ...');
-
                         $user = new User;
 
                             $user->name = $root_name;
-                            $user->uid = env('APP_NAME', 'Afraa'). "_" . $root_uid;
                             $user->username = $root_username;
                             $user->email = $root_email;
                             $user->password = Hash::make($root_password);
                             $user->role = $root_role;
                             $user->permission = $jsonPermissions;
                             $user->verification_token = $code;
-                            $user->confirmation_code = '1';
+                            $user->confirmation_code = '1'; //true(1) or false(0)
 
                         $user->save();
 
-                    $this->info('Root created ' . $name);
+                    $this->info('Root Created ' . $name);
 
-                }else{
+                }
+                else{
 
-                    $this->info('Root user exists. We are updating permissions ...');
+                    //Lets update existing admin(s).
+                    $updatePermissions = User::where('uid','=',$uid)->update(
+                        [   
+                            'role' => $root_role,
+                            'permission' => $jsonPermissions,
+                        ]
+                    );
 
-                    $user = User::where('uid','=', 'Afraa_1')
-                        ->first();
-                        $user->role = $root_role;
-                        $user->verification_token = $code;
-                        $user->permission = $jsonPermissions;
-                    $user->save();
+                    $this->info('Updating User:'."($uid)". $name);
 
                 }
             }
@@ -127,24 +127,26 @@ class InitilizeApp extends Command
     }
 
     /**
-     * Collect all available role's permissions i.e. Deligates, Admin, Manager etc.
+     * Retrieve all available permissions from UserPermissions DB
      *
      * @author Jackson A. Chegenye
      * @return array
      */
     public static function getAllPermissions(){
 
-        $permissions = array(
-            'member_role',
-            'access_to_members_list',
-            'access_to_member_profile',
-            'access_to_admin_routes',
-            'access_to_workbench',
-            'can_give_permissions',
-            'can_approve_a_member',
-            'can_lock_user',
-            'can_delete_an_account'
-        );
+        $permissions = UserPermissions::all('machine_name')->toArray();
+
+        // $permissions = array(
+        //     'member_role',
+        //     'access_to_members_list',
+        //     'access_to_member_profile',
+        //     'access_to_admin_routes',
+        //     'access_to_workbench',
+        //     'can_give_permissions',
+        //     'can_approve_a_member',
+        //     'can_lock_user',
+        //     'can_delete_an_account'
+        // );
 
         return $permissions;
 

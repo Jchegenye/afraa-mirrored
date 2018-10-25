@@ -22,7 +22,17 @@ class User extends Authenticatable
     protected $dates = ['deleted_at'];
 
     //only allow the following items to be mass-assigned to our model
-    protected $fillable = array('uid');
+    protected $fillable = [
+        'name', 'email', 'password',
+    ];
+
+    /**
+     * Register our primary key here,
+     * 
+     * @author Jackson A. Chegenye
+     * @var array
+     */
+    protected $primaryKey = 'uid';
 
     /**
      * The database table used by the model.

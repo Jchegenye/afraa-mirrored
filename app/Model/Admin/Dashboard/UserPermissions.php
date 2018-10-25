@@ -16,6 +16,14 @@ class UserPermissions extends Model
     protected $fillable = ['machine_name'];
 
     /**
+     * Register our primary key here,
+     * 
+     * @author Jackson A. Chegenye
+     * @var array
+     */
+    protected $primaryKey = 'pid';
+
+    /**
      * The database collection used by the model.
      * @author Jackson A. Chegenye
      * @var string

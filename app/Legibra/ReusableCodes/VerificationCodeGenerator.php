@@ -41,7 +41,7 @@ use Afraa\Legibra\ReusableCodes\DateFormats;
          * @param $code
          * @return string
          */
-        public static function generatePermissionsCode($code)
+        function generatePermissionsCode($code)
         {
 
             $code =  str_random(10);
