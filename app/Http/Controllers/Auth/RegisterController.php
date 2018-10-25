@@ -73,11 +73,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            // 'name' => 'required|unique:users,name|min:4',
-            // 'email' => 'email|unique:users,email|required',
-            // 'password' => 'required|min:6|max:20|unique:users,password',
-            // 'password_confirmation' => 'required|same:password',
-            // 'g-recaptcha-response' => 'required',
+            'name' => 'required|unique:users,name|min:4',
+            'email' => 'email|unique:users,email|required',
+            'password' => 'required|min:6|max:20|unique:users,password',
+            'password_confirmation' => 'required|same:password',
+            'g-recaptcha-response' => 'required',
         ]);
     }
 
@@ -196,58 +196,82 @@ class RegisterController extends Controller
 
     // }
 
+    /**
+     * Store user data & send verification email to user.
+     * 
+     * @author Jackson A. Chegenye
+     * @param  array  $data
+     * @return array
+     */
     protected function create(array $data)
     {
-
+        
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
-
         $verifyUser = VerifyUser::create([
             'user_uid' => $user->uid,
-            'token' => str_random(40)
+            'token' => sha1(time())
         ]);
-
-        Mail::to($user->email)->send(new VerifyMail($user));
-
+        \Mail::to($user->email)->send(new VerifyMail($user));
         return $user;
+
     }
 
+
     /**
-     * Verify user
+     * Verify User Registration here.
      * 
      * @author Jackson A. Chegenye
      * @param  array  $token
      * @return \Afraa\verifyUser
      */
     public function verifyUser($token)
-
     {
 
-        $verifyUser = VerifyUser::where('token', $token)->first();
+            $verifyUser = VerifyUser::where('token', $token)->first();
 
-        if(isset($verifyUser) ){
-            $user = $verifyUser->user;
-            if(!$user->verified) {
+            if(isset($verifyUser) )
+            {
+
+                $user = $verifyUser->user;
+                if(!$user->verified) {
                 $verifyUser->user->verified = 1;
                 $verifyUser->user->save();
                 $status = "Your e-mail is verified. You can now login.";
-            }else{
-                $status = "Your e-mail is already verified. You can now login.";
-            }
-        }else{
-            return redirect('/login')->with('warning', "Sorry your email cannot be identified.")->withInput();
-        }
 
-        return redirect('/login')->with('status', $status)->withInput();
+                }else {
+
+                    $status = "Your e-mail is already verified. You can now login.";
+                    
+                }
+
+            } else {
+
+                return redirect('/login')->with('warning', "Sorry your email cannot be identified.");
+
+            }
+
+        return redirect('/login')->with('status', $status);
+        
     }
 
+    /**
+     * Check if the user is activated.
+     * 
+     * @author Jackson A. Chegenye
+     * @param  array  $user
+     * @return session
+     */
     protected function registered(Request $request, $user)
     {
+
         $this->guard()->logout();
+
         return redirect('/login')->with('status', 'We sent you an activation code. Check your email and click on the link to verify.');
+        
     }
     
 }

@@ -22,5 +22,6 @@ class VerifyUser extends Model
     {
         return $this->belongsTo('Afraa\User', 'user_uid');
     }
+    
 
 }
