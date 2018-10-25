@@ -2,7 +2,6 @@
 
 namespace Afraa\Http\Controllers\Auth\Users;
 
-use Afraa\Model\Admin\Users\User;
 use Illuminate\Http\Request;
 use Afraa\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -20,19 +19,19 @@ class LoginController extends Controller
     |
     */
 
+    use AuthenticatesUsers;
+
     /**
      * Show login page.
      *
      * @author Jackson A. Chegenye
      * @return string
      */
-    // public function show(){
+    public function show(){
 
-    //     return view('auth.users.login');
+        return view('auth.users.login');
 
-    // }
-
-    use AuthenticatesUsers;
+    }
 
     /**
      * Where to redirect users after login.

@@ -29,6 +29,14 @@ class User extends Authenticatable
     ];
 
     /**
+     * Register our primary key here,
+     * 
+     * @author Jackson A. Chegenye
+     * @var array
+     */
+    protected $primaryKey = 'uid';
+
+    /**
      * Authour: Jackson A. Chegenye
      * ---
      * Register incoming middleware parameter requests for both roles & permissions.
@@ -43,10 +51,16 @@ class User extends Authenticatable
 
     public function hasRole($name){}
 
-    public function can($permission){} 
+    //public function can($permission){} 
 
     public function ability($roles, $permissions, $options){}
     
     public function attachRole($role){}
+
+    
+    public function verifyUser()
+    {
+        return $this->hasOne('Afraa\Model\Admin\Users\VerifyUser');
+    }
 
 }

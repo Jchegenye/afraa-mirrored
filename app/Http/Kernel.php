@@ -67,8 +67,9 @@ class Kernel extends HttpKernel
          * @author Jackson A. Chegenye
          * @return string
          */
-        'guest' => \Afraa\Http\Middleware\MemberRoleMiddleware::class,
-        'admin' => \Afraa\Http\Middleware\AdminRoleMiddleware::class,
+        'admin' => \Afraa\Http\Middleware\AdminRole::class,
+        'manager' => \Afraa\Http\Middleware\ManagerRole::class,
+        
 
     ];
 }

@@ -45,13 +45,13 @@ class RegistrationController extends Controller
             'password_confirmation' => 'required|same:password',
             //'g-recaptcha-response' => 'required',
         ]
-        // [
-        //     'name.required' => ' The name field is required.',
-        //     'name.min' => ' The name must be at least 4 characters.',
-        //     'password.max' => ' The password may not be greater than 20 characters.',
-        //     'password.min' => ' The password must be at least 6 characters.',
-        // ]
-    );
+            // [
+            //     'name.required' => ' The name field is required.',
+            //     'name.min' => ' The name must be at least 4 characters.',
+            //     'password.max' => ' The password may not be greater than 20 characters.',
+            //     'password.min' => ' The password must be at least 6 characters.',
+            // ]
+        );
 
         if ($validator -> passes()) {
 

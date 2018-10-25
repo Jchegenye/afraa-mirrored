@@ -3,16 +3,13 @@
 namespace Afraa\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Lang;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Session;
 use Auth;
-use Exception;
-//use Afraa\Model\Admin\Dashboard\UserPermissions;
+use Illuminate\Support\Facades\Session;
 
-class AdminRole
+class ManagerRole
 {
+
     /**
      * Handle an incoming request.
      *
@@ -23,12 +20,10 @@ class AdminRole
      */
     public function handle($request, Closure $next, $role)
     {
-
         if (!$request->user()->hasRole($role)) {
 
             foreach(Auth::user()->role as $individual_role) {
-
-                if($role == $individual_role && Auth::user()->uid == 1){
+                if ($role == $individual_role) {
                     return $next($request);
                 }
             }
@@ -46,9 +41,9 @@ class AdminRole
      */
     protected function unauthorisedAccess()
     {
-        return Lang::has('users.members.unauthorised')
-            ? Lang::get('users.members.unauthorised')
+        return Lang::has('users.members.unauthorised_access')
+            ? Lang::get('users.members.unauthorised_access')
             : 'Unauthorized Access: You are not authorized to access this resource!';
     }
-    
+
 }
