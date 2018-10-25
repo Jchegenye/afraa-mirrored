@@ -64,7 +64,7 @@ class Permissions extends Command
                 $name = $key;
 
                 //Lets loop through the value array to get the other details.
-                $pid = $appName . "-" . $value['pid'];
+                $pid = $value['pid'];
                 $machine_name = $value['name'];
                 $description = $value['description'];
 
@@ -75,7 +75,6 @@ class Permissions extends Command
                 if (empty($permission)) {
                     
                     $new_permission = new UserPermissions;
-                    $new_permission->pid = $pid;
                     $new_permission->name = $name;
                     $new_permission->machine_name = $machine_name;
                     $new_permission->description = $description;
