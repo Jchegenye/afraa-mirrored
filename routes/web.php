@@ -14,7 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('programme', 'Programme\ProgrammeController');
@@ -26,6 +25,7 @@ Route::resource('notifications','Notifications\NotificationsController');
 | Sign up / Login / Reset Password Routes
 |--------------------------------------------------------------------------
 */
+
 Route::group(['namespace' => 'Auth\Users'], function()
 {
 
@@ -77,3 +77,6 @@ Route::group(['namespace' => 'Auth\Users'], function()
     // ]);
 
 });
+
+Auth::routes();
+Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');

@@ -29,7 +29,7 @@ use Afraa\Legibra\ReusableCodes\DateFormats;
             $DateType4 = $date->date();
 
             //Verification code format
-            $code =  env('APP_NAME', 'Afraa') . str_random(42) . $DateType4['DateType4'];
+            $code =  env('APP_NAME', 'Afraa') . sha1(time()) . $DateType4['DateType4'];
             return $code;
 
         }
@@ -44,7 +44,7 @@ use Afraa\Legibra\ReusableCodes\DateFormats;
         function generatePermissionsCode($code)
         {
 
-            $code =  str_random(10);
+            $code =  sha1(time());
             return $code;
 
         }
