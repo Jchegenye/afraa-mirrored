@@ -174,18 +174,17 @@ class ForgotPasswordController extends Controller
      * @author Jackson A. Chegenye
      * @return array
      */
-    public function resetNow($token, VerificationCodeGenerator $getCode){
+    public function resetNow($token){
 
-        $new_code = new VerificationCodeGenerator();
-        $getCode = $new_code->generatePermissionsCode($getCode);
+        $getCode = $this->generatePermissionsCode();
 
         $reset = Input::all();
         $rules = array(
-            'email' => 'required|email|max:255',
-            'g-recaptcha-response' => 'required',
-            'password' => 'required|min:6|max:20|unique:users,password',
-            'confirm_password' => 'required|same:password',
-            'g-recaptcha-response' => 'required',
+            // 'email' => 'required|email|max:255',
+            // 'g-recaptcha-response' => 'required',
+            // 'password' => 'required|min:6|max:20|unique:users,password',
+            // 'confirm_password' => 'required|same:password',
+            // 'g-recaptcha-response' => 'required',
         );
 
         $validator = Validator::make ($reset, $rules);
