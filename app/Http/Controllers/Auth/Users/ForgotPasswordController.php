@@ -161,10 +161,9 @@ class ForgotPasswordController extends Controller
     
             }
 
-
         }
 
-        //return redirect('/passw/reset')->with('unsuccessful', "Sorry, your token is invalid, expired or missing. Kindly reset again!");
+        return redirect('/passw/reset')->with('unsuccessful', "Sorry, your token is invalid, expired or missing. Kindly reset again!");
 
     }
 
@@ -180,11 +179,11 @@ class ForgotPasswordController extends Controller
 
         $reset = Input::all();
         $rules = array(
-            // 'email' => 'required|email|max:255',
-            // 'g-recaptcha-response' => 'required',
-            // 'password' => 'required|min:6|max:20|unique:users,password',
-            // 'confirm_password' => 'required|same:password',
-            // 'g-recaptcha-response' => 'required',
+            'email' => 'required|email|max:255',
+            'g-recaptcha-response' => 'required',
+            'password' => 'required|min:6|max:20|unique:users,password',
+            'confirm_password' => 'required|same:password',
+            'g-recaptcha-response' => 'required',
         );
 
         $validator = Validator::make ($reset, $rules);
