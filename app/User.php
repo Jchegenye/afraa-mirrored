@@ -63,27 +63,5 @@ class User extends Authenticatable
     {
         return $this->hasOne('Afraa\Model\Admin\Users\VerifyUser');
     }
-
-    /**
-     * Sends the password reset notification.
-     *
-     * @param  string $token
-     *
-     * @return void
-     */
-    // public function sendPasswordResetNotification($token)
-    // {
-    //     $this->notify(new CustomPassword($token));
-    // }
-    // class CustomPassword extends ResetPassword
-    // {
-    //     public function toMail($notifiable)
-    //     {
-    //         return (new MailMessage)
-    //             ->line('We are sending this email because we recieved a forgot password request.')
-    //             ->action('Reset Password', url(config('app.url') . route('password.reset', $this->token, false)))
-    //             ->line('If you did not request a password reset, no further action is required. Please contact us if you did not submit this request.');
-    //     }
-    // }
-
+    
 }

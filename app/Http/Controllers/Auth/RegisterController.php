@@ -207,8 +207,8 @@ class RegisterController extends Controller
     {
 
         //Get the auto-generated code from REUSABLE CODE
-        // $new_code = new VerificationCodeGenerator();
-        // $code = $new_code->generateRegistrationVerifyCode($code);
+        $new_code = new generatePermissionsCode();
+        $code = $new_code->generateRegistrationVerifyCode($code);
         
         //Fetch the first USER ID
         $users_uid = User::orderBy('uid', 'DESC')->take(1)->get();
@@ -240,7 +240,7 @@ class RegisterController extends Controller
         $user->role = 'guest';
         
         $user->permission = $getPermission;
-        //$user->verification_token = $code;
+        $user->verification_token = $code;
         $user->confirmation_code = '0';
         $user->save();
 

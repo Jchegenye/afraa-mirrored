@@ -71,14 +71,14 @@ class InitilizeApp extends Command
 
                 //Lets loop through the value array to get the other details.
                 $root_name = $value['name'];
-                $uid = $value['uid']; //Generate our owl uid
+                //$uid = $value['uid']; //Generate our owl uid
                 $root_username = $value['username'];
                 $root_email = $value['email'];
                 $root_password = $value['password'];
                 $root_role = $value['role'];
 
                 //Check if Root user already exists
-                $query = User::where('uid','=', $uid)->first();
+                $query = User::where('email','=', $root_email)->first();
 
                 //Attach all retrieved permissions to admin role
                 $permissions = $this->getAllPermissions();
@@ -86,12 +86,27 @@ class InitilizeApp extends Command
 
                 //Append generated code for registration verification
                 $new_code = new VerificationCodeGenerator();
-                $code = $new_code->generateRegistrationVerifyCode($code);
+                $code = $new_code->generatePermissionsCode($code);
+
+                //Fetch the first USER ID
+                $users_uid = User::orderBy('uid', 'DESC')->take(1)->get();
 
                 //Only create a root user non existing.
                 if (empty($query)) {
 
+                        
+
                         $user = new User;
+
+                            if ($users_uid->isEmpty()) {
+                                $user->uid=1;
+                            }
+                            else {
+                                foreach ($users_uid as $count) {
+                                    $uid = $count->uid;
+                                    $user->uid = $uid+1;
+                                }
+                            }
 
                             $user->name = $root_name;
                             $user->username = $root_username;
@@ -100,7 +115,8 @@ class InitilizeApp extends Command
                             $user->role = $root_role;
                             $user->permission = $jsonPermissions;
                             $user->verification_token = $code;
-                            $user->confirmation_code = '1'; //true(1) or false(0)
+                            $user->remember_token = $code;
+                            $user->verified = '1'; //true(1) or false(0)
 
                         $user->save();
 
@@ -110,14 +126,14 @@ class InitilizeApp extends Command
                 else{
 
                     //Lets update existing admin(s).
-                    $updatePermissions = User::where('uid','=',$uid)->update(
+                    $updatePermissions = User::where('email','=',$root_email)->update(
                         [   
                             'role' => $root_role,
                             'permission' => $jsonPermissions,
                         ]
                     );
 
-                    $this->info('Updating User:'."($uid)". $name);
+                    $this->info('Updating User:'. $name);
 
                 }
             }
