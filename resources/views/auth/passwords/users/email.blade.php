@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Reset Password')
+
 @section('head')
     <script src='https://www.google.com/recaptcha/api.js'></script>
 @endsection

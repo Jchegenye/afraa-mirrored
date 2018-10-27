@@ -24,7 +24,7 @@ use Afraa\Model\Admin\Dashboard\UserPermissions;
          */
         protected static function getAllPermissions(){
 
-            $permissions = UserPermissions::all('machine_name')->toArray();
+            $permissions = UserPermissions::all('machine_name')->pluck('machine_name');
 
             // $permissions = array(
             //     'member_role',
