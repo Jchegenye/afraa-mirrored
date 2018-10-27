@@ -6,9 +6,7 @@ use Afraa\User;
 use Afraa\Model\Admin\Users\VerifyUser;
 use Afraa\Mail\VerifyMail;
 use Afraa\Http\Controllers\Controller;
-use Afraa\Legibra\ReusableCodes\DateFormats;
 use Afraa\Legibra\ReusableCodes\GenerateCustomVerifyTokenTrait;
-
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
@@ -90,25 +88,19 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return array
      */
-
-    public function get($id = NULL)
-    {   
-    return new VerificationCodeGenerator($code);
-    }
-    
     protected function create(array $data)
     {
 
-        //Get the auto-generated code from REUSABLE CODE
-        $code = $this->generatePermissionsCode();
-        
         //Fetch the first USER ID
         $users_uid = User::orderBy('uid', 'DESC')->take(1)->get();
 
         //Finally we get to store all our documents here
         $user = new User;
 
-        //Attache guest permission temporary
+        //Get the auto-generated code from REUSABLE CODE
+        $code = $this->generatePermissionsCode();
+
+        //Attach guest permission temporary
         $permission = [
             'access_to_guest_page',
         ];
@@ -133,7 +125,6 @@ class RegisterController extends Controller
         
         $user->permission = $getPermission;
         $user->verification_token = $code;
-        $user->confirmation_code = '0';
         $user->save();
 
         $verifyUser = VerifyUser::create([
@@ -147,7 +138,6 @@ class RegisterController extends Controller
 
     }
 
-
     /**
      * Verify User Registration here.
      * 
@@ -155,12 +145,12 @@ class RegisterController extends Controller
      * @param  array  $token
      * @return \Afraa\verifyUser
      */
-    public function verifyUser($token)
+    protected function verifyUser($token)
     {
 
             $verifyUser = VerifyUser::where('token', $token)->first();
 
-            if(isset($verifyUser) )
+            if(isset($verifyUser))
             {
 
                 $user = $verifyUser->user;

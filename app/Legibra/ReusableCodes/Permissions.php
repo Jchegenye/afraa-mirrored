@@ -22,7 +22,7 @@ use Afraa\Model\Admin\Dashboard\UserPermissions;
          * @author Jackson A. Chegenye
          * @return array
          */
-        public static function getAllPermissions(){
+        protected static function getAllPermissions(){
 
             $permissions = UserPermissions::all('machine_name')->toArray();
 

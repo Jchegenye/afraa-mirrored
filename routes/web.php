@@ -24,18 +24,22 @@ Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 | Password reset links Routes
 |--------------------------------------------------------------------------
 */
-Route::get('passw/reset', array(
-    'uses' => 'Auth\Users\ForgotPasswordController@showMyLinkRequestForm',
-    'as' => 'passw.request'
-));
-Route::post('passw/reset', array(
-    'uses' => 'Auth\Users\ForgotPasswordController@sendMyResetLinkEmail',
-    'as' => 'passw.email'
-));
-Route::get('passw/reset/{token}', array(
-    'uses' => 'Auth\Users\ForgotPasswordController@showMyResetForm',
-    'as' => 'passw.reset'
-));
-Route::post('passw/update/{token}', array(
-    'uses' => 'Auth\Users\ForgotPasswordController@resetNow',
-));
+Route::namespace('Auth\Users')->group(function () {
+
+    Route::get('passw/reset', array(
+        'uses' => 'ForgotPasswordController@showMyLinkRequestForm',
+        'as' => 'passw.request'
+    ));
+    Route::post('passw/reset', array(
+        'uses' => 'ForgotPasswordController@sendMyResetLinkEmail',
+        'as' => 'passw.email'
+    ));
+    Route::get('passw/reset/{token}', array(
+        'uses' => 'ForgotPasswordController@showMyResetForm',
+        'as' => 'passw.reset'
+    ));
+    Route::post('passw/update/{token}', array(
+        'uses' => 'ForgotPasswordController@resetNow',
+    ));
+
+});
