@@ -4,12 +4,12 @@ namespace Afraa\Console\Commands;
 
 use Illuminate\Console\Command;
 use Afraa\Model\Admin\Dashboard\UserPermissions;
-use Afraa\Legibra\ReusableCodes\VerificationCodeGenerator;
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\HttpFoundation\Request;
 
 class Permissions extends Command
 {
+
     /**
      * The name and signature of the console command.
      * 

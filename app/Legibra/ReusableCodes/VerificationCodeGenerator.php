@@ -6,14 +6,13 @@ use Afraa\Legibra\ReusableCodes\DateFormats;
 {
 
     /**
+     * This trait handles all types of verification codes you wish to have,
      * Add your own custom verification codes here.
      *
      * @author Jackson A. Chegenye
      * @return string
      */
-
-    class VerificationCodeGenerator
-    {
+    trait GenerateCustomVerifyTokenTrait {
 
         /**
          * Generate verification code for registration users.
@@ -21,7 +20,7 @@ use Afraa\Legibra\ReusableCodes\DateFormats;
          * @author Jackson A. Chegenye
          * @return string
          */
-        public static function generateRegistrationVerifyCode($code)
+        public static function generateRegistrationVerifyCode()
         {
             
             //Fetch available date formats.
@@ -41,7 +40,7 @@ use Afraa\Legibra\ReusableCodes\DateFormats;
          * @param $code
          * @return string
          */
-        function generatePermissionsCode($code, $length = 64)
+        function generatePermissionsCode($length = 64)
         {
 
                 if ( ! function_exists('openssl_random_pseudo_bytes'))
@@ -62,5 +61,7 @@ use Afraa\Legibra\ReusableCodes\DateFormats;
             return $code;
 
         }
+
     }
+
 }

@@ -5,14 +5,19 @@ namespace Afraa\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Hash;
 use Afraa\Model\Admin\Users\User;
-use Afraa\Model\Admin\Dashboard\UserPermissions;
-use Afraa\Legibra\ReusableCodes\DateFormats;
-use Afraa\Legibra\ReusableCodes\VerificationCodeGenerator;
+use Afraa\Legibra\ReusableCodes\DateFormatsTrait;
+use Afraa\Legibra\ReusableCodes\GenerateCustomVerifyTokenTrait;
+use Afraa\Legibra\ReusableCodes\PermissionsTrait;
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\HttpFoundation\Request;
 
 class InitilizeApp extends Command
 {
+
+    use DateFormatsTrait;
+    use GenerateCustomVerifyTokenTrait;
+    use PermissionsTrait;
+
     /**
      * The name and signature of the console command.
      * 
@@ -45,7 +50,7 @@ class InitilizeApp extends Command
      * @author Jackson A. Chegenye
      * @return mixed
      */
-    public function handle(Request $code)
+    public function handle()
     {
         $appName = env('APP_NAME', 'Afraa');
 
@@ -71,7 +76,6 @@ class InitilizeApp extends Command
 
                 //Lets loop through the value array to get the other details.
                 $root_name = $value['name'];
-                //$uid = $value['uid']; //Generate our owl uid
                 $root_username = $value['username'];
                 $root_email = $value['email'];
                 $root_password = $value['password'];
@@ -85,16 +89,13 @@ class InitilizeApp extends Command
                 $jsonPermissions = json_encode($permissions);
 
                 //Append generated code for registration verification
-                $new_code = new VerificationCodeGenerator();
-                $code = $new_code->generatePermissionsCode($code);
+                $code = $this->generatePermissionsCode();
 
                 //Fetch the first USER ID
                 $users_uid = User::orderBy('uid', 'DESC')->take(1)->get();
 
                 //Only create a root user non existing.
                 if (empty($query)) {
-
-                        
 
                         $user = new User;
 
@@ -141,30 +142,5 @@ class InitilizeApp extends Command
         }
 
     }
-
-    /**
-     * Retrieve all available permissions from UserPermissions DB
-     *
-     * @author Jackson A. Chegenye
-     * @return array
-     */
-    public static function getAllPermissions(){
-
-        $permissions = UserPermissions::all('machine_name')->toArray();
-
-        // $permissions = array(
-        //     'member_role',
-        //     'access_to_members_list',
-        //     'access_to_member_profile',
-        //     'access_to_admin_routes',
-        //     'access_to_workbench',
-        //     'can_give_permissions',
-        //     'can_approve_a_member',
-        //     'can_lock_user',
-        //     'can_delete_an_account'
-        // );
-
-        return $permissions;
-
-    }
+    
 }
