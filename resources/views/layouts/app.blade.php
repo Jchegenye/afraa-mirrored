@@ -19,11 +19,15 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+
     @yield('head')
 </head>
 <body>
 
     <div id="app">
+        
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -78,6 +82,33 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        @hasSection('dashboard')
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+
+                    <div class="col-md-1">
+                        @include('layouts.sidebar')
+                    </div>
+
+                    <div class="col-md-11">
+                        
+                        @hasSection('users')
+                            <div class="pull-right">
+                                @yield('users')
+                            </div>
+
+                            <div class="clearfix"></div>
+                        @endif
+                    
+                    </div>
+                    
+                </div>
+            </div> 
+        @endif
+        
     </div>
+
+
 </body>
 </html>

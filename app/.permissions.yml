@@ -80,3 +80,7 @@ Access Dashboard & View Profiles:
     pid: 19
     name: access_to_view_profile
     description: User can access dashboard & perform CRUD.
+Access Guest Dashboard & Profile ONLY:
+    pid: 20
+    name: access_to_guest_page
+    description: User can access dashboard & manage profile ONLY

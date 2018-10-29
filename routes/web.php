@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('users/livesearch','Admin\Dashboard\ManageUsersController@liveSearch');
+
 /*
 |--------------------------------------------------------------------------
 | Dashboard Routes
