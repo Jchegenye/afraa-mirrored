@@ -1,13 +1,23 @@
 <?php
 
-namespace Afraa\Http\Controllers\Notifications;
+namespace Afraa\Http\Controllers\Manager;
 
-use App\Notifications;
 use Illuminate\Http\Request;
 use Afraa\Http\Controllers\Controller;
 
-class NotificationsController extends Controller
+class ManagerController extends Controller
 {
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -15,9 +25,7 @@ class NotificationsController extends Controller
      */
     public function index()
     {
-        //
-        $notifications = \Afraa\Notifications::all();
-        return view('notifications.index',compact('notifications'));
+        return view('dashboard/manager');
     }
 
     /**
@@ -28,7 +36,6 @@ class NotificationsController extends Controller
     public function create()
     {
         //
-        return view('notifications.create');
     }
 
     /**
@@ -40,16 +47,6 @@ class NotificationsController extends Controller
     public function store(Request $request)
     {
         //
-        $notifications = new \Afraa\Notifications;
-
-        $notifications->title = $request->get('title');
-        $notifications->description = $request->get('description');
-
-        $notifications->send_time = $request->get('send_time');
-
-        $notifications->save();
-
-        return redirect('notifications')->with('success', 'Notification has been added');
     }
 
     /**
@@ -72,8 +69,6 @@ class NotificationsController extends Controller
     public function edit($id)
     {
         //
-        $notifications = \Afraa\Notifications::find($id);
-        return view('notifications.edit',compact('notifications','id'));
     }
 
     /**
@@ -86,16 +81,6 @@ class NotificationsController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $notifications = new \Afraa\Notifications;
-
-        $notifications->title = $request->get('title');
-        $notifications->description = $request->get('description');
-
-        $notifications->send_time = $request->get('send_time');
-
-        $notifications->save();
-
-        return redirect('notifications')->with('success', 'Notification has been added');
     }
 
     /**
@@ -107,8 +92,5 @@ class NotificationsController extends Controller
     public function destroy($id)
     {
         //
-        $notifications = \Afraa\Notifications::find($id);
-        $notifications->delete();
-        return redirect('notifications')->with('success','Information has been deleted');
     }
 }

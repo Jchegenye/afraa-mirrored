@@ -2,7 +2,7 @@
                 
     <ul class="list-unstyled">
         <li>
-            <a href="{{url('/dashboard')}}">Home</a> 
+            <a href="{{url('/dashboard/admin')}}">Dashboard</a> 
         </li>
         <li>
             <a href="{{url('/dashboard/users')}}">Users</a> 

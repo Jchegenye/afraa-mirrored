@@ -29,16 +29,9 @@ class AdminRole
         //Compare route given role with recently logged in
         if (!$request->user()->hasRole($role)) {
 
-            if($role == Auth::user()->role){
+            if($role == Auth::user()->role ){
                 
-                // echo $role . " ROUTE<br>";
-                // echo Auth::user()->role . " DB<br>";
-
                 return $next($request);
-
-            }else{
-
-                return redirect('/lounge');
 
             }
             Auth::logout();

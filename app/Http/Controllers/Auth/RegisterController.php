@@ -121,7 +121,8 @@ class RegisterController extends Controller
         $user->email = Input::get('email');
         $user->password = Hash::make(Input::get('password'));
         $user->remember_token = Input::get('_token');
-        $user->role = 'lounge';
+
+        $user->role = 'delegate';
 
         $user->permission = $getPermission;
         $user->verification_token = $code;

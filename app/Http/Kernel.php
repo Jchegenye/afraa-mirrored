@@ -62,8 +62,13 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 
         'admin.role' => \Afraa\Http\Middleware\AdminRole::class,
-        'lounge.role' => \Afraa\Http\Middleware\LoungeRole::class,
+        'manager.role' => \Afraa\Http\Middleware\ManagerRole::class,
+        'delegate.role' => \Afraa\Http\Middleware\DelegateRole::class,
+        'exibitor.role' => \Afraa\Http\Middleware\ExibitorRole::class,
         'speaker.role' => \Afraa\Http\Middleware\SpeakerRole::class,
+        'author.role' => \Afraa\Http\Middleware\AuthorRole::class,
+
+        //'lounge.role' => \Afraa\Http\Middleware\LoungeRole::class,
 
         'admin.permission' => \Afraa\Http\Middleware\AdminPermissions::class,
 

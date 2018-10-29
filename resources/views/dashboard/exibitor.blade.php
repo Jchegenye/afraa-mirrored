@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Lounge')
+@section('title', 'Exihibitor')
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Lounge</div>
+                <div class="card-header">Exihibitor</div>
 
                 <div class="card-body">
                     @if (session('status'))
