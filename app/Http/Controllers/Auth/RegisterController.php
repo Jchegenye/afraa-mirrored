@@ -6,9 +6,7 @@ use Afraa\User;
 use Afraa\Model\Admin\Users\VerifyUser;
 use Afraa\Mail\VerifyMail;
 use Afraa\Http\Controllers\Controller;
-use Afraa\Legibra\ReusableCodes\DateFormats;
-use Afraa\Legibra\ReusableCodes\VerificationCodeGenerator;
-
+use Afraa\Legibra\ReusableCodes\GenerateCustomVerifyTokenTrait;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
@@ -21,6 +19,7 @@ use Exception;
 
 class RegisterController extends Controller
 {
+
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -33,13 +32,14 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
+    use GenerateCustomVerifyTokenTrait;
 
     /**
      * Where to redirect users after registration.
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new controller instance.
@@ -52,7 +52,7 @@ class RegisterController extends Controller
     }
 
     /**
-     * Show regisration form.
+     * Show regisration form/page
      *
      * @author Jackson A. Chegenye
      * @return string
@@ -73,128 +73,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            // 'name' => 'required|unique:users,name|min:4',
-            // 'email' => 'email|unique:users,email|required',
-            // 'password' => 'required|min:6|max:20|unique:users,password',
-            // 'password_confirmation' => 'required|same:password',
-            // 'g-recaptcha-response' => 'required',
+            'name' => 'required|unique:users,name|min:4',
+            'email' => 'email|unique:users,email|required',
+            'password' => 'required|min:6|max:20|unique:users,password',
+            'password_confirmation' => 'required|same:password',
+            'g-recaptcha-response' => 'required',
         ]);
     }
-
-    /**
-     * Create a new user instance after a valid registration.
-     * 
-     * @author Jackson A. Chegenye
-     * @param  array  $data
-     * @return \Afraa\User
-     */
-    // public function store(Request $request, VerificationCodeGenerator $code){
-
-    //     //validate fields
-
-    //     $validator = Validator::make($request->all(), [
-    //         // 'name' => 'required|unique:users,name|min:4',
-    //         // 'email' => 'email|unique:users,email|required',
-    //         // 'password' => 'required|min:6|max:20|unique:users,password',
-    //         // 'password_confirmation' => 'required|same:password',
-    //         //'g-recaptcha-response' => 'required',
-    //     ]);
-
-    //     if ($validator -> passes()) {
-
-    //         //Try to connect to internet first
-    //         try {
-
-    //             //Get the auto-generated code from REUSABLE CODE
-    //             $new_code = new VerificationCodeGenerator();
-    //             $code = $new_code->generateRegistrationVerifyCode($code);
-
-    //             $data = array(
-
-    //                 'name' => $request->input('name'),
-    //                 'email' => $request->input('email'),
-    //                 'password' => $request->input('password'),
-    //                 'confirm_url' => URL::to('/') . '/user/verify/' . $code,
-    //                 '_token' => $request->input('_token'),
-
-    //             );
-
-    //             $sender = getenv('SUPPORT_EMAIL');
-    //             $fromEmail = $request->input('email');
-
-    //             Mail::send('emails.auth.users.successful-signup', $data, function ($message) use ($fromEmail, $sender) {
-    //                 $message->from($sender, 'African Airlines Association');
-    //                 $message->to($fromEmail)->subject('Registration | African Airlines Association');
-    //             });
-
-    //         //return an exception error if there was no internet connections to send mail.
-    //         } catch (Exception $e) {
-
-    //             if ($e instanceof \Swift_SwiftException) {
-                    
-    //                 $request->session()->flush('unsuccessful', 'Sorry, we could NOT sign you. Check your INTERNET CONNECTIONS and try again!');
-    //                 return redirect()->back()->withInput();
-    //             }
-
-    //         }
-
-    //         //Store email once there is connection and send an email
-    //         {
-
-    //             //Fetch the first USER ID
-    //             $users_uid = User::orderBy('uid', 'DESC')->take(1)->get();
-
-    //             //Finally we get to store all our documents here
-    //             $users = new User;
-
-    //             //Attache guest permission temporary
-    //             $permission = [
-    //                 'access_to_guest_page',
-    //             ];
-    //             $getPermission = json_encode($permission);
-
-    //             //Lets auto generate unique USER ID
-    //             if ($users_uid->isEmpty()) {
-    //                 $users->uid=3;
-    //             }
-    //             else {
-    //                 foreach ($users_uid as $count) {
-    //                     $uid = $count->uid;
-    //                     $users->uid = $uid+3;
-    //                 }
-    //             }
-    //             $users->name = $request->input('name');
-    //             $users->email = $request->input('email');
-    //             $users->password = Hash::make($request->input('password'));
-    //             $users->remember_token = $request->input('_token');
-    //             $users->role = 'guest';
-    //             $users->permission = $getPermission;
-    //             //$users->verification_token = $code;
-    //             $users->confirmation_code = '0';
-    //             $users->save();
-
-    //             $verifyUser = VerifyUser::create([
-    //                 'user_uid' => $users->uid,
-    //                 'token' => $code
-    //             ]);
-
-    //             $theusers = $users;
-    //             $this->say($theusers);
-
-    //             //return $users;
-
-    //             // redirect
-    //             return redirect('login')->with('successful', 'Thank you, before proceeding, please check your email for a verification link!');
-
-    //         }
-
-    //     } else {
-
-    //         return redirect('signup')->withErrors($validator)->withInput();
-            
-    //     }
-
-    // }
 
     /**
      * Store user data & send verification email to user.
@@ -206,23 +91,22 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-        //Get the auto-generated code from REUSABLE CODE
-        // $new_code = new VerificationCodeGenerator();
-        // $code = $new_code->generateRegistrationVerifyCode($code);
-        
         //Fetch the first USER ID
         $users_uid = User::orderBy('uid', 'DESC')->take(1)->get();
 
         //Finally we get to store all our documents here
         $user = new User;
 
-        //Attache guest permission temporary
+        //Get the auto-generated code from REUSABLE CODE
+        $code = $this->generatePermissionsCode();
+
+        //Attach guest permission temporary
         $permission = [
             'access_to_guest_page',
         ];
         $getPermission = json_encode($permission);
 
-        //Lets auto generate unique USER ID
+        //list users, begin at 3
         if ($users_uid->isEmpty()) {
             $user->uid=3;
         }
@@ -237,11 +121,10 @@ class RegisterController extends Controller
         $user->email = Input::get('email');
         $user->password = Hash::make(Input::get('password'));
         $user->remember_token = Input::get('_token');
-        $user->role = 'guest';
+        $user->role = 'lounge';
         
         $user->permission = $getPermission;
-        //$user->verification_token = $code;
-        $user->confirmation_code = '0';
+        $user->verification_token = $code;
         $user->save();
 
         $verifyUser = VerifyUser::create([
@@ -255,7 +138,6 @@ class RegisterController extends Controller
 
     }
 
-
     /**
      * Verify User Registration here.
      * 
@@ -263,12 +145,12 @@ class RegisterController extends Controller
      * @param  array  $token
      * @return \Afraa\verifyUser
      */
-    public function verifyUser($token)
+    protected function verifyUser($token)
     {
 
             $verifyUser = VerifyUser::where('token', $token)->first();
 
-            if(isset($verifyUser) )
+            if(isset($verifyUser))
             {
 
                 $user = $verifyUser->user;

@@ -14,7 +14,46 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('users/livesearch','Admin\Dashboard\ManageUsersController@liveSearch');
+
+/*
+|--------------------------------------------------------------------------
+| Dashboard Routes
+|--------------------------------------------------------------------------
+*/
+Route::group(['middleware' => 'auth'], function()
+{
+
+    Route::get('/dashboard', [
+        'uses' => 'HomeController@index',
+        'middleware' => 'admin.role:admin'
+    ]);
+    Route::get('/lounge', [
+        'uses' => 'HomeController@waitingLounge',
+        'middleware' => 'lounge.role:lounge'
+    ]);
+
+    Route::prefix('dashboard')->group(function () {
+        Route::namespace('Admin\Dashboard')->group(function () {
+
+            Route::get('/users', [
+                'uses' => 'ManageUsersController@index',
+                'middleware' => 'admin.permission:access_to_manage_users'
+            ]);
+            Route::get('/roles', [
+                'uses' => 'ManageRolesController@index',
+                'middleware' => 'admin.permission:access_to_manage_roles'
+            ]);
+            Route::get('/permissions', [
+                'uses' => 'ManagePermissionsController@index',
+                'middleware' => 'admin.permission:access_to_manage_permissions'
+            ]);
+
+        });
+    });
+
+});
 
 Route::resource('programme', 'Programme\ProgrammeController');
 
@@ -22,59 +61,26 @@ Route::resource('notifications','Notifications\NotificationsController');
 
 /*
 |--------------------------------------------------------------------------
-| Sign up / Login / Reset Password Routes
+| Password reset links Routes
 |--------------------------------------------------------------------------
 */
+Route::namespace('Auth\Users')->group(function () {
 
-Route::group(['namespace' => 'Auth\Users'], function()
-{
-
-    Route::get('emailtemplate', function () {
-        return view('emails.test');
-    });
-
-    // | Sign up
-    Route::get('signup', [
-        'uses' => 'RegistrationController@show'
-    ]);
-    Route::post('signup', [
-        'as'    => 'register',
-        'uses' => 'RegistrationController@store'
-    ]);
-    Route::get('/account/verify/{token}', [
-		'uses' => 'RegistrationController@verifyAccount'
-	]);
-
-    // | Login
-    Route::get('login', [
-        'uses' => 'LoginController@show'
-    ]);
-    Route::post('login', [
-        'as'    => 'login',
-        'uses' => 'LoginController@login'
-    ]);
-
-    // | Reset Password
-    Route::get('reset-password', [
-        'as'    => 'password.request',
-        'uses' => 'PasswordResetController@show'
-    ]);
-    Route::get('password-update', [
-        'as'    => 'password.update',
-        'uses' => 'PasswordResetController@update'
-    ]);
-
-    // | Others
-    // Route::get('guest', function () {
-    //     return view('auth.users.guest');
-    // });
-    // Route::get('verify', function () {
-    //     return view('auth.users.verify');
-    // });
-    // Route::post('resend/{token}', [
-    //     'as'    => 'verification.resend',
-    //     'uses' => 'RegistrationController@verifyAccount'
-    // ]);
+    Route::get('passw/reset', array(
+        'uses' => 'ForgotPasswordController@showMyLinkRequestForm',
+        'as' => 'passw.request'
+    ));
+    Route::post('passw/reset', array(
+        'uses' => 'ForgotPasswordController@sendMyResetLinkEmail',
+        'as' => 'passw.email'
+    ));
+    Route::get('passw/reset/{token}', array(
+        'uses' => 'ForgotPasswordController@showMyResetForm',
+        'as' => 'passw.reset'
+    ));
+    Route::post('passw/update/{token}', array(
+        'uses' => 'ForgotPasswordController@resetNow',
+    ));
 
 });
 

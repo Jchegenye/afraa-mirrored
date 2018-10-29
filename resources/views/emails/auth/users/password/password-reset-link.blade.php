@@ -148,15 +148,20 @@
 												</tr>
 												<tr>
 													<td data-color="text" data-size="size text" data-min="10" data-max="26" data-link-color="link text color" data-link-style="font-weight:bold; text-decoration:underline; color:#40aceb;" align="left" style="color:#675C5C; padding:0 0 23px;">
-                                                    
-                                                        Your account is verified, you can now <a href="login" target="_blunk" style="color: #3b68b1; cursor: pointer; text-decoration: none;"> login</a>.
+                                                        You are receiving this email because we received a password reset request for your account.
+														
+														<br/><br/>
+														Kindly <a href="{{$reset_url}}" target="_blunk" style="color: #3b68b1; cursor: pointer; text-decoration: none;">click here</a> to reset your password.
+                                                        
                                                         <br/><br/>
-														If you have any issues, kindly contact our <a href="http://afraa.org/index.php?option=com_contact&view=contact&id=3&Itemid=431" target="_blunk" style="color: #3b68b1; cursor: pointer; text-decoration: none;">Support Team</a>
+                                                        If you did not request a password reset, no further action is required.
 
 														<br/><br/>
+														If you have any issues, kindly contact our <a href="http://afraa.org/index.php?option=com_contact&view=contact&id=3&Itemid=431" target="_blunk" style="color: #3b68b1; cursor: pointer; text-decoration: none;">Support Team</a>
+														
+														<br/><br/>
 														Best regards,<br/>
-                                                        Afraa Support Team
-                                                        
+														Afraa Support Team
 													</td>
 												</tr>
 												<!-- <tr>

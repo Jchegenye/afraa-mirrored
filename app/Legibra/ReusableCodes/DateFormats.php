@@ -5,12 +5,13 @@ namespace Afraa\Legibra\ReusableCodes;
 {
 
     /**
+     * This trait handles all type of date formats you wish to have.
      * Add your own custom date formats from here.
      *
      * @author Jackson A. Chegenye
      * @return dates
      */
-    class DateFormats 
+    trait DateFormatsTrait
     {
 
         /**
