@@ -15,8 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('users/livesearch','Admin\Dashboard\ManageUsersController@liveSearch');
-
 /*
 |--------------------------------------------------------------------------
 | Dashboard Routes
@@ -25,16 +23,35 @@ Route::get('users/livesearch','Admin\Dashboard\ManageUsersController@liveSearch'
 Route::group(['middleware' => 'auth'], function()
 {
 
-    Route::get('/dashboard', [
-        'uses' => 'HomeController@index',
-        'middleware' => 'admin.role:admin'
-    ]);
-    Route::get('/lounge', [
-        'uses' => 'HomeController@waitingLounge',
-        'middleware' => 'lounge.role:lounge'
-    ]);
+    Route::prefix('dashboard/')->group(function () {
 
-    Route::prefix('dashboard')->group(function () {
+        //Dashboard Main Landing Pages
+        Route::get('/delegate', [
+            'uses' => 'Delegate\DelegateController@index',
+            'middleware' => 'delegate.role:delegate'
+        ]);
+        Route::get('/manager', [
+            'uses' => 'Manager\ManagerController@index',
+            'middleware' => 'manager.role:manager'
+        ]);
+        Route::get('/exibitor', [
+            'uses' => 'Exibitor\ExibitorController@index',
+            'middleware' => 'exibitor.role:exibitor'
+        ]);
+        Route::get('/speaker', [
+            'uses' => 'Speaker\SpeakerController@index',
+            'middleware' => 'speaker.role:speaker'
+        ]);
+        Route::get('/author', [
+            'uses' => 'Author\AuthorController@index',
+            'middleware' => 'author.role:author'
+        ]);
+        Route::get('/admin', [
+            'uses' => 'Admin\AdminController@index',
+            'middleware' => 'admin.role:admin'
+        ]);
+        
+        //Dashboard Internal Pages
         Route::namespace('Admin\Dashboard')->group(function () {
             
             Route::get('/users', [
@@ -51,7 +68,10 @@ Route::group(['middleware' => 'auth'], function()
             ]);
 
         });
+
     });
+
+    Route::get('users/livesearch','Admin\Dashboard\ManageUsersController@liveSearch');
     
 });
 
