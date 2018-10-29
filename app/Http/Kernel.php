@@ -60,16 +60,11 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-
-        /**
-         * Assigning Afraa Middleware To Routes
-         *
-         * @author Jackson A. Chegenye
-         * @return string
-         */
-        'admin' => \Afraa\Http\Middleware\AdminRole::class,
-        'manager' => \Afraa\Http\Middleware\ManagerRole::class,
         
+        'admin.role' => \Afraa\Http\Middleware\AdminRole::class,
+        'lounge.role' => \Afraa\Http\Middleware\LoungeRole::class,
 
+        'admin.permission' => \Afraa\Http\Middleware\AdminPermissions::class,
+        
     ];
 }

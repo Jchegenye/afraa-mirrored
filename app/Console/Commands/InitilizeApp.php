@@ -85,8 +85,8 @@ class InitilizeApp extends Command
                 $query = User::where('email','=', $root_email)->first();
 
                 //Attach all retrieved permissions to admin role
-                $permissions = $this->getAllPermissions();
-                $jsonPermissions = json_encode($permissions);
+                $jsonPermissions = $this->getAllPermissions();
+                //$jsonPermissions = json_encode($permissions);
 
                 //Append generated code for registration verification
                 $code = $this->generatePermissionsCode();

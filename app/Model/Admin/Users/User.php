@@ -2,6 +2,7 @@
 
 namespace Afraa\Model\Admin\Users;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -11,6 +12,7 @@ class User extends Authenticatable
 {
     use Notifiable;
     use SoftDeletes;
+    //use Searchable;
 
     /**
      * Lets use Soft Delete since we do not want to delete records permanently

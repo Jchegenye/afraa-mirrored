@@ -2,10 +2,13 @@
 
 namespace Afraa\Model\Admin\Dashboard;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Database\Eloquent\Model;
 
 class UserPermissions extends Model
 {
+
+    //use Searchable;
     
     /**
      * The attributes that are mass assignable.

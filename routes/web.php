@@ -14,10 +14,46 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
-Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
+Route::get('users/livesearch','Admin\Dashboard\ManageUsersController@liveSearch');
+
+/*
+|--------------------------------------------------------------------------
+| Dashboard Routes
+|--------------------------------------------------------------------------
+*/
+Route::group(['middleware' => 'auth'], function()
+{
+
+    Route::get('/dashboard', [
+        'uses' => 'HomeController@index',
+        'middleware' => 'admin.role:admin'
+    ]);
+    Route::get('/lounge', [
+        'uses' => 'HomeController@waitingLounge',
+        'middleware' => 'lounge.role:lounge'
+    ]);
+
+    Route::prefix('dashboard')->group(function () {
+        Route::namespace('Admin\Dashboard')->group(function () {
+            
+            Route::get('/users', [
+                'uses' => 'ManageUsersController@index',
+                'middleware' => 'admin.permission:access_to_manage_users'
+            ]);
+            Route::get('/roles', [
+                'uses' => 'ManageRolesController@index',
+                'middleware' => 'admin.permission:access_to_manage_roles'
+            ]);
+            Route::get('/permissions', [
+                'uses' => 'ManagePermissionsController@index',
+                'middleware' => 'admin.permission:access_to_manage_permissions'
+            ]);
+
+        });
+    });
+    
+});
 
 /*
 |--------------------------------------------------------------------------
@@ -43,3 +79,6 @@ Route::namespace('Auth\Users')->group(function () {
     ));
 
 });
+
+Auth::routes();
+Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');

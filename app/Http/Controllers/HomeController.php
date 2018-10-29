@@ -23,6 +23,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('dashboard');
     }
+
+    /**
+     * Show the application dashboard lounge
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function waitingLounge()
+    {
+        return view('lounge');
+    }
+
 }
