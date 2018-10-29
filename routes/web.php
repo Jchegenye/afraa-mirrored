@@ -71,11 +71,8 @@ Route::group(['middleware' => 'auth'], function()
 
     });
 
-<<<<<<< HEAD
     Route::get('users/livesearch','Admin\Dashboard\ManageUsersController@liveSearch');
-    
-=======
->>>>>>> 7f252c46a0f6e26fca0dd91efff198359bd85807
+
 });
 
 Route::resource('programme', 'Programme\ProgrammeController');
