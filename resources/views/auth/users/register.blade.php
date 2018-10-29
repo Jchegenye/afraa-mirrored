@@ -3,14 +3,14 @@
 @section('title', 'Register')
 
 @section('head')
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+    {{-- <script src='https://www.google.com/recaptcha/api.js'></script> --}}
 @endsection
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            
+
             @if (session('information'))
                 <div class="alert alert-info">
                     {{ session('information') }}
@@ -28,7 +28,7 @@
             @endif
 
             <div class="card">
-            
+
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
@@ -82,7 +82,7 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" name="password_confirmation" >
-                            
+
                                 @if ($errors->has('password_confirmation'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('password_confirmation') }}</strong>
@@ -93,7 +93,7 @@
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
-                                <div class="g-recaptcha" data-sitekey="
+                                {{-- <div class="g-recaptcha" data-sitekey="
                                 @if (env('APP_ENV')!='Production')
                                 {{ env('GOOGLE_RECAPTCHA_KEY') }}
                                 @endif
@@ -102,7 +102,7 @@
                                     <span class="invalid-feedback" style="display: block;">
                                         <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
                                     </span>
-                                @endif
+                                @endif --}}
                             </div>
                         </div>
 

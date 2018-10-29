@@ -8,7 +8,7 @@ class CreateUsersTable extends Migration
 {
     /**
      * Run the migrations.
-     * 
+     *
      * @author Jackson A. Chegenye
      * @return void
      */
@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
             $table->string('confirmation_code')->nullable();
 
             $table->boolean('verified')->default(false);
-            
+
             $table->string('confirmed_date')->nullable();
             $table->softDeletes();
             $table->rememberToken();

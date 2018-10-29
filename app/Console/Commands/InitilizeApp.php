@@ -20,7 +20,7 @@ class InitilizeApp extends Command
 
     /**
      * The name and signature of the console command.
-     * 
+     *
      * @author Jackson A. Chegenye
      * @var string
      */
@@ -60,7 +60,7 @@ class InitilizeApp extends Command
         //Locate YML file
         $file = app_path().'/.initializeApp.yml';
 
-        //Check file existance. 
+        //Check file existance.
         if ( ! file_exists($file))
         {
             $this->error('The file .initializeApp.yml does not exist!');
@@ -128,7 +128,7 @@ class InitilizeApp extends Command
 
                     //Lets update existing admin(s).
                     $updatePermissions = User::where('email','=',$root_email)->update(
-                        [   
+                        [
                             'role' => $root_role,
                             'permission' => $jsonPermissions,
                         ]
@@ -142,5 +142,5 @@ class InitilizeApp extends Command
         }
 
     }
-    
+
 }

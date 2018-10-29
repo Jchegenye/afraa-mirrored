@@ -65,7 +65,7 @@ class RegisterController extends Controller
 
     /**
      * Get a validator for an incoming registration request.
-     * 
+     *
      * @author Jackson A. Chegenye
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
@@ -77,13 +77,13 @@ class RegisterController extends Controller
             'email' => 'email|unique:users,email|required',
             'password' => 'required|min:6|max:20|unique:users,password',
             'password_confirmation' => 'required|same:password',
-            'g-recaptcha-response' => 'required',
+            // 'g-recaptcha-response' => 'required',
         ]);
     }
 
     /**
      * Store user data & send verification email to user.
-     * 
+     *
      * @author Jackson A. Chegenye
      * @param  array  $data
      * @return array
@@ -116,13 +116,13 @@ class RegisterController extends Controller
                 $user->uid = $uid+3;
             }
         }
-        
+
         $user->name = Input::get('name');
         $user->email = Input::get('email');
         $user->password = Hash::make(Input::get('password'));
         $user->remember_token = Input::get('_token');
         $user->role = 'lounge';
-        
+
         $user->permission = $getPermission;
         $user->verification_token = $code;
         $user->save();
@@ -140,7 +140,7 @@ class RegisterController extends Controller
 
     /**
      * Verify User Registration here.
-     * 
+     *
      * @author Jackson A. Chegenye
      * @param  array  $token
      * @return \Afraa\verifyUser
@@ -162,7 +162,7 @@ class RegisterController extends Controller
                 }else {
 
                     $status = "Your e-mail is already verified. You can now login.";
-                    
+
                 }
 
             } else {
@@ -172,12 +172,12 @@ class RegisterController extends Controller
             }
 
         return redirect('/login')->with('status', $status);
-        
+
     }
 
     /**
      * Check if the user is activated.
-     * 
+     *
      * @author Jackson A. Chegenye
      * @param  array  $user
      * @return session
@@ -188,7 +188,7 @@ class RegisterController extends Controller
         $this->guard()->logout();
 
         return redirect('/login')->with('status', 'We sent you an activation code. Check your email and click on the link to verify.');
-        
+
     }
-    
+
 }

@@ -60,11 +60,12 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        
+
         'admin.role' => \Afraa\Http\Middleware\AdminRole::class,
         'lounge.role' => \Afraa\Http\Middleware\LoungeRole::class,
+        'speaker.role' => \Afraa\Http\Middleware\SpeakerRole::class,
 
         'admin.permission' => \Afraa\Http\Middleware\AdminPermissions::class,
-        
+
     ];
 }

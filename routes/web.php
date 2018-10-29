@@ -33,6 +33,10 @@ Route::group(['middleware' => 'auth'], function()
         'uses' => 'HomeController@waitingLounge',
         'middleware' => 'lounge.role:lounge'
     ]);
+    Route::get('/speaker', [
+        'uses' => 'HomeController@waitingLounge',
+        'middleware' => 'admin.role:admin'
+    ]);
 
     Route::prefix('dashboard')->group(function () {
         Route::namespace('Admin\Dashboard')->group(function () {
