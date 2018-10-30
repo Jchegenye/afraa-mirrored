@@ -3,8 +3,10 @@
 namespace Afraa\Http\Controllers\Programme;
 
 use App\Programme;
+use Afraa\Model\Users;
 use Illuminate\Http\Request;
 use Afraa\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ProgrammeController extends Controller
 {
@@ -29,7 +31,12 @@ class ProgrammeController extends Controller
     public function create()
     {
         //
-        return view('programme.create');
+
+        $get_users = new Users();
+
+        $users = $get_users->getAllUsers();
+
+        return view('programme.create',compact('users'));
     }
 
     /**
@@ -43,27 +50,12 @@ class ProgrammeController extends Controller
         //
         $programme= new \Afraa\Programme;
 
-        $programme->title=$request->get('title');
-        $programme->description=$request->get('description');
-        $programme->venue=$request->get('venue');
-        $programme->speaker_id=$request->get('speaker_id');
-        $programme->moderator_id=$request->get('moderator_id');
+        $user = Auth::user();
 
-        $programme->start_time = $request->get('start_time');
-        $programme->end_time = $request->get('end_time');
-        $programme->date = $request->get('date');
+        $user_id = Auth::id();
 
-        // $start_time=date_create($request->get('start_time'));
-        // $start_time_format = date_format($start_time,"Y-m-d");
-        // $programme->start_time = strtotime($start_time_format);
-
-        // $end_time=date_create($request->get('end_time'));
-        // $end_time_format = date_format($end_time,"Y-m-d");
-        // $programme->end_time = strtotime($end_time_format);
-
-        // $date=date_create($request->get('date'));
-        // $format = date_format($date,"Y-m-d");
-        // $programme->date = strtotime($format);
+        $programme->user_id = $user_id;
+        $programme->session_id = $request->get('session_id');
 
         $programme->save();
 
@@ -91,7 +83,12 @@ class ProgrammeController extends Controller
     {
         //
         $programme = \Afraa\Programme::find($id);
-        return view('programme.edit',compact('programme','id'));
+
+        $get_users = new Users();
+
+        $users = $get_users->getAllUsers();
+
+        return view('programme.edit',compact('programme','id','users'));
     }
 
     /**
@@ -106,15 +103,8 @@ class ProgrammeController extends Controller
         //
         $programme= \Afraa\Programme::find($id);
 
-        $programme->title=$request->get('title');
-        $programme->description=$request->get('description');
-        $programme->venue=$request->get('venue');
-        $programme->speaker_id=$request->get('speaker_id');
-        $programme->moderator_id=$request->get('moderator_id');
-
-        $programme->start_time = $request->get('start_time');
-        $programme->end_time = $request->get('end_time');
-        $programme->date = $request->get('date');
+        $programme->title=$request->get('user_id');
+        $programme->description=$request->get('session_id');
 
         $programme->save();
 

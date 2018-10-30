@@ -19,11 +19,11 @@
         {{$programmes['date']}}
 
 
-        <a href="{{action('Programme\ProgrammeController@edit', $programmes['id'])}}" class="btn btn-warning">Edit</a>
+        {{-- <a href="{{action('Programme\ProgrammeController@edit', $programmes['id'])}}" class="btn btn-warning">Edit</a> --}}
         <form action="{{action('Programme\ProgrammeController@destroy', $programmes['id'])}}" method="post">
             @csrf
             <input name="_method" type="hidden" value="DELETE">
-            <button class="btn btn-danger" type="submit">Delete</button>
+            <button class="btn btn-danger" type="submit">Remove</button>
         </form>
 
       @endforeach

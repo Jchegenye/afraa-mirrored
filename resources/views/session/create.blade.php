@@ -1,5 +1,5 @@
 
-      <form method="post" action="{{url('programme')}}" enctype="multipart/form-data">
+      <form method="post" action="{{url('session')}}" enctype="multipart/form-data">
         @csrf
         <div class="row">
             <p>title</p>

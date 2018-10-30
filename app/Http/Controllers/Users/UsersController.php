@@ -1,26 +1,13 @@
 <?php
 
-namespace Afraa\Http\Controllers\Delegate;
+namespace Afraa\Http\Controllers\Users;
 
 use Illuminate\Http\Request;
-use App\ProgrammeSession;
-use App\Programme;
-use Afraa\Model\Users;
 use Afraa\Http\Controllers\Controller;
+use App\Model\Users;
 
-class DelegateController extends Controller
+class UsersController extends Controller
 {
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -28,18 +15,7 @@ class DelegateController extends Controller
      */
     public function index()
     {
-
-        $programme = \Afraa\Programme::all();
-
-        $session = \Afraa\ProgrammeSession::all();
-
-        $get_users = new Users();
-
-        $users = $get_users->getAllUsers();
-
-        $user_by_id = $get_users->getUserById(1);
-
-        return view('dashboard/delegate',compact('session','programme'));
+        //
     }
 
     /**

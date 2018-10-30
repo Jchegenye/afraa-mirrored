@@ -15,18 +15,12 @@ class CreateProgrammesTable extends Migration
     {
         Schema::create('programmes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title');
-            $table->string('description');
-            $table->string('venue');
-            $table->integer('speaker_id');  //$table->integer('speaker_id')->unsigned();
-            $table->integer('moderator_id');   //$table->integer('moderator_id')->unsigned();
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
-            $table->dateTime('date');
+            $table->integer('user_id')->unsigned(); // $table->integer('uid');
+            $table->integer('session_id')->unsigned(); //$table->integer('session_id');
             $table->timestamps();
 
-            // $table->foreign('speaker_id')->references('id')->on('users');
-            // $table->foreign('moderator_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('uid')->on('users');
+            $table->foreign('session_id')->references('id')->on('programme_sessions');
         });
     }
 

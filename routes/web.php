@@ -79,6 +79,8 @@ Route::resource('programme', 'Programme\ProgrammeController');
 
 Route::resource('notifications','Notifications\NotificationsController');
 
+Route::resource('session','ProgrammeSession\ProgrammeSessionController');
+
 /*
 |--------------------------------------------------------------------------
 | Password reset links Routes
