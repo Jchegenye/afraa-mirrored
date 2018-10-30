@@ -1,13 +1,13 @@
 <?php
 
-namespace Afraa\Http\Middleware;
+namespace Afraa\Http\Middleware\Roles;
 
 use Closure;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
-class ManagerRole
+class ExibitorRole
 {
     /**
      * Handle an incoming request.

@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('role')->nullable();
-            $table->json('permission')->nullable();
+            $table->json('permissions')->nullable();
             $table->string('verification_token')->unique()->nullable();
             $table->string('confirmation_code')->nullable();
 

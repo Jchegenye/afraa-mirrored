@@ -27,6 +27,16 @@ class UserPermissions extends Model
     protected $primaryKey = 'pid';
 
     /**
+     * The attributes that should be casted to native types.
+     * 
+     * @author Jackson A. Chegenye
+     * @var array
+     */
+    protected $casts = [
+        'permissions' => 'array'
+    ];
+
+    /**
      * The database collection used by the model.
      * @author Jackson A. Chegenye
      * @var string

@@ -20,21 +20,7 @@
                 <td>{{ $user->role }}</td>
                 <td>
                     <div class="truncate-ellipsis">
-                        @foreach (json_decode($user->permission) as $permission)
-
-                            @foreach ($allpermissions as $allpermission)
-
-                                @if($allpermission->machine_name === $permission)
-                                    
-                                <span class="badge badge-light">
-                                    {{ $allpermission->name }}
-                                </span>
-                                
-                                @endif
-
-                            @endforeach
-
-                        @endforeach
+                        
                     </div>
                 </td>
                 <td>

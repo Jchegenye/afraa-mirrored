@@ -42,6 +42,12 @@ class DelegateController extends Controller
         return view('dashboard/delegate',compact('session','programme'));
     }
 
+    public function viewPrograme(){
+        
+        return view('layouts/dashboard/delegates/programe');
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *

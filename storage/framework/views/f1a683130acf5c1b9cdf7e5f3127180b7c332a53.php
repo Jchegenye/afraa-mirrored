@@ -20,22 +20,7 @@
                 <td><?php echo e($user->role); ?></td>
                 <td>
                     <div class="truncate-ellipsis">
-                        <?php $__currentLoopData = json_decode($user->permission); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $permission): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
-                            <?php $__currentLoopData = $allpermissions; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $allpermission): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-
-                                <?php if($allpermission->machine_name === $permission): ?>
-                                    
-                                <span class="badge badge-light">
-                                    <?php echo e($allpermission->name); ?>
-
-                                </span>
-                                
-                                <?php endif; ?>
-
-                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        
                     </div>
                 </td>
                 <td>

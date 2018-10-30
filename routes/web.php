@@ -25,7 +25,7 @@ Route::group(['middleware' => 'auth'], function()
 
     Route::prefix('dashboard/')->group(function () {
 
-        //Dashboard Main Landing Pages
+        //Admin Dashboard - Main Landing Pages
         Route::get('/delegate', [
             'uses' => 'Delegate\DelegateController@index',
             'middleware' => 'delegate.role:delegate'
@@ -51,23 +51,41 @@ Route::group(['middleware' => 'auth'], function()
             'middleware' => 'admin.role:admin'
         ]);
 
-        //Dashboard Internal Pages
+        //Admin Dashboard - Internal Pages
         Route::namespace('Admin\Dashboard')->group(function () {
 
             Route::get('/users', [
                 'uses' => 'ManageUsersController@index',
-                'middleware' => 'admin.permission:access_to_manage_users'
+                'middleware' => 'permission:access_to_manage_users'
             ]);
             Route::get('/roles', [
                 'uses' => 'ManageRolesController@index',
-                'middleware' => 'admin.permission:access_to_manage_roles'
+                'middleware' => 'permission:access_to_manage_roles'
             ]);
             Route::get('/permissions', [
                 'uses' => 'ManagePermissionsController@index',
-                'middleware' => 'admin.permission:access_to_manage_permissions'
+                'middleware' => 'permission:access_to_manage_permissions'
             ]);
 
         });
+
+        //Delegate Dashboard - Internal Pages
+        Route::namespace('Delegate')->group(function () {
+
+            Route::get('/delegates/programe', [
+                'uses' => 'DelegateController@viewPrograme',
+                'middleware' => 'permission:access_to_view_programmes'
+            ]);
+
+        });
+
+        //Exibitor Dashboard - Internal Pages
+
+        //Speaker Dashboard - Internal Pages
+
+        //Manager Dashboard - Internal Pages
+
+        //Author Dashboard - Internal Pages
 
     });
 

@@ -16,9 +16,8 @@ class CreateUserPermissionsTable extends Migration
     {
         Schema::create('user_permissions', function (Blueprint $table) {
             $table->increments('pid'); //Primary permission id
-            $table->string('machine_name');
-            $table->string('name');
-            $table->text('description');
+            $table->string('role')->nullable();
+            $table->json('permissions')->nullable();
             $table->timestamps();
         });
     }

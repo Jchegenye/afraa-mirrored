@@ -1,86 +1,50 @@
 ## ADMIN PERMISSIONS
-### Admin has full access but for Manager he/she will be limited to specific permission tasks.
-Access Dashboard & Manage Profile:
-    pid: 1
-    name: access_to_manage_profile
-    description: Admin can access dashboard & manage there profile by performing CRUD.
-Access Dashboard & Manage All Users:
-    pid: 2
-    name: access_to_manage_users
-    description: Admin can access dashboard & manage all users by assigning roles, perform CRUD.
-Access Dashboard & Manage All Roles:
-    pid: 3
-    name: access_to_manage_roles
-    description: Admin can access dashboard & manage all roles
-Access Dashboard & Manage All Permissions:
-    pid: 4
-    name: access_to_manage_permissions
-    description: Admin can access dashboard & manage all permissions
-Access Dashboard & Manage Delegates:
-    pid: 5
-    name: access_to_manage_delegates
-    description: Admin can access dashboard & manage delegates by assigning roles, perform CRUD.
-Access Dashboard & Manage Programme:
-    pid: 6
-    name: access_to_manage_programme
-    description: Admin can access dashboard & manage programme by adding programmes/details, add speaker(s), add venue info, add time notification, view all programmes.
-Access Dashboard & Manage Exibitors:
-    pid: 7
-    name: access_to_manage_exibitors
-    description: Admin can access dashboard & manage exibitor(s) by adding exibitor(s) & other details + floor plan, confirm exibitor(s), delegate(one), view all exibitor(s).
-Access Dashboard & Manage Sponsors:
-    pid: 8
-    name: access_to_manage_sponsors
-    description: Admin can access dashboard & manage sponsor(s) by adding sponsor(s) & other details, view all sponsor(s).
-Access Dashboard & Manage More:
-    pid: 9
-    name: access_to_manage_more
-    description: Admin can access dashboard & manage more event(s) such us General event info, add exibitor(s) floorplan, social event(s), host airline(s), media entrie(s), organiser(s)
-## DELEGATE PERMISSIONS
-Access Dashboard & View Social Events:
-    pid: 10
-    name: access_to_view_socialevents
-    description: Delegate can access dashboard & manage social events by viewing list of events, confirming attendance e.t.c.
-Access Dashboard & View Exibitors:
-    pid: 11
-    name: access_to_view_exibitors
-    description: Delegate can access dashboard & view  by exibitor(s) list, view specific or individual exibitor(s), view exibitor(s) Bio & Related Info.
-Access Dashboard & View Speakers:
-    pid: 12
-    name: access_to_view_speakers
-    description: Delegate can access dashboard & view speaker(s) list, view specific or individual speaker(s), view exibitor(s) Bio & Related Info & view a speaker(s) Programme.
-Access Dashboard & View All Programmes:
-    pid: 13
-    name: access_to_view_all_programmes_delegate
-    description: Delegate can access dashboard & view all programme(s), select & add programme(s), my agenda/my programme.
+admin:
+    permission:
+        - access_to_manage_users
+        - access_to_manage_permissions
+        - access_to_manage_roles
+        - access_to_manage_programme
+        - access_to_manage_sponsors
+## MANAGER PERMISSIONS
+manager:
+    permission:
+        - access_to_manage_users
+        - access_to_manage_programme
+        - access_to_manage_sponsors
+## DELEGATES PERMISSIONS
+delegate:
+    permission:
+        - access_to_view_exibitors
+        - access_to_view_speakers
+        - access_to_view_programmes
+        - access_to_view_notifications
+        - access_to_view_profile
+        - access_to_view_select_add_program
 ## EXIBITORS PERMISSIONS
-Access Dashboard & View Floor Plan:
-    pid: 14
-    name: access_to_view_floor_plan
-    description: Exibitors can access dashboard & view list of floor plans, view specific floor plan.
-Access Dashboard & View View Other Exibitors:
-    pid: 15
-    name: access_to_view_other_exibitors
-    description: Exibitors can access dashboard & view list of exibitor(s), view specific exibitor(s), view exibitor(s) Bio & Related Info.
-Access Dashboard & View Programmes Exibitors:
-    pid: 16
-    name: access_to_view_all_programmes_exibitors
-    description: Exibitors can access dashboard & view all programme(s)
+exibitor:
+    permission:
+        - access_to_view_floor_plan
+        - access_to_view_other_exibitors
+        - access_to_view_programme
+        - access_to_view_notifications
+        - access_to_view_profile
 ## AUTHOR PERMISSIONS
-Access Dashboard & View Profile:
-    pid: 17
-    name: access_to_manage_info
-    description: Exibitors can access dashboard & edit:- general event info, exihibition floor plan, social events info, host airline info, media entries info, organizer(s) info.
-## SIMILAR PERMISSIONS (FOR BOTH DELEGATE, EXIBITORS & AUTHOR)
-Access Dashboard & View Notifications:
-    pid: 18
-    name: access_to_view_notifications
-    description: User can access dashboard & view list of notifications.
-Access Dashboard & View Profiles:
-    pid: 19
-    name: access_to_view_profile
-    description: User can access dashboard & perform CRUD.
-Access Guest Dashboard & Profile ONLY:
-    pid: 20
-    name: access_to_guest_page
-    description: User can access dashboard & manage profile ONLY
+author:
+    permission:
+        - access_to_manage_exibitors
+        - access_to_manage_programme
+        - access_to_manage_sponsors
+        - access_to_manage_info
+        - access_to_view_notifications
+        - access_to_view_profile
+        - access_to_guest_page
+        - access_to_edit_floor_plan
+## SPEAKER PERMISSIONS
+speaker:
+    permission:
+        - access_to_view_exibitors
+        - access_to_view_delegates
+        - access_to_view_programmes
+        - access_to_view_notifications
+        - access_to_view_profile
