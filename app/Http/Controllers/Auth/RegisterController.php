@@ -7,6 +7,7 @@ use Afraa\Model\Admin\Users\VerifyUser;
 use Afraa\Mail\VerifyMail;
 use Afraa\Http\Controllers\Controller;
 use Afraa\Legibra\ReusableCodes\GenerateCustomVerifyTokenTrait;
+use Afraa\Model\Admin\Dashboard\UserPermissions;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Mail;
@@ -77,7 +78,7 @@ class RegisterController extends Controller
             'email' => 'email|unique:users,email|required',
             'password' => 'required|min:6|max:20|unique:users,password',
             'password_confirmation' => 'required|same:password',
-            // 'g-recaptcha-response' => 'required',
+            'g-recaptcha-response' => 'required',
         ]);
     }
 
@@ -91,40 +92,23 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-        //Fetch the first USER ID
-        $users_uid = User::orderBy('uid', 'DESC')->take(1)->get();
-
         //Finally we get to store all our documents here
         $user = new User;
 
         //Get the auto-generated code from REUSABLE CODE
         $code = $this->generatePermissionsCode();
 
-        //Attach guest permission temporary
-        $permission = [
-            'access_to_guest_page',
-        ];
-        $getPermission = json_encode($permission);
-
-        //list users, begin at 3
-        if ($users_uid->isEmpty()) {
-            $user->uid=3;
-        }
-        else {
-            foreach ($users_uid as $count) {
-                $uid = $count->uid;
-                $user->uid = $uid+3;
-            }
-        }
+        //Fetch permissions where "permissions table" role in equal to a give role from registration
+        $queryPermissions = UserPermissions::where('role','=', "delegate")->first();
 
         $user->name = Input::get('name');
         $user->email = Input::get('email');
         $user->password = Hash::make(Input::get('password'));
         $user->remember_token = Input::get('_token');
 
-        $user->role = 'delegate';
+        $user->role = $queryPermissions->role;
 
-        $user->permission = $getPermission;
+        $user->permissions = $queryPermissions->permissions;
         $user->verification_token = $code;
         $user->save();
 

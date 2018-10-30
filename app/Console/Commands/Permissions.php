@@ -54,47 +54,43 @@ class Permissions extends Command
 
         }else{
 
-            $this->info('Generating permissions. Hold On...');
+            //$this->info('Generating permissions. Hold On...');
 
             //Load the YAML file and parse it.
             $array = Yaml::parse(file_get_contents($file));
 
             foreach ($array as $key => $value) {
 
-                $name = $key;
+                $role = $key;
 
                 //Lets loop through the value array to get the other details.
-                $pid = $value['pid'];
-                $machine_name = $value['name'];
-                $description = $value['description'];
+                $permissions = json_encode($value['permission']);
 
                 //We need to check if we already stored this permission.
-                $permission = UserPermissions::where('pid','=',$pid)->first();
+                $permission = UserPermissions::where('role','=',$role)->first();
 
                 //Only create a new permission if it is not existing.
                 if (empty($permission)) {
                     
                     $new_permission = new UserPermissions;
-                    $new_permission->name = $name;
-                    $new_permission->machine_name = $machine_name;
-                    $new_permission->description = $description;
+                    $new_permission->role = $role;
+                    $new_permission->permissions = $permissions;
                     $new_permission->save();
 
-                    $this->info('New Permission:'.$name);
+                    $this->info('Generating Permissions for:' . $role);
 
                 }
                 else{
 
                     //Lets update existing Permissions or add new one(s).
-                    $updatePermissions = UserPermissions::where('pid','=',$pid)->update(
-                        [   
-                            'machine_name' => $machine_name,
-                            'name' => $name,
-                            'description' => $description
+                    $updatePermissions = UserPermissions::where('role','=',$role)->update(
+                        [  
+                            'role' => $role,
+                            'permissions' => $permissions
                         ]
                     );
 
-                    $this->info('Updating Permission:'."($pid)".$name);
+                    $this->info('Updating Permission for:' . $role);
 
                 }
 

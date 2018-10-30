@@ -11,3 +11,27 @@ Dancan Ngara Kimani:
   email: dan@gmail.com
   password: admin
   role: admin
+Victor Chweya:
+  name: Victor Chweya
+  username: vic
+  email: vic@legibra.com
+  password: 111
+  role: delegate
+Nelly Muho:
+  name: Nelly Muho
+  username: nelly
+  email: nelly@legibra.com
+  password: 111
+  role: manager
+Nelson Kim:
+  name: Nelson Kim
+  username: nelly
+  email: nelson@legibra.com
+  password: 111
+  role: speaker
+John Doe:
+  name: John Doe
+  username: john
+  email: john@legibra.com
+  password: 111
+  role: author

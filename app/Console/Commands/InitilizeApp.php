@@ -8,6 +8,7 @@ use Afraa\Model\Admin\Users\User;
 use Afraa\Legibra\ReusableCodes\DateFormatsTrait;
 use Afraa\Legibra\ReusableCodes\GenerateCustomVerifyTokenTrait;
 use Afraa\Legibra\ReusableCodes\PermissionsTrait;
+use Afraa\Model\Admin\Dashboard\UserPermissions;
 use Symfony\Component\Yaml\Yaml;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -81,47 +82,35 @@ class InitilizeApp extends Command
                 $root_password = $value['password'];
                 $root_role = $value['role'];
 
+                $query = User::where('role','=', $root_role)->first();
+
                 //Check if Root user already exists
                 $query = User::where('email','=', $root_email)->first();
-
-                //Attach all retrieved permissions to admin role
-                $jsonPermissions = $this->getAllPermissions();
-                //$jsonPermissions = json_encode($permissions);
 
                 //Append generated code for registration verification
                 $code = $this->generatePermissionsCode();
 
-                //Fetch the first USER ID
-                $users_uid = User::orderBy('uid', 'DESC')->take(1)->get();
+                //Fetch permissions where "permissions table" role in equal to a give role from registration
+                $queryPermissions = UserPermissions::where('role','=', $root_role)->first();
 
                 //Only create a root user non existing.
                 if (empty($query)) {
 
                         $user = new User;
 
-                            if ($users_uid->isEmpty()) {
-                                $user->uid=1;
-                            }
-                            else {
-                                foreach ($users_uid as $count) {
-                                    $uid = $count->uid;
-                                    $user->uid = $uid+1;
-                                }
-                            }
-
                             $user->name = $root_name;
                             $user->username = $root_username;
                             $user->email = $root_email;
                             $user->password = Hash::make($root_password);
                             $user->role = $root_role;
-                            $user->permission = $jsonPermissions;
+                            $user->permissions = $queryPermissions->permissions;
                             $user->verification_token = $code;
                             $user->remember_token = $code;
                             $user->verified = '1'; //true(1) or false(0)
 
                         $user->save();
 
-                    $this->info('Root Created ' . $name);
+                    $this->info('User Created ' . $name);
 
                 }
                 else{
@@ -130,7 +119,7 @@ class InitilizeApp extends Command
                     $updatePermissions = User::where('email','=',$root_email)->update(
                         [
                             'role' => $root_role,
-                            'permission' => $jsonPermissions,
+                            'permissions' => $queryPermissions->permissions,
                         ]
                     );
 
