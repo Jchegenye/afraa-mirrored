@@ -61,16 +61,14 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 
-        'admin.role' => \Afraa\Http\Middleware\AdminRole::class,
-        'manager.role' => \Afraa\Http\Middleware\ManagerRole::class,
-        'delegate.role' => \Afraa\Http\Middleware\DelegateRole::class,
-        'exibitor.role' => \Afraa\Http\Middleware\ExibitorRole::class,
-        'speaker.role' => \Afraa\Http\Middleware\SpeakerRole::class,
-        'author.role' => \Afraa\Http\Middleware\AuthorRole::class,
+        'admin.role' => \Afraa\Http\Middleware\Roles\AdminRole::class,
+        'manager.role' => \Afraa\Http\Middleware\Roles\ManagerRole::class,
+        'delegate.role' => \Afraa\Http\Middleware\Roles\DelegateRole::class,
+        'exibitor.role' => \Afraa\Http\Middleware\Roles\ExibitorRole::class,
+        'speaker.role' => \Afraa\Http\Middleware\Roles\SpeakerRole::class,
+        'author.role' => \Afraa\Http\Middleware\Roles\AuthorRole::class,
 
-        //'lounge.role' => \Afraa\Http\Middleware\LoungeRole::class,
-
-        'admin.permission' => \Afraa\Http\Middleware\AdminPermissions::class,
+        'permission' => \Afraa\Http\Middleware\Permissions\AllPermissions::class,
 
     ];
 }

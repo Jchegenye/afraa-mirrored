@@ -1,6 +1,6 @@
 <?php
 
-namespace Afraa\Http\Middleware;
+namespace Afraa\Http\Middleware\Roles;
 
 use Closure;
 use Illuminate\Support\Facades\Cookie;

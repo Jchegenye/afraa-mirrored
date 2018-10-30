@@ -64,10 +64,12 @@ class Permissions extends Command
                 $role = $key;
 
                 //Lets loop through the value array to get the other details.
-                $permissions = json_encode($value['permission']);
+                //$permissions = json_encode($value['permission']);
 
                 //We need to check if we already stored this permission.
                 $permission = UserPermissions::where('role','=',$role)->first();
+
+                $permissions = $value['permission'];
 
                 //Only create a new permission if it is not existing.
                 if (empty($permission)) {
@@ -86,7 +88,7 @@ class Permissions extends Command
                     $updatePermissions = UserPermissions::where('role','=',$role)->update(
                         [  
                             'role' => $role,
-                            'permissions' => $permissions
+                            'permissions' => json_encode($permissions)
                         ]
                     );
 

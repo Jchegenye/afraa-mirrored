@@ -103,7 +103,7 @@ class InitilizeApp extends Command
                             $user->email = $root_email;
                             $user->password = Hash::make($root_password);
                             $user->role = $root_role;
-                            $user->permissions = $queryPermissions->permissions;
+                            $user->permissions = $queryPermissions->permissions; 
                             $user->verification_token = $code;
                             $user->remember_token = $code;
                             $user->verified = '1'; //true(1) or false(0)
@@ -119,7 +119,7 @@ class InitilizeApp extends Command
                     $updatePermissions = User::where('email','=',$root_email)->update(
                         [
                             'role' => $root_role,
-                            'permissions' => $queryPermissions->permissions,
+                            'permissions' => json_encode($queryPermissions->permissions),
                         ]
                     );
 

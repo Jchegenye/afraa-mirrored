@@ -1,58 +1,50 @@
 ## ADMIN PERMISSIONS
 admin:
     permission:
-        admin:
-            access_to_manage_users,
-            access_to_manage_permissions,
-            access_to_manage_roles,
-            access_to_manage_programme,
-            access_to_manage_sponsors
+        - access_to_manage_users
+        - access_to_manage_permissions
+        - access_to_manage_roles
+        - access_to_manage_programme
+        - access_to_manage_sponsors
 ## MANAGER PERMISSIONS
 manager:
     permission:
-        manager:
-            access_to_manage_users,
-            access_to_manage_programme,
-            access_to_manage_sponsors
+        - access_to_manage_users
+        - access_to_manage_programme
+        - access_to_manage_sponsors
 ## DELEGATES PERMISSIONS
 delegate:
     permission:
-        delegate:
-            access_to_view_exibitors,
-            access_to_view_speakers,
-            access_to_view_programmes,
-            access_to_view_notifications,
-            access_to_view_profile,
-            access_to_view_select_add_program
+        - access_to_view_exibitors
+        - access_to_view_speakers
+        - access_to_view_programmes
+        - access_to_view_notifications
+        - access_to_view_profile
+        - access_to_view_select_add_program
 ## EXIBITORS PERMISSIONS
 exibitor:
     permission:
-        exibitor:
-            access_to_view_floor_plan,
-            access_to_view_other_exibitors,
-            access_to_view_programme,
-            access_to_view_notifications,
-            access_to_view_profile
+        - access_to_view_floor_plan
+        - access_to_view_other_exibitors
+        - access_to_view_programme
+        - access_to_view_notifications
+        - access_to_view_profile
 ## AUTHOR PERMISSIONS
 author:
     permission:
-        author:
-            access_to_manage_exibitors,
-            access_to_manage_programme,
-            access_to_manage_sponsors,
-            access_to_manage_info,
-            access_to_view_notifications,
-            access_to_view_profile,
-            access_to_guest_page,
-            access_to_edit_floor_plan
+        - access_to_manage_exibitors
+        - access_to_manage_programme
+        - access_to_manage_sponsors
+        - access_to_manage_info
+        - access_to_view_notifications
+        - access_to_view_profile
+        - access_to_guest_page
+        - access_to_edit_floor_plan
 ## SPEAKER PERMISSIONS
 speaker:
     permission:
-        delegate:
-            access_to_view_exibitors,
-            access_to_view_delegates,
-            access_to_view_programmes,
-            access_to_view_notifications,
-            access_to_view_profile,
-    
-
+        - access_to_view_exibitors
+        - access_to_view_delegates
+        - access_to_view_programmes
+        - access_to_view_notifications
+        - access_to_view_profile

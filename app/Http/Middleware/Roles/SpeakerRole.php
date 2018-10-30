@@ -1,17 +1,18 @@
 <?php
 
-namespace Afraa\Http\Middleware;
+namespace Afraa\Http\Middleware\Roles;
 
 use Closure;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
-class ExibitorRole
+class SpeakerRole
 {
+
     /**
-     * Handle an incoming request.
-     * 
+     * Handle an incoming lounge request.
+     *
      * @author Jackson A. Chegenye
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
@@ -19,7 +20,7 @@ class ExibitorRole
      */
     public function handle($request, Closure $next, $role)
     {
-        
+
         //Compare route given role with recently logged in
         if (!$request->user()->hasRole($role)) {
 
@@ -30,6 +31,10 @@ class ExibitorRole
 
                 return $next($request);
 
+            }else{
+
+                return redirect('/lounge');
+
             }
             Auth::logout();
             abort(401);
@@ -39,4 +44,16 @@ class ExibitorRole
         abort(401);
 
     }
+
+    /**
+     * @author Jackson A. Chegenye
+     * @return string
+     */
+    protected function unauthorisedAccess()
+    {
+        return Lang::has('users.members.unauthorised')
+            ? Lang::get('users.members.unauthorised')
+            : 'Unauthorized Access: You are not authorized to access this resource!';
+    }
+
 }

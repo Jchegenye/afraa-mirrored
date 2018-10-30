@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
-@section('title', 'Delegate')
+@section('title', 'Delegate - Programme List')
 
 @section('content')
-<div class="container">
+<div class="container-fluid">
     <div class="row justify-content-center">
 
         <div class="col-md-1">
@@ -12,7 +12,7 @@
 
         <div class="col-md-11">
             <div class="card">
-                <div class="card-header">Delegate</div>
+                <div class="card-header">Delegate - Programme List</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -20,11 +20,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
                 </div>
+                
             </div>
         </div>
+        
     </div>
 </div>
 @endsection

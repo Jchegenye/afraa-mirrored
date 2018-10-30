@@ -40,6 +40,16 @@ class User extends Authenticatable
     protected $primaryKey = 'uid';
 
     /**
+     * The attributes that should be casted to native types.
+     * 
+     * @author Jackson A. Chegenye
+     * @var array
+     */
+    protected $casts = [
+        'permissions' => 'array'
+    ];
+
+    /**
      * Authour: Jackson A. Chegenye
      * ---
      * Register incoming middleware parameter requests for both roles & permissions.

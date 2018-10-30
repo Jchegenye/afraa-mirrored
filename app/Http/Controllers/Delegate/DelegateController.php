@@ -28,6 +28,12 @@ class DelegateController extends Controller
         return view('dashboard/delegate');
     }
 
+    public function viewPrograme(){
+        
+        return view('layouts/dashboard/delegates/programe');
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *
