@@ -43,6 +43,10 @@
             <input type="text" class="form-control" name="date">
         </div>
         <div class="row">
+                <p>date</p>
+            <input type="file" class="form-control" name="featured_image">
+        </div>
+        <div class="row">
             <button type="submit" class="btn btn-success">Submit</button>
         </div>
       </form>

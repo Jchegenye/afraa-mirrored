@@ -25,7 +25,7 @@ class Users extends Model
     //
     public function getUserById($id){
 
-        $user =  DB::table('users')->where('uid', 1)->select('uid','name', 'email', 'role')->get();
+        $user =  DB::table('users')->where('uid', $id)->select('uid','name', 'email', 'role')->get();
 
         return $user;
     }

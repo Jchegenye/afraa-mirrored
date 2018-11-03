@@ -19,6 +19,7 @@ class CreateProgrammeSessionsTable extends Migration
             $table->string('title');
             $table->string('description');
             $table->string('venue');
+            $table->string('featured_image');
             $table->integer('speaker_id')->unsigned(); //$table->integer('speaker_id');  //
             $table->integer('moderator_id')->unsigned(); //$table->integer('moderator_id');   //
             $table->dateTime('start_time');

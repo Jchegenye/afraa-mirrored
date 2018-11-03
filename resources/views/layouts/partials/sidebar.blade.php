@@ -1,4 +1,3 @@
-dd(Auth::user());
 
 <!-- Side Navigation Menu -->
 <div class="navbar-default sidebar pb-5 pt-4" role="navigation">
@@ -8,8 +7,18 @@ dd(Auth::user());
                 <img class="img-fluid rounded-3 w-50" src="{{ asset('images/ed.png') }}" alt="pic">
             </div>
             <div class="card-body">
-                <div class="card-title"><h4>Edgar Wanjala</h4></div>
-                <div class="card-text">Delegate</div>
+                <div class="card-title text-capitalize">
+                    <h4>
+                        @foreach ($user_by_id as $user)
+                            {{$user->name}}
+                        @endforeach
+                    </h4>
+                </div>
+                <div class="card-text text-capitalize">
+                    @foreach ($user_by_id as $user)
+                        {{$user->role}}
+                    @endforeach
+                </div>
             </div>
         </div>
 
@@ -42,8 +51,9 @@ dd(Auth::user());
         </div>
 
         <div class="logoutswitch ml-4 pl-1">
-               <label class="switch">
-              <input type="checkbox">
+            <input type="hidden" id="logout_url" name="logout_url" value="{{ route('logout') }}">
+            <label class="switch">
+              <input type="checkbox" id="switch_to_logout">
               <span class="slider round text"></span>
             </label>
             <span>Sign Out</span>
