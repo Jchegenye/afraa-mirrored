@@ -80,32 +80,35 @@
         </nav>
 
         <main class="py-4">
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
+            @if (session('warning'))
+                <div class="alert alert-warning">
+                    {{ session('warning') }}
+                </div>
+            @endif
+
+            @if (session('information'))
+                <div class="alert alert-info">
+                    {{ session('information') }}
+                </div>
+            @endif
+            @if (session('successful'))
+                <div class="alert alert-success">
+                    {{ session('successful') }}
+                </div>
+            @endif
+            @if (session('unsuccessful'))
+                <div class="alert alert-danger">
+                    {{ session('unsuccessful') }}
+                </div>
+            @endif
+
             @yield('content')
         </main>
-
-        @hasSection('dashboard')
-            <div class="container-fluid">
-                <div class="row justify-content-center">
-
-                    <div class="col-md-1">
-                        @include('layouts.sidebar')
-                    </div>
-
-                    <div class="col-md-11">
-                        
-                        @hasSection('users')
-                            <div class="pull-right">
-                                @yield('users')
-                            </div>
-
-                            <div class="clearfix"></div>
-                        @endif
-                    
-                    </div>
-                    
-                </div>
-            </div> 
-        @endif
         
     </div>
 

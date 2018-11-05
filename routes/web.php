@@ -58,13 +58,23 @@ Route::group(['middleware' => 'auth'], function()
                 'uses' => 'ManageUsersController@index',
                 'middleware' => 'permission:access_to_manage_users'
             ]);
-            Route::get('/roles', [
-                'uses' => 'ManageRolesController@index',
-                'middleware' => 'permission:access_to_manage_roles'
-            ]);
             Route::get('/permissions', [
                 'uses' => 'ManagePermissionsController@index',
                 'middleware' => 'permission:access_to_manage_permissions'
+            ]);
+
+            //CRUD
+            Route::get('/users/trash/{uid}', [
+				'uses' => 'ManageUsersController@trash',
+				'middleware' => 'permission:access_to_delete_user'
+            ]);
+            Route::get('/users/edit/{uid}/', [
+                'uses' => 'ManageUsersController@edit',
+                //'middleware' => 'permission:access_to_edit_user'
+            ]);
+            Route::put('/users/edit/{uid}/', [
+                'uses' => 'ManageUsersController@update',
+                //'middleware' => 'permission:access_to_update_user'
             ]);
 
         });
