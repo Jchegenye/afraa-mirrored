@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 /*
@@ -93,11 +93,32 @@ Route::group(['middleware' => 'auth'], function()
 
 });
 
-Route::resource('programme', 'Programme\ProgrammeController');
 
-Route::resource('notifications','Notifications\NotificationsController');
+Route::group(['middleware' => 'auth'], function()
+{
+    Route::prefix('dashboard/admin')->group(function () {
 
-Route::resource('session','ProgrammeSession\ProgrammeSessionController');
+       Route::resource('notifications','Notifications\NotificationsController')->middleware('admin.permission:access_to_manage_roles');
+
+        Route::resource('session','ProgrammeSession\ProgrammeSessionController')->middleware('admin.permission:access_to_manage_roles');
+
+    });
+
+    Route::prefix('dashboard/delegate')->group(function () {
+
+        Route::resource('programme', 'Programme\ProgrammeController');
+
+        Route::resource('notifications','Notifications\NotificationsController');
+
+        Route::resource('session','ProgrammeSession\ProgrammeSessionController');
+    });
+});
+
+// Route::resource('programme', 'Programme\ProgrammeController');
+
+// Route::resource('notifications','Notifications\NotificationsController');
+
+// Route::resource('session','ProgrammeSession\ProgrammeSessionController');
 
 /*
 |--------------------------------------------------------------------------

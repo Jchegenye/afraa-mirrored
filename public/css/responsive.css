@@ -1,0 +1,21 @@
+
+@media (min-width: 768px){
+	.sidebar {
+	    z-index: 1;
+	    position: absolute;
+	    /*width: 20%;*/
+	    margin-top: 0%;
+	    height: auto !important;
+	}
+	.navbar-toggle{
+		display: none;
+	}
+}
+@media (max-width: 768px){
+	.sidebar {
+	    height: auto !important;
+	}
+	#page-wrapper{
+		padding-top: 0px !important;
+	}
+}
