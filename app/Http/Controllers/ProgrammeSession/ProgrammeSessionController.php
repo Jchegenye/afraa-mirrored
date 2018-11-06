@@ -6,9 +6,11 @@ use App\ProgrammeSession;
 use Afraa\Model\Users;
 use Illuminate\Http\Request;
 use Afraa\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ProgrammeSessionController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +21,23 @@ class ProgrammeSessionController extends Controller
         //
         $session = \Afraa\ProgrammeSession::all();
 
-        return view('session.index',compact('session'));
+        $role = Auth::user()->role;
+
+        $get_users = new Users();
+
+        $id = Auth::id();
+
+        $users = $get_users->getAllUsers();
+
+        $user_by_id = $get_users->getUserById($id);
+
+        if ($role == 'admin') {
+            return view('layouts.dashboard.admin.session.index',compact('session','users','user_by_id'));
+        } else {
+            return view('session.index',compact('session','users','user_by_id'));
+        }
+
+
     }
 
     /**
@@ -31,11 +49,23 @@ class ProgrammeSessionController extends Controller
     {
         //
 
+        $role = Auth::user()->role;
+
+        $get_users = new Users();
+
+        $id = Auth::id();
+
         $get_users = new Users();
 
         $users = $get_users->getAllUsers();
 
-        return view('session.create',compact('users'));
+        $user_by_id = $get_users->getUserById($id);
+
+        if ($role == 'admin') {
+            return view('layouts.dashboard.admin.session.create',compact('users','user_by_id'));
+        } else {
+            //return view('session.create',compact('users'));
+        }
     }
 
     /**
@@ -81,7 +111,7 @@ class ProgrammeSessionController extends Controller
 
         $session->save();
 
-        return redirect('session')->with('success', 'Information has been added');
+        return redirect('dashboard/admin/session')->with('success', 'Information has been added');
     }
 
     /**
@@ -106,11 +136,22 @@ class ProgrammeSessionController extends Controller
         //
         $session = \Afraa\ProgrammeSession::find($id);
 
+        $role = Auth::user()->role;
+
+        $id = Auth::id();
+
         $get_users = new Users();
 
         $users = $get_users->getAllUsers();
 
-        return view('session.edit',compact('session','id','users'));
+        $user_by_id = $get_users->getUserById($id);
+
+        if ($role == 'admin') {
+            return view('layouts.dashboard.admin.session.edit',compact('session','id','users','user_by_id'));
+        } else {
+            //return view('session.create',compact('users'));
+        }
+
     }
 
     /**
@@ -137,7 +178,7 @@ class ProgrammeSessionController extends Controller
 
         $session->save();
 
-        return redirect('session');
+        return redirect()->back()->with('success', 'Information has been updated');
     }
 
     /**
@@ -150,7 +191,9 @@ class ProgrammeSessionController extends Controller
     {
         //
         $session = \Afraa\ProgrammeSession::find($id);
+
         $session->delete();
-        return redirect('session')->with('success','Information has been deleted');
+
+        return redirect()->back()->with('success','Information has been deleted');
     }
 }

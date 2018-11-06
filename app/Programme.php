@@ -8,12 +8,16 @@ use Illuminate\Support\Facades\DB;
 class Programme extends Model
 {
     //
-    public function getProgramme(){
+    public function getProgramme($id){
 
-        $user =  DB::table('programmes')
-                ->join('programme_sessions', 'programmes.id', '=', 'programme_sessions.id')
-                ->select('programme_sessions.*', 'programmes.id as programme_id')
+        $programmes = DB::table('programmes')
+                ->join('programme_sessions', function ($join)  use ( &$id ) {
+
+                    $join->on('programme_sessions.id', '=', 'programmes.session_id')
+                         ->where('programmes.user_id', '=', $id);
+                })
                 ->get();
-        return $user;
+
+        return $programmes;
     }
 }

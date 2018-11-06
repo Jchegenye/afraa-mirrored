@@ -1,12 +1,12 @@
- 
+
 body::-webkit-scrollbar {
     width: .4em;
 }
- 
+
 body::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px #d11f49;
 }
- 
+
 body::-webkit-scrollbar-thumb {
   background-color: #d11f49;
   outline: 1px solid slategrey;
@@ -49,23 +49,23 @@ body{
 	color: rgba(0, 0, 0, 0.45);
 }
 
-.buttons .btn:hover{
+.buttons .btn:hover,.a .btn:hover{
  	transition: 1.0s;
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.35);
 }
-.buttons .btn{
+.buttons .btn,.a .btn{
 	margin-top: 10px;
 	color: rgba(0, 0, 0, 0.45);
 	background-color: transparent;
 	padding-right: 30px;
 	padding-left: 20px;
 }
-.buttons .active{
+.buttons .active,.a .active{
  	box-shadow: 0 5px 20px 0 #d11f497d;
  	color: #fff;
  	background-color: #d11f49 ;
 }
-.buttons{
+.buttons a .btn{
 	color: rgba(0, 0, 0, 0.45);
 	font-size: 12px;
 }
@@ -91,21 +91,21 @@ body{
 }
 .cardgrey{
 	background-color: #dadbdc;
-} 
+}
 .cardgrey .card .card-body{
 	background-color: #d11f49;
 }
 .cardgrey .card{
 	background-color: transparent;
-} 
+}
 .cardgrey .card .card-title{
 	font-size: 20px;
 	font-weight: 900;
 	color: rgb(213, 51, 67);
-} 
+}
 .cardgrey .card .card-text{
 	font-size: 13px;
-} 
+}
 .cardgrey .card .card-footer{
 	font-size: 10px;
 }
@@ -113,7 +113,7 @@ body{
 	font-size: 15px;
 }
 
-.custom-search-form .btn-default{  
+.custom-search-form .btn-default{
   border-radius: 0rem;
 }
 .custom-search-form .form-control{
@@ -167,7 +167,7 @@ body{
   height: 22px;
 }
 
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;

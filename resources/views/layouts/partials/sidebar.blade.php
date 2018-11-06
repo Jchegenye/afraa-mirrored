@@ -23,14 +23,29 @@
         </div>
 
         <div class="row buttons pl-2 pr-5">
+
+        @if(Auth::user()->role == 'admin')
+
             <div class="col-12">
-                <button type="button" class="btn btn-shadow btn-block active text-left "><i class="fas fa-tasks pr-2"></i>All Programmes</button>
+                <a href="{{url('/dashboard/admin')}}" type="button" class="button btn btn-shadow btn-block active text-left "><i class="fas fa-tasks pr-2"></i>Dashboard</a>
             </div>
             <div class="col-12">
-                <button type="button" class="btn btn-block btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Notifications</button>
+                <a href="{{url('/dashboard/users')}}" type="button" class="btn btn-block btn-shadow text-left"><i class="fas fa-tasks pr-2"></i>Users</a>
             </div>
             <div class="col-12">
-                <button type="button" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Speakers</button>
+                <a href="{{url('/dashboard/permissions')}}" type="button" class="btn btn-block btn-shadow text-left"><i class="fas fa-tasks pr-2"></i>Permissions</a>
+            </div>
+            <div class="col-12">
+                <a href="{{url('/dashboard/admin/session')}}" type="button" class="btn btn-block btn-shadow text-left"><i class="fas fa-tasks pr-2"></i>Manage Sessions</a>
+            </div>
+
+        @elseif(Auth::user()->role == 'delegate')
+
+            <div class="col-12">
+                <a href="{{url('/dashboard/delegate')}}" type="button" class="button btn btn-shadow btn-block active text-left "><i class="fas fa-tasks pr-2"></i>Dashboard</a>
+            </div>
+            <div class="col-12">
+                <a href="{{url('/dashboard/delegate/speakers')}}" type="button" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Speakers</a>
             </div>
             <div class="col-12">
                 <button type="button" class="btn btn-block btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Exhibitors</button>
@@ -38,6 +53,8 @@
             <div class="col-12">
                 <button type="button" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Social Events</button>
             </div>
+
+        @endif
         </div>
 
         <div class="row buttons text-left ml-4 mb-5 mt-5 pt-4">

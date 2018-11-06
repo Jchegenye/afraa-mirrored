@@ -32,7 +32,10 @@ class DelegateController extends Controller
         $user = Auth::id();
 
         $programme_instance = new Programme();
-        $programme = $programme_instance->getProgramme();
+
+        $programme = $programme_instance->getProgramme($user);
+
+        //dd($programme);
 
         $session = ProgrammeSession::all();
 

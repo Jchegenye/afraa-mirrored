@@ -8,8 +8,8 @@
 
 <div class="row">
     <div class="col-md-9 heading">
-        <h1 class="page-header">All Programmes</h1>
-        <p>Add a New User and assign a specific role with certain permissions</p>
+        <h1 class="page-header">All Sessions</h1>
+        <p>{{ __('Add a New User and assign a specific role with certain permissions') }}</p>
     </div>
     <div class="col-md-3">
         <div class="input-group custom-search-form">
@@ -42,7 +42,7 @@
             <div class="item" data-hash="zero">
                 <div class="card shadow-all" style="background-image: url({{ asset('images/Programmes1.png') }});">
                     <div class="card-body p-3 pt-4 align-self-center">
-                        <div class="card-title"><strong>{{$sessions['title']}}</strong></div>
+                        <div class="card-title text-capitalize"><strong>{{$sessions['title']}}</strong></div>
                         <div class="card-text text-justify">{{$sessions['description']}}</div>
                         <div class="card-footer p-0 border-0">
 
@@ -55,7 +55,7 @@
                                 {{$start_time}}
                             </span>
 
-                            <form class="" method="post" action="{{url('programme')}}" enctype="multipart/form-data">
+                            <form class="" method="post" action="{{url('dashboard/delegate/programme')}}" enctype="multipart/form-data">
                                 @csrf
                                 <input name="session_id" type="hidden" value=" {{$sessions['id']}}">
                                 <button class="btn btn-link text-white text-small" role="link" type="submit">Add to calender<i class="fas fa-briefcase pl-2"></i></button>

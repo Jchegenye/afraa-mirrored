@@ -59,7 +59,7 @@ class ProgrammeController extends Controller
 
         $programme->save();
 
-        return redirect('programme')->with('success', 'Information has been added');
+        return redirect()->back()->with('success', 'Information has been added');
     }
 
     /**
@@ -122,6 +122,6 @@ class ProgrammeController extends Controller
         //
         $programme = \Afraa\Programme::find($id);
         $programme->delete();
-        return redirect('programme')->with('success','Information has been deleted');
+        return redirect('dashboard/delegate')->with('success','Information has been deleted');
     }
 }
