@@ -10,7 +10,9 @@
     <title>{{ config('app.name', 'AFRAA') }} | @yield('title')</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- <script src="{{ asset('js/app.js') }}" defer></script> -->
+
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -19,8 +21,26 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+    <link rel="stylesheet" href="/plugin/intl-tel-input/build/css/intlTelInput.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.3/css/bootstrap-select.min.css">
+
+    <style>
+        #phone .intl-tel-input {
+            display: table-cell;
+        }
+        #phone .intl-tel-input .selected-flag {
+            z-index: 4;
+        }
+        #phone .intl-tel-input .country-list {
+            z-index: 5;
+        }
+        #phone.input-group #phone.intl-tel-input{
+            border-top-left-radius: 4px;
+            border-top-right-radius: 0;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 0;
+        }
+    </style>
 
     @yield('head')
 </head>
@@ -80,35 +100,65 @@
         </nav>
 
         <main class="py-4">
+            @if (session('status'))
+                <div class="alert alert-primary">
+                    {{ session('status') }}
+                </div>
+            @endif
+            @if (session('warning'))
+                <div class="alert alert-warning">
+                    {{ session('warning') }}
+                </div>
+            @endif
+
+            @if (session('information'))
+                <div class="alert alert-info">
+                    {{ session('information') }}
+                </div>
+            @endif
+            @if (session('successful'))
+                <div class="alert alert-success">
+                    {{ session('successful') }}
+                </div>
+            @endif
+            @if (session('unsuccessful'))
+                <div class="alert alert-danger">
+                    {{ session('unsuccessful') }}
+                </div>
+            @endif
+
             @yield('content')
         </main>
-
-        @hasSection('dashboard')
-            <div class="container-fluid">
-                <div class="row justify-content-center">
-
-                    <div class="col-md-1">
-                        @include('layouts.sidebar')
-                    </div>
-
-                    <div class="col-md-11">
-                        
-                        @hasSection('users')
-                            <div class="pull-right">
-                                @yield('users')
-                            </div>
-
-                            <div class="clearfix"></div>
-                        @endif
-                    
-                    </div>
-                    
-                </div>
-            </div> 
-        @endif
         
     </div>
 
+    <!-- Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.3/js/bootstrap-select.min.js"></script>
+    
+    <!-- Telephone with Flug Input plugin -->
+    <script src="/plugin/intl-tel-input/build/js/intlTelInput-jquery.js"></script>
+    <script src="/plugin/intl-tel-input/build/js/intlTelInput.js"></script>
+
+    <!-- Country Picker Plugin -->
+    <script src="/plugin/bootstrap-country-picker-jQuery/js/countrypicker.js"></script>
+
+<script>
+
+    var input = document.querySelector("#phone");
+    window.intlTelInput(input, {
+    initialCountry: "auto",
+    geoIpLookup: function(callback) {
+        $.get('https://ipinfo.io', function() {}, "jsonp").always(function(resp) {
+        var countryCode = (resp && resp.country) ? resp.country : "";
+        callback(countryCode);
+        });
+    },
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/8.4.6/js/utils.js" // just for formatting/placeholders etc
+    });
+  
+</script>
 
 </body>
 </html>

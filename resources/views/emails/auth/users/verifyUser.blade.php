@@ -85,9 +85,9 @@
 			<!-- fix for gmail -->
 			<tr>
 				<td class="hide">
-					<table width="600" cellpadding="0" cellspacing="0" style="width:600px !important;">
+					<table width="100%" cellpadding="0" cellspacing="0" style="width:100% !important;">
 						<tr>
-							<td style="min-width:600px; font-size:0; line-height:0;">&nbsp;</td>
+							<td style="min-width:100%; font-size:0; line-height:0;">&nbsp;</td>
 						</tr>
 					</table>
 				</td>
@@ -98,9 +98,9 @@
 					<table data-module="module-1" data-thumb="thumbnails/01.png" width="100%" cellpadding="0" cellspacing="0">
 						<tr>
 							<td data-bgcolor="bg-module" bgcolor="#eaeced">
-								<table class="flexible" width="600" align="center" style="margin:0 auto;" cellpadding="0" cellspacing="0">
+								<table class="flexible" width="100%" align="center" style="margin:0 auto;" cellpadding="0" cellspacing="0">
 									<tr>
-										<td style=" background: #f9f9f9; position: relative; width: 600px;">
+										<td style=" background: #f9f9f9; position: relative; width: 100%;">
 											<table width="100%" cellpadding="0" cellspacing="0" style=" padding: 5px 15px 5px 0px;">
 												<tr>
 													<th class="flex" width="113" align="left" style="padding:0;">
@@ -134,10 +134,10 @@
 					<table data-module="module-2" data-thumb="thumbnails/02.png" width="100%" cellpadding="0" cellspacing="0">
 						<tr>
 							<td data-bgcolor="bg-module" bgcolor="#eaeced">
-								<table class="flexible" width="600" align="center" style="margin:0 auto;" cellpadding="0" cellspacing="0">
-									<tr>
-										<td class="img-flex"><img src="https://legibratest.com/demo/afraa-imgs/img-01.jpg" style="vertical-align:top; object-fit:cover;" width="600" height="240" alt="" /></td>
-									</tr>
+								<table class="flexible" width="100%" align="center" style="margin:0 auto;" cellpadding="0" cellspacing="0">
+									<!-- <tr>
+										<td class="img-flex"><img src="https://legibratest.com/demo/afraa-imgs/img-01.jpg" style="vertical-align:top; object-fit:cover;" width="100%" height="240" alt="" /></td>
+									</tr> -->
 									<tr>
 										<td data-bgcolor="bg-block" class="holder" style="padding:58px 60px 52px;" bgcolor="#f9f9f9">
 											<table width="100%" cellpadding="0" cellspacing="0">
@@ -150,9 +150,15 @@
 													<td data-color="text" data-size="size text" data-min="10" data-max="26" data-link-color="link text color" data-link-style="font-weight:bold; text-decoration:underline; color:#40aceb;" align="left" style="color:#675C5C; padding:0 0 23px;">
 														Welcome, you have successfully joined us. 
 														
+														<!-- @isset($user['password'])
 														<br/><br/>
-														We hope that this is your email <span style="color: #3b68b1; cursor: pointer;">{{$user['email']}}</span>
-														
+															This is your password:-
+																<br/>
+																<span style="color: #3b68b1; cursor: pointer;">{{$user['password']}}</span>
+														@endisset -->
+
+														@php Crypt::decrypt($user['password']) @endphp
+
 														<br/><br/>
 														Kindly <a href="{{url('user/verify', $user->verifyUser->token)}}" target="_blunk" style="color: #3b68b1; cursor: pointer; text-decoration: none;">click here</a> to verify your account. We just need to know that your the owner of this account.
 														
@@ -188,7 +194,7 @@
 					<table data-module="module-7" data-thumb="thumbnails/07.png" width="100%" cellpadding="0" cellspacing="0">
 						<tr>
 							<td data-bgcolor="bg-module" bgcolor="#eaeced">
-								<table class="flexible" width="600" align="center" style="margin:0 auto;" cellpadding="0" cellspacing="0">
+								<table class="flexible" width="100%" align="center" style="margin:0 auto;" cellpadding="0" cellspacing="0">
 									<tr>
 										<td class="footer" style="background: #f9f9f9; padding: 20px 15px 10px 15px;">
 											<table width="100%" cellpadding="0" cellspacing="0">

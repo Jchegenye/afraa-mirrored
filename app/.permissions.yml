@@ -6,12 +6,18 @@ admin:
         - access_to_manage_roles
         - access_to_manage_programme
         - access_to_manage_sponsors
+        - access_to_delete_user
+        - access_to_edit_user
+        - test_11
 ## MANAGER PERMISSIONS
 manager:
     permission:
         - access_to_manage_users
         - access_to_manage_programme
         - access_to_manage_sponsors
+        - access_to_edit_programme
+        - acctest_22
+        - acc_test_23
 ## DELEGATES PERMISSIONS
 delegate:
     permission:
@@ -21,6 +27,10 @@ delegate:
         - access_to_view_notifications
         - access_to_view_profile
         - access_to_view_select_add_program
+        - access_to_edit_exibitors
+        - test_24
+        - test_25
+        - test_26
 ## EXIBITORS PERMISSIONS
 exibitor:
     permission:
@@ -29,6 +39,11 @@ exibitor:
         - access_to_view_programme
         - access_to_view_notifications
         - access_to_view_profile
+        - access_to_edit_profile
+        - test_27
+        - test_28
+        - test_29
+        - test_30
 ## AUTHOR PERMISSIONS
 author:
     permission:
@@ -40,6 +55,12 @@ author:
         - access_to_view_profile
         - access_to_guest_page
         - access_to_edit_floor_plan
+        - access_to_edit_profile
+        - test_31
+        - test_32
+        - test_33
+        - test_34
+        - test_35
 ## SPEAKER PERMISSIONS
 speaker:
     permission:
@@ -48,3 +69,10 @@ speaker:
         - access_to_view_programmes
         - access_to_view_notifications
         - access_to_view_profile
+        - access_to_edit_profile
+        - test_36
+        - test_37
+        - test_38
+        - test_39
+        - test_40
+        - test_41

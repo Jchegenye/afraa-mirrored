@@ -3,7 +3,7 @@
 @section('title', 'Register')
 
 @section('head')
-    {{-- <script src='https://www.google.com/recaptcha/api.js'></script> --}}
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 @endsection
 
 @section('content')
@@ -93,16 +93,12 @@
 
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
-                                {{-- <div class="g-recaptcha" data-sitekey="
-                                @if (env('APP_ENV')!='Production')
-                                {{ env('GOOGLE_RECAPTCHA_KEY') }}
-                                @endif
-                                "></div>
+                                <div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_KEY') }}"></div>
                                 @if ($errors->has('g-recaptcha-response'))
                                     <span class="invalid-feedback" style="display: block;">
                                         <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
                                     </span>
-                                @endif --}}
+                                @endif
                             </div>
                         </div>
 

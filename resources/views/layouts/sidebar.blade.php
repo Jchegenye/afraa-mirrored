@@ -10,9 +10,6 @@
                 <a href="{{url('/dashboard/users')}}">Users</a> 
             </li>
             <li>
-                <a href="{{url('/dashboard/roles')}}">Roles</a>
-            </li>
-            <li>
                 <a href="{{url('/dashboard/permissions')}}">Permissions</a>
             </li>
         </ul>

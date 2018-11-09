@@ -6,11 +6,13 @@ use Laravel\Scout\Searchable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use SoftDeletes;
     //use Searchable;
 
     /**
@@ -30,6 +32,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Lets use Soft Delete since we do not want to delete records permanently
+     * The attributes that should be mutated to dates.
+     * 
+     * @author Jackson A. Chegenye
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
 
     /**
      * Register our primary key here,
@@ -75,5 +86,6 @@ class User extends Authenticatable
     {
         return $this->hasOne('Afraa\Model\Admin\Users\VerifyUser');
     }
+    
     
 }

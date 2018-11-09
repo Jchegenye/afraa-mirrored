@@ -23,6 +23,12 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('role')->nullable();
             $table->json('permissions')->nullable();
+
+            $table->unsignedBigInteger('phone')->nullable();
+            $table->text('bio')->nullable();
+            $table->string('photo')->nullable();
+            $table->string('country')->nullable();
+
             $table->string('verification_token')->unique()->nullable();
             $table->string('confirmation_code')->nullable();
 
