@@ -4,6 +4,9 @@ namespace Afraa\Http\Controllers\Speaker;
 
 use Illuminate\Http\Request;
 use Afraa\Http\Controllers\Controller;
+use Afraa\Speaker;
+use Afraa\Model\Users;
+use Illuminate\Support\Facades\Auth;
 
 class SpeakerController extends Controller
 {
@@ -17,7 +20,7 @@ class SpeakerController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +28,21 @@ class SpeakerController extends Controller
      */
     public function index()
     {
-        return view('dashboard/speaker');
+
+        $speakers_list = new Speaker;
+
+        $speakers = $speakers_list->getSpeakers();
+
+        $role = Auth::user()->role;
+
+        $id = Auth::id();
+
+        $get_users = new Users();
+
+        $user_by_id = $get_users->getUserById($id);
+
+        return view('layouts.dashboard.speakers.index',compact('speakers','user_by_id'));
+
     }
 
     /**
@@ -58,6 +75,19 @@ class SpeakerController extends Controller
     public function show($id)
     {
         //
+        $speakers_list = new Speaker;
+
+        $speakers = $speakers_list->getSpeakerById($id);
+
+        $role = Auth::user()->role;
+
+        $id = Auth::id();
+
+        $get_users = new Users();
+
+        $user_by_id = $get_users->getUserById($id);
+
+        return view('layouts.dashboard.speakers.show',compact('speakers','user_by_id'));
     }
 
     /**

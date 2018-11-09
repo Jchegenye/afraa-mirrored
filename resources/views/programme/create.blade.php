@@ -14,12 +14,21 @@
             <input type="text" class="form-control" name="venue">
         </div>
         <div class="row">
-                <p>speaker_id</p>
-            <input type="text" class="form-control" name="speaker_id">
+            <p>speaker</p>
+
+            <select class="form-control" name="speaker_id">
+                @foreach( $users as $user )
+                    <option value="{{ $user->uid }}" >{{ $user->name }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="row">
-                <p>moderator_id</p>
-            <input type="text" class="form-control" name="moderator_id">
+            <p>moderator</p>
+            <select class="form-control" name="moderator_id">
+                @foreach( $users as $user )
+                    <option value="{{ $user->uid }}" >{{ $user->name }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="row">
                 <p>start_time</p>

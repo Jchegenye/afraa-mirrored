@@ -3,7 +3,12 @@
 namespace Afraa\Http\Controllers\Delegate;
 
 use Illuminate\Http\Request;
+use Afraa\Programme;
+use Afraa\ProgrammeSession;
+use Afraa\FeaturedSession;
+use Afraa\Model\Users;
 use Afraa\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class DelegateController extends Controller
 {
@@ -17,7 +22,7 @@ class DelegateController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +30,27 @@ class DelegateController extends Controller
      */
     public function index()
     {
-        return view('dashboard/delegate');
+        $user = Auth::id();
+
+        $programme_instance = new Programme();
+
+        $programme = $programme_instance->getProgramme($user);
+
+        //dd($programme);
+
+        $session = ProgrammeSession::all();
+
+        $featured_sessions = new FeaturedSession;
+
+        $featured_session = $featured_sessions->getLatest();
+
+        $get_users = new Users();
+
+        $users = $get_users->getAllUsers();
+
+        $user_by_id = $get_users->getUserById($user);
+
+        return view('dashboard/delegate',compact('session','featured_session','programme','user_by_id'));
     }
 
     public function viewPrograme(){

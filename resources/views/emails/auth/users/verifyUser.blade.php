@@ -150,14 +150,14 @@
 													<td data-color="text" data-size="size text" data-min="10" data-max="26" data-link-color="link text color" data-link-style="font-weight:bold; text-decoration:underline; color:#40aceb;" align="left" style="color:#675C5C; padding:0 0 23px;">
 														Welcome, you have successfully joined us. 
 														
-														<!-- @isset($user['password'])
+														{{-- @isset($user['password'])
 														<br/><br/>
 															This is your password:-
 																<br/>
 																<span style="color: #3b68b1; cursor: pointer;">{{$user['password']}}</span>
-														@endisset -->
+														@endisset --}}
 
-														@php Crypt::decrypt($user['password']) @endphp
+														{{-- @php Crypt::decrypt($user['password']) @endphp --}}
 
 														<br/><br/>
 														Kindly <a href="{{url('user/verify', $user->verifyUser->token)}}" target="_blunk" style="color: #3b68b1; cursor: pointer; text-decoration: none;">click here</a> to verify your account. We just need to know that your the owner of this account.

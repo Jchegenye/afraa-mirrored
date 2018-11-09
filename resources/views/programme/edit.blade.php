@@ -16,11 +16,28 @@
         </div>
         <div class="row">
             <label for="number">speaker:</label>
-            <input type="text" class="form-control" name="speaker_id" value="{{$programme->speaker_id}}">
+            <select class="form-control" name="speaker_id">
+                @foreach( $users as $user )
+                    <option value="{{ $user->uid }}"
+                        @if ($user->uid === $programme->speaker_id)
+                            selected="selected"
+                        @endif
+                    >{{ $user->name }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="row">
             <label for="number">moderator:</label>
-            <input type="text" class="form-control" name="moderator_id" value="{{$programme->moderator_id}}">
+            <select class="form-control" name="moderator_id">
+                @foreach( $users as $user )
+                    <option value="{{ $user->uid }}"
+                        @if ($user->uid === $programme->moderator_id)
+                            selected="selected"
+                        @endif
+                    >{{ $user->name }}</option>
+                @endforeach
+            </select>
+
         </div>
         <div class="row">
             <label for="number">start_time:</label>
