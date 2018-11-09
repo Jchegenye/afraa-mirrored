@@ -3,8 +3,9 @@
 namespace Afraa\Http\Controllers\Delegate;
 
 use Illuminate\Http\Request;
-use Afraa\ProgrammeSession;
 use Afraa\Programme;
+use Afraa\ProgrammeSession;
+use Afraa\FeaturedSession;
 use Afraa\Model\Users;
 use Afraa\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -39,13 +40,17 @@ class DelegateController extends Controller
 
         $session = ProgrammeSession::all();
 
+        $featured_sessions = new FeaturedSession;
+
+        $featured_session = $featured_sessions->getLatest();
+
         $get_users = new Users();
 
         $users = $get_users->getAllUsers();
 
         $user_by_id = $get_users->getUserById($user);
 
-        return view('dashboard/delegate',compact('session','programme','user_by_id'));
+        return view('dashboard/delegate',compact('session','featured_session','programme','user_by_id'));
     }
 
     /**

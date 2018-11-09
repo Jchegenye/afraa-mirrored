@@ -1,26 +1,12 @@
 <?php
 
-namespace Afraa\Http\Controllers\Speaker;
+namespace Afraa\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Afraa\Http\Controllers\Controller;
-use Afraa\Speaker;
-use Afraa\Model\Users;
-use Illuminate\Support\Facades\Auth;
+use \Afraa\FeaturedSession;
 
-class SpeakerController extends Controller
+class FeaturedSessionController extends Controller
 {
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -28,21 +14,7 @@ class SpeakerController extends Controller
      */
     public function index()
     {
-
-        $speakers_list = new Speaker;
-
-        $speakers = $speakers_list->getSpeakers();
-
-        $role = Auth::user()->role;
-
-        $id = Auth::id();
-
-        $get_users = new Users();
-
-        $user_by_id = $get_users->getUserById($id);
-
-        return view('layouts.dashboard.speakers.index',compact('speakers','user_by_id'));
-
+        //
     }
 
     /**
@@ -64,6 +36,13 @@ class SpeakerController extends Controller
     public function store(Request $request)
     {
         //
+        $session= new \Afraa\FeaturedSession;
+
+        $session->session_id = $request->get('session_id');
+
+        $session->save();
+
+        return redirect('dashboard/admin/session')->with('success', 'Information has been added');
     }
 
     /**
@@ -75,19 +54,6 @@ class SpeakerController extends Controller
     public function show($id)
     {
         //
-        $speakers_list = new Speaker;
-
-        $speakers = $speakers_list->getSpeakerById($id);
-
-        $role = Auth::user()->role;
-
-        $id = Auth::id();
-
-        $get_users = new Users();
-
-        $user_by_id = $get_users->getUserById($id);
-
-        return view('layouts.dashboard.speakers.show',compact('speakers','user_by_id'));
     }
 
     /**

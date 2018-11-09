@@ -1,3 +1,8 @@
+
+@php
+//dd($featured_session);
+@endphp
+
 @extends('layouts.app')
 
 @section('title', 'Dashboard/Admin/Session/view')
@@ -21,24 +26,41 @@
         </div>
     </div>
     <div class="row pt-4">
-        <div class="col-md-7 mr-0  pr-0"><img class="img-fluid rounded" src="{{ asset('images/wires.png') }}" alt="wires"></div>
-        <div class="col-md-5 ml-0 cardgrey">
-            <div class="card p-3 border-0">
-                <div class="card-title pl-3"><p>Lorem Ipsum Dolor Sitam Etation<p></div>
-                <div class="card-body rounded text-white">
-                    <div class="card-text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis  ostrud exerci tation</div>
-                    <div class="card-footer p-1 mt-3">
-                        <span>2th Nov 2018   <span class="pl-2">1400hrs</span> <span class="pl-4">Add to calender<i class="fas fa-briefcase pl-2"></i></span> </span>
+        @foreach($featured_session as $featured_sessions)
+            <div class="col-md-7 mr-0  pr-0"><img class="img-fluid rounded w-100" src="{{ asset('images') }}/{{$featured_sessions->featured_image}}" alt="wires"></div>
+            <div class="col-md-5 ml-0 cardgrey">
+                <div class="card p-3 border-0">
+                    <div class="card-title pl-3 text-capitalize"><p>{{$featured_sessions->title}}<p></div>
+                    <div class="card-body rounded text-white">
+                        <div class="card-text">{{$featured_sessions->description}}</div>
+                        <div class="card-footer p-1 mt-3">
+                            @php
+                                $date = date("j F, Y", strtotime($featured_sessions->date));
+                                $start_time = date("h:i:sa", strtotime($featured_sessions->date));
+                            @endphp
+                            <span>
+
+                                {{$date}}
+                                <span class="pl-2">
+                                    {{$start_time}}
+                                </span>
+                                <span class="pl-4">
+
+
+
+                                </span>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        @endforeach
     </div>
     <div class="row mt-4 pl-2 pt-4 mb-4 scroll_cards">
         <div class="owl-carousel owl-theme pt-4">
             @foreach($session as $sessions)
                 <div class="item" data-hash="zero">
-                    <div class="card shadow-all" style="background-image: url({{ asset('images/Programmes1.png') }});">
+                    <div class="card shadow-all" style="background-image: url({{ asset('images') }}/{{$sessions['featured_image']}});">
                         <div class="card-body p-3 pt-4 align-self-center">
                             <div class="card-title text-capitalize"><strong>{{$sessions['title']}}</strong></div>
                             <div class="card-text text-justify">{{$sessions['description']}}</div>
@@ -59,6 +81,12 @@
                                     <a href="{{action('ProgrammeSession\ProgrammeSessionController@edit', $sessions['id'])}}" class="btn btn-link text-white text-small">Edit</a>
                                     <button class="btn btn-link text-white text-small" type="submit">Delete</button>
                                     </p>
+                                </form>
+
+                                <form action="{{url('dashboard/admin/featured_session')}}" method="post">
+                                    @csrf
+                                    <input name="session_id" type="hidden" value="{{$sessions['id']}}">
+                                    <button class="btn btn-link text-white text-small" type="submit">{{__('Set As Featured')}}</button>
                                 </form>
 
                             </div>

@@ -80,9 +80,11 @@ Route::group(['middleware' => 'auth'], function()
 {
     Route::prefix('dashboard/admin')->group(function () {
 
-       Route::resource('notifications','Notifications\NotificationsController')->middleware('admin.permission:access_to_manage_roles');
+        Route::resource('notifications','Notifications\NotificationsController')->middleware('admin.permission:access_to_manage_roles');
 
         Route::resource('session','ProgrammeSession\ProgrammeSessionController')->middleware('admin.permission:access_to_manage_roles');
+
+        Route::resource('featured_session','FeaturedSessionController')->middleware('admin.permission:access_to_manage_roles');
 
     });
 
@@ -93,7 +95,11 @@ Route::group(['middleware' => 'auth'], function()
         Route::resource('notifications','Notifications\NotificationsController');
 
         Route::resource('session','ProgrammeSession\ProgrammeSessionController');
+
+        Route::resource('speakers','Speaker\SpeakerController');
+
     });
+
 });
 
 // Route::resource('programme', 'Programme\ProgrammeController');

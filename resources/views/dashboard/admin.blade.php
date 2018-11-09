@@ -14,9 +14,8 @@
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
-                <a href="{{ url('/session/create') }}" class="btn btn-success">Add a Session</a>
 
-                @foreach($session as $sessions)
+                {{-- @foreach($session as $sessions)
 
                     {{$sessions['id']}}
                     {{$sessions['title']}}
@@ -61,7 +60,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                </div>
+                </div> --}}
 
             </div>
         </div>

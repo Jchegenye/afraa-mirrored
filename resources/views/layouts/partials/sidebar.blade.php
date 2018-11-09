@@ -30,13 +30,16 @@
                 <a href="{{url('/dashboard/admin')}}" type="button" class="button btn btn-shadow btn-block active text-left "><i class="fas fa-tasks pr-2"></i>Dashboard</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/users')}}" type="button" class="btn btn-block btn-shadow text-left"><i class="fas fa-tasks pr-2"></i>Users</a>
+                <a href="{{url('/dashboard/admin')}}" type="button" class="btn btn-block btn-shadow text-left"><i class="fas fa-tasks pr-2"></i>Users</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/permissions')}}" type="button" class="btn btn-block btn-shadow text-left"><i class="fas fa-tasks pr-2"></i>Permissions</a>
+                <a href="{{url('/dashboard/admin')}}" type="button" class="btn btn-block btn-shadow text-left"><i class="fas fa-tasks pr-2"></i>Permissions</a>
             </div>
             <div class="col-12">
                 <a href="{{url('/dashboard/admin/session')}}" type="button" class="btn btn-block btn-shadow text-left"><i class="fas fa-tasks pr-2"></i>Manage Sessions</a>
+            </div>
+            <div class="col-12">
+                <a href="{{url('/dashboard/delegate/speakers')}}" type="button" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Speakers</a>
             </div>
 
         @elseif(Auth::user()->role == 'delegate')

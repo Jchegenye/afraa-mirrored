@@ -3,6 +3,7 @@
 namespace Afraa\Http\Controllers\ProgrammeSession;
 
 use App\ProgrammeSession;
+use Afraa\FeaturedSession;
 use Afraa\Model\Users;
 use Illuminate\Http\Request;
 use Afraa\Http\Controllers\Controller;
@@ -21,6 +22,10 @@ class ProgrammeSessionController extends Controller
         //
         $session = \Afraa\ProgrammeSession::all();
 
+        $featured_sessions = new FeaturedSession;
+
+        $featured_session = $featured_sessions->getLatest();
+
         $role = Auth::user()->role;
 
         $get_users = new Users();
@@ -32,9 +37,9 @@ class ProgrammeSessionController extends Controller
         $user_by_id = $get_users->getUserById($id);
 
         if ($role == 'admin') {
-            return view('layouts.dashboard.admin.session.index',compact('session','users','user_by_id'));
+            return view('layouts.dashboard.admin.session.index',compact('session','featured_session','users','user_by_id'));
         } else {
-            return view('session.index',compact('session','users','user_by_id'));
+            return view('session.index',compact('session','featured_sessions','users','user_by_id'));
         }
 
 
