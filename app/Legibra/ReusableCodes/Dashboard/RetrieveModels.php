@@ -42,6 +42,7 @@ use Illuminate\Support\Facades\Auth;
             //$usersSearch = User::where('name','LIKE',"%{$search}%")->paginate(4); //Get search results by name
             $usersSearch = User::withTrashed()
                         ->where('name','LIKE',"%{$search}%")
+                        ->orderBy('uid', 'desc')
                         ->paginate(4);
             /**
              * Permissions Modal

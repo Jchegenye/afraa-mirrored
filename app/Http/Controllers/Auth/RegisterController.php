@@ -117,7 +117,7 @@ class RegisterController extends Controller
             'token' => sha1(time())
         ]);
 
-        //\Mail::to($user->email)->send(new VerifyMail($user));
+        \Mail::to($user->email)->send(new VerifyMail($user));
 
         return $user;
 

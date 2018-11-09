@@ -124,9 +124,15 @@ return [
     |
     */
 
+    // 'custom' => [
+    //     'attribute-name' => [
+    //         'rule-name' => 'custom-message',
+    //     ],
+    // ],
+
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'permissions' => [
+            'required_without_all' => 'Atleast on permission is required!',
         ],
     ],
 

@@ -76,15 +76,18 @@
                     </td>
                     <td>
                         <div class="btn-group btn-group-toggle" >
+
                             <label class="btn btn-success btn-sm active">
                                 <a href="{!! url('dashboard/users/edit/' . $user->uid ) !!}/" title="Edit" style="color:#fff; text-decoration:none;">Edit
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                 </a>
                             </label>
+                            
                             <label class="btn btn-danger btn-sm">
                                 <a href="{!! url('dashboard/users/trash/' . $user->uid) !!}" title="Trash" style="color:#fff; text-decoration:none;">Trash
                                 </a>
                             </label>
+
                         </div>
                     </td>
                 </tr>

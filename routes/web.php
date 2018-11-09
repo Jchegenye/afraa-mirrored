@@ -58,10 +58,7 @@ Route::group(['middleware' => 'auth'], function()
                 'uses' => 'ManageUsersController@index',
                 'middleware' => 'permission:access_to_manage_users'
             ]);
-            Route::get('/permissions', [
-                'uses' => 'ManagePermissionsController@index',
-                'middleware' => 'permission:access_to_manage_permissions'
-            ]);
+            Route::resource('/permissions','ManagePermissionsController');
 
             //CRUD
             Route::get('/users/trash/{uid}', [
@@ -72,11 +69,19 @@ Route::group(['middleware' => 'auth'], function()
                 'uses' => 'ManageUsersController@edit',
                 //'middleware' => 'permission:access_to_edit_user'
             ]);
-            Route::put('/users/edit/{uid}/', [
+            Route::get('/users/create/', [
+                'uses' => 'ManageUsersController@create',
+                //'middleware' => 'permission:access_to_add_user'
+            ]);
+            Route::post('/users/store', [
+                'uses' => 'ManageUsersController@store',
+            ]);
+            
+            Route::put('/users/update/{uid}/', [
                 'uses' => 'ManageUsersController@update',
                 //'middleware' => 'permission:access_to_update_user'
             ]);
-
+            
         });
 
         //Delegate Dashboard - Internal Pages

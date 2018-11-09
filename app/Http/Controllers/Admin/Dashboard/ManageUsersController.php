@@ -3,19 +3,26 @@
 namespace Afraa\Http\Controllers\Admin\Dashboard;
 
 use Afraa\User;
+use Afraa\Mail\VerifyMail;
+use Afraa\Model\Admin\Users\VerifyUser;
 use Afraa\Model\Admin\Dashboard\UserPermissions;
+use Afraa\Legibra\ReusableCodes\GenerateCustomVerifyTokenTrait;
 use Validator;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request;
 use Afraa\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
 use Afraa\Legibra\ReusableCodes\Dashboard\RetrieveModels;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Crypt;
 
 class ManageUsersController extends Controller
 {
 
     use RetrieveModels;
+    use GenerateCustomVerifyTokenTrait;
     
     /**
      * Create a new controller instance.
@@ -107,10 +114,27 @@ class ManageUsersController extends Controller
             ->where('verified','=','1')
             ->first();
 
-        $rolePermissions = $this->RetrieveUsers();
+        if(empty($user)){
 
-        return View('layouts.dashboard.admin.crud.users.edit')
-            ->with(['user' => $user])->with($rolePermissions);
+            Session::flash('warning', 'User in not verified!');
+            return redirect()->back();
+
+        }else{
+
+            if($user->role == 'admin'){
+            
+                return redirect('dashboard/users')->with('unsuccessful', 'Not authorized to edit!');
+
+            }else{
+
+                $rolePermissions = $this->RetrieveUsers();
+
+                return View('layouts.dashboard.admin.crud.users.edit')
+                    ->with(['user' => $user])->with($rolePermissions);
+
+            }
+        
+        }
 
     }
 
@@ -122,52 +146,92 @@ class ManageUsersController extends Controller
      * @param  string  $id
      * @return Response
      */
-    public function update(Request $request,$uid){
+    public function update(Request $request, $uid){
 
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|unique:users|max:255',
-            'roleselector' => 'required',
-            'permissions[]' => 'required',
+        request()->validate([
+
+            'name' => 'required|max:255',
+            'permissions' => 'required_without_all:permissions',
+
         ]);
-        
-        if ($validator->fails()) {
 
-            return back()
-                    ->withErrors($validator)
-                    ->withInput();;
+        User::where('uid','=',$uid)->update(
+            [
+                'name' => $request->input('name'),
+                'role' => $request->input('roleselector'),
+                'permissions' => json_encode($request->input('permissions')),
+            ]
+        );
 
-        } else {
+        Session::flash('successful', 'Profile successfully updated!');
+        return redirect()->back()->withInput();
 
-            if (Cache::has('role_' . $id))
+    }
+
+    public function create(){
+
+        $data = $this->RetrieveUsers();
+        return view('layouts.dashboard.admin.crud.users.create')->with($data);
+
+    }
+
+    public function store(Request $request){
+
+        request()->validate([
+
+            'name' => 'required|unique:users,name|min:4',
+            'email' => 'email|unique:users,email|required',
+            'phone' => 'required|unique:users|numeric|digits_between:1,14',
+            'bio' => 'required',
+            'photo' => 'required'
+        ]);
+
+        $role = $request->input('roleselector');
+        $code = $this->generatePermissionsCode();
+
+        $queryPermissions = UserPermissions::where('role','=', $role)->first();
+
+        //$pw = Hash::make(Input::get('password'));
+        $pw = Hash::make(str_random(8));
+
+        if($queryPermissions){
+
+            //Check existing photo
+            if($request->hasfile('photo'))
             {
-                $role = Cache::get('role_' . $id);
+                $file = $request->file('photo');
+                $myPhoto=time().$file->getClientOriginalName();
+                $file->move(public_path().'/images/', $myPhoto);
             }
-            else{
-                $role = Role::find($id);
-                Cache::put('role_' . $id, $role, 360);
-            }
-            $role->permission_name = Input::get('permission_name');
-            $role->save();
 
-            Cache::forget('role_' . $id);
-            
-            // $update = User::where('uid', '=', (int)$uid)
-            // ->where('verified','=','1')
-            // ->first();
-            // $update->name = $request->name;
-            // $update->save();
+                //Store user details
+                $user = new User;
+                $user->name = $request->input('name');
+                $user->email = $request->input('email');
+                $user->password = $pw;
+                $user->phone = $request->input('phone');
+                $user->bio = $request->input('bio');
+                $user->photo = $myPhoto;
+                $user->country = $request->input('country');
+                $user->remember_token = $request->input('_token');
+                $user->role = $request->input('roleselector');
+                $user->permissions = $queryPermissions->permissions;
+                $user->verification_token = $code;
+                $user->save();
 
-            return back()->with('successful', 'Profile updated!');
+                $decrypted = Hash::check('plain-text', $pw);
+
+                $verifyUser = VerifyUser::create([
+                    'user_uid' => $user->uid,
+                    'token' => sha1(time())
+                ]);
+                
+                \Mail::to($user->email)->send(new VerifyMail($user, $decrypted));
+
+                Session::flash('successful', 'Profile successfully updated!');
+                return redirect()->back()->withInput();
 
         }
-        
-
-
-        // $update = User::where('uid', '=', (int)$uid)
-        //     ->where('verified','=','1')
-        //     ->first();
-        // $update->name = 'New Flight Name';
-        // $update->save();
 
     }
 
