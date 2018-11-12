@@ -2,6 +2,8 @@
 <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ asset('vendor/OwlCarousel2-2.3.4/owl.carousel.min.css') }}">
 <link rel="stylesheet" href="{{ asset('vendor/OwlCarousel2-2.3.4/owl.theme.default.min.css') }}">
+<link rel="stylesheet" href="{{ asset('vendor/bootstrap-select.min.css') }}">
+<link rel="stylesheet" href="{{ asset('plugin/intl-tel-input/build/css/intlTelInput.css') }}">
 <link rel="stylesheet" href="{{ asset('css/sb-admin-2.css') }}">
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
