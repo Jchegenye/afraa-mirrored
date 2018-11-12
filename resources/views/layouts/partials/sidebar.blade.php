@@ -9,15 +9,19 @@
             <div class="card-body">
                 <div class="card-title text-capitalize">
                     <h4>
-                        @foreach ($user_by_id as $user)
-                            {{$user->name}}
-                        @endforeach
+                        @isset($user_by_id)
+                            @foreach ($user_by_id as $user)
+                                {{$user->name}}
+                            @endforeach
+                        @endisset
                     </h4>
                 </div>
                 <div class="card-text text-capitalize">
-                    @foreach ($user_by_id as $user)
-                        {{$user->role}}
-                    @endforeach
+                    @isset($user_by_id)
+                        @foreach ($user_by_id as $user)
+                            {{$user->role}}
+                        @endforeach
+                    @endisset
                 </div>
             </div>
         </div>
