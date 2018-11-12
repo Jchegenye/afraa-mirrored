@@ -76,12 +76,12 @@ Route::group(['middleware' => 'auth'], function()
             Route::post('/users/store', [
                 'uses' => 'ManageUsersController@store',
             ]);
-            
+
             Route::put('/users/update/{uid}/', [
                 'uses' => 'ManageUsersController@update',
                 //'middleware' => 'permission:access_to_update_user'
             ]);
-            
+
         });
 
         //Delegate Dashboard - Internal Pages
@@ -130,6 +130,8 @@ Route::group(['middleware' => 'auth'], function()
         Route::resource('session','ProgrammeSession\ProgrammeSessionController');
 
         Route::resource('speakers','Speaker\SpeakerController');
+
+        Route::resource('exhibitors','Exibitor\ExibitorController');
 
     });
 

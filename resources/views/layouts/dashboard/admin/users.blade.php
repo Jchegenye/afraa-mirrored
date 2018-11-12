@@ -6,16 +6,12 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
 
-        <div class="col-md-1">
-            @include('layouts.sidebar')
-        </div>
+        <div class="col-md-12">
 
-        <div class="col-md-11">
-            
             <div class="card">
 
                 <div class="card-header">
-                
+
                     <div class="row">
 
                         <div class="col-md-4 ">
@@ -36,7 +32,7 @@
                         </div>
 
                     </div>
-                
+
                 </div>
 
                 <div class="card-body">
@@ -50,9 +46,9 @@
                 </div>
 
             </div>
-                
+
         </div>
-        
+
     </div>
 </div>
 
@@ -63,13 +59,13 @@
 
             var str= $("#search").val();
             if(str == "") {
-                $.get( "{{ asset(url('users/livesearch')) }}"); 
+                $.get( "{{ asset(url('users/livesearch')) }}");
             }else {
                 $.get( "{{ asset(url('users/livesearch?uid=')) }}"+str, function( data ) {
-                    $( "#txtHint" ).html( data ); 
+                    $( "#txtHint" ).html( data );
                 });
             }
         });
-    }); 
+    });
 </script>
 @endsection

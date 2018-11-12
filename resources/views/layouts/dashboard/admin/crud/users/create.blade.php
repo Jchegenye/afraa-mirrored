@@ -22,16 +22,12 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
 
-        <div class="col-md-1">
-            @include('layouts.sidebar')
-        </div>
+        <div class="col-md-12">
 
-        <div class="col-md-11">
-            
             <div class="card">
 
                 <div class="card-header">
-                
+
                     <div class="row">
 
                         <div class="col-md-4 ">
@@ -49,7 +45,7 @@
                         </div>
 
                     </div>
-                
+
                 </div>
 
                 <div class="card-body">
@@ -99,7 +95,7 @@
 
                                                 @if ($roles->role == old('roleselector'))
                                                     <option value="{!! $roles->role !!}" @if(old('roleselector') ==! $roles->role) selected @endif selected> {{$roles->role}}</option>
-                                                
+
                                                 @else
                                                     <option value="{!! $roles->role !!}" @if(old('roleselector') ==! $roles->role) @endif> {{$roles->role}}</option>
                                                 @endif
@@ -134,7 +130,7 @@
 
                                 <div class="form-group row">
                                     <label for="bio" class="col-md-4 col-form-label text-md-right">{{ __('Bio/Description') }}</label>
-                                    
+
                                     <div class="col-md-6">
                                         <textarea class="form-control {{ $errors->has('bio') ? ' is-invalid' : '' }}" id="bio" name="bio" value="{{ old('bio') }}" rows="3"></textarea>
                                         @if ($errors->has('bio'))
@@ -163,7 +159,7 @@
                                 </div>
 
                                 <div class="form-group row">
-                                
+
                                     <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Country') }}</label>
 
                                     <div class="col-md-6">
@@ -196,9 +192,9 @@
                 </div>
 
             </div>
-                
+
         </div>
-        
+
     </div>
 </div>
 

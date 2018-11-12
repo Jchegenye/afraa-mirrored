@@ -6,11 +6,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
 
-        <div class="col-md-1">
-            @include('layouts.sidebar')
-        </div>
-
-        <div class="col-md-11">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
                     <div class="row">
@@ -56,16 +52,16 @@
                                                 <td>{{ $permission->role }}</td>
                                                 <td>
                                                     <div class="truncate-ellipsis">
-                                                    
+
                                                         @foreach ($permission->permissions as $perm)
                                                             <span class="badge badge-light">
                                                                 {{ $perm }}
                                                             </span>
                                                         @endforeach
-                                                        
+
                                                     </div>
                                                 </td>
-                                            
+
                                                 <td>
                                                     <div class="btn-group btn-group-toggle" >
 
@@ -74,7 +70,7 @@
                                                                 <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                                             </a>
                                                         </label>
-                                                        
+
                                                         <label class="btn btn-danger btn-sm">
                                                             <a href="{{action('Admin\Dashboard\ManagePermissionsController@destroy', $permission['pid'])}}" title="Trash" style="color:#fff; text-decoration:none;">Trash
                                                             </a>
@@ -82,7 +78,7 @@
 
                                                     </div>
                                                 </td>
-                                            
+
                                             </tr>
 
                                         @endforeach
@@ -90,14 +86,14 @@
 
                                 </table>
                             </div>
-                        
+
                         </div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
-        
+
     </div>
 </div>
 @endsection
