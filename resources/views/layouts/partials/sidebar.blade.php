@@ -55,7 +55,7 @@
                 <a href="{{url('/dashboard/delegate/speakers')}}" type="button" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Speakers</a>
             </div>
             <div class="col-12">
-                <button type="button" class="btn btn-block btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Exhibitors</button>
+                <a href="{{url('/dashboard/delegate/exhibitors')}}" type="button" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Exhibitors</a>
             </div>
             <div class="col-12">
                 <button type="button" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Social Events</button>

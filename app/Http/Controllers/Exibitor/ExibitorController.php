@@ -4,7 +4,7 @@ namespace Afraa\Http\Controllers\Exibitor;
 
 use Illuminate\Http\Request;
 use Afraa\Http\Controllers\Controller;
-use Afraa\Model\Users;
+use Afraa\Model\Users as Users;
 use Illuminate\Support\Facades\Auth;
 
 class ExibitorController extends Controller
@@ -32,11 +32,14 @@ class ExibitorController extends Controller
 
         $id = Auth::id();
 
+        $users = Users::where('role', 'exibitor')
+               ->get();
+
         $get_users = new Users();
 
         $user_by_id = $get_users->getUserById($id);
 
-        return view('layouts.dashboard.exhibitor.index',compact('get_users','user_by_id'));
+        return view('layouts.dashboard.exhibitors.index',compact('users','user_by_id'));
     }
 
     /**
@@ -69,6 +72,19 @@ class ExibitorController extends Controller
     public function show($id)
     {
         //
+
+        $role = Auth::user()->role;
+
+        $users = Users::where('uid', $id)
+               ->get();
+
+        $id = Auth::id();
+
+        $get_users = new Users();
+
+        $user_by_id = $get_users->getUserById($id);
+
+        return view('layouts.dashboard.exhibitors.show',compact('users','user_by_id'));
     }
 
     /**

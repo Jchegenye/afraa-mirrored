@@ -16,15 +16,27 @@
 </div>
 <div class="row pt-4">
     <div class="card-deck col-md-12">
+        @php
+            $i= 0;
+        @endphp
         @foreach($speakers as $speaker)
+            @php
+                $i++;
+            @endphp
             <div class="card">
-            <img class="card-img-top" src="{{ asset('images') }}/Delegates Profile Pic.png" alt="Card image cap">
+            <img class="card-img-top" src="{{ asset('images') }}/{{$speaker->photo}}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">{{$speaker->name}}</h5>
                 <p class="card-text">{{$speaker->title}}</p>
                 <a href="{{action('Speaker\SpeakerController@show',$speaker->uid)}}">Read More</a>
             </div>
             </div>
+            @if ($i%3==0)
+                    </div>
+                </div>
+                <div class="row pt-4">
+                    <div class="card-deck col-md-12">
+            @endif
         @endforeach
       </div>
 </div>

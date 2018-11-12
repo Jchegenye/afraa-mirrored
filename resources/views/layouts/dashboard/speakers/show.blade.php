@@ -44,7 +44,7 @@
 <div class="row pt-4">
     <div class="card-deck col-md-12">
             <div class="card">
-            <img class="card-img-top" src="{{ asset('images') }}/Delegates Profile Pic.png" alt="Card image cap">
+            <img class="card-img-top" src="{{ asset('images') }}/{{$speakers->photo}}" alt="Card image cap">
             <div class="card-body">
                 <h5 class="card-title">{{$speakers->name}}</h5>
                 <p class="card-text">{{$speakers->title}}</p>
