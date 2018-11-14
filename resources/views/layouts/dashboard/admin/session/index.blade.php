@@ -115,4 +115,104 @@
 
     </div>
 
+    <div class="row">
+        <nav class="col-md-12">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Sunday, 25 November 2018</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Monday, 26th November 2018</a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Tuesday, 27 November 2018</a>
+            </div>
+        </nav>
+        <div class="tab-content col-md-12" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                @foreach($session as $sessions)
+                    @php
+                        $date = date("j", strtotime($sessions['date']));
+                    @endphp
+                    @if ($date==25)
+
+                        {{$sessions['title']}}
+                        {{$sessions['description']}}
+                        {{$sessions['title']}}
+
+                        <form action="{{action('ProgrammeSession\ProgrammeSessionController@destroy', $sessions['id'])}}" method="post">
+                            @csrf
+                            <input name="_method" type="hidden" value="DELETE">
+
+                            <a href="{{action('ProgrammeSession\ProgrammeSessionController@edit', $sessions['id'])}}" class="btn btn-link text-white text-small">Edit</a>
+                            <button class="btn btn-link text-white text-small" type="submit">Delete</button>
+
+                        </form>
+
+                        <form action="{{url('dashboard/admin/featured_session')}}" method="post">
+                            @csrf
+                            <input name="session_id" type="hidden" value="{{$sessions['id']}}">
+                            <button class="btn btn-link text-white text-small" type="submit">{{__('Set As Featured')}}</button>
+                        </form>
+                    @endif
+                    <br/>
+                @endforeach
+          </div>
+          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                @foreach($session as $sessions)
+                @php
+                    $date = date("j", strtotime($sessions['date']));
+                @endphp
+                @if ($date==26)
+
+                    {{$sessions['title']}}
+                    {{$sessions['description']}}
+                    {{$sessions['title']}}
+
+                    <form action="{{action('ProgrammeSession\ProgrammeSessionController@destroy', $sessions['id'])}}" method="post">
+                        @csrf
+                        <input name="_method" type="hidden" value="DELETE">
+
+                        <a href="{{action('ProgrammeSession\ProgrammeSessionController@edit', $sessions['id'])}}" class="btn btn-link text-white text-small">Edit</a>
+                        <button class="btn btn-link text-white text-small" type="submit">Delete</button>
+
+                    </form>
+
+                    <form action="{{url('dashboard/admin/featured_session')}}" method="post">
+                        @csrf
+                        <input name="session_id" type="hidden" value="{{$sessions['id']}}">
+                        <button class="btn btn-link text-white text-small" type="submit">{{__('Set As Featured')}}</button>
+                    </form>
+                @endif
+                <br/>
+            @endforeach
+          </div>
+          <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                @foreach($session as $sessions)
+                @php
+                    $date = date("j", strtotime($sessions['date']));
+                @endphp
+                @if ($date==27)
+
+                    {{$sessions['title']}}
+                    {{$sessions['description']}}
+                    {{$sessions['title']}}
+
+                    <form action="{{action('ProgrammeSession\ProgrammeSessionController@destroy', $sessions['id'])}}" method="post">
+                        @csrf
+                        <input name="_method" type="hidden" value="DELETE">
+
+                        <a href="{{action('ProgrammeSession\ProgrammeSessionController@edit', $sessions['id'])}}" class="btn btn-link text-white text-small">Edit</a>
+                        <button class="btn btn-link text-white text-small" type="submit">Delete</button>
+
+                    </form>
+
+                    <form action="{{url('dashboard/admin/featured_session')}}" method="post">
+                        @csrf
+                        <input name="session_id" type="hidden" value="{{$sessions['id']}}">
+                        <button class="btn btn-link text-white text-small" type="submit">{{__('Set As Featured')}}</button>
+                    </form>
+                @endif
+                <br/>
+            @endforeach
+          </div>
+        </div>
+    </div>
+
 @endsection

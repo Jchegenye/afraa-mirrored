@@ -84,19 +84,19 @@ class ProgrammeSessionController extends Controller
         //
         $session= new \Afraa\ProgrammeSession;
 
-        if($request->hasfile('featured_image'))
-        {
-           $file = $request->file('featured_image');
-           $name=time().$file->getClientOriginalName();
-           $file->move(public_path().'/images/', $name);
-        }
+        // if($request->hasfile('featured_image'))
+        // {
+        //    $file = $request->file('featured_image');
+        //    $name=time().$file->getClientOriginalName();
+        //    $file->move(public_path().'/images/', $name);
+        // }
 
         $session->title=$request->get('title');
         $session->description=$request->get('description');
         $session->venue=$request->get('venue');
         $session->speaker_id=$request->get('speaker_id');
         $session->moderator_id=$request->get('moderator_id');
-        $session->featured_image = $name;
+        // $session->featured_image = $name;
 
         $session->start_time = $request->get('start_time');
         $session->end_time = $request->get('end_time');

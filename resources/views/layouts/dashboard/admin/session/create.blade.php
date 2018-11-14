@@ -68,12 +68,12 @@
                     <input type="text" class="form-control" name="date">
                 </div>
             </div>
-            <div class="form-row pt-3 pb-4">
+            {{--  <div class="form-row pt-3 pb-4">
                 <div class="form-group col-md-12">
                     <p>Featured Image</p>
                     <input type="file" class="form-control" name="featured_image">
                 </div>
-            </div>
+            </div>  --}}
             <div class="form-row pt-3 pb-4">
                 <div class="form-group col-md-12">
                     <button type="submit" class="btn btn-success">Submit</button>
