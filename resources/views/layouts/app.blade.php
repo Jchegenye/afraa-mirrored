@@ -19,41 +19,35 @@
 
     @include('layouts.partials.sidebar')
 
-	<!-- Body Content Area -->
+	<!-- Dashboard Body Content Area -->
     <div id="page-wrapper" class="contents">
 
+        @if (session('status'))
+            <div class="alert alert-primary">
+                {{ session('status') }}
+            </div>
+        @endif
+        @if (session('warning'))
+            <div class="alert alert-warning">
+                {{ session('warning') }}
+            </div>
+        @endif
 
-       
-            {{-- <div class="py-4 row">
-                @if (session('status'))
-                    <div class="alert alert-primary">
-                        {{ session('status') }}
-                    </div>
-                @endif
-                @if (session('warning'))
-                    <div class="alert alert-warning">
-                        {{ session('warning') }}
-                    </div>
-                @endif
-
-                @if (session('information'))
-                    <div class="alert alert-info">
-                        {{ session('information') }}
-                    </div>
-                @endif
-                @if (session('successful'))
-                    <div class="alert alert-success">
-                        {{ session('successful') }}
-                    </div>
-                @endif
-                @if (session('unsuccessful'))
-                    <div class="alert alert-danger">
-                        {{ session('unsuccessful') }}
-                    </div>
-                @endif
-
-                @yield('content')
-            </div> --}}
+        @if (session('information'))
+            <div class="alert alert-info">
+                {{ session('information') }}
+            </div>
+        @endif
+        @if (session('successful'))
+            <div class="alert alert-success">
+                {{ session('successful') }}
+            </div>
+        @endif
+        @if (session('unsuccessful'))
+            <div class="alert alert-danger">
+                {{ session('unsuccessful') }}
+            </div>
+        @endif
             
         @yield('content')
 

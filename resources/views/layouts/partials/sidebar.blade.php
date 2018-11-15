@@ -31,34 +31,37 @@
         @if(Auth::user()->role == 'admin')
 
             <div class="col-12">
-                <a href="{{url('/dashboard/admin')}}" type="button" class="button btn btn-shadow btn-block active text-left "><i class="fas fa-tasks pr-2"></i>Dashboard</a>
+                <a href="{{url('/dashboard/admin')}}" class="btn btn-block active text-left "><i class="fas fa-users-cog pr-2"></i>Dashboard</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/users')}}" type="button" class="btn btn-block btn-shadow text-left"><i class="fas fa-tasks pr-2"></i>Users</a>
+                <a href="{{url('/dashboard/users')}}" class="btn btn-block btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Managers</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/permissions')}}" type="button" class="btn btn-block btn-shadow text-left"><i class="fas fa-tasks pr-2"></i>Permissions</a>
+                <a href="#" class="button btn btn-shadow btn-block text-left "><i class="fas fa-users-cog pr-2"></i>Manage Delegates</a>
+            </div>{{-- {{url('/dashboard/delegate')}} --}}
+            <div class="col-12">
+                <a href="{{url('/dashboard/admin/session')}}" class="btn btn-block btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Programmes</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/admin/session')}}" type="button" class="btn btn-block btn-shadow text-left"><i class="fas fa-tasks pr-2"></i>Manage Sessions</a>
-            </div>
+                <a href="#" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Speakers</a>
+            </div>{{-- {{url('/dashboard/delegate/speakers')}} --}}
             <div class="col-12">
-                <a href="{{url('/dashboard/delegate/speakers')}}" type="button" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Speakers</a>
-            </div>
+                <a href="#" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Exhibitors</a>
+            </div>{{-- {{url('/dashboard/delegate/exhibitors')}} --}}
 
         @elseif(Auth::user()->role == 'delegate')
 
             <div class="col-12">
-                <a href="{{url('/dashboard/delegate')}}" type="button" class="button btn btn-shadow btn-block active text-left "><i class="fas fa-tasks pr-2"></i>Dashboard</a>
+                <a href="{{url('/dashboard/delegate')}}" class="button btn btn-shadow btn-block active text-left "><i class="fas fa-users-cog pr-2"></i>Manage Delegates</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/delegate/speakers')}}" type="button" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Speakers</a>
+                <a href="{{url('/dashboard/delegate/speakers')}}" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Speakers</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/delegate/exhibitors')}}" type="button" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Exhibitors</a>
+                <a href="{{url('/dashboard/delegate/exhibitors')}}" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Exhibitors</a>
             </div>
             <div class="col-12">
-                <button type="button" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Social Events</button>
+                <button class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Social Events</button>
             </div>
 
         @elseif(Auth::user()->role == 'manager')
@@ -108,15 +111,26 @@
         @endif
         </div>
 
-        <div class="row buttons text-left ml-4 mb-5 mt-5 pt-4">
-            <div class="col-12 pb-3"><h6>More</h6></div>
-            <div class="col-12 pb-3"><a href="#">General Event Infomation</a></div>
-            <div class="col-12 pb-3"><a href="#">Exhibition Floor Plan</a></div>
-            <div class="col-12 pb-3"><a href="#">Social Events</a></div>
-            <div class="col-12 pb-3"><a href="#">Host Airline</a></div>
-            <div class="col-12 pb-3"><a href="#">Media Entities</a></div>
-            <div class="col-12 pb-3	"><a href="#">Organisers</a></div>
-        </div>
+        @if(Auth::user()->role == 'admin')
+
+            <div class="row buttons text-left ml-3 mb-4 mt-4 pt-3">
+                <div class="col-12"><a href="#">Edit AGA</a></div>
+                <div class="col-12"><a href="#">Edit ASC</a></div>
+            </div>
+
+        @else
+
+            <div class="row buttons text-left ml-3 mb-4 mt-4 pt-3">
+                <div class="col-12 pb-3"><h6>More</h6></div>
+                <div class="col-12 pb-3"><a href="#">General Event Infomation</a></div>
+                <div class="col-12 pb-3"><a href="#">Exhibition Floor Plan</a></div>
+                <div class="col-12 pb-3"><a href="#">Social Events</a></div>
+                <div class="col-12 pb-3"><a href="#">Host Airline</a></div>
+                <div class="col-12 pb-3"><a href="#">Media Entities</a></div>
+                <div class="col-12 pb-3	"><a href="#">Organisers</a></div>
+            </div>
+
+        @endif
 
         <div class="logoutswitch ml-4 pl-1">
             <input type="hidden" id="logout_url" name="logout_url" value="{{ route('logout') }}">

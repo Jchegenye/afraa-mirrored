@@ -52,6 +52,8 @@ use Illuminate\Support\Facades\Auth;
              **/
             $allpermissions = UserPermissions::all();
 
+            $count = User::where('verified', 1)->count();
+
             /**
              * Bind all queries here
              * 
@@ -62,7 +64,8 @@ use Illuminate\Support\Facades\Auth;
 
                 'users' => $users,
                 'usersSearch' => $usersSearch,
-                'allpermissions' => $allpermissions
+                'allpermissions' => $allpermissions,
+                'counts' => $count
 
             ];
             return $data;

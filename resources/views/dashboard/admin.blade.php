@@ -3,64 +3,86 @@
 @section('title', 'Dashboard')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
 
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+    <div class="container-fluid">
+        
+        <div id="statistics" class="text-center">
+            
+            @php $roles = ''; @endphp
+                @foreach ($users as $user)
 
-
-                {{-- @foreach($session as $sessions)
-
-                    {{$sessions['id']}}
-                    {{$sessions['title']}}
-                    {{$sessions['description']}}
-                    {{$sessions['venue']}}
-                    {{$sessions['speaker_id']}}
-                    {{$sessions['moderator_id']}}
-                    {{$sessions['start_time']}}
-                    {{$sessions['end_time']}}
-                    {{$sessions['date']}}
-
-                    <a href="{{action('ProgrammeSession\ProgrammeSessionController@edit', $sessions['id'])}}" class="btn btn-warning">Edit</a>
-                    <form action="{{action('ProgrammeSession\ProgrammeSessionController@destroy', $sessions['id'])}}" method="post">
-                        @csrf
-                        <input name="_method" type="hidden" value="DELETE">
-                        <button class="btn btn-danger" type="submit">Delete</button>
-                    </form>
+                    @php $roles .= $user->role; @endphp
+                    {{
+                        $user->role
+                    }}
 
                 @endforeach
-
+            @php $role = $roles; @endphp
+            
                 <div class="row">
-                    @foreach($users as $user)
-                        {{$user->uid}}
-                        {{$user->name}}
-                        {{$user->email}}
-                        {{$user->role}}
-                    @endforeach
-                </div>
+                    
+                    <div class="col-md-4">
+                        <div class="stats-card">
+                            <div class="stats-card-cover">
+                                <h1>3</h1>
+                                <h6>Manager</h6>
 
-                <div class="row">
-                    @foreach($user_by_id as $get_user)
-                        {{$get_user->uid}}
-                        {{$get_user->name}}
-                        {{$get_user->email}}
-                        {{$get_user->role}}
-                    @endforeach
-                </div>
-
-                <div class="card-body">
-
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
+                                <a href="#" class="btn btn-afraa-full-2">View all</a>
+                            </div>
                         </div>
-                    @endif
-                </div> --}}
-            </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="stats-card">
+                            <div class="stats-card-cover">
+                                <h1>3</h1>
+                                <h6>DELEGATES</h6>
+
+                                <a href="#" class="btn btn-afraa-full-2">View all</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="stats-card">
+                            <div class="stats-card-cover">
+                                <h1>3</h1>
+                                <h6>SPONSORS</h6>
+
+                                <a href="#" class="btn btn-afraa-full-2">View all</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row mt-5">
+                    <div class="col-md-4">
+                        <div class="stats-card">
+                            <div class="stats-card-cover">
+                                <h1>3</h1>
+                                <h6>SPEAKERS</h6>
+
+                                <a href="#" class="btn btn-afraa-full-2">View all</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="stats-card">
+                            <div class="stats-card-cover">
+                                <h1>3</h1>
+                                <h6>EXHIBITORS</h6>
+
+                                <a href="#" class="btn btn-afraa-full-2">View all</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
         </div>
 
     </div>
-</div>
+
 @endsection
