@@ -37,22 +37,28 @@
                 <a href="{{url('/dashboard/users')}}" class="btn btn-block btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Managers</a>
             </div>
             <div class="col-12">
-                <a href="#" class="button btn btn-shadow btn-block text-left "><i class="fas fa-users-cog pr-2"></i>Manage Delegates</a>
+                <a href="{{url('/dashboard/delegate')}}" class="button btn btn-shadow btn-block text-left "><i class="fas fa-users-cog pr-2"></i>Manage Delegates</a>
             </div>{{-- {{url('/dashboard/delegate')}} --}}
             <div class="col-12">
                 <a href="{{url('/dashboard/admin/session')}}" class="btn btn-block btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Programmes</a>
             </div>
             <div class="col-12">
-                <a href="#" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Speakers</a>
+                <a href="{{url('/dashboard/delegate/speakers')}}" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Speakers</a>
             </div>{{-- {{url('/dashboard/delegate/speakers')}} --}}
             <div class="col-12">
-                <a href="#" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Exhibitors</a>
+                <a href="{{url('/dashboard/delegate/exhibitors')}}" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Exhibitors</a>
+            </div>{{-- {{url('/dashboard/delegate/exhibitors')}} --}}
+            <div class="col-12">
+                <a href="{{url('/dashboard/sponsors')}}" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Sponsors</a>
             </div>{{-- {{url('/dashboard/delegate/exhibitors')}} --}}
 
         @elseif(Auth::user()->role == 'delegate')
 
             <div class="col-12">
-                <a href="{{url('/dashboard/delegate')}}" class="button btn btn-shadow btn-block active text-left "><i class="fas fa-users-cog pr-2"></i>Manage Delegates</a>
+                <a href="{{url('/dashboard/delegate')}}" class="button btn btn-shadow btn-block active text-left "><i class="fas fa-users-cog pr-2"></i>Delegates</a>
+            </div>
+            <div class="col-12">
+                <a href="{{url('/dashboard/delegate/session')}}" class="button btn btn-shadow btn-block text-left "><i class="fas fa-users-cog pr-2"></i>Programmes</a>
             </div>
             <div class="col-12">
                 <a href="{{url('/dashboard/delegate/speakers')}}" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Speakers</a>

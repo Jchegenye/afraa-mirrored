@@ -14,7 +14,9 @@
         <p></p>
     </div>
 </div>
-<div class="row pt-4">
+
+<img src="{{url('/images/speakers1.png')}}" alt="Image" class="img-fluid"/>
+{{-- <div class="row pt-4">
     <div class="card-deck col-md-12">
         @php
             $i= 0;
@@ -39,6 +41,6 @@
             @endif
         @endforeach
       </div>
-</div>
+</div> --}}
 
 @endsection

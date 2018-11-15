@@ -26,7 +26,7 @@
         @if(View::hasSection('register'))
             <span>Already have account? <a href="{{ route('login') }}">Login</a></span>
         @else
-            <span>Dont have account? <a href="{{ route('register') }}">Signup</a></span>
+            <span>Not yet registered? <a href="{{ route('register') }}">Signup</a></span>
         @endif
       </div>
     </div>

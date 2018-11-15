@@ -50,6 +50,13 @@ Route::group(['middleware' => 'auth'], function()
             'uses' => 'Admin\AdminController@index',
             'middleware' => 'admin.role:admin'
         ]);
+        // Route::get('/sponsors', [
+        //     'uses' => 'Sponsors\SponsorsController@index',
+        //     'middleware' => 'admin.role:admin'
+        // ]);
+        Route::get('/sponsors', function () {
+            return view('layouts.dashboard.sponsors.index');
+        });
 
         //Admin Dashboard - Internal Pages
         Route::namespace('Admin\Dashboard')->group(function () {

@@ -14,6 +14,7 @@
         <p></p>
     </div>
 </div>
+<img src="{{url('/images/exhibitor.png')}}" alt="Image" class="img-fluid"/>
 <div class="row pt-4">
     <div class="card-deck col-md-12">
         @php

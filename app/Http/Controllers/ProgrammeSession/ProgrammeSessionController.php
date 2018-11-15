@@ -39,7 +39,7 @@ class ProgrammeSessionController extends Controller
         if ($role == 'admin') {
             return view('layouts.dashboard.admin.session.index',compact('session','featured_session','users','user_by_id'));
         } else {
-            return view('session.index',compact('session','featured_sessions','users','user_by_id'));
+            return view('layouts.dashboard.delegate.session.index',compact('session','featured_sessions','users','user_by_id'));
         }
 
 
