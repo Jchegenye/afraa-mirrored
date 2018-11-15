@@ -4,24 +4,16 @@
     <div class="sidebar-nav navbar-collapse">
         <div class="card text-center mr-5">
             <div class="card-img">
-                <img class="img-fluid rounded-3 w-50" src="{{ asset('images/ed.png') }}" alt="pic">
+                <img class="img-fluid rounded-3 w-50" src="{{ asset('images/') }}/{{Auth::user()->photo}}" alt="pic">
             </div>
             <div class="card-body">
                 <div class="card-title text-capitalize">
                     <h4>
-                        @isset($user_by_id)
-                            @foreach ($user_by_id as $user)
-                                {{$user->name}}
-                            @endforeach
-                        @endisset
+                        {{Auth::user()->name}}
                     </h4>
                 </div>
                 <div class="card-text text-capitalize">
-                    @isset($user_by_id)
-                        @foreach ($user_by_id as $user)
-                            {{$user->role}}
-                        @endforeach
-                    @endisset
+                    {{Auth::user()->role}}
                 </div>
             </div>
         </div>
@@ -34,17 +26,21 @@
                 <a href="{{url('/dashboard/admin')}}" class="btn btn-block active text-left "><i class="fas fa-users-cog pr-2"></i>Dashboard</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/users')}}" class="btn btn-block btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Managers</a>
+                <a href="{{url('/dashboard/admin/managers')}}" class="btn btn-block btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Managers</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/delegate')}}" class="button btn btn-shadow btn-block text-left "><i class="fas fa-users-cog pr-2"></i>Manage Delegates</a>
+                <a href="{{url('/dashboard/admin/delegates')}}" class="button btn btn-shadow btn-block text-left "><i class="fas fa-users-cog pr-2"></i>Manage Delegates</a>
             </div>{{-- {{url('/dashboard/delegate')}} --}}
             <div class="col-12">
                 <a href="{{url('/dashboard/admin/session')}}" class="btn btn-block btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Programmes</a>
             </div>
             <div class="col-12">
                 <a href="{{url('/dashboard/delegate/speakers')}}" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Speakers</a>
-            </div>{{-- {{url('/dashboard/delegate/speakers')}} --}}
+            </div>
+            <div class="col-12">
+                <a href="{{url('/dashboard/admin/documents')}}" class="btn btn-block btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Documents</a>
+            </div>
+            
             <div class="col-12">
                 <a href="{{url('/dashboard/delegate/exhibitors')}}" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Exhibitors</a>
             </div>{{-- {{url('/dashboard/delegate/exhibitors')}} --}}
@@ -65,6 +61,9 @@
             </div>
             <div class="col-12">
                 <a href="{{url('/dashboard/delegate/exhibitors')}}" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Exhibitors</a>
+            </div>
+            <div class="col-12">
+                <a href="{{url('/dashboard/delegate/documents')}}" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Documents</a>
             </div>
             <div class="col-12">
                 <button class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Social Events</button>

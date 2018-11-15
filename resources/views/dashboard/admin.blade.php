@@ -12,9 +12,9 @@
                 @foreach ($users as $user)
 
                     @php $roles .= $user->role; @endphp
-                    {{
+                    {{-- {{
                         $user->role
-                    }}
+                    }} --}}
 
                 @endforeach
             @php $role = $roles; @endphp
@@ -24,7 +24,7 @@
                     <div class="col-md-4">
                         <div class="stats-card">
                             <div class="stats-card-cover">
-                                <h1>3</h1>
+                                <h1>14</h1>
                                 <h6>Manager</h6>
 
                                 <a href="#" class="btn btn-afraa-full-2">View all</a>
@@ -35,7 +35,7 @@
                     <div class="col-md-4">
                         <div class="stats-card">
                             <div class="stats-card-cover">
-                                <h1>3</h1>
+                                <h1>350</h1>
                                 <h6>DELEGATES</h6>
 
                                 <a href="#" class="btn btn-afraa-full-2">View all</a>
@@ -46,7 +46,7 @@
                     <div class="col-md-4">
                         <div class="stats-card">
                             <div class="stats-card-cover">
-                                <h1>3</h1>
+                                <h1>150</h1>
                                 <h6>SPONSORS</h6>
 
                                 <a href="#" class="btn btn-afraa-full-2">View all</a>
@@ -60,7 +60,7 @@
                     <div class="col-md-4">
                         <div class="stats-card">
                             <div class="stats-card-cover">
-                                <h1>3</h1>
+                                <h1>50</h1>
                                 <h6>SPEAKERS</h6>
 
                                 <a href="#" class="btn btn-afraa-full-2">View all</a>
@@ -71,7 +71,7 @@
                     <div class="col-md-4">
                         <div class="stats-card">
                             <div class="stats-card-cover">
-                                <h1>3</h1>
+                                <h1>25</h1>
                                 <h6>EXHIBITORS</h6>
 
                                 <a href="#" class="btn btn-afraa-full-2">View all</a>

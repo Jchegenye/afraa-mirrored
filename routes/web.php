@@ -65,6 +65,14 @@ Route::group(['middleware' => 'auth'], function()
                 'uses' => 'ManageUsersController@index',
                 'middleware' => 'permission:access_to_manage_users'
             ]);
+            Route::get('/admin/managers', [
+                'uses' => 'ManageUsersController@managers',
+                'middleware' => 'permission:access_to_manage_users'
+            ]);
+            Route::get('/admin/delegates', [
+                'uses' => 'ManageUsersController@delegates',
+                'middleware' => 'permission:access_to_manage_users'
+            ]);
             Route::resource('/permissions','ManagePermissionsController');
 
             //CRUD
@@ -126,6 +134,8 @@ Route::group(['middleware' => 'auth'], function()
 
         Route::resource('featured_session','FeaturedSessionController');
 
+        Route::resource('documents','DocumentController');
+
     });
 
     Route::prefix('dashboard/delegate')->group(function () {
@@ -139,6 +149,12 @@ Route::group(['middleware' => 'auth'], function()
         Route::resource('speakers','Speaker\SpeakerController');
 
         Route::resource('exhibitors','Exibitor\ExibitorController');
+
+        Route::resource('profile','Users\UsersController');
+
+        Route::resource('documents','DocumentController');
+
+        Route::resource('all','DocumentController');
 
     });
 
@@ -176,4 +192,7 @@ Route::namespace('Auth\Users')->group(function () {
 });
 
 Auth::routes();
+
+Auth::routes(['verify' => true]);
+
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');

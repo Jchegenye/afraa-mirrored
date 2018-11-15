@@ -27,7 +27,7 @@ class VerifyMail extends Mailable
 
     /**
      * Build the message.
-     * 
+     *
      * @author Jackson A. Chegenye
      * @return $this
      */
@@ -40,6 +40,6 @@ class VerifyMail extends Mailable
                         ->from($sender, 'African Airlines Association' )
                         ->to($user->email, $user->name)
                         ->view('emails.auth.users.verifyUser');
-        
+
     }
 }

@@ -23,10 +23,10 @@ class ManageUsersController extends Controller
 
     use RetrieveModels;
     use GenerateCustomVerifyTokenTrait;
-    
+
     /**
      * Create a new controller instance.
-     * 
+     *
      * @author Jackson A. Chegenye
      * @return void
      */
@@ -49,14 +49,30 @@ class ManageUsersController extends Controller
 
     }
 
+    public function managers()
+    {
+
+        $data = $this->RetrieveManagers();
+        return view('layouts.dashboard.admin.users')->with($data);
+
+    }
+
+    public function delegates()
+    {
+
+        $data = $this->RetrieveDelegates();
+        return view('layouts.dashboard.admin.users')->with($data);
+
+    }
+
     /**
      * Show the form for creating a new resource.
-     * 
+     *
      * @author Jackson A. Chegenye
      * @return \Illuminate\Http\Response
      */
     public function liveSearch(Request $request)
-    { 
+    {
         //$search = request()->uid;
         $data = $this->RetrieveUsers();
         return view('layouts.dashboard.admin.livesearchajax')->with($data);
@@ -65,7 +81,7 @@ class ManageUsersController extends Controller
 
     /**
      * Trash user to a recycle bin - Soft delete
-     * 
+     *
      * @author Jackson A. Chegenye
      * @return \Illuminate\Http\Response
      */
@@ -86,7 +102,7 @@ class ManageUsersController extends Controller
 
             Session::flash('warning', 'untrashed!');
             return redirect()->back();
-            
+
         }
         elseif ($trash->trashed() == null OR empty($trash->trashed())){
 
@@ -99,12 +115,12 @@ class ManageUsersController extends Controller
             return redirect()->back();
 
         }
-        
+
     }
 
     /**
      * Edit user details - Soft delete
-     * 
+     *
      * @author Jackson A. Chegenye
      * @return \Illuminate\Http\Response
      */
@@ -122,7 +138,7 @@ class ManageUsersController extends Controller
         }else{
 
             if($user->role == 'admin'){
-            
+
                 return redirect('dashboard/users')->with('unsuccessful', 'Not authorized to edit!');
 
             }else{
@@ -133,14 +149,14 @@ class ManageUsersController extends Controller
                     ->with(['user' => $user])->with($rolePermissions);
 
             }
-        
+
         }
 
     }
 
     /**
      * Update the given user.
-     * 
+     *
      * @author Jackson A. Chegenye
      * @param  Request  $request
      * @param  string  $id
@@ -225,7 +241,7 @@ class ManageUsersController extends Controller
                     'user_uid' => $user->uid,
                     'token' => sha1(time())
                 ]);
-                
+
                 \Mail::to($user->email)->send(new VerifyMail($user, $decrypted));
 
                 Session::flash('successful', 'Profile successfully updated!');

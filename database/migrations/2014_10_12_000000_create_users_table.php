@@ -32,7 +32,7 @@ class CreateUsersTable extends Migration
             $table->string('verification_token')->unique()->nullable();
             $table->string('confirmation_code')->nullable();
 
-            $table->boolean('verified')->default(false);
+            $table->boolean('verified')->default(true);
 
             $table->string('confirmed_date')->nullable();
             $table->softDeletes();

@@ -9,7 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
     use SoftDeletes;
@@ -36,7 +36,7 @@ class User extends Authenticatable
     /**
      * Lets use Soft Delete since we do not want to delete records permanently
      * The attributes that should be mutated to dates.
-     * 
+     *
      * @author Jackson A. Chegenye
      * @var array
      */
@@ -44,7 +44,7 @@ class User extends Authenticatable
 
     /**
      * Register our primary key here,
-     * 
+     *
      * @author Jackson A. Chegenye
      * @var array
      */
@@ -52,7 +52,7 @@ class User extends Authenticatable
 
     /**
      * The attributes that should be casted to native types.
-     * 
+     *
      * @author Jackson A. Chegenye
      * @var array
      */
@@ -72,13 +72,13 @@ class User extends Authenticatable
      */
     public function roles(){}
     public function hasRole($name){}
-    //public function can($permission){} 
+    //public function can($permission){}
     public function ability($roles, $permissions, $options){}
     public function attachRole($role){}
 
     /**
      * Register one-to-one relationship between User and VerifyUser Model
-     * 
+     *
      * @author Jackson A. Chegenye
      * @var array
      */
@@ -86,6 +86,6 @@ class User extends Authenticatable
     {
         return $this->hasOne('Afraa\Model\Admin\Users\VerifyUser');
     }
-    
-    
+
+
 }
