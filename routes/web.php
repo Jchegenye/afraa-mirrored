@@ -133,6 +133,8 @@ Route::group(['middleware' => 'auth'], function()
 
         Route::resource('exhibitors','Exibitor\ExibitorController');
 
+        Route::resource('profile','Users\UsersController');
+
     });
 
 });
@@ -169,4 +171,7 @@ Route::namespace('Auth\Users')->group(function () {
 });
 
 Auth::routes();
+
+Auth::routes(['verify' => true]);
+
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');

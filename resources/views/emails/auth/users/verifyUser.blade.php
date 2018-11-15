@@ -148,8 +148,8 @@
 												</tr>
 												<tr>
 													<td data-color="text" data-size="size text" data-min="10" data-max="26" data-link-color="link text color" data-link-style="font-weight:bold; text-decoration:underline; color:#40aceb;" align="left" style="color:#675C5C; padding:0 0 23px;">
-														Welcome, you have successfully joined us. 
-														
+														Welcome, you have successfully joined us.
+
 														{{-- @isset($user['password'])
 														<br/><br/>
 															This is your password:-
@@ -161,10 +161,10 @@
 
 														<br/><br/>
 														Kindly <a href="{{url('user/verify', $user->verifyUser->token)}}" target="_blunk" style="color: #3b68b1; cursor: pointer; text-decoration: none;">click here</a> to verify your account. We just need to know that your the owner of this account.
-														
+
 														<br/><br/>
 														If you have any issues, kindly contact our <a href="http://afraa.org/index.php?option=com_contact&view=contact&id=3&Itemid=431" target="_blunk" style="color: #3b68b1; cursor: pointer; text-decoration: none;">Support Team</a>
-														
+
 														<br/><br/>
 														Best regards,<br/>
 														Afraa Support Team
@@ -189,7 +189,7 @@
 							</td>
 						</tr>
                     </table>
-                    
+
 					<!-- module 7 -->
 					<table data-module="module-7" data-thumb="thumbnails/07.png" width="100%" cellpadding="0" cellspacing="0">
 						<tr>

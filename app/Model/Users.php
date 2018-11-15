@@ -25,7 +25,25 @@ class Users extends Model
     //
     public function getUserById($id){
 
-        $user =  DB::table('users')->where('uid', $id)->select('uid','name', 'email', 'role')->get();
+        $user;
+
+        $profiles = DB::table('profiles')->where('user_id', '=', $id)->count();
+
+        if ($profiles > 0) {
+
+            $user =  DB::table('users')
+                ->join('profiles', function ($join)  use ( &$id ) {
+
+                    $join->on('profiles.user_id', '=', 'users.uid')
+                        ->where('users.uid', '=', $id);
+                })
+                ->get();
+
+        } else {
+
+            $user =  DB::table('users')->where('uid', $id)->get();
+
+        }
 
         return $user;
     }
