@@ -12,9 +12,7 @@
                 My Account <span class="caret"></span>
             </a>
             <ul class="dropdown-menu dropdown-user">
-                <li class="dropdown-item" ><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                </li>
-                <li class="dropdown-item" ><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                <li class="dropdown-item" ><a href="{{action('Users\UsersController@edit', Auth::id())}}"><i class="fa fa-user fa-fw"></i> User Profile</a>
                 </li>
                 <li class="divider"></li>
                 <li class="dropdown-item" >

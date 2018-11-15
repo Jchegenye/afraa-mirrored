@@ -78,7 +78,7 @@ class RegisterController extends Controller
             'email' => 'email|unique:users,email|required',
             'password' => 'required|min:6|max:20|unique:users,password',
             'password_confirmation' => 'required|same:password',
-            'g-recaptcha-response' => 'required',
+            // 'g-recaptcha-response' => 'required',
         ]);
     }
 
@@ -172,7 +172,8 @@ class RegisterController extends Controller
 
         $this->guard()->logout();
 
-        return redirect('/login')->with('status', 'We sent you an activation code. Check your email and click on the link to verify.');
+        //return redirect('/login')->with('status', 'We sent you an activation code. Check your email and click on the link to verify.');
+        return redirect('/login')->with('status', 'Thank you For Registering Please Login Now');
 
     }
 

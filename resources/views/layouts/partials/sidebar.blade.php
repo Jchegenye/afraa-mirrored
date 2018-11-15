@@ -4,24 +4,16 @@
     <div class="sidebar-nav navbar-collapse">
         <div class="card text-center mr-5">
             <div class="card-img">
-                <img class="img-fluid rounded-3 w-50" src="{{ asset('images/ed.png') }}" alt="pic">
+                <img class="img-fluid rounded-3 w-50" src="{{ asset('images/') }}/{{Auth::user()->photo}}" alt="pic">
             </div>
             <div class="card-body">
                 <div class="card-title text-capitalize">
                     <h4>
-                        @isset($user_by_id)
-                            @foreach ($user_by_id as $user)
-                                {{$user->name}}
-                            @endforeach
-                        @endisset
+                        {{Auth::user()->name}}
                     </h4>
                 </div>
                 <div class="card-text text-capitalize">
-                    @isset($user_by_id)
-                        @foreach ($user_by_id as $user)
-                            {{$user->role}}
-                        @endforeach
-                    @endisset
+                    {{Auth::user()->role}}
                 </div>
             </div>
         </div>
