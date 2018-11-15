@@ -26,13 +26,16 @@
                 <a href="{{url('/dashboard/admin')}}" class="btn btn-block active text-left "><i class="fas fa-users-cog pr-2"></i>Dashboard</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/users')}}" class="btn btn-block btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Managers</a>
+                <a href="{{url('/dashboard/admin/managers')}}" class="btn btn-block btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Managers</a>
             </div>
             <div class="col-12">
-                <a href="#" class="button btn btn-shadow btn-block text-left "><i class="fas fa-users-cog pr-2"></i>Manage Delegates</a>
+                <a href="{{url('/dashboard/admin/delegates')}}" class="button btn btn-shadow btn-block text-left "><i class="fas fa-users-cog pr-2"></i>Manage Delegates</a>
             </div>{{-- {{url('/dashboard/delegate')}} --}}
             <div class="col-12">
                 <a href="{{url('/dashboard/admin/session')}}" class="btn btn-block btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Programmes</a>
+            </div>
+            <div class="col-12">
+                <a href="{{url('/dashboard/admin/documents')}}" class="btn btn-block btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Documents</a>
             </div>
             <div class="col-12">
                 <a href="#" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Speakers</a>
@@ -51,6 +54,9 @@
             </div>
             <div class="col-12">
                 <a href="{{url('/dashboard/delegate/exhibitors')}}" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Exhibitors</a>
+            </div>
+            <div class="col-12">
+                <a href="{{url('/dashboard/delegate/documents')}}" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Documents</a>
             </div>
             <div class="col-12">
                 <button class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Social Events</button>

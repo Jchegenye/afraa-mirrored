@@ -4,6 +4,7 @@ namespace Afraa\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Afraa\Document;
+use Illuminate\Support\Facades\Auth;
 
 class DocumentController extends Controller
 {
@@ -14,7 +15,9 @@ class DocumentController extends Controller
      */
     public function index()
     {
-        //
+        $documents = \Afraa\Document::all();
+
+        return view('layouts.dashboard.documents.index',compact('documents'));
     }
 
     /**
@@ -25,6 +28,7 @@ class DocumentController extends Controller
     public function create()
     {
         //
+        return view('layouts.dashboard.documents.create',compact(''));
     }
 
     /**
@@ -38,6 +42,20 @@ class DocumentController extends Controller
         //
 
         $document = new \Afraa\Document;
+
+        $name;
+
+        if($request->hasfile('document_file'))
+        {
+           $file = $request->file('document_file');
+           $name = time().$file->getClientOriginalName();
+           $file->move(public_path().'/images/documents/', $name);
+        }
+
+        $document->title = $request->get('title');
+        $document->category = $request->get('category');
+        $document->year = $request->get('year');
+        $document->name = $name;
 
         $document->save();
 

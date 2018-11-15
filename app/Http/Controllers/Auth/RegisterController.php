@@ -117,7 +117,7 @@ class RegisterController extends Controller
             'token' => sha1(time())
         ]);
 
-        \Mail::to($user->email)->send(new VerifyMail($user));
+        //\Mail::to($user->email)->send(new VerifyMail($user));
 
         return $user;
 
@@ -173,7 +173,7 @@ class RegisterController extends Controller
         $this->guard()->logout();
 
         //return redirect('/login')->with('status', 'We sent you an activation code. Check your email and click on the link to verify.');
-        return redirect('/login')->with('status', 'Thank you For Registering Please Login Now');
+        return redirect('/login')->with('status', '');
 
     }
 

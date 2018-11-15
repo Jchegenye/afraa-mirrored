@@ -54,7 +54,7 @@ class DelegateController extends Controller
     }
 
     public function viewPrograme(){
-        
+
         return view('layouts/dashboard/delegates/programe');
 
     }
@@ -123,5 +123,9 @@ class DelegateController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function all(){
+
     }
 }
