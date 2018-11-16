@@ -20,7 +20,7 @@ class ProgrammeSessionController extends Controller
     public function index()
     {
         //
-        $session = \Afraa\ProgrammeSession::all();
+        $session = \Afraa\ProgrammeSession::paginate(5);
 
         $featured_sessions = new FeaturedSession;
 
@@ -84,12 +84,20 @@ class ProgrammeSessionController extends Controller
         //
         $session= new \Afraa\ProgrammeSession;
 
-        // if($request->hasfile('featured_image'))
-        // {
-        //    $file = $request->file('featured_image');
-        //    $name=time().$file->getClientOriginalName();
-        //    $file->move(public_path().'/images/', $name);
-        // }
+        $this->validate(
+            $request,
+            [
+                'title' => 'required',
+                'description' => 'required',
+                'venue' => 'required',
+                'speaker_id' => 'required',
+                'moderator_id' => 'required',
+                'start_time' => 'required',
+                'end_time' => 'required',
+                'date' => 'required',
+
+            ]
+        );
 
         $session->title=$request->get('title');
         $session->description=$request->get('description');

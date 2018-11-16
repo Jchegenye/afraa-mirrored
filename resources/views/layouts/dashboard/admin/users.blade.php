@@ -3,6 +3,13 @@
 @section('title', 'Dashboard - Manage Users')
 
 @section('content')
+
+@php
+
+    if(!isset($user_type)){
+        $user_type = "user";
+    }
+@endphp
 <div class="container-fluid">
 
     <div id="adminTable">
@@ -11,7 +18,7 @@
             <div class="row ">
                 <div class="col-md-4">
                     <div class="mx-auto mt-2 intro1">
-                        <h6>User(s)</h6>
+                        <h6 class="text-capitalize">{{$user_type}}(s)</h6>
                     </div>
                 </div>
 
@@ -28,8 +35,8 @@
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <a href="{{url('/dashboard/users/create/')}}" class="btn btn-afraa tb-sm-text">
-                                <i class="fas fa-user-plus"></i> Add User
+                            <a href="{{url('/dashboard/users/create/'. $user_type)}}" class="btn btn-afraa tb-sm-text text-capitalize">
+                                <i class="fas fa-user-plus"></i> Add {{$user_type}}
                             </a>
                         </div>
                     </div>
@@ -97,6 +104,6 @@
 
 
 <script type="text/javascript">
-    
+
 </script>
 @endsection

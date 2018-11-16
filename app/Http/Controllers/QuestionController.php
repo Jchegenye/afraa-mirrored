@@ -1,26 +1,11 @@
 <?php
 
-namespace Afraa\Http\Controllers\Sponsor;
+namespace Afraa\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Afraa\Http\Controllers\Controller;
-use Afraa\Sponsor;
-use Afraa\Model\Users;
-use Illuminate\Support\Facades\Auth;
 
-class SponsorController extends Controller
+class QuestionController extends Controller
 {
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -28,23 +13,7 @@ class SponsorController extends Controller
      */
     public function index()
     {
-
-        // $sponsors_list = new Speaker;
-
-        // $sponsors = $sponsors_list->getSponsors();
-
-        // $role = Auth::user()->role;
-
-        // $id = Auth::id();
-
-        // $get_users = new Users();
-
-        // $user_by_id = $get_users->getUserById($id);
-
-        //return view('layouts.dashboard.sponsors.index',compact('sponsors','user_by_id'));
-
-        return view('layouts.dashboard.sponsors.index');
-
+        //
     }
 
     /**
@@ -76,7 +45,7 @@ class SponsorController extends Controller
      */
     public function show($id)
     {
-
+        //
     }
 
     /**

@@ -43,8 +43,8 @@ $(document).ready(function(){
             }
         });
     });
-    
-    window.onload = function () { 
+
+    window.onload = function () {
         var input = document.querySelector("#phone");
         window.intlTelInput(input, {
         initialCountry: "auto",
@@ -57,7 +57,7 @@ $(document).ready(function(){
         utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/8.4.6/js/utils.js" // just for formatting/placeholders etc
         });
     }
-    
+
     // Table Search
     $("#search").keyup(function(){
 
@@ -70,5 +70,20 @@ $(document).ready(function(){
             });
         }
     });
+
+
+    var time = ['.start_time','.end_time','.date'];
+
+    for (let i = 0; i <= time.length; i++) {
+        $(time[i]).datetimepicker({
+            format: 'yyyy-mm-dd hh:ii',
+            autoclose: false,
+            todayBtn: false,
+            pickerPosition: "bottom-left",
+            startDate: "2018-11-25 00:00",
+            minuteStep: 30
+        });
+
+    }
 
 });
