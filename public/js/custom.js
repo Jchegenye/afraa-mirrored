@@ -72,18 +72,15 @@ $(document).ready(function(){
     });
 
 
-    var time = ['.start_time','.end_time','.date'];
+    var time = ['.start_time','.end_time'];
 
     for (let i = 0; i <= time.length; i++) {
-        $(time[i]).datetimepicker({
-            format: 'yyyy-mm-dd hh:ii',
-            autoclose: false,
-            todayBtn: false,
-            pickerPosition: "bottom-left",
-            startDate: "2018-11-25 00:00",
-            minuteStep: 30
-        });
-
+        $(time[i]).timepicker();
     }
+
+    // $('.year').datepicker({
+    //     minViewMode: 2,
+    //     format: 'yyyy'
+    //   });
 
 });

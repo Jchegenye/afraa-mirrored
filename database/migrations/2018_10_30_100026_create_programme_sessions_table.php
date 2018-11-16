@@ -18,17 +18,14 @@ class CreateProgrammeSessionsTable extends Migration
             $table->increments('id');
             $table->string('title')->nullable();
             $table->string('description', 500)->nullable();
-            $table->string('venue')->nullable();
-            // $table->string('featured_image');
-            $table->integer('speaker_id')->unsigned(); //$table->integer('speaker_id');  //
-            $table->integer('moderator_id')->unsigned(); //$table->integer('moderator_id');   //
-            $table->dateTime('start_time')->nullable();
-            $table->dateTime('end_time')->nullable();
-            $table->dateTime('date')->nullable();
+            $table->integer('user_id')->unsigned();
+            $table->string('session_type')->nullable();
+            $table->time('start_time')->nullable();
+            $table->time('end_time')->nullable();
+            $table->date('date')->nullable();
             $table->timestamps();
 
-            $table->foreign('speaker_id')->references('uid')->on('users');
-            $table->foreign('moderator_id')->references('uid')->on('users');
+            $table->foreign('user_id')->references('uid')->on('users');
         });
     }
     /**

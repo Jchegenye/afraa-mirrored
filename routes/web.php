@@ -154,7 +154,9 @@ Route::group(['middleware' => 'auth'], function()
 
         Route::resource('documents','DocumentController');
 
-        Route::resource('all','DocumentController');
+        Route::get('all', [
+            'uses' => 'Delegate\DelegateController@allDelegates',
+        ]);
 
     });
 

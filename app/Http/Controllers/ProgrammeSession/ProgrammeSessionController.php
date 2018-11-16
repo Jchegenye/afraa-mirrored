@@ -89,9 +89,8 @@ class ProgrammeSessionController extends Controller
             [
                 'title' => 'required',
                 'description' => 'required',
-                'venue' => 'required',
-                'speaker_id' => 'required',
-                'moderator_id' => 'required',
+                'user_id' => 'required',
+                'session_type' => 'required',
                 'start_time' => 'required',
                 'end_time' => 'required',
                 'date' => 'required',
@@ -101,26 +100,12 @@ class ProgrammeSessionController extends Controller
 
         $session->title=$request->get('title');
         $session->description=$request->get('description');
-        $session->venue=$request->get('venue');
-        $session->speaker_id=$request->get('speaker_id');
-        $session->moderator_id=$request->get('moderator_id');
-        // $session->featured_image = $name;
+        $session->user_id=$request->get('user_id');
+        $session->session_type=$request->get('session_type');
 
-        $session->start_time = $request->get('start_time');
-        $session->end_time = $request->get('end_time');
+        $session->start_time = DATE("H:i", STRTOTIME($request->get('start_time')));
+        $session->end_time = DATE("H:i", STRTOTIME($request->get('end_time')));
         $session->date = $request->get('date');
-
-        // $start_time=date_create($request->get('start_time'));
-        // $start_time_format = date_format($start_time,"Y-m-d");
-        // $programme->start_time = strtotime($start_time_format);
-
-        // $end_time=date_create($request->get('end_time'));
-        // $end_time_format = date_format($end_time,"Y-m-d");
-        // $programme->end_time = strtotime($end_time_format);
-
-        // $date=date_create($request->get('date'));
-        // $format = date_format($date,"Y-m-d");
-        // $programme->date = strtotime($format);
 
         $session->save();
 
@@ -181,12 +166,11 @@ class ProgrammeSessionController extends Controller
 
         $session->title=$request->get('title');
         $session->description=$request->get('description');
-        $session->venue=$request->get('venue');
-        $session->speaker_id=$request->get('speaker_id');
-        $session->moderator_id=$request->get('moderator_id');
+        $session->user_id=$request->get('user_id');
+        $session->session_type=$request->get('session_type');
 
-        $session->start_time = $request->get('start_time');
-        $session->end_time = $request->get('end_time');
+        $session->start_time = DATE("H:i", STRTOTIME($request->get('start_time')));
+        $session->end_time = DATE("H:i", STRTOTIME($request->get('end_time')));
         $session->date = $request->get('date');
 
         $session->save();
