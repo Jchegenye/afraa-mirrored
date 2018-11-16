@@ -88,7 +88,7 @@ use Illuminate\Support\Facades\Auth;
              * @author Jackson A. Chegenye
              * @return array
              **/
-            $users = User::where('role','manager')
+            $users = User::where('role','=','manager')
                 ->orderBy('uid', 'DES')
                 ->paginate(4);
 
@@ -96,6 +96,7 @@ use Illuminate\Support\Facades\Auth;
             //$usersSearch = User::where('name','LIKE',"%{$search}%")->paginate(4); //Get search results by name
             $usersSearch = User::withTrashed()
                         ->where('name','LIKE',"%{$search}%")
+                        ->where('role','=','manager')
                         ->orderBy('uid', 'desc')
                         ->paginate(4);
             /**
@@ -150,6 +151,7 @@ use Illuminate\Support\Facades\Auth;
             //$usersSearch = User::where('name','LIKE',"%{$search}%")->paginate(4); //Get search results by name
             $usersSearch = User::withTrashed()
                         ->where('name','LIKE',"%{$search}%")
+                        ->where('role','=','delegate')
                         ->orderBy('uid', 'desc')
                         ->paginate(4);
             /**

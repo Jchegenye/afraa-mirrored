@@ -15,24 +15,28 @@
                 <div class="form-group col-md-12">
                     <label>Title</label>
                     <input type="text" class="form-control" name="title">
+                    <small class="error">{{$errors->first('title')}}</small>
                 </div>
             </div>
             <div class="form-row pt-3 pb-4">
                 <div class="form-group col-md-12">
                     <p>Category</p>
                     <input type="text" class="form-control" name="category">
+                    <small class="error">{{$errors->first('category')}}</small>
                 </div>
             </div>
             <div class="form-row pt-3 pb-4">
                 <div class="form-group col-md-12">
                     <p>Year</p>
                     <input type="text" class="form-control" name="year">
+                    <small class="error">{{$errors->first('year')}}</small>
                 </div>
             </div>
             <div class="form-row pt-3 pb-4">
                 <div class="form-group col-md-12">
                     <p>File</p>
                     <input type="file" class="form-control" name="document_file">
+                    <small class="error">{{$errors->first('document_file')}}</small>
                 </div>
             </div>
             <div class="form-row pt-3 pb-4">

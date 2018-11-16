@@ -16,15 +16,15 @@ class CreateProgrammeSessionsTable extends Migration
         Schema::create('programme_sessions', function (Blueprint $table) {
 
             $table->increments('id');
-            $table->string('title');
-            $table->string('description', 500);
-            $table->string('venue');
+            $table->string('title')->nullable();
+            $table->string('description', 500)->nullable();
+            $table->string('venue')->nullable();
             // $table->string('featured_image');
             $table->integer('speaker_id')->unsigned(); //$table->integer('speaker_id');  //
             $table->integer('moderator_id')->unsigned(); //$table->integer('moderator_id');   //
-            $table->dateTime('start_time');
-            $table->dateTime('end_time');
-            $table->dateTime('date');
+            $table->dateTime('start_time')->nullable();
+            $table->dateTime('end_time')->nullable();
+            $table->dateTime('date')->nullable();
             $table->timestamps();
 
             $table->foreign('speaker_id')->references('uid')->on('users');

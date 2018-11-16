@@ -25,7 +25,12 @@
             <div class="row ">
                 <div class="col-md-4">
                     <div class="mx-auto mt-2 intro1">
-                        <h6>Add User(s)</h6>
+                        <h6 class="text-capitalize">Add
+                        @if ($user_type)
+                            {{$user_type}}(s)
+                        @else
+                            User(s)
+                        @endif</h6>
                     </div>
                 </div>
 
@@ -33,7 +38,7 @@
                     <div class="row">
                         <div class="col-md-12 text-right">
                             <a href="{{url('/dashboard/users/')}}" class="btn btn-afraa tb-sm-text">
-                                <i class="fas fa-users"></i> View User
+                                <i class="fas fa-users"></i> View Users
                             </a>
                         </div>
                     </div>
@@ -69,7 +74,7 @@
                             </span>
                         @endif
                     </div>
-                    
+
                     <div class="col-md-6 form-group">
                         <label for="role" class="col-form-label text-md-right">{{ __('Role') }}</label>
                         <select class="form-control {{ $errors->has('roleselector') ? ' is-invalid' : '' }}" id="roleselector" name="roleselector">

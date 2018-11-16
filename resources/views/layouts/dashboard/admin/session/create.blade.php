@@ -15,18 +15,21 @@
                 <div class="form-group col-md-12">
                     <label>Title</label>
                     <input type="text" class="form-control" name="title">
+                    <small class="error">{{$errors->first('title')}}</small>
                 </div>
             </div>
             <div class="form-row pt-3 pb-4">
                 <div class="form-group col-md-12">
                     <p>Description</p>
                     <textarea type="text" class="form-control" name="description" rows="5"></textarea>
+                    <small class="error">{{$errors->first('description')}}</small>
                 </div>
             </div>
             <div class="form-row pt-3 pb-4">
                 <div class="form-group col-md-12">
                     <p>Venue</p>
                     <input type="text" class="form-control" name="venue">
+                    <small class="error">{{$errors->first('venue')}}</small>
                 </div>
             </div>
             <div class="form-row pt-3 pb-4">
@@ -53,19 +56,23 @@
             <div class="form-row pt-3 pb-4">
                 <div class="form-group col-md-12">
                     <p>Start Time</p>
-                    <input type="text" class="form-control" name="start_time">
+                    <input type="text" class="form-control start_time" name="start_time">
+                    <span class="add-on"><i class="icon-th"></i></span>
+                    <small class="error">{{$errors->first('start_time')}}</small>
                 </div>
             </div>
             <div class="form-row pt-3 pb-4">
                 <div class="form-group col-md-12">
                     <p>End Time</p>
-                    <input type="text" class="form-control" name="end_time">
+                    <input type="text" class="form-control end_time" name="end_time">
+                    <small class="error">{{$errors->first('end_time')}}</small>
                 </div>
             </div>
             <div class="form-row pt-3 pb-4">
                 <div class="form-group col-md-12">
                     <p>Date</p>
-                    <input type="text" class="form-control" name="date">
+                    <input type="text" class="form-control date" name="date">
+                    <small class="error">{{$errors->first('date')}}</small>
                 </div>
             </div>
             {{--  <div class="form-row pt-3 pb-4">

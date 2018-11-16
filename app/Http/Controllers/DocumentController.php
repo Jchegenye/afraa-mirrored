@@ -43,6 +43,17 @@ class DocumentController extends Controller
 
         $document = new \Afraa\Document;
 
+        $this->validate(
+            $request,
+            [
+                'document_file' => 'required',
+                'title' => 'required',
+                'category' => 'required',
+                'year' => 'required',
+
+            ]
+        );
+
         $name;
 
         if($request->hasfile('document_file'))

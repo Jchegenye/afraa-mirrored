@@ -84,7 +84,7 @@ Route::group(['middleware' => 'auth'], function()
                 'uses' => 'ManageUsersController@edit',
                 //'middleware' => 'permission:access_to_edit_user'
             ]);
-            Route::get('/users/create/', [
+            Route::get('/users/create/{user_type}/', [
                 'uses' => 'ManageUsersController@create',
                 //'middleware' => 'permission:access_to_add_user'
             ]);

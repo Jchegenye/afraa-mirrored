@@ -53,7 +53,8 @@ class ManageUsersController extends Controller
     {
 
         $data = $this->RetrieveManagers();
-        return view('layouts.dashboard.admin.users')->with($data);
+        $user_type = "manager";
+        return view('layouts.dashboard.admin.users',compact('user_type'))->with($data);
 
     }
 
@@ -61,7 +62,8 @@ class ManageUsersController extends Controller
     {
 
         $data = $this->RetrieveDelegates();
-        return view('layouts.dashboard.admin.users')->with($data);
+        $user_type = "delegate";
+        return view('layouts.dashboard.admin.users',compact('user_type'))->with($data);
 
     }
 
@@ -184,10 +186,10 @@ class ManageUsersController extends Controller
 
     }
 
-    public function create(){
+    public function create($user_type){
 
         $data = $this->RetrieveUsers();
-        return view('layouts.dashboard.admin.crud.users.create')->with($data);
+        return view('layouts.dashboard.admin.crud.users.create',compact('user_type'))->with($data);
 
     }
 
