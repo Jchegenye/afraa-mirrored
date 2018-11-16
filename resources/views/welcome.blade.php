@@ -24,7 +24,7 @@
         <p class="p-3 pb-5 pl-5 pr-5">The AGA and Summit is a high profile air transport event dedicated to airline CEOs and top executives in the aviation industry.</p>
 
         @if(View::hasSection('register'))
-            <span>Already have account? <a href="{{ route('login') }}">Login</a></span>
+            <span>Already have an account? <a href="{{ route('login') }}">Login</a></span>
         @else
             <span>Not yet registered? <a href="{{ route('register') }}">Signup</a></span>
         @endif

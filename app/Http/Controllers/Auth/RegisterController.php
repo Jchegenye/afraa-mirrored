@@ -74,10 +74,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|unique:users,name|min:4',
-            'email' => 'email|unique:users,email|required',
-            'password' => 'required|min:6|max:20|unique:users,password',
-            'password_confirmation' => 'required|same:password',
+            // 'name' => 'required|unique:users,name|min:4',
+            // 'email' => 'email|unique:users,email|required',
+            // 'password' => 'min:6|required_with:password_confirmation|same:password_confirmation|unique:users,password',
+            // 'password_confirmation' => 'min:6',
             // 'g-recaptcha-response' => 'required',
         ]);
     }
@@ -117,7 +117,7 @@ class RegisterController extends Controller
             'token' => sha1(time())
         ]);
 
-        //\Mail::to($user->email)->send(new VerifyMail($user));
+        \Mail::to($user->email)->send(new VerifyMail($user));
 
         return $user;
 
@@ -172,8 +172,7 @@ class RegisterController extends Controller
 
         $this->guard()->logout();
 
-        //return redirect('/login')->with('status', 'We sent you an activation code. Check your email and click on the link to verify.');
-        return redirect('/login')->with('status', '');
+        return redirect('/login')->with('status', 'We sent you an activation code. Check your email and click on the link to verify.');
 
     }
 

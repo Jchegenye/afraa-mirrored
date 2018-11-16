@@ -63,22 +63,22 @@ Route::group(['middleware' => 'auth'], function()
 
             Route::get('/users', [
                 'uses' => 'ManageUsersController@index',
-                'middleware' => 'permission:access_to_manage_users'
+                //'middleware' => 'permission:access_to_manage_users'
             ]);
             Route::get('/admin/managers', [
                 'uses' => 'ManageUsersController@managers',
-                'middleware' => 'permission:access_to_manage_users'
+                //'middleware' => 'permission:access_to_manage_users'
             ]);
             Route::get('/admin/delegates', [
                 'uses' => 'ManageUsersController@delegates',
-                'middleware' => 'permission:access_to_manage_users'
+                //'middleware' => 'permission:access_to_manage_users'
             ]);
             Route::resource('/permissions','ManagePermissionsController');
 
             //CRUD
             Route::get('/users/trash/{uid}', [
 				'uses' => 'ManageUsersController@trash',
-				'middleware' => 'permission:access_to_delete_user'
+				//'middleware' => 'permission:access_to_delete_user'
             ]);
             Route::get('/users/edit/{uid}/', [
                 'uses' => 'ManageUsersController@edit',
@@ -104,7 +104,7 @@ Route::group(['middleware' => 'auth'], function()
 
             Route::get('/delegates/programe', [
                 'uses' => 'DelegateController@viewPrograme',
-                'middleware' => 'permission:access_to_view_programmes'
+                //'middleware' => 'permission:access_to_view_programmes'
             ]);
 
         });
@@ -192,7 +192,4 @@ Route::namespace('Auth\Users')->group(function () {
 });
 
 Auth::routes();
-
-Auth::routes(['verify' => true]);
-
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');

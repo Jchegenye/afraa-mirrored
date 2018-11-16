@@ -59,7 +59,7 @@ class ForgotPasswordController extends Controller
 
         $rules = array(
             'email' => 'required|email|max:255',
-            'g-recaptcha-response' => 'required'
+            //'g-recaptcha-response' => 'required'
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -180,10 +180,12 @@ class ForgotPasswordController extends Controller
         $reset = Input::all();
         $rules = array(
             'email' => 'required|email|max:255',
-            'g-recaptcha-response' => 'required',
-            'password' => 'required|min:6|max:20|unique:users,password',
-            'confirm_password' => 'required|same:password',
-            'g-recaptcha-response' => 'required',
+            // //'g-recaptcha-response' => 'required',
+            // 'password' => 'required|min:6|max:20|unique:users,password',
+            // 'confirm_password' => 'required|same:password',
+
+            'password' => 'min:6|required_with:password_confirmation|same:password_confirmation|unique:users,password',
+            'password_confirmation' => 'min:6',
         );
 
         $validator = Validator::make ($reset, $rules);

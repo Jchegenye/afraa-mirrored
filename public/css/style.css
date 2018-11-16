@@ -247,13 +247,15 @@ input:checked + .slider:before {
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-	height: 100vh;
+	min-height: 100%;
+    margin-bottom: 4% !important;
 }
 .loginpage .loginleft .content{
-	position: absolute;
-	top: 60%;
-	right: 5%;
-	left: 5%;
+    position: absolute;
+    top: 50%;
+    right: 5%;
+    left: 5%;
+    transform: translate(0%, -15%);
 }
 .loginpage .loginleft h1{
 	font-size: 2.5em;
@@ -318,7 +320,9 @@ input:checked + .slider:before {
  }
 
   .loginright span{
- 	color: rgba(0, 0, 0, 0.45);
+	font-weight: 300;
+	text-align: left;
+	margin-left: 5px;
  }
   .loginright a{
  	color: #d11f49;

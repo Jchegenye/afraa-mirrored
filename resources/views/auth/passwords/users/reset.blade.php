@@ -1,10 +1,10 @@
-@extends('layouts.app')
+@extends('welcome')
 
 @section('title', 'Request Password Reset')
 
-@section('head')
+{{-- @section('head')
     <script src='https://www.google.com/recaptcha/api.js'></script>
-@endsection
+@endsection --}}
 
 @section('content')
 <div class="container">
@@ -75,7 +75,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="g-recaptcha" data-sitekey="
                                 @if (env('APP_ENV')!='Production')
@@ -88,7 +88,7 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
