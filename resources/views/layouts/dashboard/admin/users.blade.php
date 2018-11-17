@@ -25,14 +25,14 @@
                 <div class="col-md-8">
                     <div class="row">
                         <div class="col-md-7 offset-md-2 ">
-                            <div class="input-group custom-search-form">
+                            {{--  <div class="input-group custom-search-form">
                                 <input type="text" class="form-control bg-danger text-white rounded-left" autocomplete="off" id="search" placeholder="Seach...">
                                 <span class="input-group-btn border-0">
                                     <button class="btn btn-default bg-danger text-white rounded-right" type="button">
                                         <i class="fa fa-search"></i>
                                     </button>
                                 </span>
-                            </div>
+                            </div>  --}}
                         </div>
                         <div class="col-md-3">
                             <a href="{{url('/dashboard/users/create/'. $user_type)}}" class="btn btn-afraa tb-sm-text text-capitalize">

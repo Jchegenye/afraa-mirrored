@@ -101,7 +101,7 @@
                 @if ($uri == "dashboard/delegate")
                     active
                 @endif
-               btn-block active text-left "><i class="fas fa-users-cog pr-2"></i>Dashboard</a>
+               btn-block text-left "><i class="fas fa-users-cog pr-2"></i>Dashboard</a>
             </div>
             <div class="col-12">
                 <a href="{{url('/dashboard/delegate/session')}}" class="button btn btn-shadow

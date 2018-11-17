@@ -5,6 +5,7 @@ namespace Afraa\Legibra\ReusableCodes\Dashboard;
 use Afraa\User;
 use Afraa\Model\Admin\Dashboard\UserPermissions;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 //use Illuminate\Http\Request;
 
 {
@@ -88,16 +89,24 @@ use Illuminate\Support\Facades\Auth;
              * @author Jackson A. Chegenye
              * @return array
              **/
-            $users = User::where('role','=','manager')
-                ->orderBy('uid', 'DES')
+            $users = DB::table('users')
+                ->join('profiles', function ($join)  use ( &$id ) {
+
+                    $join->on('profiles.user_id', '=', 'users.uid')
+                        ->orderBy('uid', 'DES')
+                        ->where('role','delegate');
+                })
                 ->get();
 
             $search = request()->uid; //get query id
             //$usersSearch = User::where('name','LIKE',"%{$search}%")->paginate(4); //Get search results by name
-            $usersSearch = User::withTrashed()
-                        ->where('name','LIKE',"%{$search}%")
-                        ->where('role','=','manager')
-                        ->orderBy('uid', 'desc')
+            $usersSearch = DB::table('users')
+                        ->join('profiles', function ($join)  use ( &$id ) {
+
+                            $join->on('profiles.user_id', '=', 'users.uid')
+                                ->orderBy('uid', 'DES')
+                                ->where('role','delegate');
+                        })
                         ->get();
             /**
              * Permissions Modal
@@ -144,7 +153,12 @@ use Illuminate\Support\Facades\Auth;
              * @return array
              **/
             $users = User::where('role','delegate')
-                ->orderBy('uid', 'DES')
+                ->join('profiles', function ($join)  use ( &$id ) {
+
+                    $join->on('profiles.user_id', '=', 'users.uid')
+                        ->orderBy('uid', 'DES')
+                        ->where('role','delegate');
+                })
                 ->get();
 
             $search = request()->uid; //get query id
@@ -152,7 +166,12 @@ use Illuminate\Support\Facades\Auth;
             $usersSearch = User::withTrashed()
                         ->where('name','LIKE',"%{$search}%")
                         ->where('role','=','delegate')
-                        ->orderBy('uid', 'desc')
+                        ->join('profiles', function ($join)  use ( &$id ) {
+
+                            $join->on('profiles.user_id', '=', 'users.uid')
+                                ->orderBy('uid', 'DES')
+                                ->where('role','delegate');
+                        })
                         ->get();
             /**
              * Permissions Modal

@@ -24,7 +24,13 @@ class Users extends Model
 
     public function getAllDelegates(){
 
-        $users = DB::table('users')->where('role','delegate')->get();
+        $users = DB::table('users')
+            ->join('profiles', function ($join)  use ( &$id ) {
+
+                $join->on('profiles.user_id', '=', 'users.uid')
+                    ->where('role','delegate');
+            })
+            ->get();
 
         return $users;
     }

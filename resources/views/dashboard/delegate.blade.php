@@ -32,7 +32,7 @@
                         </th>
                         <td>
                             <div class="afraa-white-box ">
-                                <span>9:00 - 15: 00</span> 
+                                <span>9:00 - 15: 00</span>
                                 <span>Delegates Tour</span>
                             </div>
                         </td>
@@ -78,7 +78,7 @@
                     To successfully register ensure your profile is up to date.
                 </div>
                 <div class="modal-footer-1">
-                    <a href="{{'#'}}" class="btn btn-afraa-full">Proceed To Profile</a>
+                    <a href="{{action('Users\UsersController@edit', Auth::id())}}"" class="btn btn-afraa-full">Proceed To Profile</a>
                 </div>
             </div>
         </div>
@@ -135,7 +135,7 @@
             </div>
         </div>
     @endforeach
-</div> 
+</div>
 <div class="row mt-4 pl-2 pt-4 mb-4 scroll_cards">
     <div class="owl-carousel owl-theme pt-4">
         @foreach($session as $sessions)

@@ -4,9 +4,8 @@
         <tr>
             <th></th>
             <th>Name</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Status</th>
+            <th>Position</th>
+            <th>Company</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -17,9 +16,9 @@
                 <tr style="opacity: 0.6; background-color: #ffa5004d;">
                     <td><div class="bg">{{$index +1}}</div></td>
                     <td><div class="bg">{{ $user->name }}</div></td>
-                    <td><div class="bg">{{ $user->email }}</div></td>
-                    <td><div class="bg">{{ $user->role }}</div></td>
-                    <td>
+                    <td><div class="bg">{{ $user->Job_Title }}</div></td>
+                    <td><div class="bg">{{ $user->Company_Name }}</div></td>
+                    {{--  <td>
                         <div class="bg">
                             @if($user->verified === 1)
                                 Verified
@@ -27,9 +26,9 @@
                                 Not Verified
                             @endif
                         </div>
-                    </td>
+                    </td>  --}}
                     <td>
-                        <div class="btn-group btn-group-toggle" >
+                        <div class="btn-group btn-group-toggle pull-right" >
                             <label class="" >
                                 Trashed - &nbsp;
                             </label>
@@ -43,9 +42,9 @@
                 <tr>
                     <td><div class="bg">{{$index +1}}</div></td>
                     <td><div class="bg">{{ $user->name }}</div></td>
-                    <td><div class="bg"><a href="mailto:{{ $user->email }}">{{ $user->email }}</a></div></td>
-                    <td><div class="bg">{{ $user->role }}</div></td>
-                    <td>
+                    <td><div class="bg">{{ $user->Job_Title }}</div></td>
+                    <td><div class="bg">{{ $user->Company_Name }}</div></td>
+                    {{--  <td>
                         <div class="bg">
                             @if($user->verified === 1)
                                 Verified
@@ -53,7 +52,7 @@
                                 Not Verified
                             @endif
                         </div>
-                    </td>
+                    </td>  --}}
                     <td class="mx-auto" style="display: inline;">
                         <div class="">
                             <a href="{!! url('dashboard/users/edit/' . $user->uid ) !!}/" title="Edit" class="text-darkred">
