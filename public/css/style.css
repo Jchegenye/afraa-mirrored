@@ -45,11 +45,11 @@ body{
 	max-width: 35%;
 }
 .sidebar-nav .card-text{
-	color: rgba(0, 0, 0, 0.45);
+	color: rgba(0, 0, 0, 0.80);
 }
 .myaccount a{
 	text-decoration: none;
-	color: rgba(0, 0, 0, 0.45);
+	color: rgba(0, 0, 0, 0.80);
 }
 
 .buttons .btn:hover,.a .btn:hover{
@@ -58,7 +58,7 @@ body{
 }
 .buttons .btn,.a .btn{
 	margin-top: 10px;
-	color: rgba(0, 0, 0, 0.45);
+	color: rgba(0, 0, 0, 0.80);
 	background-color: transparent;
 	padding-right: 30px;
 	padding-left: 20px;
@@ -70,11 +70,11 @@ body{
 	padding: 10px 20px;
 }
 .buttons a .btn{
-	color: rgba(0, 0, 0, 0.45);
+	color: rgba(0, 0, 0, 0.80);
 	font-size: 12px;
 }
 .buttons a{
-	color: rgba(0, 0, 0, 0.45);
+	color: rgba(0, 0, 0, 0.80);
 	font-size: 12px;
 }
 .buttons .active{
@@ -86,7 +86,7 @@ body{
 }
 
 .contents .heading p{
-	color: rgba(0, 0, 0, 0.45);
+	color: rgba(0, 0, 0, 0.80);
 }
 .cardbg{
 	background-image:url("../images/wires.png");
@@ -237,22 +237,22 @@ input:checked + .slider:before {
 }
 .addsec span{
 	font-size: 13px;
-	color: rgba(0, 0, 0, 0.45);
+	color: rgba(0, 0, 0, 0.80);
 }
 .addsec span span{
 	color: red;
 }
 .loginpage .loginleft{
-	background-image:url("../images/landingpage2.jpg");
+	background-image:url("../images/maroc1.png");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
-	min-height: 100%;
+	min-height: 100vh;
     margin-bottom: 4% !important;
 }
 .loginpage .loginleft .content{
     position: absolute;
-    top: 50%;
+    top: 60%;
     right: 5%;
     left: 5%;
     transform: translate(0%, -15%);
@@ -268,7 +268,7 @@ input:checked + .slider:before {
 	color: #d11f49;
 }
 .loginpage .loginright{
-	margin-top: 4%;
+	margin-top: 3%;
 }
 .shadow-xm{
   transition: 0s;
@@ -292,7 +292,7 @@ input:checked + .slider:before {
     /*box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 10);*/
  }
 .loginright .logo{
-	max-width: 150px;
+	max-width: 120px;
 }
  .loginright{
  	padding-left: 7%;
@@ -303,7 +303,7 @@ input:checked + .slider:before {
  }
    .loginright p{
  	font-size: 13px;
- 	color: rgba(0, 0, 0, 0.45);
+ 	color: rgba(0, 0, 0, 0.80);
  }
   .loginright .form-title p{
   	font-weight: 500;
@@ -329,14 +329,14 @@ input:checked + .slider:before {
  	text-decoration: none;
  }
  .forgot a{
- 	color: rgba(0, 0, 0, 0.45);
+ 	color: rgba(0, 0, 0, 0.80);
  	font-size: 12px;
  }
  .owl-prev, .owl-next{
  	font-size: 1.1em !important;
  	position: absolute;
  	top: 98%;
- 	color: rgba(0, 0, 0, 0.45) !important;
+ 	color: rgba(0, 0, 0, 0.80) !important;
  	background-color: #fff !important;
  }
  .owl-prev{
@@ -474,7 +474,7 @@ input:checked + .slider:before {
 
 	/* links */
 	a {
-		color: #dc4045; 
+		color: #d11f49; 
 	}
 	a:focus,
 	a:hover {
@@ -503,35 +503,35 @@ input:checked + .slider:before {
 
 	/* buttons */
 	.btn-afraa {
-		color: #dc4045;
+		color: #d11f49;
 		background-color: transparent;
-		border: 1px solid #dc4045;
+		border: 1px solid #d11f49;
 		padding: 8px 12px;
 	}
 	.btn-group .btn-afraa:hover,
 	.btn-afraa:hover {
 		color: #ffffff;
-		background-color: #dc4045; 
+		background-color: #d11f49; 
 	}
 	/* .btn-afraa a:hover{
 		color: #fff; 
 	} */
 	.btn-afraa-full {
-		background-color: #dc4045;
-		border: 1px solid #dc4045;
+		background-color: #d11f49;
+		border: 1px solid #d11f49;
 		padding: 8px 12px;
 		color: #fff;
 	}
 	.btn-afraa-full-2{
-		background-color: #dc4045;
-		border: 1px solid #dc4045;
+		background-color: #d11f49;
+		border: 1px solid #d11f49;
 		padding: 7px 30px;
 		color: #fff !important;
-		box-shadow: 1px 1px 9px #dc4045;
+		box-shadow: 1px 1px 9px #d11f49;
 	}
 	.btn-afraa-full-2:hover{
 		background-color: transparent;
-    	color: #dc4045 !important;
+    	color: #d11f49 !important;
 	}
 	.btn-afraa-full a{
 		color: #fff !important; 
@@ -545,11 +545,11 @@ input:checked + .slider:before {
 		color:inherit;
 	}
 	.page-item.active .page-link {
-		background-color: #dc4045;
-		border-color: #dc4045;
+		background-color: #d11f49;
+		border-color: #d11f49;
 	}
 	.page-link{
-		color: #dc4045;
+		color: #d11f49;
 	}
 	.page-link:hover {
 		color: #d3b5c7; 
@@ -696,7 +696,7 @@ input:checked + .slider:before {
 		background-size: contain;
 	}
 	#statistics .stats-card:hover{
-		color: #dc4045;
+		color: #d11f49;
 	}
 	#statistics .stats-card h1{
 		font-size: 3rem;
@@ -713,11 +713,11 @@ input:checked + .slider:before {
 		margin-bottom: 30px;
 	}
 	#dashtabs .nav-tabs .nav-item.show .nav-link, #dashtabs .nav-tabs .nav-link.active{
-		background-color: #dc4045;
-		border: 1px solid #dc4045;
+		background-color: #d11f49;
+		border: 1px solid #d11f49;
 		padding: 10px 30px;
 		color: #fff !important;
-		box-shadow: 0px 0px 13px #dc4045;
+		box-shadow: 0px 0px 13px #d11f49;
 	}
 	#dashtabs .nav-tabs .nav-link{
 		background-color: #ffffff;
@@ -753,7 +753,7 @@ input:checked + .slider:before {
 	}
 	#dashtabs .table .tabtable .clr-gray{
 		width: 15%;
-		color: #dc4045;
+		color: #d11f49;
 	}
 	#dashtabs .table .tabtable .action-gray{
 		float: right;
@@ -866,4 +866,53 @@ input:checked + .slider:before {
 		background-color: #8c8c8cb0;
 		cursor: default;
 		z-index: 999;
+	}
+
+	/* Alfie */
+	.dark-overlay {
+		position: absolute;
+		background-color: rgba(0, 0, 0, 0.80);
+		opacity: 1;
+		width: 100%;
+		height: 100%;
+	}
+	.afraa-modal .modal .time_interval{
+		color:rgba(0, 0, 0, 0.40);
+		padding-left: 20px;
+		font-weight: 600;
+	}
+	.afraa-modal .modal-dialog {
+		max-width: 700px !important;
+	}
+	.afraa-modal .modal-title{
+		color: #d11f49;
+		font-size: 2.0em;
+		font-weight: 400;
+		text-transform: uppercase;
+	}
+	.afraa-modal .modal-header{
+		border: none;
+	}
+	.afraa-modal .modal-body{
+		margin-left: 0px;
+		padding-left: 10px;
+	
+	}
+	.afraa-modal .modal-header .close{
+		color: #d11f49;
+		font-size: 4em;
+		font-weight: 200;
+		position: absolute;
+		top: 3px;
+		right: 20px;
+	}
+	.afraa-modal .modal-body .left_modal{
+		border-right: 1px solid rgba(0, 0, 0, 0.20);
+		color: rgba(0, 0, 0, 0.40);
+		font-size: 14px;
+		line-height: 28px;
+
+	}
+	.afraa-modal .modal-footer {
+		border-top: none;
 	}

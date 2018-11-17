@@ -30,53 +30,113 @@
 
         <div class="row buttons pl-2 pr-5">
 
+            @php
+                $uri = request()->route()->uri;
+            @endphp
+
         @if(Auth::user()->role == 'admin')
 
             <div class="col-12">
-                <a href="{{url('/dashboard/admin')}}" class="btn btn-block active text-left "><i class="fas fa-users-cog pr-2"></i>Dashboard</a>
+                <a href="{{url('/dashboard/admin')}}" class="btn btn-block
+                   @if ($uri == "dashboard/admin")
+                       active
+                   @endif
+                text-left "><i class="fas fa-users-cog pr-2"></i>Dashboard</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/admin/managers')}}" class="btn btn-block btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Managers</a>
+                <a href="{{url('/dashboard/admin/managers')}}" class="btn btn-block
+                @if ($uri == "dashboard/admin/managers")
+                    active
+                @endif
+              btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Managers</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/admin/delegates')}}" class="button btn btn-shadow btn-block text-left "><i class="fas fa-users-cog pr-2"></i>Manage Delegates</a>
+                <a href="{{url('/dashboard/admin/delegates')}}" class="button btn btn-shadow btn-block
+                @if ($uri == "dashboard/admin/delegates")
+                    active
+                @endif
+               text-left "><i class="fas fa-users-cog pr-2"></i>Manage Delegates</a>
             </div>{{-- {{url('/dashboard/delegate')}} --}}
             <div class="col-12">
-                <a href="{{url('/dashboard/admin/session')}}" class="btn btn-block btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Programmes</a>
+                <a href="{{url('/dashboard/admin/session')}}" class="btn btn-block
+                @if ($uri == "dashboard/admin/session")
+                    active
+                @endif
+               btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Programmes</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/delegate/speakers')}}" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Speakers</a>
+                <a href="{{url('/dashboard/delegate/speakers')}}" class="btn btn-block
+                @if ($uri == "dashboard/delegate/speakers")
+                    active
+                @endif
+                btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Speakers</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/admin/documents')}}" class="btn btn-block btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Documents</a>
+                <a href="{{url('/dashboard/admin/documents')}}" class="btn btn-block
+                @if ($uri == "dashboard/admin/documents")
+                    active
+                @endif
+               btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Documents</a>
             </div>
 
             <div class="col-12">
-                <a href="{{url('/dashboard/delegate/exhibitors')}}" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Exhibitors</a>
+                <a href="{{url('/dashboard/delegate/exhibitors')}}" class="btn btn-block
+                @if ($uri == "dashboard/delegate/exhibitors")
+                    active
+                @endif
+                btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Exhibitors</a>
             </div>{{-- {{url('/dashboard/delegate/exhibitors')}} --}}
             <div class="col-12">
-                <a href="{{url('/dashboard/sponsors')}}" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Sponsors</a>
+                <a href="{{url('/dashboard/sponsors')}}" class="btn btn-block
+                @if ($uri == "dashboard/sponsors")
+                    active
+                @endif
+                btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Sponsors</a>
             </div>{{-- {{url('/dashboard/delegate/exhibitors')}} --}}
 
         @elseif(Auth::user()->role == 'delegate')
 
             <div class="col-12">
-                <a href="{{url('/dashboard/delegate')}}" class="button btn btn-shadow btn-block active text-left "><i class="fas fa-users-cog pr-2"></i>Dashboard</a>
+                <a href="{{url('/dashboard/delegate')}}" class="button btn btn-shadow
+                @if ($uri == "dashboard/delegate")
+                    active
+                @endif
+               btn-block active text-left "><i class="fas fa-users-cog pr-2"></i>Dashboard</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/delegate/session')}}" class="button btn btn-shadow btn-block text-left "><i class="fas fa-users-cog pr-2"></i>Programmes</a>
+                <a href="{{url('/dashboard/delegate/session')}}" class="button btn btn-shadow
+                @if ($uri == "dashboard/delegate/session")
+                    active
+                @endif
+               btn-block text-left "><i class="fas fa-users-cog pr-2"></i>Programmes</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/delegate/all')}}" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Delegates</a>
+                <a href="{{url('/dashboard/delegate/all')}}" class="btn btn-block
+                @if ($uri == "dashboard/delegate/all")
+                    active
+                @endif
+                btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Delegates</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/delegate/speakers')}}" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Speakers</a>
+                <a href="{{url('/dashboard/delegate/speakers')}}" class="btn btn-block
+                @if ($uri == "dashboard/delegate/speakers")
+                    active
+                @endif
+                btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Speakers</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/delegate/exhibitors')}}" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Exhibitors</a>
+                <a href="{{url('/dashboard/delegate/exhibitors')}}" class="btn btn-block
+                @if ($uri == "dashboard/delegate/exhibitors")
+                    active
+                @endif
+                btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Exhibitors</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/delegate/documents')}}" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Documents</a>
+                <a href="{{url('/dashboard/delegate/documents')}}" class="btn btn-block
+                @if ($uri == "dashboard/delegate/documents")
+                    active
+                @endif
+                btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Documents</a>
             </div>
             <div class="col-12">
                 <button class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Social Events</button>
