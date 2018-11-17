@@ -193,3 +193,10 @@ Route::namespace('Auth\Users')->group(function () {
 
 Auth::routes();
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
+
+Route::get('/aga', function () {
+    return view('layouts.dashboard.documents.innerpages.aga');
+});
+Route::get('/single/aga', function () {
+    return view('layouts.dashboard.documents.innerpages.singleaga');
+});

@@ -734,3 +734,57 @@ input:checked + .slider:before {
 		border: 0;
 		cursor: pointer;
 	}
+
+	/* Documents */
+	.aga{
+		background-color: #ffffff;
+		border: 1px solid #ffffff;
+		padding: 10px 0px;
+		color: #c0c0c0 !important;
+		box-shadow: 0px 0px 13px #c0c0c0;
+		border-radius: 5px;
+		display: block;
+	}
+	.aga img{
+		height: 80px;
+		object-fit: contain;
+	}
+	.aga span{
+		color: #d23e4a;
+	}
+	.aga .aviation span{
+		color: #aec55d;
+	}
+	.annual .aga img {
+		height: 50px; 
+	}
+	.agalist li::before{
+		border: 1px solid #000;
+		width: 100px;
+	}
+	
+	.agalist .dw-title span:nth-of-type(3) { float:right }
+	.agalist .dw-title .dw-link{
+		font-size: 12px;
+		color: #8c8c8c;
+		padding-left: 5px;
+	}
+	.agalist .dw-title {
+		font-size: 0.8rem;
+		font-weight: 400;
+	}
+
+	.aga-accordion .btn-aga{
+		cursor: pointer;
+		background-color: #ebeff3;
+		width: 100%;
+		display: block;
+		position: relative;
+	}
+	.aga-accordion .btn-aga img{
+		background-color: #fff;
+		padding: 12px;
+		margin: 1px;
+		width: 75px;
+    	margin-right: 35px;
+	}
