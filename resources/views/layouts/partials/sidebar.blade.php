@@ -10,10 +10,10 @@
                 if (Auth::user()->photo){
                     $photo_url = Auth::user()->photo;
                 }else{
-                    $photo_url = "Person Admin-01.png";
+                    $photo_url = "avater.png";
                 }
                 @endphp
-                <img class="img-fluid rounded-3 w-50" src="{{ asset('images/') }}/{{$photo_url}}" alt="pic">
+                <img class="img-fluid rounded-3 w-50" src="{{URL::asset('/images/'. $photo_url)}}" alt="pic">
 
             </div>
             <div class="card-body">
@@ -61,7 +61,7 @@
         @elseif(Auth::user()->role == 'delegate')
 
             <div class="col-12">
-                <a href="{{url('/dashboard/delegate')}}" class="button btn btn-shadow btn-block active text-left "><i class="fas fa-users-cog pr-2"></i>Delegates</a>
+                <a href="{{url('/dashboard/delegate')}}" class="button btn btn-shadow btn-block active text-left "><i class="fas fa-users-cog pr-2"></i>Dashboard</a>
             </div>
             <div class="col-12">
                 <a href="{{url('/dashboard/delegate/session')}}" class="button btn btn-shadow btn-block text-left "><i class="fas fa-users-cog pr-2"></i>Programmes</a>

@@ -4,7 +4,87 @@
 
 @section('content')
 
-<div class="row">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="page-header">Dashboard</h3>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-md-12">
+
+            <div class="delegate-box afraa-white-box ">
+                <table class="table">
+                    <tr>
+                        <th>
+                            <h6 class="afraa-red-text">CURRENT SESSION</h6>
+                        </th>
+                        <td>
+                            <div class="afraa-red-box">
+                                <span>9:00 - 15: 00</span>
+                                <span>Chairman’s Opening Remarks</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            <h6>CURRENT SESSION</h6>
+                        </th>
+                        <td>
+                            <div class="afraa-white-box ">
+                                <span>9:00 - 15: 00</span> 
+                                <span>Delegates Tour</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h6>Register for the next event</h6>
+
+            <div class="row mt-4">
+                <div class="col-md-5">
+                    <div class="delegate-box-reg afraa-white-box text-center afraa-box-inactive">
+                        <img src="{{URL::asset('/images/logo.png')}}" alt="">
+                        <h6 class="afraa-red-text">ANNUAL GENERAL ASSEMBLY </h6>
+                    </div>
+                </div>
+                <div class="col-md-5 offset-md-1">
+                    <div class="delegate-box-reg afraa-white-box text-center"  data-toggle="modal" data-target="#modal-1">
+                        <img src="{{URL::asset('/images/asc-logo.jpg')}}" alt="">
+                        <h6 class="afraa-red-text">AVIATION STAKEHOLDERS CONVENTION</h6>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal fade afraa-medal" id="modal-1" tabindex="-1" role="dialog" aria-labelledby="modal-1Title" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title afraa-red-text text-600" id="exampleModalLongTitle">POLITE NOTICE</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    To successfully register ensure your profile is up to date.
+                </div>
+                <div class="modal-footer-1">
+                    <a href="{{'#'}}" class="btn btn-afraa-full">Proceed To Profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{{-- <div class="row">
     <div class="col-md-9 heading">
         <h1 class="page-header">All Sessions</h1>
         <p>{{ __('Add a New User and assign a specific role with certain permissions') }}</p>
@@ -19,8 +99,9 @@
             </span>
         </div>
     </div>
-</div>
-<div class="row pt-4">
+</div> --}}
+
+{{-- <div class="row pt-4">
     @foreach($featured_session as $featured_sessions)
         <div class="col-md-7 mr-0  pr-0"><img class="img-fluid rounded w-100" src="{{ asset('images') }}/{{$featured_sessions->featured_image}}" alt="wires"></div>
         <div class="col-md-5 ml-0 cardgrey">
@@ -54,7 +135,7 @@
             </div>
         </div>
     @endforeach
-</div>
+</div> 
 <div class="row mt-4 pl-2 pt-4 mb-4 scroll_cards">
     <div class="owl-carousel owl-theme pt-4">
         @foreach($session as $sessions)
@@ -124,6 +205,6 @@
             </div>
         </div>
     @endforeach
-</div>
+</div> --}}
 
 @endsection

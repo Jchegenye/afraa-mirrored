@@ -15,7 +15,7 @@ git clone https://github.com/Legibra/afraa.git
 ```
 #!terminal
 
-cp .env.example .env && mkdir bootstrap/cache storage storage/framework && cd storage/framework && mkdir sessions views cache
+cp .env.example .env && mkdir bootstrap/cache storage storage/framework && cd storage/framework && mkdir sessions views cache && ../../
 
 ```
 
@@ -24,8 +24,7 @@ cp .env.example .env && mkdir bootstrap/cache storage storage/framework && cd st
 ```
 #!terminal
 
-sudo chown :www-data app storage bootstrap -R
-sudo chmod 775 app storage bootstrap -R
+sudo chown :www-data app storage bootstrap -R && sudo chmod 775 app storage bootstrap -R
 
 ```
 
@@ -50,7 +49,4 @@ php artisan key:generate
 ```
 #!terminal
 
-php artisan afraa:permissions
-
-php artisan afraa:initialize
-
+php artisan afraa:permissions && php artisan afraa:initialize
