@@ -83,4 +83,6 @@ $(document).ready(function(){
     //     format: 'yyyy'
     //   });
 
+    $('#txtHint').DataTable();
+
 });

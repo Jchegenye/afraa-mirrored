@@ -17,7 +17,7 @@
 
     <div class="row">
         <div class="col-md-6 offset-md-6">
-            
+
             <div class="row">
                 <div class="col-md-12">
                     <div class="input-group custom-search-form">
@@ -29,7 +29,7 @@
                         </span>
                     </div>
                 </div>
-        
+
                 {{-- <div class="col-md-6">
                     <a href="{{ url('/dashboard/admin/session/create') }}" class="btn btn-afraa-full-2">Add a Session</a>
                 </div> --}}
@@ -62,14 +62,14 @@
 
                             @php
 
-                                $date = date("j", strtotime($sessions['date']));
+                                $date = date("j", strtotime($sessions->date));
 
-                                $start = date("h:i", strtotime($sessions['start_time']));
+                                $start = date("h:i", strtotime($sessions->start_time));
 
-                                $stop = date("h:i", strtotime($sessions['end_time']));
-                                
+                                $stop = date("h:i", strtotime($sessions->end_time));
+
                             @endphp
-            
+
                             @if ($date==25)
 
                                 <tr class="tabtable">
@@ -80,13 +80,21 @@
                                     </td>
                                     <td class="clr-blk">
                                         <div>
-                                            <h6>{{$sessions['title']}}</h6>
+                                            <h6>{{$sessions->title}}</h6>
                                         </div>
                                     </td>
                                     <td class="action-gray">
                                         <div>
 
-                                            <a href="#" class="edit"><i class="far fa-eye"></i></a>
+                                            <a href="{{action('ProgrammeSession\ProgrammeSessionController@edit', $sessions->id)}}" class="edit"><i class="far fa-edit"></i></a>
+
+                                            <form action="{{action('ProgrammeSession\ProgrammeSessionController@destroy', $sessions->id)}}" method="post">
+
+                                                @csrf
+                                                    <input name="_method" type="hidden" value="DELETE">
+                                                    <button class="text-small" type="submit"><i class="far fa-trash-alt"></i></button>
+
+                                            </form>
 
                                         </div>
                                     </td>
@@ -95,7 +103,7 @@
                                 <tr>
                                     <td class="pt-2"></td>
                                 </tr>
-        
+
                             @endif
 
                         @endforeach
@@ -105,7 +113,7 @@
 
             </div>
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                
+
                 <table class="table">
                     <tbody>
 
@@ -113,14 +121,14 @@
 
                             @php
 
-                                $date = date("j", strtotime($sessions['date']));
+                                $date = date("j", strtotime($sessions->date));
 
-                                $start = date("h:i", strtotime($sessions['start_time']));
+                                $start = date("h:i", strtotime($sessions->start_time));
 
-                                $stop = date("h:i", strtotime($sessions['end_time']));
-                                
+                                $stop = date("h:i", strtotime($sessions->end_time));
+
                             @endphp
-            
+
                             @if ($date==26)
 
                                 <tr class="tabtable">
@@ -131,13 +139,21 @@
                                     </td>
                                     <td class="clr-blk">
                                         <div>
-                                            <h6>{{$sessions['title']}}</h6>
+                                            <h6>{{$sessions->title}}</h6>
                                         </div>
                                     </td>
                                     <td class="action-gray">
                                         <div>
 
-                                            <a href="#" class="edit"><i class="far fa-edit"></i></a>
+                                            <a href="{{action('ProgrammeSession\ProgrammeSessionController@edit', $sessions->id)}}" class="edit"><i class="far fa-edit"></i></a>
+
+                                            <form action="{{action('ProgrammeSession\ProgrammeSessionController@destroy', $sessions->id)}}" method="post">
+
+                                                @csrf
+                                                    <input name="_method" type="hidden" value="DELETE">
+                                                    <button class="text-small" type="submit"><i class="far fa-trash-alt"></i></button>
+
+                                            </form>
 
                                         </div>
                                     </td>
@@ -146,18 +162,18 @@
                                 <tr>
                                     <td class="pt-2"></td>
                                 </tr>
-        
+
                             @endif
 
                         @endforeach
 
                     </tbody>
-                        
+
                 </table>
 
             </div>
             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-                
+
                 <table class="table">
                     <tbody>
 
@@ -165,14 +181,14 @@
 
                             @php
 
-                                $date = date("j", strtotime($sessions['date']));
+                                $date = date("j", strtotime($sessions->date));
 
-                                $start = date("h:i", strtotime($sessions['start_time']));
+                                $start = date("h:i", strtotime($sessions->start_time));
 
-                                $stop = date("h:i", strtotime($sessions['end_time']));
-                                
+                                $stop = date("h:i", strtotime($sessions->end_time));
+
                             @endphp
-            
+
                             @if ($date==27)
 
                                 <tr class="tabtable">
@@ -183,13 +199,21 @@
                                     </td>
                                     <td class="clr-blk">
                                         <div>
-                                            <h6>{{$sessions['title']}}</h6>
+                                            <h6>{{$sessions->title}}</h6>
                                         </div>
                                     </td>
                                     <td class="action-gray">
                                         <div>
 
-                                            <a href="#" class="edit"><i class="far fa-edit"></i></a>
+                                            <a href="{{action('ProgrammeSession\ProgrammeSessionController@edit', $sessions->id)}}" class="edit"><i class="far fa-edit"></i></a>
+
+                                            <form action="{{action('ProgrammeSession\ProgrammeSessionController@destroy', $sessions->id)}}" method="post">
+
+                                                @csrf
+                                                    <input name="_method" type="hidden" value="DELETE">
+                                                    <button class="text-small" type="submit"><i class="far fa-trash-alt"></i></button>
+
+                                            </form>
 
                                         </div>
                                     </td>
@@ -198,14 +222,14 @@
                                 <tr>
                                     <td class="pt-2"></td>
                                 </tr>
-        
+
                             @endif
 
                         @endforeach
 
                     </tbody>
                 </table>
-                
+
             </div>
         </div>
     </div>

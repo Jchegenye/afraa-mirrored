@@ -2,7 +2,7 @@
 
 namespace Afraa\Http\Controllers\ProgrammeSession;
 
-use App\ProgrammeSession;
+use Afraa\ProgrammeSession;
 use Afraa\FeaturedSession;
 use Afraa\Model\Users;
 use Illuminate\Http\Request;
@@ -20,7 +20,9 @@ class ProgrammeSessionController extends Controller
     public function index()
     {
         //
-        $session = \Afraa\ProgrammeSession::paginate(5);
+        //$session = \Afraa\ProgrammeSession::paginate(5);
+        $sessions = new ProgrammeSession();
+        $session = $sessions->getSessions();
 
         $featured_sessions = new FeaturedSession;
 
