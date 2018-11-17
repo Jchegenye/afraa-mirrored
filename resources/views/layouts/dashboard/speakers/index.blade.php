@@ -14,9 +14,9 @@
         <p></p>
     </div>
 </div>
-
-<img src="{{url('/images/speakers1.png')}}" alt="Image" class="img-fluid"/>
-{{-- <div class="row pt-4">
+{{--
+<img src="{{url('/images/speakers1.png')}}" alt="Image" class="img-fluid"/>  --}}
+<div class="row pt-4">
     <div class="card-deck col-md-12">
         @php
             $i= 0;
@@ -30,7 +30,12 @@
             <div class="card-body">
                 <h5 class="card-title">{{$speaker->name}}</h5>
                 <p class="card-text">{{$speaker->title}}</p>
-                <a href="{{action('Speaker\SpeakerController@show',$speaker->uid)}}">Read More</a>
+
+                @if(Auth::user()->role == 'admin')
+                    <a href="{{action('Users\UsersController@edit', $speaker->uid)}}">Edit</a>
+                    <a href="{{url('dashboard/admin/delete_speaker/')}}/{{$speaker->id}}/{{$speaker->uid}}">Delete</a>
+                @endif
+
             </div>
             </div>
             @if ($i%3==0)
@@ -41,6 +46,6 @@
             @endif
         @endforeach
       </div>
-</div> --}}
+</div>
 
 @endsection

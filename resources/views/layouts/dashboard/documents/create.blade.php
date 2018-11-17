@@ -21,7 +21,12 @@
             <div class="form-row pt-3 pb-4">
                 <div class="form-group col-md-12">
                     <p>Category</p>
-                    <input type="text" class="form-control" name="category">
+                    <select  type="text" class="form-control" name="category">
+                        <option value="speeches" >Speeeches</option>
+                        <option value="presentations" >Presentations</option>
+                        <option value="reports" >Reports</option>
+                        <option value="press" >Press Releases</option>
+                    </select>
                     <small class="error">{{$errors->first('category')}}</small>
                 </div>
             </div>

@@ -13,16 +13,6 @@
     <br/>
 @endif
 
-@foreach ($documents as $document)
-    {{$document->title}}
-    <br/>
-    {{$document->category}}
-    <br/>
-    {{$document->year}}
-    <br/>
-    {{ asset('images/documents/') }}/{{$document->name}}
-@endforeach
-
 <hr>
 
     <div class="row">

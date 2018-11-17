@@ -32,4 +32,12 @@ class Speaker extends Model
 
         return $speakers;
     }
+
+    public function deleteSpeaker($session_id,$user_id){
+
+        $speaker = DB::table('programme_sessions')
+            ->where('programme_sessions.id', $session_id)
+            ->update(['user_id' => 0]);
+
+    }
 }

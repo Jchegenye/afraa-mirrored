@@ -136,6 +136,10 @@ Route::group(['middleware' => 'auth'], function()
 
         Route::resource('documents','DocumentController');
 
+        Route::get('delete_speaker/{session_id}/{user_id}', [
+            'uses' => 'Speaker\SpeakerController@updateSpeaker',
+        ]);
+
     });
 
     Route::prefix('dashboard/delegate')->group(function () {
@@ -194,11 +198,13 @@ Route::namespace('Auth\Users')->group(function () {
 });
 
 Auth::routes();
+
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 
-Route::get('/aga', function () {
-    return view('layouts.dashboard.documents.innerpages.aga');
-});
-Route::get('/single/aga', function () {
-    return view('layouts.dashboard.documents.innerpages.singleaga');
-});
+Route::get('/aga', [
+    'uses' => 'DocumentController@aga'
+]);
+
+Route::get('/single/aga/{year}', [
+    'uses' => 'DocumentController@agaAll'
+]);
