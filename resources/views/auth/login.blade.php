@@ -164,7 +164,7 @@
                 </a>
             </div>
             <div class="form-group ml-3">
-                <p>Don’t have an account? <a href="{{ route('register') }}">Register Here</a> </p>
+                <p>Not yet registered? <a href="{{ route('register') }}">Register Here</a> </p>
             </div>
             <div class="form-group ml-3 text-right">
                 <button type="submit" class="bg-transparent border-0 cursor-pointer">
