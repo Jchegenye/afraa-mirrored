@@ -13,11 +13,26 @@ class DocumentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $documents = \Afraa\Document::all();
 
         return view('layouts.dashboard.documents.index',compact('documents'));
+    }
+
+    public function aga(){
+
+        $documents = \Afraa\Document::all();
+
+        return view('layouts.dashboard.documents.innerpages.aga',compact('documents'));
+    }
+
+    public function agaAll($year){
+
+        $documents = \Afraa\Document::where('year',$year)->get();
+
+        return view('layouts.dashboard.documents.innerpages.singleaga',compact('documents'));
     }
 
     /**
@@ -60,7 +75,7 @@ class DocumentController extends Controller
         {
            $file = $request->file('document_file');
            $name = time().$file->getClientOriginalName();
-           $file->move(public_path().'/images/documents/', $name);
+           $file->move(public_path().'/files/documents/', $name);
         }
 
         $document->title = $request->get('title');

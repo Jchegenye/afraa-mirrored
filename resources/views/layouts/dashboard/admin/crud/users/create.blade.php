@@ -77,15 +77,19 @@
 
                     <div class="col-md-6 form-group">
                         <label for="role" class="col-form-label text-md-right">{{ __('Role') }}</label>
-                        <select class="form-control {{ $errors->has('roleselector') ? ' is-invalid' : '' }}" id="roleselector" name="roleselector">
-                            @foreach($allpermissions as $key => $roles)
-                                @if ($roles->role == old('roleselector'))
-                                    <option value="{!! $roles->role !!}" @if(old('roleselector') ==! $roles->role) selected @endif selected> {{$roles->role}}</option>
-                                @else
-                                    <option value="{!! $roles->role !!}" @if(old('roleselector') ==! $roles->role) @endif> {{$roles->role}}</option>
-                                @endif
-                            @endforeach
-                        </select>
+                        @if ($user_type == "manager" || $user_type == "delegate")
+                            <input value="{!! $user_type !!}" class="form-control {{ $errors->has('roleselector') ? ' is-invalid' : '' }}" id="roleselector" name="roleselector" readonly>
+                        @else
+                            <select class="form-control {{ $errors->has('roleselector') ? ' is-invalid' : '' }}" id="roleselector" name="roleselector">
+                                @foreach($allpermissions as $key => $roles)
+                                    @if ($roles->role == old('roleselector'))
+                                        <option value="{!! $roles->role !!}" @if(old('roleselector') ==! $roles->role) selected @endif selected> {{$roles->role}}</option>
+                                    @else
+                                        <option value="{!! $roles->role !!}" @if(old('roleselector') ==! $roles->role) @endif> {{$roles->role}}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        @endif
 
                         @if ($errors->has('roleselector'))
                             <span class="invalid-feedback" role="alert">
