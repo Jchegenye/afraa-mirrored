@@ -13,7 +13,7 @@ class Speaker extends Model
         $speakers = DB::table('users')
                 ->join('programme_sessions', function ($join) {
 
-                    $join->on('programme_sessions.speaker_id', '=', 'users.uid');
+                    $join->on('programme_sessions.user_id', '=', 'users.uid');
                 })
                 ->get();
 
@@ -25,7 +25,7 @@ class Speaker extends Model
         $speakers = DB::table('users')
                 ->join('programme_sessions', function ($join)  use ( &$id ) {
 
-                    $join->on('programme_sessions.speaker_id', '=', 'users.uid')
+                    $join->on('programme_sessions.user_id', '=', 'users.uid')
                     ->where('users.uid', '=', $id);
                 })
                 ->get();

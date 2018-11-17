@@ -26,45 +26,79 @@
                     <textarea class="form-control" name="description" rows="5">{{$session->description}}</textarea>
                 </div>
                 <div class="row form-row pt-3 pb-4">
-                    <label for="number">venue:</label>
-                    <input type="text" class="form-control" name="venue" value="{{$session->venue}}">
-                </div>
-                <div class="row form-row pt-3 pb-4">
-                    <label for="number">speaker:</label>
-                    <select class="form-control" name="speaker_id">
+                    <label for="number">Speaker / Moderator:</label>
+                    <select class="form-control" name="user_id">
                         @foreach( $users as $user )
                             <option value="{{ $user->uid }}"
-                                @if ($user->uid === $session->speaker_id)
+                                @if ($user->uid === $session->user_id)
                                     selected="selected"
                                 @endif
                             >{{ $user->name }}</option>
                         @endforeach
                     </select>
                 </div>
-                <div class="row form-row pt-3 pb-4">
-                    <label for="number">moderator:</label>
-                    <select class="form-control" name="moderator_id">
-                        @foreach( $users as $user )
-                            <option value="{{ $user->uid }}"
-                                @if ($user->uid === $session->moderator_id)
-                                    selected="selected"
+                <div class="form-row pt-3 pb-4">
+                    <div class="form-group col-md-12">
+                        <p>Session Type:</p>
+                        @php
+                            $session_types = ["moderator","speaker"];
+                            $i=0;
+                        @endphp
+                        @foreach( $session_types as $session_type )
+                        <input type="radio" name="session_type" value="{{ $session_types[$i] }}"
+                                @if ($session_types[$i] === $session->session_type)
+                                    checked
                                 @endif
-                            >{{ $user->name }}</option>
+                            >
+                            @if ($session_types[$i] === $session->session_type)
+                                {{ $session->session_type}}
+                            @else
+                                {{$session_types[$i]}}
+                            @endif
+                        </option>
+                            @php
+                                $i++;
+                            @endphp
                         @endforeach
-                    </select>
-
+                    </div>
                 </div>
                 <div class="row form-row pt-3 pb-4">
                     <label for="number">start_time:</label>
-                    <input type="text" class="form-control" name="start_time" value="{{$session->start_time}}">
+                    <input type="text" class="form-control start_time" name="start_time" value="{{$session->start_time}}">
                 </div>
                 <div class="row form-row pt-3 pb-4">
                     <label for="number">end_time:</label>
-                    <input type="text" class="form-control" name="end_time" value="{{$session->end_time}}">
+                    <input type="text" class="form-control start_time" name="end_time" value="{{$session->end_time}}">
                 </div>
                 <div class="row form-row pt-3 pb-4">
-                    <label for="number">date:</label>
-                    <input type="text" class="form-control" name="date" value="{{$session->date}}">
+                    <label for="number">Day:</label>
+
+                    <select class="form-control date" name="date">
+                        @php
+                            $dates = ["2018-10-25","2018-10-26","2018-10-27"];
+                            $i=0;
+                        @endphp
+
+                        @foreach( $dates as $date )
+
+                            <option value="{{ $dates[$i] }}"
+                                @if ($dates[$i] === $session->date)
+                                    selected="selected"
+                                @endif
+                                >
+                                @if ($dates[$i] == "2018-10-25")
+                                    Day One
+                                @elseif($dates[$i] == "2018-10-26")
+                                    Day Two
+                                @elseif($dates[$i] == "2018-10-27")
+                                    Day Three
+                                @endif
+                            </option>
+                            @php
+                                $i++;
+                            @endphp
+                        @endforeach
+                    </select>
                 </div>
                 <div class="row form-row pt-3 pb-4">
                     <button type="submit" class="btn btn-success">Update</button>

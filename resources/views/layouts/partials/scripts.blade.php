@@ -11,7 +11,9 @@
 <script src="{{ asset('plugin/bootstrap-country-picker-jQuery/js/countrypicker.js') }}"></script>
 
 <script src="{{ asset('js/moment.min.js') }}"></script>
-<script src="{{ asset('js/bootstrap-datetimepicker.min.js') }}"></script>
+<script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+<script src="{{ asset('js/bootstrap-timepicker.js') }}"></script>
+<script src="{{ asset('js/datatables.js') }}"></script>
 
 <script src="{{ asset('js/custom.js') }}"></script>
 
