@@ -28,7 +28,7 @@
             <div class="form-row pt-3 pb-4">
                 <div class="form-group col-md-12">
                     <p>Year</p>
-                    <input type="text" class="form-control" name="year">
+                    <input type="text" class="form-control year" name="year">
                     <small class="error">{{$errors->first('year')}}</small>
                 </div>
             </div>

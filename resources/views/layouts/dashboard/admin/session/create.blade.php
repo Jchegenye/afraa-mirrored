@@ -27,16 +27,9 @@
             </div>
             <div class="form-row pt-3 pb-4">
                 <div class="form-group col-md-12">
-                    <p>Venue</p>
-                    <input type="text" class="form-control" name="venue">
-                    <small class="error">{{$errors->first('venue')}}</small>
-                </div>
-            </div>
-            <div class="form-row pt-3 pb-4">
-                <div class="form-group col-md-12">
-                    <p>Speaker</p>
+                    <p>Speaker / Moderator:</p>
 
-                    <select class="form-control" name="speaker_id">
+                    <select class="form-control" name="user_id">
                         @foreach( $users as $user )
                             <option value="{{ $user->uid }}" >{{ $user->name }}</option>
                         @endforeach
@@ -45,12 +38,9 @@
             </div>
             <div class="form-row pt-3 pb-4">
                 <div class="form-group col-md-12">
-                    <p>Moderator</p>
-                    <select class="form-control" name="moderator_id">
-                        @foreach( $users as $user )
-                            <option value="{{ $user->uid }}" >{{ $user->name }}</option>
-                        @endforeach
-                    </select>
+                    <p>Session Type:</p>
+                    <input type="radio" name="session_type" value="moderator" checked>Moderator
+                    <input type="radio" name="session_type" value="speaker">Speaker
                 </div>
             </div>
             <div class="form-row pt-3 pb-4">
@@ -70,17 +60,15 @@
             </div>
             <div class="form-row pt-3 pb-4">
                 <div class="form-group col-md-12">
-                    <p>Date</p>
-                    <input type="text" class="form-control date" name="date">
+                    <p>Day</p>
+                    <select class="form-control date" name="date">
+                        <option value="2018-10-25" >Day One</option>
+                        <option value="2018-10-26" >Day Two</option>
+                        <option value="2018-10-27" >Day Three</option>
+                    </select>
                     <small class="error">{{$errors->first('date')}}</small>
                 </div>
             </div>
-            {{--  <div class="form-row pt-3 pb-4">
-                <div class="form-group col-md-12">
-                    <p>Featured Image</p>
-                    <input type="file" class="form-control" name="featured_image">
-                </div>
-            </div>  --}}
             <div class="form-row pt-3 pb-4">
                 <div class="form-group col-md-12">
                     <button type="submit" class="btn btn-success">Submit</button>

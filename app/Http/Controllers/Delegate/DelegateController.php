@@ -125,7 +125,14 @@ class DelegateController extends Controller
         //
     }
 
-    public function all(){
+    public function allDelegates(){
+
+        $get_users = new Users();
+
+        $users = $get_users->getAllDelegates();
+
+        return view('layouts/dashboard/delegate/all',compact('users'));
+
 
     }
 }

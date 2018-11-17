@@ -4,7 +4,17 @@
     <div class="sidebar-nav navbar-collapse">
         <div class="card text-center mr-5">
             <div class="card-img">
-                <img class="img-fluid rounded-3 w-50" src="{{ asset('images/') }}/{{Auth::user()->photo}}" alt="pic">
+
+                @php
+                $photo_url;
+                if (Auth::user()->photo){
+                    $photo_url = Auth::user()->photo;
+                }else{
+                    $photo_url = "Person Admin-01.png";
+                }
+                @endphp
+                <img class="img-fluid rounded-3 w-50" src="{{ asset('images/') }}/{{$photo_url}}" alt="pic">
+
             </div>
             <div class="card-body">
                 <div class="card-title text-capitalize">
@@ -40,7 +50,7 @@
             <div class="col-12">
                 <a href="{{url('/dashboard/admin/documents')}}" class="btn btn-block btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Documents</a>
             </div>
-            
+
             <div class="col-12">
                 <a href="{{url('/dashboard/delegate/exhibitors')}}" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Manage Exhibitors</a>
             </div>{{-- {{url('/dashboard/delegate/exhibitors')}} --}}
@@ -55,6 +65,9 @@
             </div>
             <div class="col-12">
                 <a href="{{url('/dashboard/delegate/session')}}" class="button btn btn-shadow btn-block text-left "><i class="fas fa-users-cog pr-2"></i>Programmes</a>
+            </div>
+            <div class="col-12">
+                <a href="{{url('/dashboard/delegate/all')}}" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Delegates</a>
             </div>
             <div class="col-12">
                 <a href="{{url('/dashboard/delegate/speakers')}}" class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Speakers</a>

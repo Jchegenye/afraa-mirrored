@@ -90,7 +90,7 @@ use Illuminate\Support\Facades\Auth;
              **/
             $users = User::where('role','=','manager')
                 ->orderBy('uid', 'DES')
-                ->paginate(4);
+                ->get();
 
             $search = request()->uid; //get query id
             //$usersSearch = User::where('name','LIKE',"%{$search}%")->paginate(4); //Get search results by name
@@ -98,7 +98,7 @@ use Illuminate\Support\Facades\Auth;
                         ->where('name','LIKE',"%{$search}%")
                         ->where('role','=','manager')
                         ->orderBy('uid', 'desc')
-                        ->paginate(4);
+                        ->get();
             /**
              * Permissions Modal
              *
@@ -145,7 +145,7 @@ use Illuminate\Support\Facades\Auth;
              **/
             $users = User::where('role','delegate')
                 ->orderBy('uid', 'DES')
-                ->paginate(4);
+                ->get();
 
             $search = request()->uid; //get query id
             //$usersSearch = User::where('name','LIKE',"%{$search}%")->paginate(4); //Get search results by name
@@ -153,7 +153,7 @@ use Illuminate\Support\Facades\Auth;
                         ->where('name','LIKE',"%{$search}%")
                         ->where('role','=','delegate')
                         ->orderBy('uid', 'desc')
-                        ->paginate(4);
+                        ->get();
             /**
              * Permissions Modal
              *

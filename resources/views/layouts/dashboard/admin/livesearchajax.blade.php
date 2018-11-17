@@ -1,5 +1,5 @@
 <table id="txtHint" class="table title-color ">
-                        
+
     <thead>
         <tr>
             <th></th>
@@ -68,16 +68,16 @@
             @endif
         @endforeach
 
-        <tr class="mt-2">
+        {{--  <tr class="mt-2">
             <div class="mx-auto" style="display: inline;">
                 <td colspan="4" style="padding: 20px 0;">
                     Showing from {!! $usersSearch->firstItem() !!} to {!! $usersSearch->lastItem() !!} of {!! $usersSearch->total() !!} entries
                 </td>
                 <td  class="text-right">{!! $usersSearch->links() !!}</td>
             <div>
-        </tr>
+        </tr>  --}}
 
-    <tbody>
+    </tbody>
 
 </table>
 
@@ -106,7 +106,7 @@
                         <td>{{ $user->role }}</td>
                         <td>
                             <div class="truncate-ellipsis">
-                            
+
                                 @foreach ($user->permissions as $permission)
                                     <span class="badge badge-light">
                                         {{ $permission }}
@@ -124,7 +124,7 @@
                         <td>
                             <div class="btn-group btn-group-toggle" >
                                 <label class="btn btn-default btn-sm active" >
-                                    TRASHED - 
+                                    TRASHED -
                                 </label>
                                 <label class="btn btn-success btn-sm">
                                     <a href="{!! url('dashboard/users/trash/' . $user->uid) !!}" title="Recycle" style="color:#fff; text-decoration:none;">
@@ -142,7 +142,7 @@
                     <td>{{ $user->role }}</td>
                     <td>
                         <div class="truncate-ellipsis">
-                        
+
                             @foreach ($user->permissions as $permission)
                                 <span class="badge badge-light">
                                     {{ $permission }}
@@ -165,7 +165,7 @@
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                                 </a>
                             </label>
-                            
+
                             <label class="btn btn-danger btn-sm">
                                 <a href="{!! url('dashboard/users/trash/' . $user->uid) !!}" title="Trash" style="color:#fff; text-decoration:none;">Trash
                                 </a>

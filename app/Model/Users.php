@@ -22,6 +22,13 @@ class Users extends Model
         return $users;
     }
 
+    public function getAllDelegates(){
+
+        $users = DB::table('users')->where('role','delegate')->get();
+
+        return $users;
+    }
+
     //
     public function getUserById($id){
 
