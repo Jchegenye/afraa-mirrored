@@ -20,12 +20,17 @@
             {{ session('success') }}
         </div>
     @endif
+
+    @php
+        foreach ($user_by_id as $user){
+            $user_id = $user->uid;
+        }
+    @endphp
 </div>
-<form enctype='multipart/form-data' class="shadow mt-5" method="post" action="{{action('Users\UsersController@update', Auth::id())}}">
+<form enctype='multipart/form-data' class="shadow mt-5" method="post" action="{{action('Users\UsersController@update', $user_id)}}">
         @csrf
         <div class="p-5">
             <input name="_method" type="hidden" value="PATCH">
-            @foreach ($user_by_id as $user)
 
                 <div class="row form-row pt-3 pb-4">
                     <p>Profile Picture:</p>
@@ -147,8 +152,6 @@
                 <div class="row form-row pt-3 pb-4">
                     <button type="submit" class="btn btn-success" style="margin-left:38px">Update</button>
                 </div>
-
-            @endforeach
         </div>
     </form>
 

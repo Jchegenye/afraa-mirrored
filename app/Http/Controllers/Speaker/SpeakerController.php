@@ -119,8 +119,18 @@ class SpeakerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
         //
+    }
+
+    public function updateSpeaker($session_id,$user_id)
+    {
+        //
+        $speakers = new Speaker;
+
+        $speakers = $speakers->deleteSpeaker($session_id,$user_id);
+
+        return redirect()->back()->with('success','Information has been deleted');
     }
 }
