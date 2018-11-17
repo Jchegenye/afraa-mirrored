@@ -14,38 +14,34 @@
         <p></p>
     </div>
 </div>
-{{--
-<img src="{{url('/images/speakers1.png')}}" alt="Image" class="img-fluid"/>  --}}
-<div class="row pt-4">
-    <div class="card-deck col-md-12">
-        @php
-            $i= 0;
-        @endphp
-        @foreach($speakers as $speaker)
-            @php
-                $i++;
-            @endphp
-            <div class="card">
-            <img class="card-img-top" src="{{ asset('images') }}/{{$speaker->photo}}" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">{{$speaker->name}}</h5>
-                <p class="card-text">{{$speaker->title}}</p>
 
-                @if(Auth::user()->role == 'admin')
-                    <a href="{{action('Users\UsersController@edit', $speaker->uid)}}">Edit</a>
-                    <a href="{{url('dashboard/admin/delete_speaker/')}}/{{$speaker->id}}/{{$speaker->uid}}">Delete</a>
-                @endif
-
-            </div>
-            </div>
-            @if ($i%3==0)
+<section id="speksponexib" class="speaker">
+        <div class="row">
+            @foreach($speakers as $speaker)
+                <div class="col-md-4">
+    
+                    <div class="box text-center">
+    
+                        <img class="img-fluid afraa-logo" src="{{ asset('images') }}/{{$speaker->photo}}" alt="Card image cap">
+    
+                        <h6>{{$speaker->name}}</h6>
+                        <p>{{$speaker->title}}</p>
+    
+                        @if(Auth::user()->role == 'admin')
+                            <div class="box-footer">
+                                <a href="{{action('Users\UsersController@edit', $speaker->uid)}}" class="edit">
+                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+                                </a>
+                                <a href="{{url('dashboard/admin/delete_speaker/')}}/{{$speaker->id}}/{{$speaker->uid}}" class="delete">
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+                                </a>
+                            </div>
+                        @endif
+    
                     </div>
                 </div>
-                <div class="row pt-4">
-                    <div class="card-deck col-md-12">
-            @endif
-        @endforeach
-      </div>
-</div>
+            @endforeach
+        </div>
+    </section>
 
 @endsection

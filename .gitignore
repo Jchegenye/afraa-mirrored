@@ -18,3 +18,4 @@ yarn-error.log
 ~/
 !/public/images/Person Admin-01.png
 /bootstrap/cache
+/public/files/documents/*

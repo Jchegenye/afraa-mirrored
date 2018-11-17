@@ -916,3 +916,46 @@ input:checked + .slider:before {
 	.afraa-modal .modal-footer {
 		border-top: none;
 	}
+
+	/*Speakers/Exibitors/Sponsers*/
+	#speksponexib .box{
+		box-shadow: 1px 1px 20px #8c8c8c5c;
+		padding-bottom: 20px;
+		padding-top: 35px;
+		position: relative;
+		display: inline-block;
+		border-radius: 5px;
+		width: 100%;
+	}
+	#speksponexib .box .afraa-logo{
+		width: 300px;
+	}
+	#speksponexib .box h6{
+		font-weight: 600;
+		margin-bottom: 0;
+	}
+	#speksponexib .box p{
+		font-size: 0.8rem;
+		color: #8c8c8c;
+	}
+	#speksponexib .box-footer{
+		margin-top: 25px;
+	}
+	#speksponexib .box-footer .edit{
+		float: left;
+		padding-left: 4rem;
+		color: #8c8c8c;
+	}
+	#speksponexib .box-footer .delete{
+		float: right;
+		padding-right: 4rem;
+		color: #dc4045;
+	}
+	.speaker .box .afraa-logo{
+		width: 133px !important;
+		height: 130px;
+		border-radius: 5px;
+		object-fit: cover;
+		margin-bottom: 15px;
+	}
+	
