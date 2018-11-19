@@ -82,18 +82,18 @@
                         <label for="your_title" class="col-form-label text-md-right">{{ __('Your Title:') }}</label>
 
                         <select name="your_title" class="form-control">
-                                @php
+                                {{-- @php
                                     if ($user->your_title == null) {
                                         $user->your_title="";
                                     }
-                                @endphp
-                            <option value="" @if ($user->your_title=="") selected @endif>Choose Option</option>
-                            <option value="Mr." @if ($user->your_title=="Mr.") selected @endif>Mr.</option>
-                            <option value="Mrs." @if ($user->your_title=="Mrs.") selected @endif>Mrs.</option>
-                            <option value="Dr." @if ($user->your_title=="Dr.") selected @endif>Dr.</option>
-                            <option value="Prof." @if ($user->your_title=="Prof.") selected @endif>Prof.</option>
-                            <option value="Ms." @if ($user->name=="Ms.") selected @endif>Ms.</option>
-                            <option value="Miss" @if ($user->your_title=="Miss") selected @endif>Miss</option>
+                                @endphp --}}
+                            <option value="" >Choose Option</option>
+                            <option value="Mr.">Mr.</option>
+                            <option value="Mrs.">Mrs.</option>
+                            <option value="Dr.">Dr.</option>
+                            <option value="Prof.">Prof.</option>
+                            <option value="Ms.">Ms.</option>
+                            <option value="Miss">Miss</option>
                         </select>
 
                     </div>
