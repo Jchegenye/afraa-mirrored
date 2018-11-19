@@ -117,12 +117,12 @@
                                                 </button>
                                             </div>
                                             <span class="time_interval">{{$sessions->start_time}} - {{$sessions->end_time}}</span>
-                                            <div class="modal-body">
-                                                <div class="col-md-8 left_modal pr-5">
+                                            <div class="modal-body row">
+                                                <div class="col-md-8  left_modal pr-5">
                                                         {{$sessions->description}}
                                                 </div>
                                                 <div class="col-md-4">
-                                                        <img src="{{ asset('images/') }}/{{$sessions->photo}} "     >
+                                                        <img src="{{ asset('images/') }}/{{$sessions->photo}} ">
                                                 </div>
                                             </div>
                                             <div class="modal-footer d-none">

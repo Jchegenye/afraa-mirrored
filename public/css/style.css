@@ -254,7 +254,7 @@ input:checked + .slider:before {
     top: 50%;
     right: 5%;
     left: 5%;
-    transform: translate(0%, -50%);
+    transform: translate(0%, 5%);
 }
 .loginpage .loginleft h1{
 	font-size: 2.5em;
@@ -482,7 +482,7 @@ input:checked + .slider:before {
 	/* links */
 	a {
 		color: #d11f49; 
-	}
+	}btn-afraa-full-2
 	a:focus,
 	a:hover {
 		color: #d3b5c7; 
@@ -503,10 +503,10 @@ input:checked + .slider:before {
 	/* colors */
 	.bg-white{
 		background-color: #fff;
-	}
-	.text-darkred{
-		color: #7c253c;
-	}
+	}btn-afraa-full-2
+	.btn-afraa-full-2
+	btn-afraa-full-2
+	}btn-afraa-full-2
 
 	/* buttons */
 	.btn-afraa {
