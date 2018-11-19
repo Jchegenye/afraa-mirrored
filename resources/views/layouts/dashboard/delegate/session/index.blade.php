@@ -107,9 +107,9 @@
                                 </tr>
 
                                 <div class="afraa-modal">
-                                    <div class="modal fade" id="{{$sessions->title}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                    <div class="modal fade rounded" id="{{$sessions->title}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
-                                        <div class="modal-content p-5">
+                                        <div class="modal-content p-3">
                                             <div class="modal-header mt-4">
                                                 <h5 class="modal-title" id="exampleModalLongTitle">{{$sessions->title}}</h5>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -118,11 +118,23 @@
                                             </div>
                                             <span class="time_interval">{{$sessions->start_time}} - {{$sessions->end_time}}</span>
                                             <div class="modal-body row">
+<<<<<<< HEAD
                                                 <div class="col-md-8  left_modal pr-5">
                                                         {{$sessions->description}}
                                                 </div>
                                                 <div class="col-md-4">
                                                         <img src="{{ asset('images/') }}/{{$sessions->photo}} ">
+=======
+                                                <div class="col-md-8 left_modal pr-5 align-self-center">
+                                                        {{$sessions->description}}
+                                                </div>
+                                                <div class="col-md-4 text-center pl-4 right_profile">
+                                                    <h4>{{$sessions->session_type}}</h4>
+                                                    <img src="{{ asset('images/') }}/{{$sessions->photo}} "  class="img-fluid pb-3 rounded">
+                                                    <h6>{{$sessions->name}}</h6>
+                                                    <h5>{{$sessions->Job_Title}}</h5>
+                                                    <span>{{$sessions->Company_Name}}</span>
+>>>>>>> 1f503c48512940ed155c47879f476fe5b91af2bb
                                                 </div>
                                             </div>
                                             <div class="modal-footer d-none">

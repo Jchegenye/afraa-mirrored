@@ -37,8 +37,8 @@
                 <div class="col-md-8">
                     <div class="row">
                         <div class="col-md-12 text-right">
-                            <a href="{{url('/dashboard/users/')}}" class="btn btn-afraa tb-sm-text">
-                                <i class="fas fa-users"></i> View Users
+                            <a href="{{url()->previous()}}" class="btn btn-afraa tb-sm-text">
+                                <i class="fas fa-users"></i> Back
                             </a>
                         </div>
                     </div>

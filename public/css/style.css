@@ -601,6 +601,18 @@ input:checked + .slider:before {
 		border: none;
 		box-shadow: 1px 1px 10px #8c8c8c75;
 	}
+	#adminTable .dataTables_length select{
+		background-color: transparent;
+		box-shadow: none;
+		cursor: pointer;
+	}
+	#adminTable input[type=radio]{
+		box-shadow: none !important;
+		height: 13px !important;
+	} 
+	#adminTable .txtHint{
+		padding: 15px 0px;
+	}
 	.content .bootstrap-select>select{
 		height: 55px !important;
 	}
@@ -961,6 +973,26 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 	}
 	.afraa-modal .modal-footer {
 		border-top: none;
+	}
+	.afraa-modal .right_profile{
+		font-size: 20px;
+	}
+	.afraa-modal .right_profile h4{
+		font-weight: 500;
+		color: #d11f49;
+		text-transform: uppercase;
+	}
+	.afraa-modal .right_profile h6{
+		font-size: 1em;
+	}
+	.afraa-modal .right_profile h5{
+		font-size: 0.8em;
+		color: grey;
+		font-weight: 400;
+	}
+	.afraa-modal .right_profile span{
+		color: grey;
+		font-size: 14px;
 	}
 
 	/*Speakers/Exibitors/Sponsers*/
