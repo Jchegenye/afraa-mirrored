@@ -598,6 +598,11 @@
                     <label for="Social_Functions" class="col-form-label text-md-right">{{ __('Social Functions:') }}</label>
                     {{-- <input type="text" class="form-control" name="Social_Functions" value="@isset($user->Social_Functions) {{$user->Social_Functions}} @endisset"> --}}
 
+                    @isset($user->Social_Functions)
+                        @php
+                            $user->Social_Functions= "";
+                        @endphp
+                    @endisset
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="Social_Functions1" name="Social_Functions[]" value="Delegate Tour (Sun 25 Nov)" {{ old('type', $user->Social_Functions) === 'Delegate Tour (Sun 25 Nov)' ? 'checked' : ''  }}>
                         <label class="custom-control-label" for="Social_Functions1">Delegate Tour (Sun 25 Nov)</label>
