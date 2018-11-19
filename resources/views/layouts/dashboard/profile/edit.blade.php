@@ -598,21 +598,22 @@
                     <label for="Social_Functions" class="col-form-label text-md-right">{{ __('Social Functions:') }}</label>
                     {{-- <input type="text" class="form-control" name="Social_Functions" value="@isset($user->Social_Functions) {{$user->Social_Functions}} @endisset"> --}}
 
-                    @isset($user->Social_Functions)
+                    {{-- @isset($user->Social_Functions)
                         @php
                             $user->Social_Functions= "";
                         @endphp
-                    @endisset
+                    @endisset --}}
+                    
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="Social_Functions1" name="Social_Functions[]" value="Delegate Tour (Sun 25 Nov)" {{ old('type', $user->Social_Functions) === 'Delegate Tour (Sun 25 Nov)' ? 'checked' : ''  }}>
+                        <input type="checkbox" class="custom-control-input" id="Social_Functions1" name="Social_Functions[]" value="Delegate Tour (Sun 25 Nov)">
                         <label class="custom-control-label" for="Social_Functions1">Delegate Tour (Sun 25 Nov)</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="Social_Functions2" name="Social_Functions[]" value="Welcome Cocktail & Dinner (Sun 25 Nov)" {{ old('type', $user->Social_Functions) === 'Welcome Cocktail & Dinner (Sun 25 Nov)' ? 'checked' : ''  }}>
+                        <input type="checkbox" class="custom-control-input" id="Social_Functions2" name="Social_Functions[]" value="Welcome Cocktail & Dinner (Sun 25 Nov)" >
                         <label class="custom-control-label" for="Social_Functions2">Welcome Cocktail & Dinner (Sun 25 Nov)</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="Social_Functions3" name="Social_Functions[]" value="Gala Dinner (Mon 26th Nov)" {{ old('type', $user->Social_Functions) === 'Gala Dinner (Mon 26th Nov)' ? 'checked' : ''  }}>
+                        <input type="checkbox" class="custom-control-input" id="Social_Functions3" name="Social_Functions[]" value="Gala Dinner (Mon 26th Nov)">
                         <label class="custom-control-label" for="Social_Functions3">Gala Dinner (Mon 26th Nov)</label>
                     </div>
                 </div>
