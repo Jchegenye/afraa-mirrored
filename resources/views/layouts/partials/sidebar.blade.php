@@ -139,7 +139,7 @@
                 btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Downloads</a>
             </div>
             <div class="col-12">
-                <button class="btn btn-block  btn-shadow text-left"><i class="fas fa-users-cog pr-2"></i>Social Events</button>
+                <button class="btn btn-block  btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Social Events</button>
             </div>
 
         @elseif(Auth::user()->role == 'manager')

@@ -15,6 +15,10 @@ class ProgrammeSession extends Model
 
                     $join->on('programme_sessions.id', '=', 'users.uid');
                 })
+                ->join('profiles', function ($join) {
+
+                    $join->on('profiles.user_id', '=', 'users.uid');
+                })
                 ->get();
 
         return $sessions;

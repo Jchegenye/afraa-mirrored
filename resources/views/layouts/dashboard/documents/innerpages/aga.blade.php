@@ -9,11 +9,12 @@
 @endphp
 
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-6">
         <h3 class="page-header">ANNUAL GENERAL ASSEMBLY</h3>
-
+    </div>
+    <div class="col-md-6 text-right">
         @if ( $role == "admin" )
-            <a href="{{action('DocumentController@create')}}" class="">Add Document</a>
+            <a href="{{action('DocumentController@create')}}" class="btn-afraa-full-2">Add Document</a>
             <br/>
         @endif
     </div>
