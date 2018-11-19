@@ -62,7 +62,7 @@
             @csrf
 
             <input name="_method" type="hidden" value="PATCH">
-    
+
             <div class="row">
 
                 <div class="col-md-12 form-group">
@@ -108,7 +108,7 @@
                     <div class="col-md-4 form-group ">
                         <div class="form-group">
                             <label for="Member_Airline" class="col-form-label text-md-right">{{ __('Member Airline:') }}</label>
-                            
+
                             <select name="Member_Airline" id="Member_Airline" size="1" class="form-control" title="" style="" data-load-state="" data-tooltip="If you are a member airline, please select your airline">
                                 <option value="@isset($user->Member_Airline) {{$user->Member_Airline}} @endisset" selected>@isset($user->Member_Airline) {{$user->Member_Airline}} @else Choose Option  @endisset</option>
                                 <option value="AB Aviation">AB Aviation</option>
@@ -360,7 +360,7 @@
                             <option value="OM" label="Oman">Oman</option>
                             <option value="PK" label="Pakistan">Pakistan</option>
                             <option value="PS" label="Palestinian Territories">Palestinian Territories</option>
-                            <option value="YD" label="People's Democratic Republic of Yemen">People's Democratic Republic of Yemen</option>
+                            <option value="YD" label="People's Democratic Republic of Yemen">Peoples Democratic Republic of Yemen</option>
                             <option value="PH" label="Philippines">Philippines</option>
                             <option value="QA" label="Qatar">Qatar</option>
                             <option value="SA" label="Saudi Arabia">Saudi Arabia</option>
@@ -495,7 +495,7 @@
                         <label for="email" class="col-form-label text-md-right">{{ __('Email:') }}</label>
                         <input type="email" class="form-control" name="email" value="{{$user->email}}">
                     </div>
-                    <div class="col-md-6 form-group ">
+                    <div class="col-md-6 form-group">
                         <label for="documentation_language" class="col-form-label text-md-right">{{ __('Documentation Language:') }}</label>
                         <select class="form-control" id="documentation_language" name="documentation_language">
                             <option value="@isset($user->documentation_language) {{$user->documentation_language}} @endisset">@isset($user->documentation_language) {{$user->documentation_language}} @else Choose Language @endisset </option>
@@ -566,7 +566,7 @@
                 <div class="col-md-12 form-group ">
                     <label for="Social_Functions" class="col-form-label text-md-right">{{ __('Social Functions:') }}</label>
                     {{-- <input type="text" class="form-control" name="Social_Functions" value="@isset($user->Social_Functions) {{$user->Social_Functions}} @endisset"> --}}
-                
+
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="Social_Functions1" name="Social_Functions[]" value="Delegate Tour (Sun 25 Nov)" {{ old('type', $user->Social_Functions) === 'Delegate Tour (Sun 25 Nov)' ? 'checked' : ''  }}>
                         <label class="custom-control-label" for="Social_Functions1">Delegate Tour (Sun 25 Nov)</label>
@@ -580,22 +580,22 @@
                         <label class="custom-control-label" for="Social_Functions3">Gala Dinner (Mon 26th Nov)</label>
                     </div>
                 </div>
-                
+
                 {{-- Start of User Information --}}
-                
+
                     <div class="col-md-12 form-group mt-5 mt-1">
                         <h4>User Information</h4>
                     </div>
-                    
+
                     <div class="col-md-6 form-group ">
                         <label for="photo" class="col-form-label text-md-right">{{ __('Username:') }}</label>
                         <input type="text" class="form-control" name="username" value="{{ old('username') ? old('username') : $user->username }}">
                     </div>
-                    <div class="col-md-6 form-group ">
+                    <div class="col-md-6 form-group">
                         <label for="password">{{ __('Current Password:') }}</label>
                         <input type="password" class="form-control" name="password" value="">
                     </div>
-                    <div class="col-md-6 form-group ">
+                    <div class="col-md-6 form-group">
                         <label for="new_password">{{ __('New Password:') }}</label>
                         <input type="password" class="form-control" name="new_password" value="">
                     </div>

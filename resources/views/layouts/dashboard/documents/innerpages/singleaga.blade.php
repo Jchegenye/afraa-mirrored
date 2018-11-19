@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <h3 class="page-header">47TH AGA (@foreach ($documents as $document) {{$document->year}} @endforeach)</h3>
+        <h3 class="page-header">50<sup>th</sup> AGA (@foreach ($documents as $document) {{$document->year}} @endforeach)</h3>
     </div>
 </div>
 
