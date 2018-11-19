@@ -33,7 +33,7 @@
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
                                 </a>
                                 <a href="{{url('dashboard/admin/delete_speaker/')}}/{{$speaker->id}}/{{$speaker->uid}}" class="delete">
-                                    <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+                                    <i class="fa fa-trash-o" aria-hidden="true"></i> Remove
                                 </a>
                             </div>
                         @endif

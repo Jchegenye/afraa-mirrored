@@ -72,7 +72,7 @@
 
                             @if ($date==25)
 
-                                <tr class="tabtable" data-toggle="modal" data-target="#{{$sessions->title}}">
+                                <tr class="tabtable">
                                     <td class="clr-gray">
                                         <div>
                                         <h6>{{$start}} - {{$stop}}</h6>
@@ -85,6 +85,7 @@
                                     </td>
                                     <td class="action-gray">
                                         <div>
+                                            <a href="#" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye d-none"></i></a>
 
                                             <a href="{{action('ProgrammeSession\ProgrammeSessionController@edit', $sessions->id)}}" class="edit"><i class="far fa-edit"></i></a>
 
@@ -111,12 +112,12 @@
                                                 </button>
                                             </div>
                                             <span class="time_interval">{{$sessions->start_time}} - {{$sessions->end_time}}</span>
-                                            <div class="modal-body">
+                                            <div class="modal-body row">
                                                 <div class="col-md-8 left_modal pr-5">
                                                         {{$sessions->description}}
                                                 </div>
                                                 <div class="col-md-4">
-                                                        <img src="{{ asset('images/') }}/{{$sessions->photo}} "     >
+                                                        <img src="{{ asset('images/') }}/{{$sessions->photo}} classs="img-fluid">
                                                 </div>
                                             </div>
                                             <div class="modal-footer d-none">

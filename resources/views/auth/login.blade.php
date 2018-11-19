@@ -167,7 +167,7 @@
                 <p>Not yet registered? <a href="{{ route('register') }}">Register Here</a> </p>
             </div>
             <div class="form-group ml-3 text-right">
-                <button type="submit" class="bg-transparent border-0 cursor-pointer">
+                <button type="submit" class="bg-transparent border-0 cursor-pointer-login">
                     <span class="text-black pr-4">{{ __('Login') }}</span><i class="fas fa-sign-in-alt"></i>
                 </button>
             </div>

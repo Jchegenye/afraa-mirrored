@@ -1,7 +1,6 @@
 /node_modules
 /public/hot
 /public/storage
-/public/images
 /storage/*.key
 /storage/framework/*
 /storage/logs/laravel.log
