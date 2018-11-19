@@ -598,6 +598,18 @@ input:checked + .slider:before {
 		border: none;
 		box-shadow: 1px 1px 10px #8c8c8c75;
 	}
+	#adminTable .dataTables_length select{
+		background-color: transparent;
+		box-shadow: none;
+		cursor: pointer;
+	}
+	#adminTable input[type=radio]{
+		box-shadow: none !important;
+		height: 13px !important;
+	} 
+	#adminTable .txtHint{
+		padding: 15px 0px;
+	}
 	.content .bootstrap-select>select{
 		height: 55px !important;
 	}
