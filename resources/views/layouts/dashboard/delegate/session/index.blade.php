@@ -118,13 +118,6 @@
                                             </div>
                                             <span class="time_interval">{{$sessions->start_time}} - {{$sessions->end_time}}</span>
                                             <div class="modal-body row">
-<<<<<<< HEAD
-                                                <div class="col-md-8  left_modal pr-5">
-                                                        {{$sessions->description}}
-                                                </div>
-                                                <div class="col-md-4">
-                                                        <img src="{{ asset('images/') }}/{{$sessions->photo}} ">
-=======
                                                 <div class="col-md-8 left_modal pr-5 align-self-center">
                                                         {{$sessions->description}}
                                                 </div>
@@ -134,7 +127,6 @@
                                                     <h6>{{$sessions->name}}</h6>
                                                     <h5>{{$sessions->Job_Title}}</h5>
                                                     <span>{{$sessions->Company_Name}}</span>
->>>>>>> 1f503c48512940ed155c47879f476fe5b91af2bb
                                                 </div>
                                             </div>
                                             <div class="modal-footer d-none">
