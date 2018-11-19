@@ -974,6 +974,26 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 	.afraa-modal .modal-footer {
 		border-top: none;
 	}
+	.afraa-modal .right_profile{
+		font-size: 20px;
+	}
+	.afraa-modal .right_profile h4{
+		font-weight: 500;
+		color: #d11f49;
+		text-transform: uppercase;
+	}
+	.afraa-modal .right_profile h6{
+		font-size: 1em;
+	}
+	.afraa-modal .right_profile h5{
+		font-size: 0.8em;
+		color: grey;
+		font-weight: 400;
+	}
+	.afraa-modal .right_profile span{
+		color: grey;
+		font-size: 14px;
+	}
 
 	/*Speakers/Exibitors/Sponsers*/
 	#speksponexib .box{
