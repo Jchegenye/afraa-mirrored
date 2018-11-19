@@ -36,7 +36,7 @@ class CreateProfilesTable extends Migration
             $table->string('DepartureDate')->nullable();
             $table->string('DepartureFlightNumber')->nullable();
             $table->string('DepartureTime')->nullable();
-            $table->string('Social_Functions')->nullable();
+            $table->json('Social_Functions')->nullable();
 
             $table->timestamps();
         });
