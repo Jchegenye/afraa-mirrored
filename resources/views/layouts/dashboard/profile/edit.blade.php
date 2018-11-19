@@ -99,7 +99,7 @@
                     </div>
                     <div class="col-md-6 form-group ">
                         <label for="fullname" class="col-form-label text-md-right">{{ __('Full Name:') }}</label>
-                        <input type="text" class="form-control" name="fullname" value="{{$user->name}}">
+                        <input type="text" class="form-control" name="fullname" value="@isset($user->name) {{$user->name}} @endisset">
                     </div>
                     <div class="col-md-6 form-group ">
                         <label for="Job_Title" class="col-form-label text-md-right">{{ __('Job Title:') }}</label>
@@ -107,7 +107,7 @@
                     </div>
                     <div class="col-md-6 form-group">
                         <label for="bio" class="col-form-label text-md-right">{{ __('Bio:') }}</label>
-                        <textarea class="form-control" name="bio" rows="5">{{$user->bio}}</textarea>
+                        <textarea class="form-control" name="bio" rows="5">@isset($user->bio) {{$user->bio}} @endisset</textarea>
                     </div>
                     <div class="col-md-6 form-group ">
                         <label for="photo" class="col-form-label text-md-right">{{ __('Profile Picture:') }}</label>
@@ -504,7 +504,7 @@
                     </div>
                     <div class="col-md-4 form-group">
                         <label for="phone" class="col-form-label text-md-right">{{ __('Telephone:') }}</label>
-                        <input type="tel" class="form-control" name="phone" value="{{$user->phone}}">
+                        <input type="tel" class="form-control" name="phone" value="@isset($user->phone) {{$user->phone}} @endisset">
                     </div>
                     <div class="col-md-4 form-group ">
                         <label for="fax" class="col-form-label text-md-right">{{ __('Fax:') }}</label>
@@ -512,21 +512,25 @@
                     </div>
                     <div class="col-md-4 form-group ">
                         <label for="email" class="col-form-label text-md-right">{{ __('Email:') }}</label>
-                        <input type="email" class="form-control" name="email" value="{{$user->email}}">
+                        <input type="email" class="form-control" name="email" value="@isset($user->email) {{$user->email}} @endisset">
                     </div>
                     <div class="col-md-6 form-group">
                         <label for="documentation_language" class="col-form-label text-md-right">{{ __('Documentation Language:') }}</label>
                         <select class="form-control" id="documentation_language" name="documentation_language">
 
                             <option value="French"
-                            @if ($user->documentation_language == 'French')
-                                selected
-                            @endif
+                            @isset($user->documentation_language)
+                                @if ($user->documentation_language == 'French')
+                                    selected
+                                @endif
+                            @endisset
                             >French</option>
                             <option value="English"
-                            @if ($user->documentation_language == 'English')
-                                    selected
-                            @endif>English</option>
+                            @isset($user->documentation_language)
+                                @if ($user->documentation_language == 'English')
+                                        selected
+                                @endif
+                            @endisset>English</option>
 
                         </select>
                     </div>
