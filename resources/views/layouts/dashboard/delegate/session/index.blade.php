@@ -1,6 +1,6 @@
 
 @php
-//dd($featured_session);
+//dd($session);
 @endphp
 
 @extends('layouts.app')
@@ -99,7 +99,7 @@
                                                 </form>
 
                                             @else
-                                                <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye"></i></a>
+                                                {{--  <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye"></i></a>  --}}
                                             @endif
 
                                         </div>
@@ -192,7 +192,7 @@
                                                     </form>
 
                                                 @else
-                                                    <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye"></i></a>
+                                                    {{--  <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye"></i></a>  --}}
                                                 @endif
 
                                         </div>
@@ -286,7 +286,7 @@
                                                     </form>
 
                                                 @else
-                                                    <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye"></i></a>
+                                                    {{--  <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye"></i></a>  --}}
                                                 @endif
 
                                         </div>
