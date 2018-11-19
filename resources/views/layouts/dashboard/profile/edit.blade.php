@@ -10,10 +10,6 @@
     </div>
 </div> --}}
 
-@php
-    //dd($user_by_id);
-
-@endphp
 <div class="row">
     @if (session('warning'))
         <div class="alert alert-warning">
@@ -31,6 +27,14 @@
         foreach ($user_by_id as $user){
             $user_id = $user->uid;
         }
+
+        foreach ($session as $sessions){
+            //$sessions->uid
+            if ($sessions->uid === $user_id){
+               // echo "is speaker";
+            }
+        }
+
     @endphp
 </div>
 
@@ -76,7 +80,17 @@
                     </div>
                     <div class="col-md-6 form-group ">
                         <label for="your_title" class="col-form-label text-md-right">{{ __('Your Title:') }}</label>
-                        <input type="text" class="form-control" name="your_title" value="@isset($user->your_title) {{$user->your_title}} @endisset">
+
+                        <select name="your_title" class="form-control">
+                            <option value="" @if ($user->your_title=="") selected @endif>Choose Option</option>
+                            <option value="Mr." @if ($user->your_title=="Mr.") selected @endif>Mr.</option>
+                            <option value="Mrs." @if ($user->your_title=="Mrs.") selected @endif>Mrs.</option>
+                            <option value="Dr." @if ($user->your_title=="Dr.") selected @endif>Dr.</option>
+                            <option value="Prof." @if ($user->your_title=="Prof.") selected @endif>Prof.</option>
+                            <option value="Ms." @if ($user->name=="Ms.") selected @endif>Ms.</option>
+                            <option value="Miss" @if ($user->your_title=="Miss") selected @endif>Miss</option>
+                        </select>
+
                     </div>
                     <div class="col-md-6 form-group ">
                         <label for="fullname" class="col-form-label text-md-right">{{ __('Full Name:') }}</label>
@@ -489,7 +503,7 @@
                     </div>
                     <div class="col-md-4 form-group ">
                         <label for="fax" class="col-form-label text-md-right">{{ __('Fax:') }}</label>
-                        <input type="text" class="form-control" name="fax" value="">
+                        <input type="text" class="form-control" name="fax" value="{{$user->Fax}}">
                     </div>
                     <div class="col-md-4 form-group ">
                         <label for="email" class="col-form-label text-md-right">{{ __('Email:') }}</label>
@@ -498,9 +512,17 @@
                     <div class="col-md-6 form-group">
                         <label for="documentation_language" class="col-form-label text-md-right">{{ __('Documentation Language:') }}</label>
                         <select class="form-control" id="documentation_language" name="documentation_language">
-                            <option value="@isset($user->documentation_language) {{$user->documentation_language}} @endisset">@isset($user->documentation_language) {{$user->documentation_language}} @else Choose Language @endisset </option>
-                            <option>English</option>
-                            <option>French</option>
+
+                            <option value="French"
+                            @if ($user->documentation_language == 'French')
+                                selected
+                            @endif
+                            >French</option>
+                            <option value="English"
+                            @if ($user->documentation_language == 'English')
+                                    selected
+                            @endif>English</option>
+
                         </select>
                     </div>
                 {{-- End of Delegate Type --}}
@@ -581,6 +603,25 @@
                     </div>
                 </div>
 
+                @if(Auth::user()->role == 'admin')
+                    <div class="col-md-12 form-group mt-5">
+                        <h4>{{ __('Set Delegate as Speaker?') }}</h4>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="Social_Functions4" name="set_speaker" value="set_speaker">
+                            <label class="custom-control-label" for="Social_Functions4"></label>
+                        </div>
+                    </div>
+                    <div class="col-md-12 form-group">
+                        <label for="session1" class="col-form-label text-md-right">{{ __('Choose Session:') }}</label>
+                        <select class="form-control" id="session1" name="session">
+                            @foreach ($session as $sessions)
+                                <option value="{{$sessions->id}}">{{$sessions->title}}</option>
+                            @endforeach
+                        </select>
+                        <input type="hidden" name="user_id" value="{{$user_id}}">
+                    </div>
+                @endif
+
                 {{-- Start of User Information --}}
 
                     <div class="col-md-12 form-group mt-5 mt-1">
@@ -593,7 +634,7 @@
                     </div>
                     <div class="col-md-6 form-group">
                         <label for="password">{{ __('Current Password:') }}</label>
-                        <input type="password" class="form-control" name="password" value="">
+                        <input type="password" class="form-control" name="password" value="" >
                     </div>
                     <div class="col-md-6 form-group">
                         <label for="new_password">{{ __('New Password:') }}</label>

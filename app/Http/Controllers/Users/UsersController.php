@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Afraa\Http\Controllers\Controller;
 use Afraa\Model\Users;
 use Afraa\Profile;
+use Afraa\ProgrammeSession;
+use Afraa\Speaker;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -72,11 +74,14 @@ class UsersController extends Controller
         //
         //$id = Auth::id();
 
+        $sessions = new ProgrammeSession();
+        $session = $sessions->getSessions();
+
         $get_users = new Users();
 
         $user_by_id = $get_users->getUserById($id);
 
-        return view('layouts.dashboard.profile.edit',compact('user_by_id'));
+        return view('layouts.dashboard.profile.edit',compact('user_by_id','session'));
     }
 
     /**
@@ -90,6 +95,14 @@ class UsersController extends Controller
     {
         //
         $photo = "";
+
+        if( $request->get('set_speaker') !== null ){
+
+            $speakers = new Speaker;
+
+            $speakers = $speakers->setSpeaker($request->get('session'),$id);
+
+        }
 
         $current_password = $request->get('password');
         $new_password = $request->get('new_password');

@@ -60,7 +60,7 @@ class Profile extends Model
                         'other' => $request->get('other'),
                         'Passport_Number' => $request->get('Passport_Number'),
                         'Business_Address' => $request->get('Business_Address'),
-                        'Fax' => $request->get('Fax'),
+                        'Fax' => $request->get('fax'),
                         'documentation_language' => $request->get('documentation_language'),
                         'Spouse_Name' => $request->get('Spouse_Name'),
                         'Spouse_Nationality' => $request->get('Spouse_Nationality'),
@@ -71,7 +71,7 @@ class Profile extends Model
                         'DepartureDate' => $request->get('DepartureDate'),
                         'DepartureFlightNumber' => $request->get('DepartureFlightNumber'),
                         'DepartureTime' => $request->get('DepartureTime'),
-                        'Social_Functions' => $request->get('Social_Functions')
+                        'Social_Functions' => json_encode($request->get('Social_Functions'))
                     ]
                 );
 

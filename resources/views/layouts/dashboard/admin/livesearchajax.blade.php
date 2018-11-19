@@ -3,14 +3,15 @@
     <thead>
         <tr>
 
-                <th></th>
+                <th>Id</th>
                 <th>Name</th>
 
             @if ($user_type == "manager")
                 <th>Email</th>
-            @endif
+            @else
                 <th>Position</th>
                 <th>Company</th>
+            @endif
                 <th>Action</th>
         </tr>
     </thead>
@@ -62,10 +63,10 @@
 
                     @if ($user_type == "manager")
                         <td><div class="bg">{{ $user->email }}</div></td>
-                    @endif
-
+                    @else
                         <td><div class="bg">{{ $user->Job_Title }}</div></td>
                         <td><div class="bg">{{ $user->Company_Name }}</div></td>
+                    @endif
                     {{--  <td>
                         <div class="bg">
                             @if($user->verified === 1)

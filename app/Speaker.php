@@ -40,4 +40,12 @@ class Speaker extends Model
             ->update(['user_id' => 0]);
 
     }
+
+    public function setSpeaker($session_id,$user_id){
+
+        $speaker = DB::table('programme_sessions')
+            ->where('programme_sessions.id', $session_id)
+            ->update(['user_id' => $user_id]);
+
+    }
 }
