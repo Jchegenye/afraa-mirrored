@@ -82,6 +82,11 @@
                         <label for="your_title" class="col-form-label text-md-right">{{ __('Your Title:') }}</label>
 
                         <select name="your_title" class="form-control">
+                            @isset(!$user->your_title)
+                                @php
+                                    $user->your_title="";
+                                @endphp
+                            @endisset
                             <option value="" @if ($user->your_title=="") selected @endif>Choose Option</option>
                             <option value="Mr." @if ($user->your_title=="Mr.") selected @endif>Mr.</option>
                             <option value="Mrs." @if ($user->your_title=="Mrs.") selected @endif>Mrs.</option>
