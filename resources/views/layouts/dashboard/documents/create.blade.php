@@ -22,7 +22,7 @@
                 <div class="form-group col-md-12">
                     <p>Category</p>
                     <select  type="text" class="form-control" name="category">
-                        <option value="speeches" >Speeeches</option>
+                        <option value="speeches" >Speeches</option>
                         <option value="presentations" >Presentations</option>
                         <option value="reports" >Reports</option>
                         <option value="press" >Press Releases</option>
@@ -30,13 +30,13 @@
                     <small class="error">{{$errors->first('category')}}</small>
                 </div>
             </div>
-            <div class="form-row pt-3 pb-4">
+            {{-- <div class="form-row pt-3 pb-4">
                 <div class="form-group col-md-12">
-                    <p>Year</p>
-                    <input type="text" class="form-control year" name="year">
-                    <small class="error">{{$errors->first('year')}}</small>
+                    <p>Year</p> --}}
+                    <input type="hidden" class="form-control year" name="year" value="2018">
+                    {{-- <small class="error">{{$errors->first('year')}}</small>
                 </div>
-            </div>
+            </div> --}}
             <div class="form-row pt-3 pb-4">
                 <div class="form-group col-md-12">
                     <p>File</p>

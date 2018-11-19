@@ -1,12 +1,17 @@
-<table id="txtHint" class="table title-color ">
+<table id="@if ($user_type == 'manager') txtHints @else txtHint @endif" class="table title-color ">
 
     <thead>
         <tr>
-            <th></th>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Company</th>
-            <th>Action</th>
+
+                <th></th>
+                <th>Name</th>
+
+            @if ($user_type == "manager")
+                <th>Email</th>
+            @endif
+                <th>Position</th>
+                <th>Company</th>
+                <th>Action</th>
         </tr>
     </thead>
 
@@ -14,10 +19,22 @@
         @foreach ($usersSearch as $index => $user)
             @if($user->deleted_at)
                 <tr style="opacity: 0.6; background-color: #ffa5004d;">
-                    <td><div class="bg">{{$index +1}}</div></td>
-                    <td><div class="bg">{{ $user->name }}</div></td>
-                    <td><div class="bg">{{ $user->Job_Title }}</div></td>
-                    <td><div class="bg">{{ $user->Company_Name }}</div></td>
+                    @if ($user_type = "manager")
+                        <td><div class="bg">{{$index +1}}</div></td>
+                        <td><div class="bg">{{ $user->name }}</div></td>
+                        <td><div class="bg">{{ $user->email }}</div></td>
+                        <td><div class="bg">{{ $user->role }}</div></td>
+                        <td>
+                        <td><div class="bg">{{ $user->Job_Title }}</div></td>
+                        <td><div class="bg">{{ $user->Company_Name }}</div></td>
+                    @else
+
+                        <td><div class="bg">{{$index +1}}</div></td>
+                        <td><div class="bg">{{ $user->name }}</div></td>
+                        <td><div class="bg">{{ $user->Job_Title }}</div></td>
+                        <td><div class="bg">{{ $user->Company_Name }}</div></td>
+
+                    @endif
                     {{--  <td>
                         <div class="bg">
                             @if($user->verified === 1)
@@ -40,10 +57,15 @@
                 </tr>
             @else
                 <tr>
-                    <td><div class="bg">{{$index +1}}</div></td>
-                    <td><div class="bg">{{ $user->name }}</div></td>
-                    <td><div class="bg">{{ $user->Job_Title }}</div></td>
-                    <td><div class="bg">{{ $user->Company_Name }}</div></td>
+                        <td><div class="bg">{{$index +1}}</div></td>
+                        <td><div class="bg">{{ $user->name }}</div></td>
+
+                    @if ($user_type == "manager")
+                        <td><div class="bg">{{ $user->email }}</div></td>
+                    @endif
+
+                        <td><div class="bg">{{ $user->Job_Title }}</div></td>
+                        <td><div class="bg">{{ $user->Company_Name }}</div></td>
                     {{--  <td>
                         <div class="bg">
                             @if($user->verified === 1)
@@ -55,7 +77,7 @@
                     </td>  --}}
                     <td class="mx-auto" style="display: inline;">
                         <div class="">
-                            <a href="{!! url('dashboard/users/edit/' . $user->uid ) !!}/" title="Edit" class="text-darkred">
+                            <a href="{{action('Users\UsersController@edit', $user->uid)}}" title="Edit" class="text-darkred">
                                 <i class="far fa-edit pr-3"></i>
                             </a>
                             <a href="{!! url('dashboard/users/trash/' . $user->uid) !!}" title="Trash">
