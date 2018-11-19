@@ -94,7 +94,7 @@ use Illuminate\Support\Facades\DB;
 
                     $join->on('profiles.user_id', '=', 'users.uid')
                         ->orderBy('uid', 'DES')
-                        ->where('role','delegate');
+                        ->where('role','manager');
                 })
                 ->get();
 
