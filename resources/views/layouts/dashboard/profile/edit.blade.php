@@ -508,7 +508,7 @@
                     </div>
                     <div class="col-md-4 form-group ">
                         <label for="fax" class="col-form-label text-md-right">{{ __('Fax:') }}</label>
-                        <input type="text" class="form-control" name="fax" value="{{$user->Fax}}">
+                        <input type="text" class="form-control" name="fax" value="">
                     </div>
                     <div class="col-md-4 form-group ">
                         <label for="email" class="col-form-label text-md-right">{{ __('Email:') }}</label>
