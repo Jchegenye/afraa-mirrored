@@ -10,7 +10,6 @@
         $user_type = "user";
     }
 @endphp
-<div class="container-fluid">
 
     <div id="adminTable">
 
@@ -24,7 +23,7 @@
 
                 <div class="col-md-8">
                     <div class="row">
-                        <div class="col-md-7 offset-md-2 ">
+                        <div class="col-md-6 offset-md-2 ">
                             {{--  <div class="input-group custom-search-form">
                                 <input type="text" class="form-control bg-danger text-white rounded-left" autocomplete="off" id="search" placeholder="Seach...">
                                 <span class="input-group-btn border-0">
@@ -54,7 +53,6 @@
 
     </div>
 
-</div>
 
     {{-- <!-- <div class="row justify-content-center">
 
@@ -100,7 +98,6 @@
         </div>
 
     </div> --> --}}
-</div>
 
 
 <script type="text/javascript">

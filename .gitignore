@@ -16,6 +16,6 @@ yarn-error.log
 .env
 .phpunit.result.cache
 ~/
-!/public/images/Person Admin-01.png
+!/public/images/avater.png
 /bootstrap/cache
 /public/files/documents/*

@@ -248,14 +248,13 @@ input:checked + .slider:before {
 	background-position: center;
 	background-size: cover;
 	min-height: 100vh;
-    margin-bottom: 4% !important;
 }
 .loginpage .loginleft .content{
     position: absolute;
-    top: 60%;
+    top: 50%;
     right: 5%;
     left: 5%;
-    transform: translate(0%, -15%);
+    transform: translate(0%, -50%);
 }
 .loginpage .loginleft h1{
 	font-size: 2.5em;
@@ -268,7 +267,8 @@ input:checked + .slider:before {
 	color: #d11f49;
 }
 .loginpage .loginright{
-	margin-top: 3%;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 .shadow-xm{
   transition: 0s;
@@ -416,6 +416,10 @@ input:checked + .slider:before {
 
 /* General style */
 
+	.form-check-inline .form-check-input{
+		box-shadow: none;
+	}
+
 	.afraa-medal .modal-header,
 	.afraa-medal .modal-footer{
 		border:0;
@@ -556,6 +560,9 @@ input:checked + .slider:before {
 	}
 
 	/* inputs */
+	#adminTable .dataTables_wrapper .dataTables_filter input,
+	table.dataTable tbody td:focus,
+	.contents select,
 	.selected-flag:focus,
 	.form-control:focus,
 	textarea:focus, 
@@ -618,7 +625,8 @@ input:checked + .slider:before {
 	#adminTable .table_header{
 		background-color: #fff;
 		padding: 15px;
-		border-radius: 5px;
+		border-top-right-radius: 5px;
+		border-top-left-radius: 5px;
 	}
 	#adminTable .table_body{
 		padding: 15px;
@@ -664,6 +672,7 @@ input:checked + .slider:before {
 
 	#adminTable form {
 		background-color: transparent;
+		padding: 10px 30px;
 	}
 
 	#adminTable.ggg .form-control{
@@ -677,6 +686,33 @@ input:checked + .slider:before {
 	#adminTable .ggg .btn-light {
 		background-color: #ffffff;
 		border-color: #ffffff;
+	}
+	#adminTable .dataTables_wrapper .dataTables_filter input{
+		border: 0;
+		height: 40px;
+		border-radius: 5px;
+		background-color: #8c8c8c4d;
+		padding: 15px;
+	}
+	table.dataTable thead th, table.dataTable thead td,
+	table.dataTable.no-footer {
+		border-bottom: 0px solid #111;
+	}
+	table.dataTable tbody tr {
+		background-color: transparent;
+	}
+	table.dataTable tbody th, table.dataTable tbody td {
+		padding: 8px 10px;
+	}
+	.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+		color: #fff !important;
+		border: 1px solid #d23e4a;
+		background-color: white;
+		background: -webkit-linear-gradient(top, white 0%, #d23e4a 100%);
+		background: -moz-linear-gradient(top, white 0%, #d23e4a 100%);
+		background: -ms-linear-gradient(top, white 0%, #d23e4a 100%);
+		background: -o-linear-gradient(top, white 0%, #d23e4a 100%);
+		background: #d23e4a;
 	}
 
 	/* statistics */
