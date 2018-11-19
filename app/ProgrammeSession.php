@@ -15,7 +15,7 @@ class ProgrammeSession extends Model
 
                     $join->on('programme_sessions.id', '=', 'users.uid');
                 })
-                ->paginate(5);
+                ->get();
 
         return $sessions;
     }

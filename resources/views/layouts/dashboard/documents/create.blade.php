@@ -40,7 +40,7 @@
             <div class="form-row pt-3 pb-4">
                 <div class="form-group col-md-12">
                     <p>File</p>
-                    <input type="file" class="form-control" name="document_file">
+                    <input type="file" class="form-control" name="document_file"  accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.pdf">
                     <small class="error">{{$errors->first('document_file')}}</small>
                 </div>
             </div>

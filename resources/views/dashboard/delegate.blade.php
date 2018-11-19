@@ -78,7 +78,7 @@
                     To successfully register ensure your profile is up to date.
                 </div>
                 <div class="modal-footer-1">
-                    <a href="{{action('Users\UsersController@edit', Auth::id())}}"" class="btn btn-afraa-full">Proceed To Profile</a>
+                    <a href="{{action('Users\UsersController@edit', Auth::id())}}" class="btn btn-afraa-full">Proceed To Profile</a>
                 </div>
             </div>
         </div>

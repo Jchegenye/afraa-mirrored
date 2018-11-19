@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Afraa\Http\Controllers\Controller;
 use App\ProgrammeSession;
 use Afraa\Model\Users;
+use Afraa\Model\Admin\Admin;
 use Afraa\Http\Controllers\Controller\Programme\ProgrammeController;
 
 class AdminController extends Controller
@@ -32,13 +33,16 @@ class AdminController extends Controller
 
         $session = \Afraa\ProgrammeSession::all();
 
+        $stats = new Admin();
+        $statistics = $stats->getAllStats();
+
         $get_users = new Users();
 
         $users = $get_users->getAllUsers();
 
         $user_by_id = $get_users->getUserById(1);
 
-        return view('dashboard/admin',compact('session','users','user_by_id'));
+        return view('dashboard/admin',compact('session','users','user_by_id','statistics'));
     }
 
 }

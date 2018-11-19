@@ -8,11 +8,6 @@
     $role = Auth::user()->role;
 @endphp
 
-@if ( $role == "admin" )
-    <a href="{{action('DocumentController@create')}}" class="">Add Document</a>
-    <br/>
-@endif
-
 <hr>
 
     <div class="row">

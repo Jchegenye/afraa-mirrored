@@ -17,16 +17,23 @@
 
 <section id="speksponexib" class="speaker">
         <div class="row">
-            @foreach($speakers as $speaker)
+            @foreach($speakers as $index => $speaker)
+
+                @if ($index % 3 == 0)
+                        </div>
+                    <div class="row mb-4">
+                @endif
+
+
                 <div class="col-md-4">
-    
+
                     <div class="box text-center">
-    
+
                         <img class="img-fluid afraa-logo" src="{{ asset('images') }}/{{$speaker->photo}}" alt="Card image cap">
-    
+
                         <h6>{{$speaker->name}}</h6>
                         <p>{{$speaker->title}}</p>
-    
+
                         @if(Auth::user()->role == 'admin')
                             <div class="box-footer">
                                 <a href="{{action('Users\UsersController@edit', $speaker->uid)}}" class="edit">
@@ -37,7 +44,7 @@
                                 </a>
                             </div>
                         @endif
-    
+
                     </div>
                 </div>
             @endforeach

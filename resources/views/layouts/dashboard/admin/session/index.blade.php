@@ -100,34 +100,6 @@
                                     </td>
                                 </tr>
 
-                                <div class="afraa-modal">
-                                    <div class="modal fade" id="{{$sessions->title}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                        <div class="modal-content p-5">
-                                            <div class="modal-header mt-4">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">{{$sessions->title}}</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <span class="time_interval">{{$sessions->start_time}} - {{$sessions->end_time}}</span>
-                                            <div class="modal-body">
-                                                <div class="col-md-8 left_modal pr-5">
-                                                        {{$sessions->description}}
-                                                </div>
-                                                <div class="col-md-4">
-                                                        <img src="{{ asset('images/') }}/{{$sessions->photo}} "     >
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer d-none">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-
                                 <tr>
                                     <td class="pt-2"></td>
                                 </tr>
@@ -186,34 +158,6 @@
                                         </div>
                                     </td>
                                 </tr>
-
-                                <div class="afraa-modal">
-                                    <div class="modal fade" id="{{$sessions->title}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                        <div class="modal-content p-5">
-                                            <div class="modal-header mt-4">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">{{$sessions->title}}</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <span class="time_interval">{{$sessions->start_time}} - {{$sessions->end_time}}</span>
-                                            <div class="modal-body">
-                                                <div class="col-md-8 left_modal pr-5">
-                                                        {{$sessions->description}}
-                                                </div>
-                                                <div class="col-md-4">
-                                                        <img src="{{ asset('images/') }}/{{$sessions->photo}} "     >
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer d-none">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <tr>
                                     <td class="pt-2"></td>
@@ -274,34 +218,6 @@
                                         </div>
                                     </td>
                                 </tr>
-
-                                <div class="afraa-modal">
-                                    <div class="modal fade" id="{{$sessions->title}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                        <div class="modal-content p-5">
-                                            <div class="modal-header mt-4">
-                                                <h5 class="modal-title" id="exampleModalLongTitle">{{$sessions->title}}</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <span class="time_interval">{{$sessions->start_time}} - {{$sessions->end_time}}</span>
-                                            <div class="modal-body">
-                                                <div class="col-md-8 left_modal pr-5">
-                                                        {{$sessions->description}}
-                                                </div>
-                                                <div class="col-md-4">
-                                                        <img src="{{ asset('images/') }}/{{$sessions->photo}} "     >
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer d-none">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
 
                                 <tr>
                                     <td class="pt-2"></td>

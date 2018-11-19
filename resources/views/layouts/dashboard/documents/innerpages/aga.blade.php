@@ -4,9 +4,18 @@
 
 @section('content')
 
+@php
+    $role = Auth::user()->role;
+@endphp
+
 <div class="row">
     <div class="col-md-12">
         <h3 class="page-header">ANNUAL GENERAL ASSEMBLY</h3>
+
+        @if ( $role == "admin" )
+            <a href="{{action('DocumentController@create')}}" class="">Add Document</a>
+            <br/>
+        @endif
     </div>
 </div>
 

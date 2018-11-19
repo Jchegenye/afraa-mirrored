@@ -210,14 +210,14 @@
 
         @endif
 
-        <div class="logoutswitch ml-4 pl-1">
+        {{-- <div class="logoutswitch ml-4 pl-1">
             <input type="hidden" id="logout_url" name="logout_url" value="{{ route('logout') }}">
             <label class="switch">
               <input type="checkbox" id="switch_to_logout">
               <span class="slider round text"></span>
             </label>
             <span>Sign Out</span>
-        </div>
+        </div> --}}
 
     </div>
 </div>
