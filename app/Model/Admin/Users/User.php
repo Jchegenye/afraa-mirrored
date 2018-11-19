@@ -2,6 +2,7 @@
 
 namespace Afraa\Model\Admin\Users;
 
+use Laravel\Scout\Searchable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -11,6 +12,7 @@ class User extends Authenticatable
 {
     use Notifiable;
     use SoftDeletes;
+    //use Searchable;
 
     /**
      * Lets use Soft Delete since we do not want to delete records permanently
@@ -22,7 +24,27 @@ class User extends Authenticatable
     protected $dates = ['deleted_at'];
 
     //only allow the following items to be mass-assigned to our model
-    protected $fillable = array('uid');
+    protected $fillable = [
+        'name', 'email', 'password',
+    ];
+
+    /**
+     * Register our primary key here,
+     * 
+     * @author Jackson A. Chegenye
+     * @var array
+     */
+    protected $primaryKey = 'uid';
+
+    /**
+     * The attributes that should be casted to native types.
+     * 
+     * @author Jackson A. Chegenye
+     * @var array
+     */
+    protected $casts = [
+        'permissions' => 'array'
+    ];
 
     /**
      * The database table used by the model.

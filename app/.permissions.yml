@@ -1,20 +1,78 @@
 ## ADMIN PERMISSIONS
-Access Dashboard & Manage Profile:
-    name: access_to_profile
-    description: Admin can access dashboard & manage there profile by performing CRUD.
-Access Dashboard & Manage Users:
-    name: access_to_manage_users
-    description: Admin can access dashboard & manage users i.e (Delegates) by assigning roles, perform CRUD e.t.c.
-Access Dashboard & Manage Programme:
-    name: access_to_manage_programme
-    description: Admin can access dashboard & manage programme by adding programmes/details, add speaker(s), add venue info, add time notification, view all programmes.
-Access Dashboard & Manage Exibitors:
-    name: access_to_manage_exibitors
-    description: Admin can access dashboard & manage exibitor(s) by adding exibitor(s) & other details + floor plan, confirm exibitor(s), delegate(one), view all exibitor(s).
-Access Dashboard & Manage Sponsors:
-    name: access_to_manage_sponsors
-    description: Admin can access dashboard & manage sponsor(s) by adding sponsor(s) & other details, view all sponsor(s).
-Access Dashboard & Manage More:
-    name: access_to_manage_more
-    description: Admin can access dashboard & manage more event(s) such us General event info, add exibitor(s) floorplan, social event(s), host airline(s), media entrie(s), organiser(s)
+admin:
+    permission:
+        - access_to_manage_users
+        - access_to_manage_permissions
+        - access_to_manage_roles
+        - access_to_manage_programme
+        - access_to_manage_sponsors
+        - access_to_delete_user
+        - access_to_edit_user
+        - test_11
 ## MANAGER PERMISSIONS
+manager:
+    permission:
+        - access_to_manage_users
+        - access_to_manage_programme
+        - access_to_manage_sponsors
+        - access_to_edit_programme
+        - acctest_22
+        - acc_test_23
+## DELEGATES PERMISSIONS
+delegate:
+    permission:
+        - access_to_view_exibitors
+        - access_to_view_speakers
+        - access_to_view_programmes
+        - access_to_view_notifications
+        - access_to_view_profile
+        - access_to_view_select_add_program
+        - access_to_edit_exibitors
+        - test_24
+        - test_25
+        - test_26
+## EXIBITORS PERMISSIONS
+exibitor:
+    permission:
+        - access_to_view_floor_plan
+        - access_to_view_other_exibitors
+        - access_to_view_programme
+        - access_to_view_notifications
+        - access_to_view_profile
+        - access_to_edit_profile
+        - test_27
+        - test_28
+        - test_29
+        - test_30
+## AUTHOR PERMISSIONS
+author:
+    permission:
+        - access_to_manage_exibitors
+        - access_to_manage_programme
+        - access_to_manage_sponsors
+        - access_to_manage_info
+        - access_to_view_notifications
+        - access_to_view_profile
+        - access_to_guest_page
+        - access_to_edit_floor_plan
+        - access_to_edit_profile
+        - test_31
+        - test_32
+        - test_33
+        - test_34
+        - test_35
+## SPEAKER PERMISSIONS
+speaker:
+    permission:
+        - access_to_view_exibitors
+        - access_to_view_delegates
+        - access_to_view_programmes
+        - access_to_view_notifications
+        - access_to_view_profile
+        - access_to_edit_profile
+        - test_36
+        - test_37
+        - test_38
+        - test_39
+        - test_40
+        - test_41

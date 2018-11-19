@@ -209,6 +209,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        'StringHelper'=> Afraa\Legibra\ReusableCodes\Helpers\StringHelper::class,
+
     ],
 
 ];

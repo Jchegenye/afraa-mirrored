@@ -60,5 +60,15 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+
+        'admin.role' => \Afraa\Http\Middleware\Roles\AdminRole::class,
+        'manager.role' => \Afraa\Http\Middleware\Roles\ManagerRole::class,
+        'delegate.role' => \Afraa\Http\Middleware\Roles\DelegateRole::class,
+        'exibitor.role' => \Afraa\Http\Middleware\Roles\ExibitorRole::class,
+        'speaker.role' => \Afraa\Http\Middleware\Roles\SpeakerRole::class,
+        'author.role' => \Afraa\Http\Middleware\Roles\AuthorRole::class,
+
+        'permission' => \Afraa\Http\Middleware\Permissions\AllPermissions::class,
+
     ];
 }
