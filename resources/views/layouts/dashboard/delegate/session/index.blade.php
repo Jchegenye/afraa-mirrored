@@ -98,7 +98,9 @@
 
                                                 </form>
 
-                                            @else
+                                            @elseif (Auth::user()->role == 'delegate')
+                                                <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye"></i></a>
+
 
                                                 <div title="Add to Calendar" class="addeventatc">
                                                     <span class="start">2018-10-25 {{$start}} </span>
@@ -108,6 +110,7 @@
                                                     <span class="description">{{$sessions->description}}</span>
                                                 </div>
                                                 {{--  <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye"></i></a>  --}}
+
                                             @endif
 
                                         </div>
@@ -131,7 +134,12 @@
                                                 </div>
                                                 <div class="col-md-4 text-center pl-4 right_profile">
                                                     <h4>{{$sessions->session_type}}</h4>
-                                                    <img src="{{ asset('images/') }}/{{$sessions->photo}} "  class="img-fluid pb-3 rounded">
+
+                                                    @empty($sessions->photo)
+                                                        <img src="{{ asset('images/') }}/placeholder.png"  class="img-fluid pb-3 rounded">
+                                                    @endempty
+                                                        <img src="{{ asset('images/') }}/{{$sessions->photo}} "  class="img-fluid pb-3 rounded">
+
                                                     <h6>{{$sessions->name}}</h6>
                                                     <h5>{{$sessions->Job_Title}}</h5>
                                                     <span>{{$sessions->Company_Name}}</span>
@@ -203,16 +211,18 @@
 
                                                     </form>
 
-                                                @else
+                                                @elseif (Auth::user()->role == 'delegate')
+                                                    <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye"></i></a>
 
-                                                <div title="Add to Calendar" class="addeventatc">
-                                                    <span class="start">2018-10-25 {{$start}} </span>
-                                                    <span class="end">2018-10-25 {{$stop}}</span>
-                                                    <span class="timezone">Greenwich Mean Time</span>
-                                                    <span class="title">{{$sessions->title}}</span>
-                                                    <span class="description">{{$sessions->description}}</span>
-                                                </div>
+                                                    <div title="Add to Calendar" class="addeventatc">
+                                                        <span class="start">2018-10-25 {{$start}} </span>
+                                                        <span class="end">2018-10-25 {{$stop}}</span>
+                                                        <span class="timezone">Greenwich Mean Time</span>
+                                                        <span class="title">{{$sessions->title}}</span>
+                                                        <span class="description">{{$sessions->description}}</span>
+                                                    </div>
                                                     {{--  <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye"></i></a>  --}}
+
                                                 @endif
 
                                         </div>
@@ -236,7 +246,12 @@
                                                     </div>
                                                     <div class="col-md-4 text-center pl-4 right_profile">
                                                         <h4>{{$sessions->session_type}}</h4>
-                                                        <img src="{{ asset('images/') }}/{{$sessions->photo}} "  class="img-fluid pb-3 rounded">
+
+                                                        @empty($sessions->photo)
+                                                            <img src="{{ asset('images/') }}/placeholder.png"  class="img-fluid pb-3 rounded">
+                                                        @endempty
+                                                            <img src="{{ asset('images/') }}/{{$sessions->photo}} "  class="img-fluid pb-3 rounded">
+
                                                         <h6>{{$sessions->name}}</h6>
                                                         <h5>{{$sessions->Job_Title}}</h5>
                                                         <span>{{$sessions->Company_Name}}</span>
@@ -298,29 +313,29 @@
                                     <td class="action-gray">
                                         <div>
 
-                                                @if (Auth::user()->role == 'admin')
+                                            @if (Auth::user()->role == 'admin')
 
-                                                    <a href="{{action('ProgrammeSession\ProgrammeSessionController@edit', $sessions->id)}}" class="edit"><i class="far fa-edit"></i></a>
+                                                <a href="{{action('ProgrammeSession\ProgrammeSessionController@edit', $sessions->id)}}" class="edit"><i class="far fa-edit"></i></a>
 
-                                                    <form action="{{action('ProgrammeSession\ProgrammeSessionController@destroy', $sessions->id)}}" method="post">
+                                                <form action="{{action('ProgrammeSession\ProgrammeSessionController@destroy', $sessions->id)}}" method="post">
 
-                                                        @csrf
-                                                            <input name="_method" type="hidden" value="DELETE">
-                                                            <button class="text-small" type="submit"><i class="far fa-trash-alt"></i></button>
+                                                    @csrf
+                                                        <input name="_method" type="hidden" value="DELETE">
+                                                        <button class="text-small" type="submit"><i class="far fa-trash-alt"></i></button>
 
-                                                    </form>
+                                                </form>
 
-                                                @else
+                                            @elseif (Auth::user()->role == 'delegate')
+                                                <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye"></i></a>
 
-                                                    <div title="Add to Calendar" class="addeventatc">
-                                                        <span class="start">2018-10-25 {{$start}} </span>
-                                                        <span class="end">2018-10-25 {{$stop}}</span>
-                                                        <span class="timezone">Greenwich Mean Time</span>
-                                                        <span class="title">{{$sessions->title}}</span>
-                                                        <span class="description">{{$sessions->description}}</span>
-                                                    </div>
-                                                    {{--  <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye"></i></a>  --}}
-                                                @endif
+                                                <div title="Add to Calendar" class="addeventatc">
+                                                    <span class="start">2018-10-25 {{$start}} </span>
+                                                    <span class="end">2018-10-25 {{$stop}}</span>
+                                                    <span class="timezone">Greenwich Mean Time</span>
+                                                    <span class="title">{{$sessions->title}}</span>
+                                                    <span class="description">{{$sessions->description}}</span>
+                                                </div>
+                                            @endif
 
                                         </div>
                                     </td>
@@ -343,7 +358,10 @@
                                                     </div>
                                                     <div class="col-md-4 text-center pl-4 right_profile">
                                                         <h4>{{$sessions->session_type}}</h4>
-                                                        <img src="{{ asset('images/') }}/{{$sessions->photo}} "  class="img-fluid pb-3 rounded">
+                                                        @empty($sessions->photo)
+                                                            <img src="{{ asset('images/') }}/placeholder.png"  class="img-fluid pb-3 rounded">
+                                                        @endempty
+                                                            <img src="{{ asset('images/') }}/{{$sessions->photo}} "  class="img-fluid pb-3 rounded">
                                                         <h6>{{$sessions->name}}</h6>
                                                         <h5>{{$sessions->Job_Title}}</h5>
                                                         <span>{{$sessions->Company_Name}}</span>
