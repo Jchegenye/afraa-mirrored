@@ -3,10 +3,14 @@
 @section('title', 'Documents Single Category')
 
 @section('content')
-
+@foreach ($documents as $document)
+    @php
+        $year = $document->year;
+    @endphp
+@endforeach
 <div class="row">
     <div class="col-md-12">
-        <h3 class="page-header">50<sup>th</sup> AGA (@foreach ($documents as $document) {{$document->year}} @endforeach)</h3>
+        <h3 class="page-header">50<sup>th</sup> AGA ({{$year}})</h3>
     </div>
 </div>
 
@@ -96,6 +100,40 @@
                                 @foreach ($documents as $document)
 
                                 @if ($document->category == "reports")
+
+                                    <li class="dw-title text-capitalize mb-3">
+                                        <span>-</span>
+                                        <span>{{$document->title}}</span>
+                                        <span>
+                                            <a href="{{URL::asset('/files/documents/')}}/{{$document->name}}">
+                                                <i class="fas fa-file-pdf"></i>
+                                                <span class="dw-link">Download</span>
+                                            </a>
+                                        </span>
+                                    </li>
+
+                                @endif
+
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+
+                <a class="btn-aga" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
+                    <div class="mb-0 text-left">
+                        <img src="{{URL::asset('/images/logo.png')}}" alt="" class="img-fluid col-md-2"> Press Releases
+                    </div>
+                </a>
+
+                <div id="collapseFour" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <ul class="list-inline agalist">
+                                @foreach ($documents as $document)
+
+                                @if ($document->category == "press")
 
                                     <li class="dw-title text-capitalize mb-3">
                                         <span>-</span>

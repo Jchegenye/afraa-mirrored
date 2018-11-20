@@ -1,4 +1,13 @@
-<table id="@if ($user_type == 'manager') txtHints @else txtHint @endif" class="table title-color ">
+@if ($user_type == 'manager')
+    @php
+        $div = 'txtHints';
+    @endphp
+@else
+@php
+    $div = 'txtHint';
+@endphp
+@endif
+<table id="{{$div}}" class="table title-color ">
 
     <thead>
         <tr>
