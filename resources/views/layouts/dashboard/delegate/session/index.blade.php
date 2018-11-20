@@ -135,10 +135,11 @@
                                                 <div class="col-md-4 text-center pl-4 right_profile">
                                                     <h4>{{$sessions->session_type}}</h4>
 
-                                                    @empty($sessions->photo)
+                                                    @if(empty($sessions->photo))
                                                         <img src="{{ asset('images/') }}/placeholder.png"  class="img-fluid pb-3 rounded">
-                                                    @endempty
+                                                    @else
                                                         <img src="{{ asset('images/') }}/{{$sessions->photo}} "  class="img-fluid pb-3 rounded">
+                                                    @endif
 
                                                     <h6>{{$sessions->name}}</h6>
                                                     <h5>{{$sessions->Job_Title}}</h5>
@@ -247,10 +248,11 @@
                                                     <div class="col-md-4 text-center pl-4 right_profile">
                                                         <h4>{{$sessions->session_type}}</h4>
 
-                                                        @empty($sessions->photo)
+                                                        @if(empty($sessions->photo))
                                                             <img src="{{ asset('images/') }}/placeholder.png"  class="img-fluid pb-3 rounded">
-                                                        @endempty
+                                                        @else
                                                             <img src="{{ asset('images/') }}/{{$sessions->photo}} "  class="img-fluid pb-3 rounded">
+                                                        @endif
 
                                                         <h6>{{$sessions->name}}</h6>
                                                         <h5>{{$sessions->Job_Title}}</h5>
@@ -358,10 +360,13 @@
                                                     </div>
                                                     <div class="col-md-4 text-center pl-4 right_profile">
                                                         <h4>{{$sessions->session_type}}</h4>
-                                                        @empty($sessions->photo)
+
+                                                        @if(empty($sessions->photo))
                                                             <img src="{{ asset('images/') }}/placeholder.png"  class="img-fluid pb-3 rounded">
-                                                        @endempty
+                                                        @else
                                                             <img src="{{ asset('images/') }}/{{$sessions->photo}} "  class="img-fluid pb-3 rounded">
+                                                        @endif
+
                                                         <h6>{{$sessions->name}}</h6>
                                                         <h5>{{$sessions->Job_Title}}</h5>
                                                         <span>{{$sessions->Company_Name}}</span>
