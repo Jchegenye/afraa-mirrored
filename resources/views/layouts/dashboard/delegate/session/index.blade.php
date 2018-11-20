@@ -99,6 +99,14 @@
                                                 </form>
 
                                             @else
+
+                                                <div title="Add to Calendar" class="addeventatc">
+                                                    <span class="start">2018-10-25 {{$start}} </span>
+                                                    <span class="end">2018-10-25 {{$stop}}</span>
+                                                    <span class="timezone">Greenwich Mean Time</span>
+                                                    <span class="title">{{$sessions->title}}</span>
+                                                    <span class="description">{{$sessions->description}}</span>
+                                                </div>
                                                 {{--  <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye"></i></a>  --}}
                                             @endif
 
@@ -196,6 +204,14 @@
                                                     </form>
 
                                                 @else
+
+                                                <div title="Add to Calendar" class="addeventatc">
+                                                    <span class="start">2018-10-25 {{$start}} </span>
+                                                    <span class="end">2018-10-25 {{$stop}}</span>
+                                                    <span class="timezone">Greenwich Mean Time</span>
+                                                    <span class="title">{{$sessions->title}}</span>
+                                                    <span class="description">{{$sessions->description}}</span>
+                                                </div>
                                                     {{--  <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye"></i></a>  --}}
                                                 @endif
 
@@ -234,7 +250,7 @@
                                             </div>
                                         </div>
                                     </div>
-    
+
 
                                 <tr>
                                     <td class="pt-2"></td>
@@ -295,6 +311,14 @@
                                                     </form>
 
                                                 @else
+
+                                                    <div title="Add to Calendar" class="addeventatc">
+                                                        <span class="start">2018-10-25 {{$start}} </span>
+                                                        <span class="end">2018-10-25 {{$stop}}</span>
+                                                        <span class="timezone">Greenwich Mean Time</span>
+                                                        <span class="title">{{$sessions->title}}</span>
+                                                        <span class="description">{{$sessions->description}}</span>
+                                                    </div>
                                                     {{--  <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye"></i></a>  --}}
                                                 @endif
 
@@ -333,7 +357,7 @@
                                             </div>
                                         </div>
                                     </div>
-    
+
 
                                 <tr>
                                     <td class="pt-2"></td>

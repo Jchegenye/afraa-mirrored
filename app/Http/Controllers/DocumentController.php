@@ -23,7 +23,7 @@ class DocumentController extends Controller
 
     public function aga(){
 
-        $documents = \Afraa\Document::all();
+        $documents = \Afraa\Document::select('year')->distinct()->get();
 
         return view('layouts.dashboard.documents.innerpages.aga',compact('documents'));
     }
@@ -61,7 +61,7 @@ class DocumentController extends Controller
         $this->validate(
             $request,
             [
-                'document_file' => 'required',
+                'document_file' => 'required|mimes:doc,docx,xls,xlsx,ppt,pdf,zip|max:10048',
                 'title' => 'required',
                 'category' => 'required',
                 'year' => 'required',
