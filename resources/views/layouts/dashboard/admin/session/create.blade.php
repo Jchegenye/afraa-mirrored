@@ -10,7 +10,7 @@
         <div class="row ">
             <div class="col-md-4">
                 <div class="mx-auto mt-2 intro1">
-                    <h6 class="text-capitalize">Add</h6>
+                    <h6 class="text-capitalize">{{ __('Add') }}</h6>
                 </div>
             </div>
 
