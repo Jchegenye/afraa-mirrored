@@ -446,7 +446,7 @@ input:checked + .slider:before {
 			background-color: #ffffff;
 			padding: 10px 30px;
 			border: 0;
-			color: #c0c0c0 !important;
+			color: #000 !important;
 			box-shadow: 0px 0px 13px #c0c0c0;
 			border-radius: 5px;
 		}
@@ -457,13 +457,6 @@ input:checked + .slider:before {
 			color: #fff !important;
 			box-shadow: 0px 0px 13px #dc4045;
 			border-radius: 5px;	
-		}
-	/* colors */
-		.afraa-red-text{
-			color: #dc4045;
-		}
-		.afraa-green-text{
-			color: #aec55d;
 		}
 
 	#page-wrapper {
@@ -503,6 +496,15 @@ input:checked + .slider:before {
 	/* colors */
 	.bg-white{
 		background-color: #fff;
+	}
+	.bg-gray{
+		background-color: #ebeff3;
+	}
+	.afraa-red-text{
+		color: #dc4045;
+	}
+	.afraa-green-text{
+		color: #aec55d;
 	}
 	/* btn-afraa-full-2
 	.btn-afraa-full-2
@@ -775,7 +777,7 @@ input:checked + .slider:before {
 		background-color: #ffffff;
 		border: 1px solid #ffffff;
 		padding: 10px 30px;
-		color: #c0c0c0 !important;
+		color: #000 !important;
 		box-shadow: 0px 0px 13px #c0c0c0;
 		border-radius: 5px;
 		margin-right: 22px;
@@ -784,7 +786,7 @@ input:checked + .slider:before {
 	#dashtabs .table .tabtable{
 		background-color: #ffffff;
 		border: 0px solid #ffffff;
-		color: #c0c0c0 !important;
+		color: #000 !important;
 		box-shadow: 0px 0px 13px #c0c0c0;
 		border-radius: 5px;
 		margin-right: 22px;
@@ -836,7 +838,7 @@ input:checked + .slider:before {
 		background-color: #ffffff;
 		border: 1px solid #ffffff;
 		padding: 10px 0px;
-		color: #c0c0c0 !important;
+		color: #000 !important;
 		box-shadow: 0px 0px 13px #c0c0c0;
 		border-radius: 5px;
 		display: block;
@@ -1036,5 +1038,36 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 		border-radius: 5px;
 		object-fit: cover;
 		margin-bottom: 15px;
+	}
+
+	/* QnA */
+	#dashtabs .qna .qa span:nth-of-type(1) {
+		padding: 15px;
+		display: inline-flex;
+	}
+	.myqna .tab-content{ 
+		padding: 0px;
+		color: #000 !important;
+		box-shadow: 0px 0px 13px #c0c0c0;
+		border-radius: 0px;
+		border-top-left-radius: 5px;
+		border-top-right-radius: 5px;
+	}
+	.myqna .qna .card-body{
+		height: 350px;
+		display: block;
+		position: relative;
+		overflow-y: scroll;
+	}
+	.myqna .qna .card-body::-webkit-scrollbar {
+		width: .4em;
+	}
+	.myqna .qna .card-body::-webkit-scrollbar-track {
+		-webkit-box-shadow: inset 0 0 6px transparent;
+	}
+	
+	.myqna .qna .card-body::-webkit-scrollbar-thumb {
+	  background-color: #d11f49;
+	  outline: 1px solid slategrey;
 	}
 	
