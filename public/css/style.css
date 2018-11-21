@@ -6,11 +6,11 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px #d11f49;
+    -webkit-box-shadow: inset 0 0 6px #3c68b1;
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #d11f49;
+  background-color: #3c68b1;
   outline: 1px solid slategrey;
 }
 #page-wrapper{
@@ -26,7 +26,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .navbar-brand .logo{
-	max-width: 100px;
+	max-width: 165px;
 }
 .navbar-brand{
 	max-width: 100px;
@@ -64,9 +64,9 @@ body{
 	padding-left: 20px;
 }
 .buttons .active,.a .active{
- 	box-shadow: 0 5px 20px 0 #d11f497d;
+	box-shadow: 0 5px 10px 0 #3c68b17d;;
  	color: #fff;
-	background-color: #d11f49 ;
+	background-color: #3c68b1 ;
 	padding: 10px 20px;
 }
 .buttons a .btn{
@@ -97,7 +97,7 @@ body{
 	background-color: #dadbdc;
 }
 .cardgrey .card .card-body{
-	background-color: #d11f49;
+	background-color: #3c68b1;
 }
 .cardgrey .card{
 	background-color: transparent;
@@ -264,7 +264,7 @@ input:checked + .slider:before {
 	line-height: 1.4em;
 }
 .loginpage .loginleft span a{
-	color: #d11f49;
+	color: #3c68b1;
 }
 .loginpage .loginright{
     margin-top: 30px;
@@ -295,7 +295,7 @@ input:checked + .slider:before {
     /*box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 10);*/
  }
 .loginright .logo{
-	max-width: 120px;
+	max-width: 200px;
 }
  .loginright{
  	padding-left: 7%;
@@ -312,11 +312,11 @@ input:checked + .slider:before {
   	font-weight: 500;
   	font-size: 16px;
   	color: #000;
-  	border-left: 3px solid #d11f49;
+  	border-left: 3px solid #3c68b1;
  }
   .loginright .form-control-lg{
   	border: none;
-   	border-left: 5px solid #d11f49;
+   	border-left: 5px solid #3c68b1;
  }
   .loginright input{
   	height: 50px;
@@ -328,7 +328,7 @@ input:checked + .slider:before {
 	margin-left: 5px;
  }
   .loginright a{
- 	color: #d11f49;
+ 	color: #3c68b1;
  	text-decoration: none;
  }
  .forgot a{
@@ -481,7 +481,7 @@ input:checked + .slider:before {
 
 	/* links */
 	a {
-		color: #d11f49; 
+		color: #3c68b1; 
 	}btn-afraa-full-2
 	a:focus,
 	a:hover {
@@ -511,35 +511,35 @@ input:checked + .slider:before {
 
 	/* buttons */
 	.btn-afraa {
-		color: #d11f49;
+		color: #3c68b1;
 		background-color: transparent;
-		border: 1px solid #d11f49;
+		border: 1px solid #3c68b1;
 		padding: 8px 12px;
 	}
 	.btn-group .btn-afraa:hover,
 	.btn-afraa:hover {
 		color: #ffffff;
-		background-color: #d11f49; 
+		background-color: #3c68b1; 
 	}
 	/* .btn-afraa a:hover{
 		color: #fff; 
 	} */
 	.btn-afraa-full {
-		background-color: #d11f49;
-		border: 1px solid #d11f49;
+		background-color: #3c68b1;
+		border: 1px solid #3c68b1;
 		padding: 8px 12px;
 		color: #fff;
 	}
 	.btn-afraa-full-2{
-		background-color: #d11f49;
-		border: 1px solid #d11f49;
+		background-color: #3c68b1;
+		border: 1px solid #3c68b1;
 		padding: 7px 30px;
 		color: #fff !important;
-		box-shadow: 1px 1px 9px #d11f49;
+		box-shadow: 1px 1px 9px #3c68b1;
 	}
 	.btn-afraa-full-2:hover{
 		background-color: transparent;
-    	color: #d11f49 !important;
+    	color: #3c68b1 !important;
 	}
 	.btn-afraa-full a{
 		color: #fff !important; 
@@ -553,11 +553,11 @@ input:checked + .slider:before {
 		color:inherit;
 	}
 	.page-item.active .page-link {
-		background-color: #d11f49;
-		border-color: #d11f49;
+		background-color: #3c68b1;
+		border-color: #3c68b1;
 	}
 	.page-link{
-		color: #d11f49;
+		color: #3c68b1;
 	}
 	.page-link:hover {
 		color: #d3b5c7; 
@@ -722,13 +722,13 @@ input:checked + .slider:before {
 	}
 	.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
 		color: #fff !important;
-		border: 1px solid #d23e4a;
+		border: 1px solid #3c68b1;
 		background-color: white;
-		background: -webkit-linear-gradient(top, white 0%, #d23e4a 100%);
-		background: -moz-linear-gradient(top, white 0%, #d23e4a 100%);
-		background: -ms-linear-gradient(top, white 0%, #d23e4a 100%);
-		background: -o-linear-gradient(top, white 0%, #d23e4a 100%);
-		background: #d23e4a;
+		background: -webkit-linear-gradient(top, white 0%, #3c68b1 100%);
+		background: -moz-linear-gradient(top, white 0%, #3c68b1 100%);
+		background: -ms-linear-gradient(top, white 0%, #3c68b1 100%);
+		background: -o-linear-gradient(top, white 0%, #3c68b1 100%);
+		background: #3c68b1;
 	}
 
 	/* statistics */
@@ -748,7 +748,7 @@ input:checked + .slider:before {
 		background-size: contain;
 	}
 	#statistics .stats-card:hover{
-		color: #d11f49;
+		color: #3c68b1;
 	}
 	#statistics .stats-card h1{
 		font-size: 3rem;
@@ -765,11 +765,11 @@ input:checked + .slider:before {
 		margin-bottom: 30px;
 	}
 	#dashtabs .nav-tabs .nav-item.show .nav-link, #dashtabs .nav-tabs .nav-link.active{
-		background-color: #d11f49;
-		border: 1px solid #d11f49;
+		background-color: #3c68b1;
+		border: 1px solid #3c68b1;
 		padding: 10px 30px;
 		color: #fff !important;
-		box-shadow: 0px 0px 13px #d11f49;
+		box-shadow: 0px 0px 13px #3c68b1;
 	}
 	#dashtabs .nav-tabs .nav-link{
 		background-color: #ffffff;
@@ -806,7 +806,7 @@ input:checked + .slider:before {
 	}
 	#dashtabs .table .tabtable .clr-gray{
 		width: 15%;
-		color: #d11f49;
+		color: #3c68b1;
 	}
 	#dashtabs .table .tabtable .action-gray{
 		float: right;
@@ -846,7 +846,7 @@ input:checked + .slider:before {
 		object-fit: contain;
 	}
 	.aga span{
-		color: #d23e4a;
+		color: #3c68b1;
 	}
 	.aga .aviation span{
 		color: #aec55d;
@@ -943,7 +943,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 		max-width: 700px !important;
 	}
 	.afraa-modal .modal-title{
-		color: #d11f49;
+		color: #3c68b1;
 		font-size: 2.0em;
 		font-weight: 400;
 		text-transform: uppercase;
@@ -957,7 +957,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 	
 	}
 	.afraa-modal .modal-header .close{
-		color: #d11f49;
+		color: #3c68b1;
 		font-size: 4em;
 		font-weight: 200;
 		position: absolute;
@@ -980,7 +980,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 	}
 	.afraa-modal .right_profile h4{
 		font-weight: 500;
-		color: #d11f49;
+		color: #3c68b1;
 		text-transform: uppercase;
 	}
 	.afraa-modal .right_profile h6{
