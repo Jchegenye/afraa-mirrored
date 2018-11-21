@@ -37,7 +37,7 @@
                                 <th>Name</th>
                                 <th>Position</th>
                                 <th>Company</th>
-                                <th>Action</th>
+                                {{-- <th>Action</th> --}}
                             </tr>
                         </thead>
 
@@ -48,13 +48,13 @@
                                     <td><div class="bg">{{ $user->name }}</div></td>
                                     <td><div class="bg">{{ $user->Job_Title }}</div></td>
                                     <td><div class="bg">{{ $user->Company_Name }}</div></td>
-                                    <td>
+                                    {{-- <td>
                                         <div class="btn-group btn-group-toggle" >
                                             <a href="">
                                                 View
                                             </a>
                                         </div>
-                                    </td>
+                                    </td> --}}
                                 </tr>
                             @endforeach
 

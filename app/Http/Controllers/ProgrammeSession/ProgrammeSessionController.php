@@ -138,7 +138,7 @@ class ProgrammeSessionController extends Controller
 
         $role = Auth::user()->role;
 
-        $id = Auth::id();
+        // $id = Auth::id();
 
         $get_users = new Users();
 
