@@ -18,8 +18,8 @@ class ProgrammeSession extends Model
 
         $sessions = DB::table('programme_sessions')
                 ->select('programme_sessions.id as id','title','description','session_type','start_time','end_time','date','Company_Name','your_title','Job_Title','Member_Airline','AFRAA_Partner','other','Passport_Number','Business_Address','Fax','documentation_language','Spouse_Name','Spouse_Nationality','Spouse_Passport_Number','ArrivalDate','FlightNumber','ArrivalTime','DepartureDate','DepartureFlightNumber','DepartureTime','Social_Functions','uid','name','username','email','email_verified_at','password','role','phone','bio','photo','country','verification_token','confirmation_code','verified','confirmed_date','deleted_at','remember_token')
-                ->join('profiles', 'programme_sessions.user_id', '=', 'profiles.user_id')
-                ->join('users', 'programme_sessions.user_id', '=', 'users.uid')
+                ->leftJoin('profiles', 'programme_sessions.user_id', '=', 'profiles.user_id')
+                ->leftJoin('users', 'programme_sessions.user_id', '=', 'users.uid')
                 ->get();
         // $sessions = DB::table('programme_sessions')
         //         ->join('users', function ($join) {

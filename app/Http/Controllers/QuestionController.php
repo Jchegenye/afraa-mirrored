@@ -23,7 +23,7 @@ class QuestionController extends Controller
 
         $sessions = $sessions->getSpeakerSessions($user_id);
 
-        return view('dashboard/delegate',compact('session','featured_session','programme','user_by_id','isSpeaker'));
+        return view('layouts/dashboard/qna/index',compact('session'));
     }
 
     /**

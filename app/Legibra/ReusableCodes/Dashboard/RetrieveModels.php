@@ -90,22 +90,22 @@ use Illuminate\Support\Facades\DB;
              * @return array
              **/
             $users = DB::table('users')
-                ->join('profiles', function ($join)  use ( &$id ) {
+                ->leftJoin('profiles', function ($join)  use ( &$id ) {
 
                     $join->on('profiles.user_id', '=', 'users.uid')
                         ->orderBy('uid', 'DES')
-                        ->where('role','manager');
+                        ->where('users.role','manager');
                 })
                 ->get();
 
             $search = request()->uid; //get query id
             //$usersSearch = User::where('name','LIKE',"%{$search}%")->paginate(4); //Get search results by name
             $usersSearch = DB::table('users')
-                        ->join('profiles', function ($join)  use ( &$id ) {
+                        ->where('users.role','manager')
+                        ->leftJoin('profiles', function ($join)  use ( &$id ) {
 
                             $join->on('profiles.user_id', '=', 'users.uid')
-                                ->orderBy('uid', 'DES')
-                                ->where('role','manager');
+                                ->orderBy('uid', 'DES');
                         })
                         ->get();
             /**
@@ -166,11 +166,10 @@ use Illuminate\Support\Facades\DB;
             $usersSearch = User::withTrashed()
                         ->where('name','LIKE',"%{$search}%")
                         ->where('role','=','delegate')
-                        ->join('profiles', function ($join)  use ( &$id ) {
+                        ->leftJoin('profiles', function ($join)  use ( &$id ) {
 
                             $join->on('profiles.user_id', '=', 'users.uid')
-                                ->orderBy('uid', 'DES')
-                                ->where('role','delegate');
+                                ->orderBy('uid', 'DES');
                         })
                         ->get();
             /**

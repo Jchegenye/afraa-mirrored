@@ -25,10 +25,10 @@ class Users extends Model
     public function getAllDelegates(){
 
         $users = DB::table('users')
-            ->join('profiles', function ($join)  use ( &$id ) {
+            ->where('users.role','delegate')
+            ->leftJoin('profiles', function ($join)  use ( &$id ) {
 
-                $join->on('profiles.user_id', '=', 'users.uid')
-                    ->where('role','delegate');
+                $join->on('profiles.user_id', '=', 'users.uid');
             })
             ->get();
 
@@ -45,10 +45,10 @@ class Users extends Model
         if ($profiles > 0) {
 
             $user =  DB::table('users')
-                ->join('profiles', function ($join)  use ( &$id ) {
+                ->where('users.uid', '=', $id)
+                ->leftJoin('profiles', function ($join)  use ( &$id ) {
 
-                    $join->on('profiles.user_id', '=', 'users.uid')
-                        ->where('users.uid', '=', $id);
+                    $join->on('profiles.user_id', '=', 'users.uid');
                 })
                 ->get();
 
