@@ -48,4 +48,17 @@ class Speaker extends Model
             ->update(['user_id' => $user_id]);
 
     }
+
+    public function isSpeaker($user_id){
+
+        $speaker = DB::table('programme_sessions')
+            ->where('user_id', $user_id)
+            ->count();
+
+        if($speaker > 0){
+            return true;
+        }
+
+        return false;
+    }
 }

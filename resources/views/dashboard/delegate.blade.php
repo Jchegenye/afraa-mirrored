@@ -4,6 +4,10 @@
 
 @section('content')
 
+@php
+    //dd($isSpeaker);
+@endphp
+
     <div class="row">
         <div class="col-md-12">
             <h3 class="page-header">Dashboard</h3>

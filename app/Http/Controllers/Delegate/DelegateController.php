@@ -7,6 +7,7 @@ use Afraa\Programme;
 use Afraa\ProgrammeSession;
 use Afraa\FeaturedSession;
 use Afraa\Model\Users;
+use Afraa\Speaker;
 use Afraa\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,7 +51,11 @@ class DelegateController extends Controller
 
         $user_by_id = $get_users->getUserById($user);
 
-        return view('dashboard/delegate',compact('session','featured_session','programme','user_by_id'));
+        $isSpeakerBool = new Speaker();
+
+        $isSpeaker = $isSpeakerBool->isSpeaker($user);
+
+        return view('dashboard/delegate',compact('session','featured_session','programme','user_by_id','isSpeaker'));
     }
 
     public function viewPrograme(){
