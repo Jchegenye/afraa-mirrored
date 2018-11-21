@@ -148,13 +148,21 @@
                 btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Social Events</a>
             </div>
 
-            <div class="col-12">
-                <a href="{{url('/dashboard/delegate/questions-and-answers')}}" class="btn btn-block
-                @if ($uri == "dashboard/delegate/questions-and-answers")
-                    active
+            @isset($isSpeaker)
+                @if ($isSpeaker)
+
+                    <div class="col-12">
+                        <a href="{{url('/dashboard/delegate/questions-and-answers')}}" class="btn btn-block
+                        @if ($uri == "dashboard/delegate/questions-and-answers")
+                            active
+                        @endif
+                        btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Q&A</a>
+                    </div>
+
                 @endif
-                btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Q&A</a>
-            </div>
+            @endisset
+
+
 
         @elseif(Auth::user()->role == 'manager')
 

@@ -34,6 +34,7 @@
                // echo "is speaker";
             }
         }
+            //dd($user->country);
 
     @endphp
 </div>
@@ -72,6 +73,7 @@
                 <div class="col-md-12 form-group">
                     <label for="photo" class="col-form-label text-md-right">{{ __('Company Name:') }}</label>
                     <input type="text" class="form-control" name="Company_Name" value="@isset($user->Company_Name) {{ $user->Company_Name}} @endisset">
+                    <small class="error">{{$errors->first('Company_Name')}}</small>
                 </div>
 
                 {{-- Start of Delegate Details --}}
@@ -82,19 +84,20 @@
                         <label for="your_title" class="col-form-label text-md-right">{{ __('Your Title:') }}</label>
 
                         <select name="your_title" class="form-control">
-                                {{-- @php
-                                    if ($user->your_title == null) {
+                                @php
+                                    if (empty($user->your_title)) {
                                         $user->your_title="";
                                     }
-                                @endphp --}}
-                            <option value="" >Choose Option</option>
-                            <option value="Mr.">Mr.</option>
-                            <option value="Mrs.">Mrs.</option>
-                            <option value="Dr.">Dr.</option>
-                            <option value="Prof.">Prof.</option>
-                            <option value="Ms.">Ms.</option>
-                            <option value="Miss">Miss</option>
+                                @endphp
+                            <option value="">Choose Option</option>
+                            <option value="Mr."  @if ($user->your_title == 'Mr.') selected @endif>Mr.</option>
+                            <option value="Mrs."  @if ($user->your_title == 'Mrs.') selected @endif>Mrs.</option>
+                            <option value="Dr."  @if ($user->your_title == 'Dr.') selected @endif>Dr.</option>
+                            <option value="Prof."  @if ($user->your_title == 'Prof.') selected @endif>Prof.</option>
+                            <option value="Ms." @if ($user->your_title == 'Ms.') selected @endif>Ms.</option>
+                            <option value="Miss" @if ($user->your_title == 'Miss') selected @endif>Miss</option>
                         </select>
+                        <small class="error">{{$errors->first('your_title')}}</small>
 
                     </div>
                     <div class="col-md-6 form-group ">
@@ -603,7 +606,7 @@
                             $user->Social_Functions= "";
                         @endphp
                     @endisset --}}
-                    
+
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="Social_Functions1" name="Social_Functions[]" value="Delegate Tour (Sun 25 Nov)">
                         <label class="custom-control-label" for="Social_Functions1">Delegate Tour (Sun 25 Nov)</label>
