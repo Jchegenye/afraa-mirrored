@@ -40,7 +40,7 @@ class Profile extends Model
                     'DepartureDate' => $request->get('DepartureDate'),
                     'DepartureFlightNumber' => $request->get('DepartureFlightNumber'),
                     'DepartureTime' => $request->get('DepartureTime'),
-                    'Social_Functions' => $request->get('Social_Functions'),
+                    'Social_Functions' => json_encode($request->get('Social_Functions')),
                     'user_id' => $id
                 ]
 

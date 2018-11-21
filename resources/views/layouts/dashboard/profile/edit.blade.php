@@ -82,19 +82,24 @@
                         <label for="your_title" class="col-form-label text-md-right">{{ __('Your Title:') }}</label>
 
                         <select name="your_title" class="form-control">
-                            <option value="" @if ($user->your_title=="") selected @endif>Choose Option</option>
-                            <option value="Mr." @if ($user->your_title=="Mr.") selected @endif>Mr.</option>
-                            <option value="Mrs." @if ($user->your_title=="Mrs.") selected @endif>Mrs.</option>
-                            <option value="Dr." @if ($user->your_title=="Dr.") selected @endif>Dr.</option>
-                            <option value="Prof." @if ($user->your_title=="Prof.") selected @endif>Prof.</option>
-                            <option value="Ms." @if ($user->name=="Ms.") selected @endif>Ms.</option>
-                            <option value="Miss" @if ($user->your_title=="Miss") selected @endif>Miss</option>
+                                {{-- @php
+                                    if ($user->your_title == null) {
+                                        $user->your_title="";
+                                    }
+                                @endphp --}}
+                            <option value="" >Choose Option</option>
+                            <option value="Mr.">Mr.</option>
+                            <option value="Mrs.">Mrs.</option>
+                            <option value="Dr.">Dr.</option>
+                            <option value="Prof.">Prof.</option>
+                            <option value="Ms.">Ms.</option>
+                            <option value="Miss">Miss</option>
                         </select>
 
                     </div>
                     <div class="col-md-6 form-group ">
                         <label for="fullname" class="col-form-label text-md-right">{{ __('Full Name:') }}</label>
-                        <input type="text" class="form-control" name="fullname" value="{{$user->name}}">
+                        <input type="text" class="form-control" name="fullname" value="@isset($user->name) {{$user->name}} @endisset">
                     </div>
                     <div class="col-md-6 form-group ">
                         <label for="Job_Title" class="col-form-label text-md-right">{{ __('Job Title:') }}</label>
@@ -102,7 +107,7 @@
                     </div>
                     <div class="col-md-6 form-group">
                         <label for="bio" class="col-form-label text-md-right">{{ __('Bio:') }}</label>
-                        <textarea class="form-control" name="bio" rows="5">{{$user->bio}}</textarea>
+                        <textarea class="form-control" name="bio" rows="5">@isset($user->bio) {{$user->bio}} @endisset</textarea>
                     </div>
                     <div class="col-md-6 form-group ">
                         <label for="photo" class="col-form-label text-md-right">{{ __('Profile Picture:') }}</label>
@@ -499,29 +504,33 @@
                     </div>
                     <div class="col-md-4 form-group">
                         <label for="phone" class="col-form-label text-md-right">{{ __('Telephone:') }}</label>
-                        <input type="tel" class="form-control" name="phone" value="{{$user->phone}}">
+                        <input type="tel" class="form-control" name="phone" value="@isset($user->phone) {{$user->phone}} @endisset">
                     </div>
                     <div class="col-md-4 form-group ">
                         <label for="fax" class="col-form-label text-md-right">{{ __('Fax:') }}</label>
-                        <input type="text" class="form-control" name="fax" value="{{$user->Fax}}">
+                        <input type="text" class="form-control" name="fax" value=" @isset($user->Fax) {{$user->Fax}} @endisset ">
                     </div>
                     <div class="col-md-4 form-group ">
                         <label for="email" class="col-form-label text-md-right">{{ __('Email:') }}</label>
-                        <input type="email" class="form-control" name="email" value="{{$user->email}}">
+                        <input type="email" class="form-control" name="email" value="@isset($user->email) {{$user->email}} @endisset">
                     </div>
                     <div class="col-md-6 form-group">
                         <label for="documentation_language" class="col-form-label text-md-right">{{ __('Documentation Language:') }}</label>
                         <select class="form-control" id="documentation_language" name="documentation_language">
 
                             <option value="French"
-                            @if ($user->documentation_language == 'French')
-                                selected
-                            @endif
+                            @isset($user->documentation_language)
+                                @if ($user->documentation_language == 'French')
+                                    selected
+                                @endif
+                            @endisset
                             >French</option>
                             <option value="English"
-                            @if ($user->documentation_language == 'English')
-                                    selected
-                            @endif>English</option>
+                            @isset($user->documentation_language)
+                                @if ($user->documentation_language == 'English')
+                                        selected
+                                @endif
+                            @endisset>English</option>
 
                         </select>
                     </div>
@@ -589,16 +598,22 @@
                     <label for="Social_Functions" class="col-form-label text-md-right">{{ __('Social Functions:') }}</label>
                     {{-- <input type="text" class="form-control" name="Social_Functions" value="@isset($user->Social_Functions) {{$user->Social_Functions}} @endisset"> --}}
 
+                    {{-- @isset($user->Social_Functions)
+                        @php
+                            $user->Social_Functions= "";
+                        @endphp
+                    @endisset --}}
+                    
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="Social_Functions1" name="Social_Functions[]" value="Delegate Tour (Sun 25 Nov)" {{ old('type', $user->Social_Functions) === 'Delegate Tour (Sun 25 Nov)' ? 'checked' : ''  }}>
+                        <input type="checkbox" class="custom-control-input" id="Social_Functions1" name="Social_Functions[]" value="Delegate Tour (Sun 25 Nov)">
                         <label class="custom-control-label" for="Social_Functions1">Delegate Tour (Sun 25 Nov)</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="Social_Functions2" name="Social_Functions[]" value="Welcome Cocktail & Dinner (Sun 25 Nov)" {{ old('type', $user->Social_Functions) === 'Welcome Cocktail & Dinner (Sun 25 Nov)' ? 'checked' : ''  }}>
+                        <input type="checkbox" class="custom-control-input" id="Social_Functions2" name="Social_Functions[]" value="Welcome Cocktail & Dinner (Sun 25 Nov)" >
                         <label class="custom-control-label" for="Social_Functions2">Welcome Cocktail & Dinner (Sun 25 Nov)</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="Social_Functions3" name="Social_Functions[]" value="Gala Dinner (Mon 26th Nov)" {{ old('type', $user->Social_Functions) === 'Gala Dinner (Mon 26th Nov)' ? 'checked' : ''  }}>
+                        <input type="checkbox" class="custom-control-input" id="Social_Functions3" name="Social_Functions[]" value="Gala Dinner (Mon 26th Nov)">
                         <label class="custom-control-label" for="Social_Functions3">Gala Dinner (Mon 26th Nov)</label>
                     </div>
                 </div>

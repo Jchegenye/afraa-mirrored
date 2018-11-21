@@ -201,7 +201,7 @@ class ManageUsersController extends Controller
             'email' => 'email|unique:users,email|required',
             'phone' => 'required|unique:users|numeric|digits_between:1,14',
             'bio' => 'required',
-            'photo' => 'required'
+            'photo' => 'required|mimes:doc,docx,xls,xlsx,ppt,pdf,zip|max:10048',
         ]);
 
         $role = $request->input('roleselector');

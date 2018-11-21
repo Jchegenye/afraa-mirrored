@@ -29,7 +29,11 @@
 
                     <div class="box text-center">
 
-                        <img class="img-fluid afraa-logo" src="{{ asset('images') }}/{{$speaker->photo}}" alt="Card image cap">
+                        @if (empty($speaker->photo))
+                            <img class="img-fluid afraa-logo" src="{{ asset('images') }}/placeholder.png" alt="Card image cap">
+                        @else
+                            <img class="img-fluid afraa-logo" src="{{ asset('images') }}/{{$speaker->photo}}" alt="Card image cap">
+                        @endif
 
                         <h6>{{$speaker->name}}</h6>
                         <p>{{$speaker->title}}</p>

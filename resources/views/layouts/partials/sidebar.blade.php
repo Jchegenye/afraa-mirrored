@@ -94,6 +94,14 @@
                 btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Manage Sponsors</a>
             </div>{{-- {{url('/dashboard/delegate/exhibitors')}} --}}
 
+            <div class="col-12">
+                <a href="{{url('/dashboard/delegate/questions-and-answers')}}" class="btn btn-block
+                @if ($uri == "dashboard/delegate/questions-and-answers")
+                    active
+                @endif
+                btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Manage Q&A</a>
+            </div>
+
         @elseif(Auth::user()->role == 'delegate')
 
             <div class="col-12">
@@ -138,8 +146,22 @@
                 @endif
                 btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Downloads</a>
             </div>
+
             <div class="col-12">
-                <button class="btn btn-block  btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Social Events</button>
+                {{-- <a href="{{url('/dashboard/delegate/social-events')}}" class="btn btn-block --}}
+                <a href="#" class="btn btn-block
+                @if ($uri == "dashboard/delegate/social-event")
+                    active
+                @endif
+                btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Social Events</a>
+            </div>
+
+            <div class="col-12">
+                <a href="{{url('/dashboard/delegate/questions-and-answers')}}" class="btn btn-block
+                @if ($uri == "dashboard/delegate/questions-and-answers")
+                    active
+                @endif
+                btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Q&A</a>
             </div>
 
         @elseif(Auth::user()->role == 'manager')
