@@ -1070,4 +1070,61 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 	  background-color: #d11f49;
 	  outline: 1px solid slategrey;
 	}
-	
+	.ask_question{
+	  color: slategrey;
+	  font-size: 15px;
+	}
+	.addeventatc{
+		box-shadow: 0 0 0 0.5px rgba(50,50,93,.17), 0 2px 5px 0 rgba(50,50,93,.1), 0 1px 1.5px 0 rgba(0,0,0,.07), 0 1px 2px 0 rgba(0,0,0,.08), 0 0 0 0 transparent!important;
+	}
+	.modal_ask .modal-header .close {
+		color: #3c68b1;
+		font-size: 7em;
+		font-weight: 200;
+		position: absolute;
+		top: 3px;
+		right: 20px;
+	}
+	.modal_ask .modal-title {
+		color: #3c68b1;
+		font-size: 2.0em;
+		font-weight: 400;
+		text-transform: uppercase;
+	}
+	.modal_ask .modal-dialog {
+		max-width: 700px;
+	}
+	.modal_ask .modal-content{
+		background-color: #f0f0f0;
+	}
+	.modal_ask .modal-footer .btn{
+		background-color: #3c68b1 !important;
+		color: #fff;
+		font-size: 20px;
+	}
+	.modal_ask .modal-body textarea{
+		height: 250px !important;
+	}
+
+	.addeventatc:hover {
+		background-color: transparent !important;
+		outline-color: transparent !important;
+	}
+	.addeventatc{
+		background: transparent;
+	}
+	.addeventatc_icon {
+		background: none !important;
+	}
+	.addeventatc_icon:before {
+		font-family: "Font Awesome 5 Free";
+		font-weight: 900;
+		content: "\f073"; 
+	}
+	/* .addeventatc_dropdown.addeventatc-selected{
+		position: fixed;
+		top: 50%;
+		left: 20%;
+		width: auto;
+		transform: translate(50%, -50%);
+	} */
