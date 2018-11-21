@@ -94,6 +94,14 @@
                 btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Manage Sponsors</a>
             </div>{{-- {{url('/dashboard/delegate/exhibitors')}} --}}
 
+            <div class="col-12">
+                <a href="{{url('/dashboard/delegate/questions-and-answers')}}" class="btn btn-block
+                @if ($uri == "dashboard/delegate/questions-and-answers")
+                    active
+                @endif
+                btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Manage Q&A</a>
+            </div>
+
         @elseif(Auth::user()->role == 'delegate')
 
             <div class="col-12">
