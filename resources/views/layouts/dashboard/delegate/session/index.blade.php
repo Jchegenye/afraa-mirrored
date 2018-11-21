@@ -72,7 +72,7 @@
 
                             @if ($date==25)
 
-                                <tr class="tabtable" data-toggle="modal" data-target="#{{$sessions->title}}">
+                                <tr class="tabtable">
                                     <td class="clr-gray">
                                         <div>
                                         <h6>{{$start}} - {{$stop}}</h6>
@@ -80,8 +80,9 @@
                                     </td>
                                     <td class="clr-blk">
                                         <div>
-                                            <h6>{{$sessions->title}}</h6>
+                                            <h6  data-toggle="modal" data-target="#{{$sessions->title}}"> <i class="far fa-eye pr-2"></i> {{$sessions->title}}</h6>
                                         </div>
+                                        
                                     </td>
                                     <td class="action-gray">
                                         <div>
@@ -99,10 +100,33 @@
                                                 </form>
 
                                             @elseif (Auth::user()->role == 'delegate')
-                                                <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye"></i></a>
+                                                <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"></a>
+                                                <a href="#"><span class="ask_question" data-toggle="modal" data-target="#ask_question">Ask A Question</span></a>
+                                                
+                                                <div class="modal modal_ask fade" id="ask_question" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content p-5">
+                                                            <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Your Question</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                    <form>
+                                                                        <div class="form-group">
+                                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="20"></textarea>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn mt-3 pl-4 pr-4">Submit</button>
+                                                                        </div>
+                                                                    </form>
+                                                            </div>                                                        
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-
-                                                <div title="Add to Calendar" class="addeventatc">
+                                                <div title="Add to Calendar" class="addeventatc" style="box-shadow: none !important;">
                                                     <span class="start">2018-10-25 {{$start}} </span>
                                                     <span class="end">2018-10-25 {{$stop}}</span>
                                                     <span class="timezone">Greenwich Mean Time</span>
