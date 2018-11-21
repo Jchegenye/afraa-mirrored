@@ -3,6 +3,9 @@
 namespace Afraa\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Afraa\Question;
+use Afraa\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class QuestionController extends Controller
 {
@@ -14,6 +17,13 @@ class QuestionController extends Controller
     public function index()
     {
         //
+        $user_id = Auth::id();
+
+        $session = new Question();
+
+        $sessions = $sessions->getSpeakerSessions($user_id);
+
+        return view('dashboard/delegate',compact('session','featured_session','programme','user_by_id','isSpeaker'));
     }
 
     /**
@@ -35,6 +45,24 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         //
+        $question= new \Afraa\Question;
+
+        $this->validate(
+            $request,
+            [
+                'text' => 'required',
+
+            ]
+        );
+
+        $session->text=$request->get('text');
+        $session->asked_by_id=$request->get('asked_by_id');
+        $session->session_id=$request->get('session_id');
+
+        $session->save();
+
+        return redirect()->back()->with('success', 'Information has been updated');
+
     }
 
     /**
@@ -79,6 +107,11 @@ class QuestionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        ////
+        $question = \Afraa\Question::find($id);
+
+        $question->delete();
+
+        return redirect()->back()->with('success','Information has been deleted');
     }
 }
