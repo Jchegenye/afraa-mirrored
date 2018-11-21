@@ -1,6 +1,6 @@
 <!-- Top Navigation bar -->
 <nav class="navbar navbar-default navbar-static-top p-4" role="navigation">
-    <div class="navbar-header pl-4">
+    <div class="navbar-header pl-0">
         <a class="navbar-brand" href="{{ url('/') }}">
             <img class="img-fluid logo" src="{{ asset('images/logo.png') }}" alt="logo">
         </a>
