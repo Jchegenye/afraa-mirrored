@@ -658,8 +658,8 @@
 
                 {{-- Start of User Information --}}
 
-                <div class="col-md-6 form-group mt-3">
-                    <button type="submit" class="btn btn-afraa-full-2">
+                <div class="col-md-6 form-group align-self-end ">
+                    <button type="submit" class="btn btn-afraa-full-2 mb-2">
                         {{ __('Update') }}
                     </button>
                 </div>

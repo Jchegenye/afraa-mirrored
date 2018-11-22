@@ -125,8 +125,8 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="col-md-6 form-group ">
-                    <button type="submit" class="btn btn-afraa-full-2">Update</button>
+                <div class="col-md-6 form-group align-self-end">
+                    <button type="submit" class="btn btn-afraa-full-2 mb-2">Update</button>
                 </div>
                 
             </div>

@@ -89,10 +89,8 @@
                         <small class="error">{{$errors->first('date')}}</small>
                     </div>
                 </div>
-                <div class="col-md-6 form-group">
-                    <div class="form-group col-md-12">
-                        <button type="submit" class="btn btn-afraa-full-2">Submit</button>
-                    </div>
+                <div class="form-group col-md-6 align-self-end">
+                    <button type="submit" class="btn btn-afraa-full-2 mb-4 ml-3">Submit</button>
                 </div>
             </div>
             
