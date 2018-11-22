@@ -52,15 +52,13 @@
 
                 <div class="col-md-6 form-group ">
                     <label for="number">Speaker / Moderator:</label>
-                    <select class="form-control" name="user_id">
-                        @foreach( $users as $user )
-                            <option value="{{ $user->uid }}"
-                                @if ($user->uid === $session->user_id)
-                                    selected="selected"
-                                @endif
-                            >{{ $user->name }}</option>
-                        @endforeach
-                    </select>
+
+                    <select class="form-control selectpicker" data-show-subtext="true" data-live-search="true" name="user_id">
+                            <option value="0" selected>Choose Option</option>
+                            @foreach( $users as $user )
+                                <option data-subtext ="{{ $user->name }}" value="{{ $user->uid }}" >{{ $user->name }}</option>
+                            @endforeach
+                        </select>
                 </div>
                 <div class="col-md-6 form-group ">
                     <div class="form-group col-md-12">

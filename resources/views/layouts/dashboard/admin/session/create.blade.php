@@ -49,10 +49,10 @@
                     <div class="form-group col-md-12">
                         <p>Speaker / Moderator:</p>
 
-                        <select class="form-control" name="user_id">
+                        <select class="form-control selectpicker" data-show-subtext="true" data-live-search="true" name="user_id">
                             <option value="0" selected>Choose Option</option>
                             @foreach( $users as $user )
-                                <option value="{{ $user->uid }}" >{{ $user->name }}</option>
+                                <option data-subtext ="{{ $user->name }}" value="{{ $user->uid }}" >{{ $user->name }}</option>
                             @endforeach
                         </select>
                     </div>
