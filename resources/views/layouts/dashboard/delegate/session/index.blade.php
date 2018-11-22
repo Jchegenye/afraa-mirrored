@@ -154,7 +154,7 @@
                                             <span class="time_interval">{{$sessions->start_time}} - {{$sessions->end_time}}</span>
                                             <div class="modal-body row">
                                                 <div class="col-md-8 left_modal pr-5 align-self-center">
-                                                        {{$sessions->description}}
+                                                        {!!$sessions->description!!}
                                                 </div>
                                                 <div class="col-md-4 text-center pl-4 right_profile">
                                                     <h4>{{$sessions->session_type}}</h4>
@@ -267,7 +267,7 @@
                                                 <span class="time_interval">{{$sessions->start_time}} - {{$sessions->end_time}}</span>
                                                 <div class="modal-body row">
                                                     <div class="col-md-8 left_modal pr-5 align-self-center">
-                                                            {{$sessions->description}}
+                                                        {!!$sessions->description!!}
                                                     </div>
                                                     <div class="col-md-4 text-center pl-4 right_profile">
                                                         <h4>{{$sessions->session_type}}</h4>
@@ -380,7 +380,7 @@
                                                 <span class="time_interval">{{$sessions->start_time}} - {{$sessions->end_time}}</span>
                                                 <div class="modal-body row">
                                                     <div class="col-md-8 left_modal pr-5 align-self-center">
-                                                            {{$sessions->description}}
+                                                        {!!$sessions->description!!}
                                                     </div>
                                                     <div class="col-md-4 text-center pl-4 right_profile">
                                                         <h4>{{$sessions->session_type}}</h4>
