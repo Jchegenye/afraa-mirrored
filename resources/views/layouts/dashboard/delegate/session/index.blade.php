@@ -81,9 +81,9 @@
                                     <td class="clr-blk">
                                         <div>
                                             @if ($sessions->session_type !== "Master of Ceremony")
-                                                <h6  data-toggle="modal" data-target="#{{$sessions->title}}"> <i class="far fa-eye pr-2"></i> {{$sessions->title}}</h6>
+                                                <h6 class="d-inline"  data-toggle="modal" data-target="#{{$sessions->title}}"> <i class="far fa-eye pr-2"></i></h6>
                                             @endif
-                                            
+                                            <h6 class="d-inline">{{$sessions->title}}</h6>                                            
                                         </div>
                                         
                                     </td>
@@ -178,10 +178,6 @@
                                             <button type="button" class="btn btn-primary">Save changes</button>
                                             </div>
                                         </div>
-                                        </div>
-                                    </div>
-                                </div>
-
                                 <tr>
                                     <td class="pt-2"></td>
                                 </tr>
@@ -222,8 +218,9 @@
                                     <td class="clr-blk">
                                         <div>
                                             @if ($sessions->session_type !== "Master of Ceremony")
-                                                <h6  data-toggle="modal" data-target="#{{$sessions->title}}_26"> <i class="far fa-eye pr-2"></i> {{$sessions->title}}</h6>
+                                                <h6 class="d-inline" data-toggle="modal" data-target="#{{$sessions->title}}_26"> <i class="far fa-eye pr-2"></i></h6>
                                             @endif
+                                            <h6 class="d-inline">{{$sessions->title}}</h6>    
                                         </div>
                                         
                                     </td>
@@ -364,8 +361,9 @@
                                     <td class="clr-blk">
                                     <div>
                                         @if ($sessions->session_type !== "Master of Ceremony")
-                                            <h6  data-toggle="modal" data-target="#{{$sessions->title}}_27"> <i class="far fa-eye pr-2"></i> {{$sessions->title}}</h6>
+                                            <h6 class="d-inline" data-toggle="modal" data-target="#{{$sessions->title}}_27"> <i class="far fa-eye pr-2"></i></h6>
                                         @endif
+                                        <h6 class="d-inline">{{$sessions->title}}</h6>    
                                     </div>
                                         
                                     </td>
