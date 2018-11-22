@@ -82,7 +82,7 @@
                                         <div>
                                             <h6  data-toggle="modal" data-target="#{{$sessions->title}}"> <i class="far fa-eye pr-2"></i> {{$sessions->title}}</h6>
                                         </div>
-                                        
+
                                     </td>
                                     <td class="action-gray">
                                         <div>
@@ -102,7 +102,7 @@
                                             @elseif (Auth::user()->role == 'delegate')
                                                 <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"></a>
                                                 <a href="#"><span class="ask_question" data-toggle="modal" data-target="#ask_question">Ask A Question</span></a>
-                                                
+
                                                 <div class="modal modal_ask fade" id="ask_question" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content p-5">
@@ -113,15 +113,17 @@
                                                             </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                    <form>
+                                                                    <form method="post" action="{{url('dashboard/delegate/questions-and-answers')}}" >
+                                                                        @csrf
                                                                         <div class="form-group">
-                                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="20"></textarea>
+                                                                        <textarea class="form-control" id="question" rows="20" name="question"></textarea>
                                                                         </div>
+                                                                        <input name="session_id" type="hidden" value="{{$sessions->id}}" />
                                                                         <div class="modal-footer">
-                                                                            <button type="button" class="btn mt-3 pl-4 pr-4">Submit</button>
+                                                                            <button type="submit" class="btn mt-3 pl-4 pr-4">Submit</button>
                                                                         </div>
                                                                     </form>
-                                                            </div>                                                        
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -133,6 +135,8 @@
                                                     <span class="title">{{$sessions->title}}</span>
                                                     <span class="description">{{$sessions->description}}</span>
                                                 </div>
+                                                <br/>
+                                                <small class="error">{{$errors->first('question')}}</small>
                                                 {{--  <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye"></i></a>  --}}
 
                                             @endif
@@ -154,7 +158,8 @@
                                             <span class="time_interval">{{$sessions->start_time}} - {{$sessions->end_time}}</span>
                                             <div class="modal-body row">
                                                 <div class="col-md-8 left_modal pr-5 align-self-center">
-                                                        {{$sessions->description}}
+
+                                                    <p>{!!$sessions->description!!}</p>
                                                 </div>
                                                 <div class="col-md-4 text-center pl-4 right_profile">
                                                     <h4>{{$sessions->session_type}}</h4>
@@ -267,7 +272,7 @@
                                                 <span class="time_interval">{{$sessions->start_time}} - {{$sessions->end_time}}</span>
                                                 <div class="modal-body row">
                                                     <div class="col-md-8 left_modal pr-5 align-self-center">
-                                                            {{$sessions->description}}
+                                                        <p>{{!!html_entity_decode($sessions->description)!!}}</p>
                                                     </div>
                                                     <div class="col-md-4 text-center pl-4 right_profile">
                                                         <h4>{{$sessions->session_type}}</h4>

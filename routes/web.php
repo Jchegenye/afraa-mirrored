@@ -162,9 +162,11 @@ Route::group(['middleware' => 'auth'], function()
             'uses' => 'Delegate\DelegateController@allDelegates',
         ]);
 
-        Route::get('/questions-and-answers', function () {
-            return view('layouts.dashboard.qna.index');
-        });
+        // Route::get('/questions-and-answers', function () {
+        //     return view('layouts.dashboard.qna.index');
+        // });
+
+        Route::resource('questions-and-answers','QuestionController');
 
     });
 
