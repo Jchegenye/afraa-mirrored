@@ -116,14 +116,208 @@
             </div>
             <div class="tab-pane fade" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab">
 
-                hey 2
+                <div class="accordion aga-accordion" id="accod-2">
+                                <div class="qna">
+                            
+                                    <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#tab-2-collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        <div class="mb-0 text-left qa">
+                                            <span class="bg-gray afraa-red-text">9:00 - 15: 00</span>
+                                            <span class="pl-4">Delegates Tour</span>
+                                        </div>
+                                    </a>
+                            
+                                    <div id="tab-2-collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accod-2">
+                                        <div class="card-body">
+                                            <ul class="list-inline agalist">
+                            
+                                                <li class="dw-title text-capitalize mb-3">
+                                                    <span>1.</span>
+                                                    <span>SG 2017 WELCOME ADDRESS FRENCH</span>
+                                                    <span>
+                                                        <a href="{{URL::asset('/files/documents/')}}/name">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </a>
+                                                    </span>
+                                                </li>
+                            
+                                                <li class="dw-title text-capitalize mb-3">
+                                                    <span>2.</span>
+                                                    <span>SG WELCOME ADDRESS SECURITY SEMINAR</span>
+                                                    <span>
+                                                        <a href="{{URL::asset('/files/documents/')}}/name">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </a>
+                                                    </span>
+                                                </li>
+                            
+                                                <li class="dw-title text-capitalize mb-3">
+                                                    <span>3.</span>
+                                                    <span>AFRICAN CONTINENTAL APPROACH AND CHALLENGES</span>
+                                                    <span>
+                                                        <a href="{{URL::asset('/files/documents/')}}/name">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </a>
+                                                    </span>
+                                                </li>
+                            
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class="qna">
+                            
+                                    <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#tab-2-collapseThree" aria-expanded="false" aria-controls="tab-2-collapseTwo">
+                                        <div class="mb-0 text-left qa">
+                                            <span class="bg-gray afraa-red-text">9:00 - 15: 00</span>
+                                            <span class="pl-4">Delegates Tour</span>
+                                        </div>
+                                    </a>
+                            
+                                    <div id="tab-2-collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accod-2">
+                                        <div class="card-body">
+                                            <ul class="list-inline agalist">
+                                                
+                                                <li class="dw-title text-capitalize mb-3">
+                                                    <span>1.</span>
+                                                    <span>SG 2017 WELCOME ADDRESS FRENCH</span>
+                                                    <span>
+                                                        <a href="{{URL::asset('/files/documents/')}}/name">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </a>
+                                                    </span>
+                                                </li>
+                            
+                                                <li class="dw-title text-capitalize mb-3">
+                                                    <span>2.</span>
+                                                    <span>SG WELCOME ADDRESS SECURITY SEMINAR</span>
+                                                    <span>
+                                                        <a href="{{URL::asset('/files/documents/')}}/name">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </a>
+                                                    </span>
+                                                </li>
+                            
+                                                <li class="dw-title text-capitalize mb-3">
+                                                    <span>3.</span>
+                                                    <span>AFRICAN CONTINENTAL APPROACH AND CHALLENGES</span>
+                                                    <span>
+                                                        <a href="{{URL::asset('/files/documents/')}}/name">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </a>
+                                                    </span>
+                                                </li>
+                            
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-            </div>
+                </div>
+
             <div class="tab-pane fade" id="nav-3" role="tabpanel" aria-labelledby="nav-3-tab">
 
-                hey 3
+                <div class="accordion aga-accordion" id="accod-3">
+                                <div class="qna">
+                            
+                                    <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#tab-3-collapseTwo" aria-expanded="false" aria-controls="tab-3-collapseTwo">
+                                        <div class="mb-0 text-left qa">
+                                            <span class="bg-gray afraa-red-text">9:00 - 15: 00</span>
+                                            <span class="pl-4">Delegates Tour</span>
+                                        </div>
+                                    </a>
+                            
+                                    <div id="tab-3-collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accod-3">
+                                        <div class="card-body">
+                                            <ul class="list-inline agalist">
+                            
+                                                <li class="dw-title text-capitalize mb-3">
+                                                    <span>1.</span>
+                                                    <span>SG 2017 WELCOME ADDRESS FRENCH</span>
+                                                    <span>
+                                                        <a href="{{URL::asset('/files/documents/')}}/name">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </a>
+                                                    </span>
+                                                </li>
+                            
+                                                <li class="dw-title text-capitalize mb-3">
+                                                    <span>2.</span>
+                                                    <span>SG WELCOME ADDRESS SECURITY SEMINAR</span>
+                                                    <span>
+                                                        <a href="{{URL::asset('/files/documents/')}}/name">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </a>
+                                                    </span>
+                                                </li>
+                            
+                                                <li class="dw-title text-capitalize mb-3">
+                                                    <span>3.</span>
+                                                    <span>AFRICAN CONTINENTAL APPROACH AND CHALLENGES</span>
+                                                    <span>
+                                                        <a href="{{URL::asset('/files/documents/')}}/name">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </a>
+                                                    </span>
+                                                </li>
+                            
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div class="qna">
+                            
+                                    <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#tab-3-collapseThree" aria-expanded="false" aria-controls="tab-3-collapseThree">
+                                        <div class="mb-0 text-left qa">
+                                            <span class="bg-gray afraa-red-text">9:00 - 15: 00</span>
+                                            <span class="pl-4">Delegates Tour</span>
+                                        </div>
+                                    </a>
+                            
+                                    <div id="tab-3-collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accod-3">
+                                        <div class="card-body">
+                                            <ul class="list-inline agalist">
+                                                
+                                                <li class="dw-title text-capitalize mb-3">
+                                                    <span>1.</span>
+                                                    <span>SG 2017 WELCOME ADDRESS FRENCH</span>
+                                                    <span>
+                                                        <a href="{{URL::asset('/files/documents/')}}/name">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </a>
+                                                    </span>
+                                                </li>
+                            
+                                                <li class="dw-title text-capitalize mb-3">
+                                                    <span>2.</span>
+                                                    <span>SG WELCOME ADDRESS SECURITY SEMINAR</span>
+                                                    <span>
+                                                        <a href="{{URL::asset('/files/documents/')}}/name">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </a>
+                                                    </span>
+                                                </li>
+                            
+                                                <li class="dw-title text-capitalize mb-3">
+                                                    <span>3.</span>
+                                                    <span>AFRICAN CONTINENTAL APPROACH AND CHALLENGES</span>
+                                                    <span>
+                                                        <a href="{{URL::asset('/files/documents/')}}/name">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </a>
+                                                    </span>
+                                                </li>
+                            
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
-            </div>
+                </div>
+                
         </div>
     </div>
 
