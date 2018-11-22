@@ -101,10 +101,10 @@
                                                 <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"></a>
 
                                                 @if ($sessions->id == '37' || $sessions->id == '44' || $sessions->id == '6' || $sessions->id == '39')
-                                                    <a href="#"><span class="ask_question" data-toggle="modal" data-target="#ask_question">Ask A Question</span></a>
+                                                    <a href="#"><span class="ask_question" data-toggle="modal" data-target="#{{$sessions->title}}_q_25">Ask A Question</span></a>
                                                 @endif
 
-                                                <div class="modal modal_ask fade" id="ask_question" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal modal_ask fade" id="{{$sessions->title}}_q_25" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content p-5">
                                                             <div class="modal-header">
@@ -239,10 +239,10 @@
                                                 <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"></a>
 
                                                 @if ($sessions->id == '37' || $sessions->id == '44' || $sessions->id == '6' || $sessions->id == '39')
-                                                    <a href="#"><span class="ask_question" data-toggle="modal" data-target="#ask_question">Ask A Question</span></a>
+                                                    <a href="#"><span class="ask_question" data-toggle="modal" data-target="#{{$sessions->title}}_q_26">Ask A Question</span></a>
                                                 @endif
 
-                                                <div class="modal modal_ask fade" id="ask_question26" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal modal_ask fade" id="{{$sessions->title}}_q_26" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content p-5">
                                                             <div class="modal-header">
@@ -383,10 +383,10 @@
                                                 <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"></a>
 
                                                 @if ($sessions->id == '37' || $sessions->id == '44' || $sessions->id == '6' || $sessions->id == '39')
-                                                    <a href="#"><span class="ask_question" data-toggle="modal" data-target="#ask_question">Ask A Question</span></a>
+                                                    <a href="#"><span class="ask_question" data-toggle="modal" data-target="#{{$sessions->title}}_q_27">Ask A Question</span></a>
                                                 @endif
 
-                                                <div class="modal modal_ask fade" id="ask_question27" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal modal_ask fade" id="{{$sessions->title}}_q_27" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content p-5">
                                                             <div class="modal-header">
