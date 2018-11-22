@@ -80,7 +80,10 @@
                                     </td>
                                     <td class="clr-blk">
                                         <div>
-                                            <h6  data-toggle="modal" data-target="#{{$sessions->title}}"> <i class="far fa-eye pr-2"></i> {{$sessions->title}}</h6>
+                                            @if ($sessions->session_type !== "Master of Ceremony")
+                                                <h6  data-toggle="modal" data-target="#{{$sessions->title}}"> <i class="far fa-eye pr-2"></i> {{$sessions->title}}</h6>
+                                            @endif
+                                            
                                         </div>
                                         
                                     </td>
@@ -126,7 +129,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div title="Add to Calendar" class="addeventatc" style="box-shadow: none !important;">
+                                                <div title="Add to Calendar" class="addeventatc" style="box-shadow: none !important; background: transparent;">
                                                     <span class="start">2018-10-25 {{$start}} </span>
                                                     <span class="end">2018-10-25 {{$stop}}</span>
                                                     <span class="timezone">Greenwich Mean Time</span>
@@ -210,7 +213,7 @@
 
                             @if ($date==26)
 
-                                <tr class="tabtable" data-toggle="modal" data-target="#{{$sessions->title}}">
+                            <tr class="tabtable">
                                     <td class="clr-gray">
                                         <div>
                                         <h6>{{$start}} - {{$stop}}</h6>
@@ -218,44 +221,71 @@
                                     </td>
                                     <td class="clr-blk">
                                         <div>
-                                            <h6>{{$sessions->title}}</h6>
+                                            @if ($sessions->session_type !== "Master of Ceremony")
+                                                <h6  data-toggle="modal" data-target="#{{$sessions->title}}_26"> <i class="far fa-eye pr-2"></i> {{$sessions->title}}</h6>
+                                            @endif
                                         </div>
+                                        
                                     </td>
                                     <td class="action-gray">
                                         <div>
 
-                                                @if (Auth::user()->role == 'admin')
+                                            @if (Auth::user()->role == 'admin')
 
-                                                    <a href="{{action('ProgrammeSession\ProgrammeSessionController@edit', $sessions->id)}}" class="edit"><i class="far fa-edit"></i></a>
+                                                <a href="{{action('ProgrammeSession\ProgrammeSessionController@edit', $sessions->id)}}" class="edit"><i class="far fa-edit"></i></a>
 
-                                                    <form action="{{action('ProgrammeSession\ProgrammeSessionController@destroy', $sessions->id)}}" method="post">
+                                                <form action="{{action('ProgrammeSession\ProgrammeSessionController@destroy', $sessions->id)}}" method="post">
 
-                                                        @csrf
-                                                            <input name="_method" type="hidden" value="DELETE">
-                                                            <button class="text-small" type="submit"><i class="far fa-trash-alt"></i></button>
+                                                    @csrf
+                                                        <input name="_method" type="hidden" value="DELETE">
+                                                        <button class="text-small" type="submit"><i class="far fa-trash-alt"></i></button>
 
-                                                    </form>
+                                                </form>
 
-                                                @elseif (Auth::user()->role == 'delegate')
-                                                    <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye"></i></a>
-
-                                                    <div title="Add to Calendar" class="addeventatc">
-                                                        <span class="start">2018-10-25 {{$start}} </span>
-                                                        <span class="end">2018-10-25 {{$stop}}</span>
-                                                        <span class="timezone">Greenwich Mean Time</span>
-                                                        <span class="title">{{$sessions->title}}</span>
-                                                        <span class="description">{{$sessions->description}}</span>
+                                            @elseif (Auth::user()->role == 'delegate')
+                                                <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"></a>
+                                                <a href="#"><span class="ask_question" data-toggle="modal" data-target="#ask_question26">Ask A Question</span></a>
+                                                
+                                                <div class="modal modal_ask fade" id="ask_question26" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content p-5">
+                                                            <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Your Question</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                    <form>
+                                                                        <div class="form-group">
+                                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="20"></textarea>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn mt-3 pl-4 pr-4">Submit</button>
+                                                                        </div>
+                                                                    </form>
+                                                            </div>                                                        
+                                                        </div>
                                                     </div>
-                                                    {{--  <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye"></i></a>  --}}
+                                                </div>
 
-                                                @endif
+                                                <div title="Add to Calendar" class="addeventatc" style="box-shadow: none !important; background: transparent;">
+                                                    <span class="start">2018-10-25 {{$start}} </span>
+                                                    <span class="end">2018-10-25 {{$stop}}</span>
+                                                    <span class="timezone">Greenwich Mean Time</span>
+                                                    <span class="title">{{$sessions->title}}</span>
+                                                    <span class="description">{{$sessions->description}}</span>
+                                                </div>
+                                                {{--  <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye"></i></a>  --}}
+
+                                            @endif
 
                                         </div>
                                     </td>
                                 </tr>
 
                                 <div class="afraa-modal">
-                                        <div class="modal fade rounded" id="{{$sessions->title}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                        <div class="modal fade rounded" id="{{$sessions->title}}_26" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                             <div class="modal-content p-3">
                                                 <div class="modal-header mt-4">
@@ -284,13 +314,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer d-none">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
                                                 </div>
-                                            </div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
 
                                 <tr>
@@ -325,16 +355,19 @@
 
                             @if ($date==27)
 
-                                <tr class="tabtable" data-toggle="modal" data-target="#{{$sessions->title}}">
+                            <tr class="tabtable">
                                     <td class="clr-gray">
                                         <div>
                                         <h6>{{$start}} - {{$stop}}</h6>
                                         </div>
                                     </td>
                                     <td class="clr-blk">
-                                        <div>
-                                            <h6>{{$sessions->title}}</h6>
-                                        </div>
+                                    <div>
+                                        @if ($sessions->session_type !== "Master of Ceremony")
+                                            <h6  data-toggle="modal" data-target="#{{$sessions->title}}_27"> <i class="far fa-eye pr-2"></i> {{$sessions->title}}</h6>
+                                        @endif
+                                    </div>
+                                        
                                     </td>
                                     <td class="action-gray">
                                         <div>
@@ -352,15 +385,41 @@
                                                 </form>
 
                                             @elseif (Auth::user()->role == 'delegate')
-                                                <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye"></i></a>
+                                                <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"></a>
+                                                <a href="#"><span class="ask_question" data-toggle="modal" data-target="#ask_question27">Ask A Question</span></a>
+                                                
+                                                <div class="modal modal_ask fade" id="ask_question27" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content p-5">
+                                                            <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Your Question</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                    <form>
+                                                                        <div class="form-group">
+                                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="20"></textarea>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn mt-3 pl-4 pr-4">Submit</button>
+                                                                        </div>
+                                                                    </form>
+                                                            </div>                                                        
+                                                        </div>
+                                                    </div>
+                                                </div>
 
-                                                <div title="Add to Calendar" class="addeventatc">
+                                                <div title="Add to Calendar" class="addeventatc" style="box-shadow: none !important; background: transparent;">
                                                     <span class="start">2018-10-25 {{$start}} </span>
                                                     <span class="end">2018-10-25 {{$stop}}</span>
                                                     <span class="timezone">Greenwich Mean Time</span>
                                                     <span class="title">{{$sessions->title}}</span>
                                                     <span class="description">{{$sessions->description}}</span>
                                                 </div>
+                                                {{--  <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye"></i></a>  --}}
+
                                             @endif
 
                                         </div>
@@ -368,7 +427,7 @@
                                 </tr>
 
                                 <div class="afraa-modal">
-                                        <div class="modal fade rounded" id="{{$sessions->title}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                        <div class="modal fade rounded" id="{{$sessions->title}}_27" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                             <div class="modal-content p-3">
                                                 <div class="modal-header mt-4">
@@ -397,13 +456,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer d-none">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
                                                 </div>
-                                            </div>
                                             </div>
                                         </div>
                                     </div>
+                                </div>
 
 
                                 <tr>

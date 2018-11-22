@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-md-12 text-right">
                         <a href="{{url()->previous()}}" class="btn btn-afraa tb-sm-text">
-                            <i class="fas fa-users"></i> Back
+                            <i class="fas fa-arrow-left pr-2"></i> Back
                         </a>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                     <div class="form-group col-md-12">
                         <p>Session Type:</p>
                         @php
-                            $session_types = ["Master of Ceremonies","Moderator","Speaker"];
+                            $session_types = ["Master of Ceremony","Moderator","Speaker"];
                             $i=0;
                         @endphp
                         @foreach( $session_types as $session_type )
