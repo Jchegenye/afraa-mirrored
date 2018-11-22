@@ -72,7 +72,7 @@ class UsersController extends Controller
     public function edit($id)
     {
         //
-        $id = Auth::id();
+        //$id = Auth::id();
 
         $sessions = new ProgrammeSession();
         $session = $sessions->getSessions();
