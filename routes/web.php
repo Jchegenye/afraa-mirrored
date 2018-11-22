@@ -63,30 +63,30 @@ Route::group(['middleware' => 'auth'], function()
 
             Route::get('/users', [
                 'uses' => 'ManageUsersController@index',
-                //'middleware' => 'permission:access_to_manage_users'
+                'middleware' => 'admin.role:admin'
             ]);
             Route::get('/admin/managers', [
                 'uses' => 'ManageUsersController@managers',
-                //'middleware' => 'permission:access_to_manage_users'
+                'middleware' => 'admin.role:admin'
             ]);
             Route::get('/admin/delegates', [
                 'uses' => 'ManageUsersController@delegates',
-                //'middleware' => 'permission:access_to_manage_users'
+                'middleware' => 'admin.role:admin,delegates'
             ]);
             Route::resource('/permissions','ManagePermissionsController');
 
             //CRUD
             Route::get('/users/trash/{uid}', [
 				'uses' => 'ManageUsersController@trash',
-				//'middleware' => 'permission:access_to_delete_user'
+				'middleware' => 'admin.role:admin'
             ]);
             Route::get('/users/edit/{uid}/', [
                 'uses' => 'ManageUsersController@edit',
-                //'middleware' => 'permission:access_to_edit_user'
+                'middleware' => 'admin.role:admin'
             ]);
             Route::get('/users/create/{user_type}/', [
                 'uses' => 'ManageUsersController@create',
-                //'middleware' => 'permission:access_to_add_user'
+                'middleware' => 'admin.role:admin'
             ]);
             Route::post('/users/store', [
                 'uses' => 'ManageUsersController@store',
@@ -94,7 +94,7 @@ Route::group(['middleware' => 'auth'], function()
 
             Route::put('/users/update/{uid}/', [
                 'uses' => 'ManageUsersController@update',
-                //'middleware' => 'permission:access_to_update_user'
+                'middleware' => 'admin.role:admin,delegates'
             ]);
 
         });
@@ -108,14 +108,6 @@ Route::group(['middleware' => 'auth'], function()
             ]);
 
         });
-
-        //Exibitor Dashboard - Internal Pages
-
-        //Speaker Dashboard - Internal Pages
-
-        //Manager Dashboard - Internal Pages
-
-        //Author Dashboard - Internal Pages
 
     });
 
@@ -166,8 +158,15 @@ Route::group(['middleware' => 'auth'], function()
             return view('layouts.dashboard.qna.index');
         });
 
-    });
+        Route::get('/aga', [
+            'uses' => 'DocumentController@aga'
+        ]);
+        Route::get('/single/aga/{year}', [
+            'uses' => 'DocumentController@agaAll'
+        ]);
 
+    });
+    
 });
 
 // Route::resource('programme', 'Programme\ProgrammeController');
@@ -204,11 +203,3 @@ Route::namespace('Auth\Users')->group(function () {
 Auth::routes();
 
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
-
-Route::get('/aga', [
-    'uses' => 'DocumentController@aga'
-]);
-
-Route::get('/single/aga/{year}', [
-    'uses' => 'DocumentController@agaAll'
-]);
