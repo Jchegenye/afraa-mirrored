@@ -27,14 +27,14 @@
 
                         <div class="qna">
 
-                            <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#{{$sessions->title}}_25" aria-expanded="false" aria-controls="collapseTwo">
                                 <div class="mb-0 text-left qa">
                                     <span class="bg-gray afraa-red-text">{{$start}} - {{$stop}}</span>
                                     <span class="pl-4">{{$sessions->title}}</span>
                                 </div>
                             </a>
 
-                            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accod-1">
+                            <div id="{{$sessions->title}}_25" class="collapse show" aria-labelledby="headingTwo" data-parent="#accod-1">
                                 <div class="card-body">
                                     <ul class="list-inline agalist">
 
@@ -89,14 +89,14 @@
 
                             <div class="qna">
 
-                                <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#{{$sessions->title}}_26" aria-expanded="false" aria-controls="collapseTwo">
                                     <div class="mb-0 text-left qa">
                                         <span class="bg-gray afraa-red-text">{{$start}} - {{$stop}}</span>
                                         <span class="pl-4">{{$sessions->title}}</span>
                                     </div>
                                 </a>
 
-                                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accod-1">
+                                <div id="{{$sessions->title}}_26" class="collapse show" aria-labelledby="headingTwo" data-parent="#accod-1">
                                     <div class="card-body">
                                         <ul class="list-inline agalist">
 
@@ -150,14 +150,14 @@
 
                             <div class="qna">
 
-                                <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#{{$sessions->title}}_27" aria-expanded="false" aria-controls="collapseTwo">
                                     <div class="mb-0 text-left qa">
                                         <span class="bg-gray afraa-red-text">{{$start}} - {{$stop}}</span>
                                         <span class="pl-4">{{$sessions->title}}</span>
                                     </div>
                                 </a>
 
-                                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accod-1">
+                                <div id="{{$sessions->title}}_27" class="collapse show" aria-labelledby="headingTwo" data-parent="#accod-1">
                                     <div class="card-body">
                                         <ul class="list-inline agalist">
 

@@ -99,7 +99,10 @@
 
                                             @elseif (Auth::user()->role == 'delegate')
                                                 <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"></a>
-                                                <a href="#"><span class="ask_question" data-toggle="modal" data-target="#ask_question">Ask A Question</span></a>
+
+                                                @if ($sessions->id == '37' || $sessions->id == '44' || $sessions->id == '6' || $sessions->id == '39')
+                                                    <a href="#"><span class="ask_question" data-toggle="modal" data-target="#ask_question">Ask A Question</span></a>
+                                                @endif
 
                                                 <div class="modal modal_ask fade" id="ask_question" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
@@ -111,14 +114,16 @@
                                                             </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                    <form>
-                                                                        <div class="form-group">
-                                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="20"></textarea>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button" class="btn mt-3 pl-4 pr-4">Submit</button>
-                                                                        </div>
-                                                                    </form>
+                                                                <form method="post" action="{{url('dashboard/delegate/questions-and-answers')}}">
+                                                                    @csrf
+                                                                    <div class="form-group">
+                                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="20" name="question"></textarea>
+                                                                        <input type="hidden" name="session_id" value="{{$sessions->id}}" />
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit" class="btn mt-3 pl-4 pr-4">Submit</button>
+                                                                    </div>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -232,7 +237,10 @@
 
                                             @elseif (Auth::user()->role == 'delegate')
                                                 <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"></a>
-                                                <a href="#"><span class="ask_question" data-toggle="modal" data-target="#ask_question26">Ask A Question</span></a>
+
+                                                @if ($sessions->id == '37' || $sessions->id == '44' || $sessions->id == '6' || $sessions->id == '39')
+                                                    <a href="#"><span class="ask_question" data-toggle="modal" data-target="#ask_question">Ask A Question</span></a>
+                                                @endif
 
                                                 <div class="modal modal_ask fade" id="ask_question26" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
@@ -244,14 +252,16 @@
                                                             </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                    <form>
-                                                                        <div class="form-group">
-                                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="20"></textarea>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button" class="btn mt-3 pl-4 pr-4">Submit</button>
-                                                                        </div>
-                                                                    </form>
+                                                                <form method="post" action="{{url('dashboard/delegate/questions-and-answers')}}">
+                                                                    @csrf
+                                                                    <div class="form-group">
+                                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="20" name="question"></textarea>
+                                                                        <input type="hidden" name="session_id" value="{{$sessions->id}}" />
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit" class="btn mt-3 pl-4 pr-4">Submit</button>
+                                                                    </div>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -371,7 +381,10 @@
 
                                             @elseif (Auth::user()->role == 'delegate')
                                                 <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"></a>
-                                                <a href="#"><span class="ask_question" data-toggle="modal" data-target="#ask_question27">Ask A Question</span></a>
+
+                                                @if ($sessions->id == '37' || $sessions->id == '44' || $sessions->id == '6' || $sessions->id == '39')
+                                                    <a href="#"><span class="ask_question" data-toggle="modal" data-target="#ask_question">Ask A Question</span></a>
+                                                @endif
 
                                                 <div class="modal modal_ask fade" id="ask_question27" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
@@ -383,14 +396,16 @@
                                                             </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                    <form>
-                                                                        <div class="form-group">
-                                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="20"></textarea>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button" class="btn mt-3 pl-4 pr-4">Submit</button>
-                                                                        </div>
-                                                                    </form>
+                                                                <form method="post" action="{{url('dashboard/delegate/questions-and-answers')}}">
+                                                                    @csrf
+                                                                    <div class="form-group">
+                                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="20" name="question"></textarea>
+                                                                        <input type="hidden" name="session_id" value="{{$sessions->id}}" />
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit" class="btn mt-3 pl-4 pr-4">Submit</button>
+                                                                    </div>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>
