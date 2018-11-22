@@ -598,7 +598,6 @@ input:checked + .slider:before {
 	.custom-file-label,
 	.custom-file-label::after,
 	.contents form input,
-	.contents textarea,
 	.contents select{
 		height: 55px !important;
 		border: none;
@@ -1128,3 +1127,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 		width: auto;
 		transform: translate(50%, -50%);
 	} */
+	.dropdown-user {
+		background-color: rgba(0, 0, 0, 0.05);
+		padding-bottom: 0px;
+		padding-top: 0px;
+	}
+	.dropdown-user .dropdown-item:hover{
+		background-color: rgba(0, 0, 0, 0.2);
+		color: #fff;
+	}
+	.bootstrap-select .dropdown-menu{
+		min-width: 100% !important;
+		width: 100%;
+	}

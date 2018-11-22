@@ -17,7 +17,7 @@ class CreateProgrammeSessionsTable extends Migration
 
             $table->increments('id');
             $table->string('title')->nullable();
-            $table->string('description', 500)->nullable();
+            $table->text('description')->nullable();
             $table->integer('user_id')->unsigned();
             $table->string('session_type')->nullable();
             $table->time('start_time')->nullable();

@@ -90,7 +90,7 @@ class ProgrammeSessionController extends Controller
             $request,
             [
                 'title' => 'required',
-                'description' => 'required',
+                //'description' => 'required',
                 'user_id' => 'required',
                 'session_type' => 'required',
                 'start_time' => 'required',

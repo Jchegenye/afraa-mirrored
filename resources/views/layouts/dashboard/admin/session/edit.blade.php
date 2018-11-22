@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-md-12 text-right">
                         <a href="{{url()->previous()}}" class="btn btn-afraa tb-sm-text">
-                            <i class="fas fa-users"></i> Back
+                            <i class="fas fa-arrow-left pr-2"></i> Back
                         </a>
                     </div>
                 </div>
@@ -52,21 +52,19 @@
 
                 <div class="col-md-6 form-group ">
                     <label for="number">Speaker / Moderator:</label>
-                    <select class="form-control" name="user_id">
-                        @foreach( $users as $user )
-                            <option value="{{ $user->uid }}"
-                                @if ($user->uid === $session->user_id)
-                                    selected="selected"
-                                @endif
-                            >{{ $user->name }}</option>
-                        @endforeach
-                    </select>
+
+                    <select class="form-control selectpicker" data-show-subtext="true" data-live-search="true" name="user_id">
+                            <option value="0" selected>Choose Option</option>
+                            @foreach( $users as $user )
+                                <option data-subtext ="{{ $user->name }}" value="{{ $user->uid }}" >{{ $user->name }}</option>
+                            @endforeach
+                        </select>
                 </div>
                 <div class="col-md-6 form-group ">
                     <div class="form-group col-md-12">
                         <p>Session Type:</p>
                         @php
-                            $session_types = ["Moderator","Speaker"];
+                            $session_types = ["Master of Ceremony","Moderator","Speaker"];
                             $i=0;
                         @endphp
                         @foreach( $session_types as $session_type )
@@ -125,8 +123,8 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="col-md-6 form-group ">
-                    <button type="submit" class="btn btn-afraa-full-2">Update</button>
+                <div class="col-md-6 form-group align-self-end">
+                    <button type="submit" class="btn btn-afraa-full-2 mb-2">Update</button>
                 </div>
                 
             </div>

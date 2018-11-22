@@ -7,12 +7,12 @@
     </div>
     <ul class="nav navbar-top-links navbar-right myaccount">
         <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            <a class="dropdown-toggle mr-4" data-toggle="dropdown" href="#">
                 <i class="fa fa-user fa-fw"></i>
                 My Account <span class="caret"></span>
             </a>
-            <ul class="dropdown-menu dropdown-user">
-                <li class="dropdown-item" ><a href="{{action('Users\UsersController@edit', Auth::id())}}"><i class="fa fa-user fa-fw"></i> User Profile</a>
+            <ul class="dropdown-menu dropdown-user border-1">
+                <li class="dropdown-item" ><a href="{{action('Users\UsersController@edit', Auth::id())}}" class="pt-5"><i class="fa fa-user fa-fw"></i> User Profile</a>
                 </li>
                 <li class="divider"></li>
                 <li class="dropdown-item" >

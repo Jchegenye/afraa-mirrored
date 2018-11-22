@@ -24,7 +24,7 @@
     <div class="col-md-12 annual">
 
         @foreach ($documents as $document)
-            <a href="{{url('/single/aga',$document->year)}}" class="aga mb-4">
+            <a href="{{url('dashboard/delegate/single/aga',$document->year)}}" class="aga mb-4">
                 <img src="{{URL::asset('/images/logo.png')}}" alt="" class="img-fluid col-md-2">
                 <span class="col-md-10">AFRAA AGA 50<sup>th</sup> Downloads ({{$document->year}}) </span>
             </a>

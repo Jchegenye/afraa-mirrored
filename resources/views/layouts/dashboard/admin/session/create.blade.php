@@ -49,9 +49,10 @@
                     <div class="form-group col-md-12">
                         <p>Speaker / Moderator:</p>
 
-                        <select class="form-control" name="user_id">
+                        <select class="form-control selectpicker" data-show-subtext="true" data-live-search="true" name="user_id">
+                            <option value="0" selected>Choose Option</option>
                             @foreach( $users as $user )
-                                <option value="{{ $user->uid }}" >{{ $user->name }}</option>
+                                <option data-subtext ="{{ $user->name }}" value="{{ $user->uid }}" >{{ $user->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -59,7 +60,8 @@
                 <div class="col-md-6 form-group">
                     <div class="form-group col-md-12">
                         <p>Session Type:</p>
-                        <input type="radio" name="session_type" value="moderator" checked>Moderator
+                        <input type="radio" name="session_type" value="Master of Ceremony" checked>Master of Ceremony
+                        <input type="radio" name="session_type" value="moderator">Moderator
                         <input type="radio" name="session_type" value="speaker">Speaker
                     </div>
                 </div>
@@ -89,10 +91,8 @@
                         <small class="error">{{$errors->first('date')}}</small>
                     </div>
                 </div>
-                <div class="col-md-6 form-group">
-                    <div class="form-group col-md-12">
-                        <button type="submit" class="btn btn-afraa-full-2">Submit</button>
-                    </div>
+                <div class="form-group col-md-6 align-self-end">
+                    <button type="submit" class="btn btn-afraa-full-2 mb-4 ml-3">Submit</button>
                 </div>
             </div>
             

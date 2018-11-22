@@ -10,7 +10,7 @@
 @endforeach
 <div class="row">
     <div class="col-md-12">
-        <h3 class="page-header">50<sup>th</sup> AGA ({{$year}})</h3>
+        <h3 class="page-header">50<sup>th</sup> AGA ({{$year}}) Downloads</h3>
     </div>
 </div>
 
@@ -56,7 +56,7 @@
 
                 <a class="btn-aga" data-toggle="collapse" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                     <div class="mb-0 text-left">
-                        <img src="{{URL::asset('/images/logo.png')}}" alt="" class="img-fluid col-md-2"> PRESENTATION
+                        <img src="{{URL::asset('/images/logo.png')}}" alt="" class="img-fluid col-md-2 text-capitalize"> PRESENTATION
                     </div>
                 </a>
 
@@ -71,7 +71,7 @@
                                         <span>-</span>
                                         <span>{{$document->title}}</span>
                                         <span>
-                                            <a href="{{URL::asset('/files/documents/')}}/{{$document->name}}">
+                                            <a href="{{URL::asset('/files/documents/')}}/{{$document->name}}" target="_blank">
                                                 <i class="fas fa-file-pdf"></i>
                                                 <span class="dw-link">Download</span>
                                             </a>
@@ -90,7 +90,7 @@
 
                 <a class="btn-aga" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                     <div class="mb-0 text-left">
-                        <img src="{{URL::asset('/images/logo.png')}}" alt="" class="img-fluid col-md-2"> REPORTS
+                        <img src="{{URL::asset('/images/logo.png')}}" alt="" class="img-fluid col-md-2 text-capitalize"> REPORTS
                     </div>
                 </a>
 
@@ -124,7 +124,7 @@
 
                 <a class="btn-aga" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
                     <div class="mb-0 text-left">
-                        <img src="{{URL::asset('/images/logo.png')}}" alt="" class="img-fluid col-md-2"> Press Releases
+                        <img src="{{URL::asset('/images/logo.png')}}" alt="" class="img-fluid col-md-2 text-capitalize"> PRESS RELEASES
                     </div>
                 </a>
 

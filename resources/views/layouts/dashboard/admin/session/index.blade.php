@@ -39,7 +39,7 @@
     </div>
 
     @if (\Session::has('success'))
-        <div class="alert alert-success px-5">
+        <div class="alert alert-success px-5 mt-3">
             {!! \Session::get('success') !!}
         </div>
     @endif

@@ -1,33 +1,91 @@
 <div class="row mt-5 myqna" id="dashtabs">
 
-        <nav class="col-md-12">
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="nav-1-tab" data-toggle="tab" href="#nav-1" role="tab" aria-controls="nav-home" aria-selected="true">Sunday, 25 November 2018</a>
-                <a class="nav-item nav-link" id="nav-2-tab" data-toggle="tab" href="#nav-2" role="tab" aria-controls="nav-profile" aria-selected="false">Monday, 26th November 2018</a>
-                <a class="nav-item nav-link" id="nav-3-tab" data-toggle="tab" href="#nav-3" role="tab" aria-controls="nav-contact" aria-selected="false">Tuesday, 27 November 2018</a>
+    <nav class="col-md-12">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-1-tab" data-toggle="tab" href="#nav-1" role="tab" aria-controls="nav-home" aria-selected="true">Sunday, 25 November 2018</a>
+            <a class="nav-item nav-link" id="nav-2-tab" data-toggle="tab" href="#nav-2" role="tab" aria-controls="nav-profile" aria-selected="false">Monday, 26th November 2018</a>
+            <a class="nav-item nav-link" id="nav-3-tab" data-toggle="tab" href="#nav-3" role="tab" aria-controls="nav-contact" aria-selected="false">Tuesday, 27 November 2018</a>
+        </div>
+    </nav>
+
+<div class="col-md-12">
+
+    <div class="tab-content mt-3" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav-1-tab">
+
+            <div class="accordion aga-accordion" id="accod-1">
+
+                @foreach($session as $sessions)
+
+                    @php
+                        $date = date("j", strtotime($sessions->date));
+                        $start = date("h:i", strtotime($sessions->start_time));
+                        $stop = date("h:i", strtotime($sessions->end_time));
+                    @endphp
+
+                    @if ($date==25)
+
+                        <div class="qna">
+
+                            <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <div class="mb-0 text-left qa">
+                                    <span class="bg-gray afraa-red-text">{{$start}} - {{$stop}}</span>
+                                    <span class="pl-4">{{$sessions->title}}</span>
+                                </div>
+                            </a>
+
+                            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accod-1">
+                                <div class="card-body">
+                                    <ul class="list-inline agalist">
+
+                                        @php
+                                            $questions = $sessions->questions;
+                                        @endphp
+
+                                        @foreach ($questions as $key => $question)
+
+                                            <li class="dw-title text-capitalize mb-3">
+                                                <span>{{$key+1}}. </span>
+                                                <span>{{$question->text}}</span>
+                                                <span>
+                                                    <form action="{{action('QuestionController@destroy', $question->id)}}" method="post">
+
+                                                        @csrf
+                                                        <input name="_method" type="hidden" value="DELETE">
+                                                        <button class="text-small" type="submit"><i class="far fa-trash-alt"></i></button>
+
+                                                    </form>
+
+                                                </span>
+                                            </li>
+
+                                        @endforeach
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    @endif
+
+                @endforeach
+
             </div>
-        </nav>
 
-    <div class="col-md-12">
-
-        <div class="tab-content mt-3" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav-1-tab">
+        </div>
+        <div class="tab-pane fade" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab">
 
                 <div class="accordion aga-accordion" id="accod-1">
 
                     @foreach($session as $sessions)
 
                         @php
-
                             $date = date("j", strtotime($sessions->date));
-
                             $start = date("h:i", strtotime($sessions->start_time));
-
                             $stop = date("h:i", strtotime($sessions->end_time));
-
                         @endphp
 
-                        @if ($date==25)
+                        @if ($date==26)
 
                             <div class="qna">
 
@@ -43,9 +101,7 @@
                                         <ul class="list-inline agalist">
 
                                             @php
-
                                                 $questions = $sessions->questions;
-
                                             @endphp
 
                                             @foreach ($questions as $key => $question)
@@ -61,7 +117,6 @@
                                                             <button class="text-small" type="submit"><i class="far fa-trash-alt"></i></button>
 
                                                         </form>
-
                                                     </span>
                                                 </li>
 
@@ -78,134 +133,69 @@
 
                 </div>
 
-            </div>
-            <div class="tab-pane fade" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab">
+        </div>
+        <div class="tab-pane fade" id="nav-3" role="tabpanel" aria-labelledby="nav-3-tab">
 
-                    <div class="accordion aga-accordion" id="accod-1">
+                <div class="accordion aga-accordion" id="accod-1">
 
-                        @foreach($session as $sessions)
+                    @foreach($session as $sessions)
 
-                            @php
+                        @php
+                            $date = date("j", strtotime($sessions->date));
+                            $start = date("h:i", strtotime($sessions->start_time));
+                            $stop = date("h:i", strtotime($sessions->end_time));
+                        @endphp
 
-                                $date = date("j", strtotime($sessions->date));
+                        @if ($date==27)
 
-                                $start = date("h:i", strtotime($sessions->start_time));
+                            <div class="qna">
 
-                                $stop = date("h:i", strtotime($sessions->end_time));
+                                <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <div class="mb-0 text-left qa">
+                                        <span class="bg-gray afraa-red-text">{{$start}} - {{$stop}}</span>
+                                        <span class="pl-4">{{$sessions->title}}</span>
+                                    </div>
+                                </a>
 
-                            @endphp
+                                <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accod-1">
+                                    <div class="card-body">
+                                        <ul class="list-inline agalist">
 
-                            @if ($date==26)
+                                            @php
+                                                $questions = $sessions->questions;
+                                            @endphp
 
-                                <div class="qna">
+                                            @foreach ($questions as $key => $question)
 
-                                    <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        <div class="mb-0 text-left qa">
-                                            <span class="bg-gray afraa-red-text">{{$start}} - {{$stop}}</span>
-                                            <span class="pl-4">{{$sessions->title}}</span>
-                                        </div>
-                                    </a>
+                                                <li class="dw-title text-capitalize mb-3">
+                                                    <span>{{$key+1}}. </span>
+                                                    <span>{{$question->text}}</span>
+                                                    <span>
+                                                        <form action="{{action('QuestionController@destroy', $question->id)}}" method="post">
 
-                                    <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accod-1">
-                                        <div class="card-body">
-                                            <ul class="list-inline agalist">
+                                                            @csrf
+                                                            <input name="_method" type="hidden" value="DELETE">
+                                                            <button class="text-small" type="submit"><i class="far fa-trash-alt"></i></button>
 
-                                                @php
+                                                        </form>
+                                                    </span>
+                                                </li>
 
-                                                    $questions = $sessions->questions;
+                                            @endforeach
 
-                                                @endphp
-
-                                                @foreach ($questions as $key => $question)
-
-                                                    <li class="dw-title text-capitalize mb-3">
-                                                        <span>{{$key+1}}. </span>
-                                                        <span>{{$question->text}}</span>
-                                                        <span>
-                                                            <a href="{{URL::asset('/files/documents/')}}/name">
-                                                                <i class="fas fa-trash-alt"></i>
-                                                            </a>
-                                                        </span>
-                                                    </li>
-
-                                                @endforeach
-
-                                            </ul>
-                                        </div>
+                                        </ul>
                                     </div>
                                 </div>
+                            </div>
 
-                            @endif
+                        @endif
 
-                        @endforeach
+                    @endforeach
 
-                    </div>
+                </div>
 
-            </div>
-            <div class="tab-pane fade" id="nav-3" role="tabpanel" aria-labelledby="nav-3-tab">
-
-                    <div class="accordion aga-accordion" id="accod-1">
-
-                        @foreach($session as $sessions)
-
-                            @php
-
-                                $date = date("j", strtotime($sessions->date));
-
-                                $start = date("h:i", strtotime($sessions->start_time));
-
-                                $stop = date("h:i", strtotime($sessions->end_time));
-
-                            @endphp
-
-                            @if ($date==27)
-
-                                <div class="qna">
-
-                                    <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        <div class="mb-0 text-left qa">
-                                            <span class="bg-gray afraa-red-text">{{$start}} - {{$stop}}</span>
-                                            <span class="pl-4">{{$sessions->title}}</span>
-                                        </div>
-                                    </a>
-
-                                    <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accod-1">
-                                        <div class="card-body">
-                                            <ul class="list-inline agalist">
-
-                                                @php
-
-                                                    $questions = $sessions->questions;
-
-                                                @endphp
-
-                                                @foreach ($questions as $key => $question)
-
-                                                    <li class="dw-title text-capitalize mb-3">
-                                                        <span>{{$key+1}}. </span>
-                                                        <span>{{$question->text}}</span>
-                                                        <span>
-                                                            <a href="{{URL::asset('/files/documents/')}}/name">
-                                                                <i class="fas fa-trash-alt"></i>
-                                                            </a>
-                                                        </span>
-                                                    </li>
-
-                                                @endforeach
-
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            @endif
-
-                        @endforeach
-
-                    </div>
-
-            </div>
         </div>
     </div>
+</div>
 
 </div>

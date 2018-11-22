@@ -43,13 +43,18 @@
 <div id="adminTable">
     <div class="table_header ">
         <div class="row ">
-            <div class="col-md-4">
+            <div class="col-md-2">
                 <div class="mx-auto mt-2 intro1">
                     <h6 class="text-capitalize">Edit</h6>
                 </div>
             </div>
+            <div class="col-md-8 text-center">
+                <div class="alert alert-info mb-0">
+                    <strong class="pr-2 text-danger">Warning!</strong> Please Update your profile to successfully register!
+                </div>
+            </div>
 
-            <div class="col-md-8">
+            <div class="col-md-2">
                 <div class="row">
                     <div class="col-md-12 text-right">
                         <a href="{{url()->previous()}}" class="btn btn-afraa tb-sm-text">
@@ -609,15 +614,15 @@
 
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="Social_Functions1" name="Social_Functions[]" value="Delegate Tour (Sun 25 Nov)">
-                        <label class="custom-control-label" for="Social_Functions1">Delegate Tour (Sun 25 Nov)</label>
+                        <label class="custom-control-label" for="Social_Functions1">Delegate Tour</label>
                     </div>
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="Social_Functions2" name="Social_Functions[]" value="Welcome Cocktail & Dinner (Sun 25 Nov)" >
-                        <label class="custom-control-label" for="Social_Functions2">Welcome Cocktail & Dinner (Sun 25 Nov)</label>
+                        <label class="custom-control-label" for="Social_Functions2">Welcome Cocktail & Dinner</label>
                     </div>
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="Social_Functions3" name="Social_Functions[]" value="Gala Dinner (Mon 26th Nov)">
-                        <label class="custom-control-label" for="Social_Functions3">Gala Dinner (Mon 26th Nov)</label>
+                        <label class="custom-control-label" for="Social_Functions3">Gala Dinner</label>
                     </div>
                 </div>
 
@@ -661,8 +666,8 @@
 
                 {{-- Start of User Information --}}
 
-                <div class="col-md-6 form-group mt-3">
-                    <button type="submit" class="btn btn-afraa-full-2">
+                <div class="col-md-6 form-group align-self-end ">
+                    <button type="submit" class="btn btn-afraa-full-2 mb-2">
                         {{ __('Update') }}
                     </button>
                 </div>
