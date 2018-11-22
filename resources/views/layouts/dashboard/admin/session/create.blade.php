@@ -60,7 +60,7 @@
                 <div class="col-md-6 form-group">
                     <div class="form-group col-md-12">
                         <p>Session Type:</p>
-                        <input type="radio" name="session_type" value="mc" checked>Master of Ceremonies
+                        <input type="radio" name="session_type" value="Master of Ceremonies" checked>Master of Ceremonies
                         <input type="radio" name="session_type" value="moderator">Moderator
                         <input type="radio" name="session_type" value="speaker">Speaker
                     </div>

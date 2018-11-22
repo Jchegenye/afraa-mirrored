@@ -66,7 +66,7 @@
                     <div class="form-group col-md-12">
                         <p>Session Type:</p>
                         @php
-                            $session_types = ["Moderator","Speaker"];
+                            $session_types = ["Master of Ceremonies","Moderator","Speaker"];
                             $i=0;
                         @endphp
                         @foreach( $session_types as $session_type )
