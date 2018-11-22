@@ -50,6 +50,7 @@
                         <p>Speaker / Moderator:</p>
 
                         <select class="form-control" name="user_id">
+                            <option value="0" selected>Choose Option</option>
                             @foreach( $users as $user )
                                 <option value="{{ $user->uid }}" >{{ $user->name }}</option>
                             @endforeach
@@ -59,7 +60,8 @@
                 <div class="col-md-6 form-group">
                     <div class="form-group col-md-12">
                         <p>Session Type:</p>
-                        <input type="radio" name="session_type" value="moderator" checked>Moderator
+                        <input type="radio" name="session_type" value="mc" checked>Master of Ceremonies
+                        <input type="radio" name="session_type" value="moderator">Moderator
                         <input type="radio" name="session_type" value="speaker">Speaker
                     </div>
                 </div>
