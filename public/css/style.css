@@ -598,7 +598,7 @@ input:checked + .slider:before {
 	.custom-file-label,
 	.custom-file-label::after,
 	.contents form input,
-	.contents textarea,
+	/* .contents textarea, */
 	.contents select{
 		height: 55px !important;
 		border: none;
