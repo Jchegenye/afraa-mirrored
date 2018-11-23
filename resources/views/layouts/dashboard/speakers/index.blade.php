@@ -69,6 +69,7 @@
                             @endif
 
                             <h6>{{$users_2->name}}</h6>
+                            <p>Working session 2</p>
 
                             @if(Auth::user()->role == 'admin')
                                 <div class="box-footer">
@@ -99,6 +100,7 @@
                             @endif
 
                             <h6>{{$users_2->name}}</h6>
+                            <p>Working session 6</p>
 
                             @if(Auth::user()->role == 'admin')
                                 <div class="box-footer">
