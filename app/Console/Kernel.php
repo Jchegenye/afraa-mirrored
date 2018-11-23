@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         Commands\InitilizeApp::class,
         Commands\Permissions::class,
+        Commands\SendCurrentSessionEmail::class,
     ];
 
     /**
@@ -29,6 +30,10 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
         $schedule->command('afraa:initialize')->daily();
         $schedule->command('afraa:permissions')->daily();
+        $schedule->command('afraa:current-session')
+            ->dailyAt('09:38'); //Notify users Daily at start time
+            //->timezone('America/New_York'); 
+
     }
 
     /**

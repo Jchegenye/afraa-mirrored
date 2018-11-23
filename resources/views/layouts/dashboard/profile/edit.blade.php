@@ -52,7 +52,9 @@
             </div>
             <div class="col-md-8 text-center">
                 <div class="alert alert-info mb-0">
+
                     <strong class="pr-2 text-info">Notice!</strong> Please Update your profile to successfully register!
+
                 </div>
             </div>
 
