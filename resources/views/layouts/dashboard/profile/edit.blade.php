@@ -49,7 +49,7 @@
             </div>
             <div class="col-md-8 text-center">
                 <div class="alert alert-info mb-0">
-                    <strong class="pr-2 text-danger">Warning!</strong> Please Update your profile to successfully register!
+                    <strong class="pr-2">Notice!</strong> Please Update your profile to successfully register
                 </div>
             </div>
 

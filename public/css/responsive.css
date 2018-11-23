@@ -1,3 +1,63 @@
+/* Extra Small Devices, .visible-xs-* */
+@media (max-width: 350px) {
+
+}
+@media (max-width: 767px) {
+	.sidebar {
+	    height: auto !important;
+	}
+	#page-wrapper{
+		padding-top: 0px !important;
+	}
+	.loginpage .loginleft .content {
+		position: absolute;
+		top: 50%;
+		right: 0%;
+		left: 0%;
+		transform: translate(0%, 5%);
+	}	
+	.loginpage .loginleft .content h1{
+		font-size: 1.8em;
+		font-weight: 400;
+	}
+	.loginpage .loginleft .content p{
+		font-size: 0.8em;
+		padding-left: 10px !important;
+		padding-right: 10px !important;
+		line-height: 1.7em;
+	}
+	.loginpage .loginleft {
+		background-position: left;
+	}
+	.loginright {
+		padding-left: 0%;
+		padding-right: 2%;
+	}
+	.loginright p {
+		font-size: 12px;
+	}
+	.loginright .logo {
+		max-width: 170px;
+		margin-top: 10px;
+		margin-bottom: 15px;
+	}
+	.loginright input {
+		height: 40px;
+	}
+	.loginright .form-group p{
+		text-align: left;
+	}
+	.loginright .form-title p {
+		text-align: left;
+		padding-left: 16px;
+		font-size: 15px;
+	}
+	.loginpage .loginright {
+		margin: 10px;
+		height: 100vh;
+	}
+
+}
 
 @media (min-width: 768px){
 	.sidebar {
@@ -11,11 +71,17 @@
 		display: none;
 	}
 }
-@media (max-width: 768px){
-	.sidebar {
-	    height: auto !important;
-	}
-	#page-wrapper{
-		padding-top: 0px !important;
-	}
+/* Small Devices, .visible-sm-* */
+@media (min-width: 768px) and (max-width: 991px) { 
+
+}
+
+/* Medium Devices, .visible-md-* */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/* Large Devices, .visible-lg-* */
+@media (min-width: 1200px) {
+
 }
