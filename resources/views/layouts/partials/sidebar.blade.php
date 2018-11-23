@@ -62,7 +62,7 @@
                 @if ($uri == "dashboard/admin/session")
                     active
                 @endif
-               btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Manage Programmes</a>
+               btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Manage Programme</a>
             </div>
             <div class="col-12">
                 <a href="{{url('/dashboard/delegate/speakers')}}" class="btn btn-block
@@ -116,7 +116,7 @@
                 @if ($uri == "dashboard/delegate/session")
                     active
                 @endif
-               btn-block text-left "><i class="fas fa-user-cog pr-2"></i>Programmes</a>
+               btn-block text-left "><i class="fas fa-user-cog pr-2"></i>Programme</a>
             </div>
             <div class="col-12">
                 <a href="{{url('/dashboard/delegate/all')}}" class="btn btn-block

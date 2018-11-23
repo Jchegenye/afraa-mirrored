@@ -64,9 +64,9 @@
 
                                 $date = date("j", strtotime($sessions->date));
 
-                                $start = date("h:i", strtotime($sessions->start_time));
+                                $start = date("h:i a", strtotime($sessions->start_time));
 
-                                $stop = date("h:i", strtotime($sessions->end_time));
+                                $stop = date("h:i a", strtotime($sessions->end_time));
 
                             @endphp
 
@@ -117,7 +117,7 @@
                                                         {{$sessions->description}}
                                                 </div>
                                                 <div class="col-md-4">
-                                                        <img src="{{ asset('images/') }}/{{$sessions->photo}} classs="img-fluid">
+                                                        <img src="{{ asset('images/') }}/{{$sessions->photo}}" classs="img-fluid">
                                                 </div>
                                             </div>
                                             <div class="modal-footer d-none">
@@ -152,9 +152,9 @@
 
                                 $date = date("j", strtotime($sessions->date));
 
-                                $start = date("h:i", strtotime($sessions->start_time));
+                                $start = date("h:i a", strtotime($sessions->start_time));
 
-                                $stop = date("h:i", strtotime($sessions->end_time));
+                                $stop = date("h:i a", strtotime($sessions->end_time));
 
                             @endphp
 
@@ -212,9 +212,9 @@
 
                                 $date = date("j", strtotime($sessions->date));
 
-                                $start = date("h:i", strtotime($sessions->start_time));
+                                $start = date("h:i a", strtotime($sessions->start_time));
 
-                                $stop = date("h:i", strtotime($sessions->end_time));
+                                $stop = date("h:i a", strtotime($sessions->end_time));
 
                             @endphp
 

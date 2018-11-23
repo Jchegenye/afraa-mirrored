@@ -135,5 +135,10 @@ class DocumentController extends Controller
     public function destroy($id)
     {
         //
+        $document = \Afraa\Document::find($id);
+
+        $document->delete();
+
+        return redirect()->back()->with('success','Document has been deleted');
     }
 }

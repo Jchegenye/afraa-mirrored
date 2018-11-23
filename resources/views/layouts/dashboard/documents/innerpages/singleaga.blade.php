@@ -10,7 +10,13 @@
 @endforeach
 <div class="row">
     <div class="col-md-12">
-        <h3 class="page-header">50<sup>th</sup> AGA ({{$year}}) Downloads</h3>
+        <h3 class="page-header">50<sup>th</sup> AGA ({{$year}})
+            @if (Auth::user()->role == "admin")
+                Uploads
+            @else
+                Downloads
+            @endif
+        </h3>
     </div>
 </div>
 
@@ -37,6 +43,17 @@
                                     <span>-</span>
                                     <span>{{$document->title}}</span>
                                     <span>
+                                        @if (Auth::user()->role == "admin")
+
+                                            <form class="d-inline" action="{{action('DocumentController@destroy', $document->id)}}" method="post">
+
+                                                @csrf
+                                                <input name="_method" type="hidden" value="DELETE">
+                                                <button class="btn-link bg-white border-0 text-small dw-link pr-4" type="submit"><i class="far fa-trash-alt pr-2 afraa-red-text"></i>Delete</button>
+
+                                            </form>
+
+                                        @endif
                                         <a href="{{URL::asset('/files/documents/')}}/{{$document->name}}">
                                             <i class="fas fa-file-pdf"></i>
                                             <span class="dw-link">Download</span>
@@ -71,6 +88,17 @@
                                         <span>-</span>
                                         <span>{{$document->title}}</span>
                                         <span>
+                                            @if (Auth::user()->role == "admin")
+
+                                                <form class="d-inline" action="{{action('DocumentController@destroy', $document->id)}}" method="post">
+
+                                                    @csrf
+                                                    <input name="_method" type="hidden" value="DELETE">
+                                                    <button class="btn-link bg-white border-0 text-small dw-link pr-4" type="submit"><i class="far fa-trash-alt pr-2 afraa-red-text"></i>Delete</button>
+
+                                                </form>
+
+                                            @endif
                                             <a href="{{URL::asset('/files/documents/')}}/{{$document->name}}" target="_blank">
                                                 <i class="fas fa-file-pdf"></i>
                                                 <span class="dw-link">Download</span>
@@ -105,6 +133,17 @@
                                         <span>-</span>
                                         <span>{{$document->title}}</span>
                                         <span>
+                                            @if (Auth::user()->role == "admin")
+
+                                                <form class="d-inline" action="{{action('DocumentController@destroy', $document->id)}}" method="post">
+
+                                                    @csrf
+                                                    <input name="_method" type="hidden" value="DELETE">
+                                                    <button class="btn-link bg-white border-0 text-small dw-link pr-4" type="submit"><i class="far fa-trash-alt pr-2 afraa-red-text"></i>Delete</button>
+
+                                                </form>
+
+                                                @endif
                                             <a href="{{URL::asset('/files/documents/')}}/{{$document->name}}">
                                                 <i class="fas fa-file-pdf"></i>
                                                 <span class="dw-link">Download</span>
@@ -139,6 +178,17 @@
                                         <span>-</span>
                                         <span>{{$document->title}}</span>
                                         <span>
+                                            @if (Auth::user()->role == "admin")
+
+                                                <form class="d-inline" action="{{action('DocumentController@destroy', $document->id)}}" method="post">
+
+                                                    @csrf
+                                                    <input name="_method" type="hidden" value="DELETE">
+                                                    <button class="btn-link bg-white border-0 text-small dw-link pr-4" type="submit"><i class="far fa-trash-alt pr-2 afraa-red-text"></i>Delete</button>
+
+                                                </form>
+
+                                            @endif
                                             <a href="{{URL::asset('/files/documents/')}}/{{$document->name}}">
                                                 <i class="fas fa-file-pdf"></i>
                                                 <span class="dw-link">Download</span>
