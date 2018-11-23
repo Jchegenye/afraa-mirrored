@@ -158,10 +158,10 @@
                                             </div>
                                             <span class="time_interval">{{$sessions->start_time}} - {{$sessions->end_time}}</span>
                                             <div class="modal-body row">
-                                                <div class="col-md-8 left_modal pr-5 align-self-center">
+                                                <div class="col-md-12 left_modal pr-5 align-self-center">
                                                         {!!$sessions->description!!}
                                                 </div>
-                                                <div class="col-md-4 text-center pl-4 right_profile">
+                                                {{-- <div class="col-md-4 text-center pl-4 right_profile">
                                                     <h4>{{$sessions->session_type}}</h4>
 
                                                     @if(empty($sessions->photo))
@@ -173,7 +173,7 @@
                                                     <h6>{{$sessions->name}}</h6>
                                                     <h5>{{$sessions->Job_Title}}</h5>
                                                     <span>{{$sessions->Company_Name}}</span>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                             <div class="modal-footer d-none">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -298,10 +298,10 @@
                                                 </div>
                                                 <span class="time_interval">{{$sessions->start_time}} - {{$sessions->end_time}}</span>
                                                 <div class="modal-body row">
-                                                    <div class="col-md-8 left_modal pr-5 align-self-center">
+                                                    <div class="col-md-12 left_modal pr-5 align-self-center">
                                                         {!!$sessions->description!!}
                                                     </div>
-                                                    <div class="col-md-4 text-center pl-4 right_profile">
+                                                    {{-- <div class="col-md-4 text-center pl-4 right_profile">
                                                         <h4>{{$sessions->session_type}}</h4>
 
                                                         @if(empty($sessions->photo))
@@ -313,7 +313,7 @@
                                                         <h6>{{$sessions->name}}</h6>
                                                         <h5>{{$sessions->Job_Title}}</h5>
                                                         <span>{{$sessions->Company_Name}}</span>
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                                 <div class="modal-footer d-none">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -444,10 +444,10 @@
                                                 </div>
                                                 <span class="time_interval">{{$sessions->start_time}} - {{$sessions->end_time}}</span>
                                                 <div class="modal-body row">
-                                                    <div class="col-md-8 left_modal pr-5 align-self-center">
+                                                    <div class="col-md-12 left_modal pr-5 align-self-center">
                                                         {!!$sessions->description!!}
                                                     </div>
-                                                    <div class="col-md-4 text-center pl-4 right_profile">
+                                                    {{-- <div class="col-md-4 text-center pl-4 right_profile">
                                                         <h4>{{$sessions->session_type}}</h4>
 
                                                         @if(empty($sessions->photo))
@@ -459,7 +459,7 @@
                                                         <h6>{{$sessions->name}}</h6>
                                                         <h5>{{$sessions->Job_Title}}</h5>
                                                         <span>{{$sessions->Company_Name}}</span>
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
                                                 <div class="modal-footer d-none">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
