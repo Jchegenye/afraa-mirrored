@@ -413,7 +413,7 @@ input:checked + .slider:before {
 	border-bottom-right-radius: 0;
 }
 
-/* Jackson Chegenye 
+/* Jackson Chegenye
 ------------------------------
 */
 
@@ -456,7 +456,7 @@ input:checked + .slider:before {
 			padding: 10px 30px;
 			color: #fff !important;
 			box-shadow: 0px 0px 13px #3c68b1;
-			border-radius: 5px;	
+			border-radius: 5px;
 		}
 
 	#page-wrapper {
@@ -474,11 +474,11 @@ input:checked + .slider:before {
 
 	/* links */
 	a {
-		color: #3c68b1; 
+		color: #3c68b1;
 	}btn-afraa-full-2
 	a:focus,
 	a:hover {
-		color: #3c68b07a; 
+		color: #3c68b07a;
 		text-decoration: none !important;
 	}
 
@@ -492,7 +492,7 @@ input:checked + .slider:before {
 	.navbar-top-links li a {
 		padding: 15px 0px;
 	}
-	
+
 	/* colors */
 	.bg-white{
 		background-color: #fff;
@@ -521,10 +521,10 @@ input:checked + .slider:before {
 	.btn-group .btn-afraa:hover,
 	.btn-afraa:hover {
 		color: #ffffff;
-		background-color: #3c68b1; 
+		background-color: #3c68b1;
 	}
 	/* .btn-afraa a:hover{
-		color: #fff; 
+		color: #fff;
 	} */
 	.btn-afraa-full {
 		background-color: #3c68b1;
@@ -544,7 +544,7 @@ input:checked + .slider:before {
     	color: #3c68b1 !important;
 	}
 	.btn-afraa-full a{
-		color: #fff !important; 
+		color: #fff !important;
 	}
 	.btn.focus, .btn:focus {
 		outline: 0;
@@ -562,7 +562,7 @@ input:checked + .slider:before {
 		color: #3c68b1;
 	}
 	.page-link:hover {
-		color: #d3b5c7; 
+		color: #d3b5c7;
 	}
 
 	/* inputs */
@@ -571,17 +571,17 @@ input:checked + .slider:before {
 	.contents select,
 	.selected-flag:focus,
 	.form-control:focus,
-	textarea:focus, 
-	textarea.form-control:focus, 
-	input.form-control:focus, 
-	input[type=text]:focus, 
-	input[type=password]:focus, 
-	input[type=email]:focus, 
-	input[type=number]:focus, 
-	[type=text].form-control:focus, 
-	[type=password].form-control:focus, 
-	[type=email].form-control:focus, 
-	[type=tel].form-control:focus, 
+	textarea:focus,
+	textarea.form-control:focus,
+	input.form-control:focus,
+	input[type=text]:focus,
+	input[type=password]:focus,
+	input[type=email]:focus,
+	input[type=number]:focus,
+	[type=text].form-control:focus,
+	[type=password].form-control:focus,
+	[type=email].form-control:focus,
+	[type=tel].form-control:focus,
 	[contenteditable].form-control:focus {
 		box-shadow: inset 0 0px 0;
 		outline: none !important;
@@ -611,7 +611,7 @@ input:checked + .slider:before {
 	#adminTable input[type=radio]{
 		box-shadow: none !important;
 		height: 13px !important;
-	} 
+	}
 	#adminTable .txtHint{
 		padding: 15px 0px;
 	}
@@ -664,11 +664,11 @@ input:checked + .slider:before {
 	}
 
 	.table thead th,
-	.table td, 
+	.table td,
 	.table th{
 		border: 0px;
 	}
-	.table thead th, 
+	.table thead th,
 	.table td, .table th {
 		font-weight: 300;
 		font-size: 0.8rem;
@@ -795,7 +795,7 @@ input:checked + .slider:before {
 		background-color: #ebeff3;
 	}
 	#dashtabs .table td, .table th {
-		vertical-align: inherit; 
+		vertical-align: inherit;
 		padding: 20px;
 	}
 	#dashtabs .clr-blk{
@@ -853,13 +853,13 @@ input:checked + .slider:before {
 		color: #aec55d;
 	}
 	.annual .aga img {
-		height: 50px; 
+		height: 50px;
 	}
 	.agalist li::before{
 		border: 1px solid #000;
 		width: 100px;
 	}
-	
+
 	.agalist .dw-title span:nth-of-type(3) { float:right }
 	.agalist .dw-title .dw-link{
 		font-size: 12px;
@@ -955,7 +955,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 	.afraa-modal .modal-body{
 		margin-left: 0px;
 		padding-left: 10px;
-	
+
 	}
 	.afraa-modal .modal-header .close{
 		color: #3c68b1;
@@ -1044,7 +1044,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 		padding: 15px;
 		display: inline-flex;
 	}
-	.myqna .tab-content{ 
+	.myqna .tab-content{
 		padding: 0px;
 		color: #000 !important;
 		box-shadow: 0px 0px 13px #c0c0c0;
@@ -1064,7 +1064,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 	.myqna .qna .card-body::-webkit-scrollbar-track {
 		-webkit-box-shadow: inset 0 0 6px transparent;
 	}
-	
+
 	.myqna .qna .card-body::-webkit-scrollbar-thumb {
 	  background-color: #d11f49;
 	  outline: 1px solid slategrey;
@@ -1118,7 +1118,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 	.addeventatc_icon:before {
 		font-family: "Font Awesome 5 Free";
 		font-weight: 900;
-		content: "\f073"; 
+		content: "\f073";
 	}
 	/* .addeventatc_dropdown.addeventatc-selected{
 		position: fixed;
@@ -1139,4 +1139,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 	.bootstrap-select .dropdown-menu{
 		min-width: 100% !important;
 		width: 100%;
-	}
+    }
+
+/*
+* @author Dan
+*/
+
+.btn-link{
+    cursor: pointer;
+    text-decoration: none;
+}

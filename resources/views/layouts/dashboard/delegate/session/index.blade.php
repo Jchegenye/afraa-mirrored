@@ -61,8 +61,10 @@
 
                             @php
                                 $date = date("j", strtotime($sessions->date));
-                                $start = date("h:i", strtotime($sessions->start_time));
-                                $stop = date("h:i", strtotime($sessions->end_time));
+
+                                $start = date("h:i a", strtotime($sessions->start_time));
+
+                                $stop = date("h:i a", strtotime($sessions->end_time));
                             @endphp
 
                             @if ($date==25)
@@ -199,8 +201,10 @@
 
                             @php
                                 $date = date("j", strtotime($sessions->date));
-                                $start = date("h:i", strtotime($sessions->start_time));
-                                $stop = date("h:i", strtotime($sessions->end_time));
+
+                                $start = date("h:i a", strtotime($sessions->start_time));
+
+                                $stop = date("h:i a", strtotime($sessions->end_time));
                             @endphp
 
                             @if ($date==26)
@@ -343,8 +347,10 @@
 
                             @php
                                 $date = date("j", strtotime($sessions->date));
-                                $start = date("h:i", strtotime($sessions->start_time));
-                                $stop = date("h:i", strtotime($sessions->end_time));
+
+                                $start = date("h:i a", strtotime($sessions->start_time));
+
+                                $stop = date("h:i a", strtotime($sessions->end_time));
                             @endphp
 
                             @if ($date==27)

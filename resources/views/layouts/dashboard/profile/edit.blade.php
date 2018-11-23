@@ -36,6 +36,8 @@
         }
             //dd($user->country);
 
+            //dd($event);
+
     @endphp
 </div>
 
@@ -606,22 +608,53 @@
                     <label for="Social_Functions" class="col-form-label text-md-right">{{ __('Social Functions:') }}</label>
                     {{-- <input type="text" class="form-control" name="Social_Functions" value="@isset($user->Social_Functions) {{$user->Social_Functions}} @endisset"> --}}
 
-                    {{-- @isset($user->Social_Functions)
-                        @php
-                            $user->Social_Functions= "";
-                        @endphp
-                    @endisset --}}
+                    @php
+                        if (isset($user->Social_Functions)){
+
+                            $functions = $user->Social_Functions;
+
+                            $function = explode(",",str_replace('"',"",substr($functions, 1, -1)));
+
+                            //dd($function);
+                        }else{
+                            $function = [];
+                        }
+                    @endphp
 
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="Social_Functions1" name="Social_Functions[]" value="Delegate Tour (Sun 25 Nov)">
+                        <input type="checkbox" class="custom-control-input" id="Social_Functions1" name="Social_Functions[]" value="Delegate Tour (Sun 25 Nov)"
+                            @php
+                                foreach ($function as $functions){
+                                    if ($functions == "Delegate Tour (Sun 25 Nov)"){
+                                        echo 'checked';
+                                    }
+                                }
+                            @endphp
+                        >
                         <label class="custom-control-label" for="Social_Functions1">Delegate Tour</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="Social_Functions2" name="Social_Functions[]" value="Welcome Cocktail & Dinner (Sun 25 Nov)" >
+                        <input type="checkbox" class="custom-control-input" id="Social_Functions2" name="Social_Functions[]" value="Welcome Cocktail & Dinner (Sun 25 Nov)"
+                            @php
+                                foreach ($function as $functions){
+                                    if ($functions == "Welcome Cocktail & Dinner (Sun 25 Nov)"){
+                                        echo 'checked';
+                                    }
+                                }
+                            @endphp
+                        >
                         <label class="custom-control-label" for="Social_Functions2">Welcome Cocktail & Dinner</label>
                     </div>
                     <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="Social_Functions3" name="Social_Functions[]" value="Gala Dinner (Mon 26th Nov)">
+                        <input type="checkbox" class="custom-control-input" id="Social_Functions3" name="Social_Functions[]" value="Gala Dinner (Mon 26th Nov)"
+                            @php
+                                foreach ($function as $functions){
+                                    if ($functions == "Gala Dinner (Mon 26th Nov)"){
+                                        echo 'checked';
+                                    }
+                                }
+                            @endphp
+                        >
                         <label class="custom-control-label" for="Social_Functions3">Gala Dinner</label>
                     </div>
                 </div>
@@ -643,6 +676,20 @@
                         </select>
                         <input type="hidden" name="user_id" value="{{$user_id}}">
                     </div>
+                @elseif(Auth::user()->role == 'delegate')
+
+                    @if ($event == false)
+
+                        <div class="col-md-12 form-group mt-5">
+                            <h5>{{ __('Do you want to register for next event(ASC)?') }}</h5>
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="next_event" name="next_event" value="next_event">
+                                <label class="custom-control-label" for="next_event"></label>
+                            </div>
+                        </div>
+
+                    @endif
+
                 @endif
 
                 {{-- Start of User Information --}}
