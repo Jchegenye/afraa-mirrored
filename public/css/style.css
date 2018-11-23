@@ -633,7 +633,7 @@ input:checked + .slider:before {
 	#adminTable{
 		background-color: #8080801c;
 		border-radius: 5px;
-		box-shadow: 0px 0px 20px #80808057;
+		box-shadow: 0px 0px 20px -1px #80808057;
 		margin-left: -15px;
 		/* margin-top: 10px;
 		margin-bottom: 10px; */
@@ -644,6 +644,7 @@ input:checked + .slider:before {
 		padding: 15px;
 		border-top-right-radius: 5px;
 		border-top-left-radius: 5px;
+		margin-top: 3px;
 	}
 	#adminTable .table_body{
 		padding: 15px;
@@ -671,7 +672,7 @@ input:checked + .slider:before {
 	.table thead th, 
 	.table td, .table th {
 		font-weight: 300;
-		font-size: 0.8rem;
+		font-size: 0.9rem;
 	}
 
 	#adminTable .table_body .bg{
@@ -1146,4 +1147,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 		background-color: transparent;
 		font-size: 2.1em;
 		outline: 0 !important;
+	}
+	.editmanagerprog{
+		display:inline-flex;
 	}

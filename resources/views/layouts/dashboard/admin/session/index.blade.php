@@ -84,7 +84,7 @@
                                         </div>
                                     </td>
                                     <td class="action-gray">
-                                        <div>
+                                        <div class="editmanagerprog">
                                             <a href="#" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye d-none"></i></a>
 
                                             <a href="{{action('ProgrammeSession\ProgrammeSessionController@edit', $sessions->id)}}" class="edit"><i class="far fa-edit"></i></a>
@@ -93,7 +93,7 @@
 
                                                 @csrf
                                                     <input name="_method" type="hidden" value="DELETE">
-                                                    <button class="text-small" type="submit"><i class="far fa-trash-alt pl-2"></i></button>
+                                                    <button class="text-small" type="submit"><i class="far fa-trash-alt"></i></button>
 
                                             </form>
 
@@ -172,7 +172,7 @@
                                         </div>
                                     </td>
                                     <td class="action-gray">
-                                        <div>
+                                        <div class="editmanagerprog">
 
                                             <a href="{{action('ProgrammeSession\ProgrammeSessionController@edit', $sessions->id)}}" class="edit"><i class="far fa-edit"></i></a>
 
@@ -180,7 +180,7 @@
 
                                                 @csrf
                                                     <input name="_method" type="hidden" value="DELETE">
-                                                    <button class="text-small" type="submit"><i class="far fa-trash-alt pl-2"></i></button>
+                                                    <button class="text-small" type="submit"><i class="far fa-trash-alt"></i></button>
 
                                             </form>
 
@@ -232,7 +232,7 @@
                                         </div>
                                     </td>
                                     <td class="action-gray">
-                                        <div>
+                                        <div class="editmanagerprog">
 
                                             <a href="{{action('ProgrammeSession\ProgrammeSessionController@edit', $sessions->id)}}" class="edit"><i class="far fa-edit"></i></a>
 
@@ -240,7 +240,7 @@
 
                                                 @csrf
                                                     <input name="_method" type="hidden" value="DELETE">
-                                                    <button class="text-small" type="submit"><i class="far fa-trash-alt pl-2"></i></button>
+                                                    <button class="text-small" type="submit"><i class="far fa-trash-alt"></i></button>
 
                                             </form>
 
