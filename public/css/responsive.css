@@ -4,14 +4,15 @@
 }
 @media (max-width: 767px) {
 	.sidebar {
-	    height: auto !important;
+		height: auto !important;
+		padding-bottom: 0px !important;
 	}
 	#page-wrapper{
 		padding-top: 0px !important;
 	}
 	.loginpage .loginleft .content {
 		position: absolute;
-		top: 50%;
+		top: 45%;
 		right: 0%;
 		left: 0%;
 		transform: translate(0%, 5%);
@@ -56,6 +57,45 @@
 		margin: 10px;
 		height: 100vh;
 	}
+	.tb-sm-text{
+		margin-top: 10px;
+	}
+	.navbar{
+		padding-left: 10px !important;
+		padding-right: 10px !important;
+	}
+	.navbar-brand .logo {
+		max-width: 100px;
+	}
+	.navbar-default .myaccount .dropdown, .dropdown-item{
+		font-size: 10px;
+	}
+	.navbar-top-links li a {
+		margin-left: 0em;
+		margin-right: 0em !important;
+	}
+	.navbar-toggle {
+		font-size: 1.6em;
+	}
+	.navbar {
+		border-bottom: 0.3px solid rgba(0, 0, 0, 0.5);
+		padding-top:10px !important;
+	}
+	.dropdown-item {
+		padding: 0.1rem 0.1rem;
+	}
+	.sidebar-nav .card {
+		margin-right: 0px !important;
+	}
+	.navbar-top-links .dropdown-user {
+		right: auto;
+		left: auto;
+	}
+	.dropdown-user {
+		background-color: transparent;
+		border: none;
+		margin-left: -12px;
+	}
 
 }
 
@@ -68,6 +108,10 @@
 	    height: auto !important;
 	}
 	.navbar-toggle{
+		display: none;
+	}
+
+	#loginleftsignin{
 		display: none;
 	}
 }
