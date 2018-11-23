@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Afraa\Http\Controllers\Controller;
 use Afraa\Speaker;
 use Afraa\Model\Users;
+use Afraa\User;
 use Illuminate\Support\Facades\Auth;
 
 class SpeakerController extends Controller
@@ -39,9 +40,11 @@ class SpeakerController extends Controller
 
         $get_users = new Users();
 
+        $all_users = \Afraa\User::all();
+
         $user_by_id = $get_users->getUserById($id);
 
-        return view('layouts.dashboard.speakers.index',compact('speakers','user_by_id'));
+        return view('layouts.dashboard.speakers.index',compact('speakers','user_by_id','all_users'));
 
     }
 
