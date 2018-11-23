@@ -1,4 +1,3 @@
-
 @php
 //dd($session);
 @endphp
@@ -61,13 +60,9 @@
                         @foreach($session as $sessions)
 
                             @php
-
                                 $date = date("j", strtotime($sessions->date));
-
                                 $start = date("h:i", strtotime($sessions->start_time));
-
                                 $stop = date("h:i", strtotime($sessions->end_time));
-
                             @endphp
 
                             @if ($date==25)
@@ -83,9 +78,9 @@
                                             @if ($sessions->session_type !== "Master of Ceremony")
                                                 <h6 class="d-inline"  data-toggle="modal" data-target="#{{$sessions->title}}"> <i class="far fa-eye pr-2"></i></h6>
                                             @endif
-                                            <h6 class="d-inline">{{$sessions->title}}</h6>                                            
+                                            <h6 class="d-inline">{{$sessions->title}}</h6>
                                         </div>
-                                        
+
                                     </td>
                                     <td class="action-gray">
                                         <div>
@@ -104,9 +99,12 @@
 
                                             @elseif (Auth::user()->role == 'delegate')
                                                 <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"></a>
-                                                <a href="#"><span class="ask_question" data-toggle="modal" data-target="#ask_question">Ask A Question</span></a>
-                                                
-                                                <div class="modal modal_ask fade" id="ask_question" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                                                @if ($sessions->id == '37' || $sessions->id == '44' || $sessions->id == '6' || $sessions->id == '39')
+                                                    <a href="#"><span class="ask_question" data-toggle="modal" data-target="#{{$sessions->title}}_q_25">Ask A Question</span></a>
+                                                @endif
+
+                                                <div class="modal modal_ask fade" id="{{$sessions->title}}_q_25" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content p-5">
                                                             <div class="modal-header">
@@ -116,15 +114,17 @@
                                                             </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                    <form>
-                                                                        <div class="form-group">
-                                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="20"></textarea>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button" class="btn mt-3 pl-4 pr-4">Submit</button>
-                                                                        </div>
-                                                                    </form>
-                                                            </div>                                                        
+                                                                <form method="post" action="{{url('dashboard/delegate/questions-and-answers')}}">
+                                                                    @csrf
+                                                                    <div class="form-group">
+                                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="20" name="question"></textarea>
+                                                                        <input type="hidden" name="session_id" value="{{$sessions->id}}" />
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit" class="btn mt-3 pl-4 pr-4">Submit</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -198,13 +198,9 @@
                         @foreach($session as $sessions)
 
                             @php
-
                                 $date = date("j", strtotime($sessions->date));
-
                                 $start = date("h:i", strtotime($sessions->start_time));
-
                                 $stop = date("h:i", strtotime($sessions->end_time));
-
                             @endphp
 
                             @if ($date==26)
@@ -220,9 +216,9 @@
                                             @if ($sessions->session_type !== "Master of Ceremony")
                                                 <h6 class="d-inline" data-toggle="modal" data-target="#{{$sessions->title}}_26"> <i class="far fa-eye pr-2"></i></h6>
                                             @endif
-                                            <h6 class="d-inline">{{$sessions->title}}</h6>    
+                                            <h6 class="d-inline">{{$sessions->title}}</h6>
                                         </div>
-                                        
+
                                     </td>
                                     <td class="action-gray">
                                         <div>
@@ -241,9 +237,12 @@
 
                                             @elseif (Auth::user()->role == 'delegate')
                                                 <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"></a>
-                                                <a href="#"><span class="ask_question" data-toggle="modal" data-target="#ask_question26">Ask A Question</span></a>
-                                                
-                                                <div class="modal modal_ask fade" id="ask_question26" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                                                @if ($sessions->id == '37' || $sessions->id == '44' || $sessions->id == '6' || $sessions->id == '39')
+                                                    <a href="#"><span class="ask_question" data-toggle="modal" data-target="#{{$sessions->title}}_q_26">Ask A Question</span></a>
+                                                @endif
+
+                                                <div class="modal modal_ask fade" id="{{$sessions->title}}_q_26" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content p-5">
                                                             <div class="modal-header">
@@ -253,15 +252,17 @@
                                                             </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                    <form>
-                                                                        <div class="form-group">
-                                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="20"></textarea>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button" class="btn mt-3 pl-4 pr-4">Submit</button>
-                                                                        </div>
-                                                                    </form>
-                                                            </div>                                                        
+                                                                <form method="post" action="{{url('dashboard/delegate/questions-and-answers')}}">
+                                                                    @csrf
+                                                                    <div class="form-group">
+                                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="20" name="question"></textarea>
+                                                                        <input type="hidden" name="session_id" value="{{$sessions->id}}" />
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit" class="btn mt-3 pl-4 pr-4">Submit</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -341,13 +342,9 @@
                         @foreach($session as $sessions)
 
                             @php
-
                                 $date = date("j", strtotime($sessions->date));
-
                                 $start = date("h:i", strtotime($sessions->start_time));
-
                                 $stop = date("h:i", strtotime($sessions->end_time));
-
                             @endphp
 
                             @if ($date==27)
@@ -363,9 +360,9 @@
                                         @if ($sessions->session_type !== "Master of Ceremony")
                                             <h6 class="d-inline" data-toggle="modal" data-target="#{{$sessions->title}}_27"> <i class="far fa-eye pr-2"></i></h6>
                                         @endif
-                                        <h6 class="d-inline">{{$sessions->title}}</h6>    
+                                        <h6 class="d-inline">{{$sessions->title}}</h6>
                                     </div>
-                                        
+
                                     </td>
                                     <td class="action-gray">
                                         <div>
@@ -384,9 +381,12 @@
 
                                             @elseif (Auth::user()->role == 'delegate')
                                                 <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"></a>
-                                                <a href="#"><span class="ask_question" data-toggle="modal" data-target="#ask_question27">Ask A Question</span></a>
-                                                
-                                                <div class="modal modal_ask fade" id="ask_question27" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+                                                @if ($sessions->id == '37' || $sessions->id == '44' || $sessions->id == '6' || $sessions->id == '39')
+                                                    <a href="#"><span class="ask_question" data-toggle="modal" data-target="#{{$sessions->title}}_q_27">Ask A Question</span></a>
+                                                @endif
+
+                                                <div class="modal modal_ask fade" id="{{$sessions->title}}_q_27" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content p-5">
                                                             <div class="modal-header">
@@ -396,15 +396,17 @@
                                                             </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                    <form>
-                                                                        <div class="form-group">
-                                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="20"></textarea>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button" class="btn mt-3 pl-4 pr-4">Submit</button>
-                                                                        </div>
-                                                                    </form>
-                                                            </div>                                                        
+                                                                <form method="post" action="{{url('dashboard/delegate/questions-and-answers')}}">
+                                                                    @csrf
+                                                                    <div class="form-group">
+                                                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="20" name="question"></textarea>
+                                                                        <input type="hidden" name="session_id" value="{{$sessions->id}}" />
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="submit" class="btn mt-3 pl-4 pr-4">Submit</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -492,15 +494,11 @@
                                 $start_time = date("h:i:sa", strtotime($featured_sessions->date));
                             @endphp
                             <span>
-
                                 {{$date}}
                                 <span class="pl-2">
                                     {{$start_time}}
                                 </span>
                                 <span class="pl-4">
-
-
-
                                 </span>
                             </span>
                         </div>
@@ -518,7 +516,6 @@
                             <div class="card-title text-capitalize"><strong>{{$sessions['title']}}</strong></div>
                             <div class="card-text text-justify">{{$sessions['description']}}</div>
                             <div class="card-footer p-0 border-0">
-
                                 <form action="{{action('ProgrammeSession\ProgrammeSessionController@destroy', $sessions['id'])}}" method="post">
                                     @csrf
                                     <input name="_method" type="hidden" value="DELETE">
@@ -535,13 +532,11 @@
                                     <button class="btn btn-link text-white text-small" type="submit">Delete</button>
                                     </p>
                                 </form>
-
                                 <form action="{{url('dashboard/admin/featured_session')}}" method="post">
                                     @csrf
                                     <input name="session_id" type="hidden" value="{{$sessions['id']}}">
                                     <button class="btn btn-link text-white text-small" type="submit">{{__('Set As Featured')}}</button>
                                 </form>
-
                             </div>
                         </div>
                     </div>

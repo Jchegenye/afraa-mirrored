@@ -659,8 +659,8 @@ input:checked + .slider:before {
 	}
 	#adminTable .intro1 h6{
 		margin: auto 0;
-		font-size: 0.8rem;
-		font-weight: 900;
+		font-size: 1rem;
+		font-weight: 900
 	}
 
 	.table thead th,
@@ -670,7 +670,7 @@ input:checked + .slider:before {
 	}
 	.table thead th, 
 	.table td, .table th {
-		font-weight: 300;
+		font-weight: 900;
 		font-size: 0.8rem;
 	}
 
@@ -680,7 +680,8 @@ input:checked + .slider:before {
 		box-shadow: 0px 0px 20px #80808057;
 		padding: 12px;
 		text-align: center;
-		color: #8c8c8c;
+		color: #000;
+		font-weight: 600;
 	}
 
 	#adminTable .pagination{
@@ -734,7 +735,7 @@ input:checked + .slider:before {
 
 	/* statistics */
 	#statistics .stats-card{
-	    color: #8c8c8c;
+	    color: #000;
 		box-shadow: 0px 0px 14px #8c8c8c66;
 		border-radius: 5px;
 		padding: 30px;
@@ -863,7 +864,7 @@ input:checked + .slider:before {
 	.agalist .dw-title span:nth-of-type(3) { float:right }
 	.agalist .dw-title .dw-link{
 		font-size: 12px;
-		color: #8c8c8c;
+		color: #000;
 		padding-left: 5px;
 	}
 	.agalist .dw-title {
@@ -1016,7 +1017,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 	}
 	#speksponexib .box p{
 		font-size: 0.8rem;
-		color: #8c8c8c;
+		color: #000;
 	}
 	#speksponexib .box-footer{
 		margin-top: 25px;
@@ -1024,7 +1025,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 	#speksponexib .box-footer .edit{
 		float: left;
 		padding-left: 4rem;
-		color: #8c8c8c;
+		color: #000;
 	}
 	#speksponexib .box-footer .delete{
 		float: right;
