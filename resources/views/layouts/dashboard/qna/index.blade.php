@@ -1,7 +1,3 @@
-@php
-//dd($session);
-@endphp
-
 @extends('layouts.app')
 
 @section('title', 'Question & Answers')
@@ -13,6 +9,14 @@
             <h3 class="page-header">
                 @if(Auth::user()->role == 'admin') Manage @endif
                 Question & Answers</h3>
+        </div>
+
+        <div class="col-md-12">
+            @if (\Session::has('success'))
+                <div class="alert alert-success px-5">
+                    {!! \Session::get('success') !!}
+                </div>
+            @endif
         </div>
     </div>
 

@@ -19,11 +19,40 @@ class QuestionController extends Controller
         //
         $user_id = Auth::id();
 
-        $session = new Question();
+        $role = Auth::user()->role;
 
-        $sessions = $sessions->getSpeakerSessions($user_id);
+        $sessions_instance = new Question();
+
+        if ($role == "admin") {
+
+            $session = $sessions_instance->getAllSpeakerSessions();
+
+        } else if($role == "delegate"){
+
+            $session = $sessions_instance->getSpeakerSessions($user_id);
+
+        }
+
+
+        foreach ($session as $key => $sessions) {
+
+            $sessions->questions = $this->getSpeakerQuiz($role,$sessions->id,$sessions_instance,$user_id);
+
+        }
+
+        //dd($session);
 
         return view('layouts/dashboard/qna/index',compact('session'));
+    }
+
+    public function getSpeakerQuiz($role,$session_id,$sessions_instance,$user_id){
+
+        $quiz = $sessions_instance->getSpeakerQuestions($session_id);
+
+        if (empty($quiz)) {
+            return [];
+        }
+        return $quiz;
     }
 
     /**
@@ -45,23 +74,24 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         //
+        //dd($request);
         $question= new \Afraa\Question;
 
         $this->validate(
             $request,
             [
-                'text' => 'required',
+                'question' => 'required',
 
             ]
         );
 
-        $session->text=$request->get('text');
-        $session->asked_by_id=$request->get('asked_by_id');
-        $session->session_id=$request->get('session_id');
+        $question->text = $request->get('question');
+        $question->asked_by_id = Auth::id();
+        $question->session_id = $request->get('session_id');
 
-        $session->save();
+        $question->save();
 
-        return redirect()->back()->with('success', 'Information has been updated');
+        return redirect()->back()->with('success', 'Your question has been received.');
 
     }
 
@@ -112,6 +142,6 @@ class QuestionController extends Controller
 
         $question->delete();
 
-        return redirect()->back()->with('success','Information has been deleted');
+        return redirect()->back()->with('success','Question has been deleted');
     }
 }

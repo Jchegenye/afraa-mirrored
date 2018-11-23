@@ -113,16 +113,6 @@ class UsersController extends Controller
             * Validate all input fields
             */
 
-            // $this->validate( $request, [
-            //     'name' => 'required|unique:users|min:4',
-            //     'username' => 'required|unique:users|min:4',
-            //     'email' => 'email|unique:users|required',
-            //     'phone' => 'required|unique:users|min:10|max:12',
-            //     'bio' => 'required|unique:users|min:4',
-            //     'photo' => 'required|unique:users|min:4',
-            //     'new_password' => 'required|min:6|max:20|unique:users',
-            // ]);
-
             // if ($validator->fails()) {
             //     return redirect()->back()->with('warning', 'There was an error updating your data please try again');
             // }
@@ -148,6 +138,10 @@ class UsersController extends Controller
             }
 
         }else{
+
+            // $this->validate( $request, [
+            //     'email' => 'required|unique:users',
+            // ]);
 
             $this->userData($request,$id);
 

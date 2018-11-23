@@ -1,324 +1,201 @@
 <div class="row mt-5 myqna" id="dashtabs">
-            
-        <nav class="col-md-12">
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="nav-1-tab" data-toggle="tab" href="#nav-1" role="tab" aria-controls="nav-home" aria-selected="true">Sunday, 25 November 2018</a>
-                <a class="nav-item nav-link" id="nav-2-tab" data-toggle="tab" href="#nav-2" role="tab" aria-controls="nav-profile" aria-selected="false">Monday, 26th November 2018</a>
-                <a class="nav-item nav-link" id="nav-3-tab" data-toggle="tab" href="#nav-3" role="tab" aria-controls="nav-contact" aria-selected="false">Tuesday, 27 November 2018</a>
-            </div>
-        </nav>
 
-    <div class="col-md-12">
-        
-        <div class="tab-content mt-3" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav-1-tab">
+    <nav class="col-md-12">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-1-tab" data-toggle="tab" href="#nav-1" role="tab" aria-controls="nav-home" aria-selected="true">Sunday, 25 November 2018</a>
+            <a class="nav-item nav-link" id="nav-2-tab" data-toggle="tab" href="#nav-2" role="tab" aria-controls="nav-profile" aria-selected="false">Monday, 26th November 2018</a>
+            <a class="nav-item nav-link" id="nav-3-tab" data-toggle="tab" href="#nav-3" role="tab" aria-controls="nav-contact" aria-selected="false">Tuesday, 27 November 2018</a>
+        </div>
+    </nav>
+
+<div class="col-md-12">
+
+    <div class="tab-content mt-3" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-1" role="tabpanel" aria-labelledby="nav-1-tab">
+
+            <div class="accordion aga-accordion" id="accod-1">
+
+                @foreach($session as $sessions)
+
+                    @php
+                        $date = date("j", strtotime($sessions->date));
+                        $start = date("h:i", strtotime($sessions->start_time));
+                        $stop = date("h:i", strtotime($sessions->end_time));
+                    @endphp
+
+                    @if ($date==25)
+
+                        <div class="qna">
+
+                            <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#{{$sessions->title}}_25" aria-expanded="false" aria-controls="collapseTwo">
+                                <div class="mb-0 text-left qa">
+                                    <span class="bg-gray afraa-red-text">{{$start}} - {{$stop}}</span>
+                                    <span class="pl-4">{{$sessions->title}}</span>
+                                </div>
+                            </a>
+
+                            <div id="{{$sessions->title}}_25" class="collapse show" aria-labelledby="headingTwo" data-parent="#accod-1">
+                                <div class="card-body">
+                                    <ul class="list-inline agalist">
+
+                                        @php
+                                            $questions = $sessions->questions;
+                                        @endphp
+
+                                        @foreach ($questions as $key => $question)
+
+                                            <li class="dw-title text-capitalize mb-3">
+                                                <span>{{$key+1}}. </span>
+                                                <span>{{$question->text}}</span>
+                                                <span>
+                                                    <form action="{{action('QuestionController@destroy', $question->id)}}" method="post">
+
+                                                        @csrf
+                                                        <input name="_method" type="hidden" value="DELETE">
+                                                        <button class="text-small" type="submit"><i class="far fa-trash-alt"></i></button>
+
+                                                    </form>
+
+                                                </span>
+                                            </li>
+
+                                        @endforeach
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    @endif
+
+                @endforeach
+
+            </div>
+
+        </div>
+        <div class="tab-pane fade" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab">
 
                 <div class="accordion aga-accordion" id="accod-1">
 
-                    <div class="qna">
-        
-                        <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <div class="mb-0 text-left qa">
-                                <span class="bg-gray afraa-red-text">9:00 - 15: 00</span>
-                                <span class="pl-4">Delegates Tour</span>
-                            </div>
-                        </a>
-        
-                        <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accod-1">
-                            <div class="card-body">
-                                <ul class="list-inline agalist">
+                    @foreach($session as $sessions)
 
-                                    <li class="dw-title text-capitalize mb-3">
-                                        <span>1.</span>
-                                        <span>SG 2017 WELCOME ADDRESS FRENCH</span>
-                                        <span>
-                                            <a href="{{URL::asset('/files/documents/')}}/name">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </a>
-                                        </span>
-                                    </li>
+                        @php
+                            $date = date("j", strtotime($sessions->date));
+                            $start = date("h:i", strtotime($sessions->start_time));
+                            $stop = date("h:i", strtotime($sessions->end_time));
+                        @endphp
 
-                                    <li class="dw-title text-capitalize mb-3">
-                                        <span>2.</span>
-                                        <span>SG WELCOME ADDRESS SECURITY SEMINAR</span>
-                                        <span>
-                                            <a href="{{URL::asset('/files/documents/')}}/name">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </a>
-                                        </span>
-                                    </li>
+                        @if ($date==26)
 
-                                    <li class="dw-title text-capitalize mb-3">
-                                        <span>3.</span>
-                                        <span>AFRICAN CONTINENTAL APPROACH AND CHALLENGES</span>
-                                        <span>
-                                            <a href="{{URL::asset('/files/documents/')}}/name">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </a>
-                                        </span>
-                                    </li>
+                            <div class="qna">
 
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-        
-                    <div class="qna">
-        
-                        <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseTwo">
-                            <div class="mb-0 text-left qa">
-                                <span class="bg-gray afraa-red-text">9:00 - 15: 00</span>
-                                <span class="pl-4">Delegates Tour</span>
-                            </div>
-                        </a>
-        
-                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accod-2">
-                            <div class="card-body">
-                                <ul class="list-inline agalist">
-                                    
-                                    <li class="dw-title text-capitalize mb-3">
-                                        <span>1.</span>
-                                        <span>SG 2017 WELCOME ADDRESS FRENCH</span>
-                                        <span>
-                                            <a href="{{URL::asset('/files/documents/')}}/name">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </a>
-                                        </span>
-                                    </li>
-
-                                    <li class="dw-title text-capitalize mb-3">
-                                        <span>2.</span>
-                                        <span>SG WELCOME ADDRESS SECURITY SEMINAR</span>
-                                        <span>
-                                            <a href="{{URL::asset('/files/documents/')}}/name">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </a>
-                                        </span>
-                                    </li>
-
-                                    <li class="dw-title text-capitalize mb-3">
-                                        <span>3.</span>
-                                        <span>AFRICAN CONTINENTAL APPROACH AND CHALLENGES</span>
-                                        <span>
-                                            <a href="{{URL::asset('/files/documents/')}}/name">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </a>
-                                        </span>
-                                    </li>
-
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-        
-                </div>
-
-            </div>
-            <div class="tab-pane fade" id="nav-2" role="tabpanel" aria-labelledby="nav-2-tab">
-
-                <div class="accordion aga-accordion" id="accod-2">
-                                <div class="qna">
-                            
-                                    <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#tab-2-collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        <div class="mb-0 text-left qa">
-                                            <span class="bg-gray afraa-red-text">9:00 - 15: 00</span>
-                                            <span class="pl-4">Delegates Tour</span>
-                                        </div>
-                                    </a>
-                            
-                                    <div id="tab-2-collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accod-2">
-                                        <div class="card-body">
-                                            <ul class="list-inline agalist">
-                            
-                                                <li class="dw-title text-capitalize mb-3">
-                                                    <span>1.</span>
-                                                    <span>SG 2017 WELCOME ADDRESS FRENCH</span>
-                                                    <span>
-                                                        <a href="{{URL::asset('/files/documents/')}}/name">
-                                                            <i class="fas fa-trash-alt"></i>
-                                                        </a>
-                                                    </span>
-                                                </li>
-                            
-                                                <li class="dw-title text-capitalize mb-3">
-                                                    <span>2.</span>
-                                                    <span>SG WELCOME ADDRESS SECURITY SEMINAR</span>
-                                                    <span>
-                                                        <a href="{{URL::asset('/files/documents/')}}/name">
-                                                            <i class="fas fa-trash-alt"></i>
-                                                        </a>
-                                                    </span>
-                                                </li>
-                            
-                                                <li class="dw-title text-capitalize mb-3">
-                                                    <span>3.</span>
-                                                    <span>AFRICAN CONTINENTAL APPROACH AND CHALLENGES</span>
-                                                    <span>
-                                                        <a href="{{URL::asset('/files/documents/')}}/name">
-                                                            <i class="fas fa-trash-alt"></i>
-                                                        </a>
-                                                    </span>
-                                                </li>
-                            
-                                            </ul>
-                                        </div>
+                                <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#{{$sessions->title}}_26" aria-expanded="false" aria-controls="collapseTwo">
+                                    <div class="mb-0 text-left qa">
+                                        <span class="bg-gray afraa-red-text">{{$start}} - {{$stop}}</span>
+                                        <span class="pl-4">{{$sessions->title}}</span>
                                     </div>
-                                </div>
-                            
-                                <div class="qna">
-                            
-                                    <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#tab-2-collapseThree" aria-expanded="false" aria-controls="tab-2-collapseTwo">
-                                        <div class="mb-0 text-left qa">
-                                            <span class="bg-gray afraa-red-text">9:00 - 15: 00</span>
-                                            <span class="pl-4">Delegates Tour</span>
-                                        </div>
-                                    </a>
-                            
-                                    <div id="tab-2-collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accod-2">
-                                        <div class="card-body">
-                                            <ul class="list-inline agalist">
-                                                
+                                </a>
+
+                                <div id="{{$sessions->title}}_26" class="collapse show" aria-labelledby="headingTwo" data-parent="#accod-1">
+                                    <div class="card-body">
+                                        <ul class="list-inline agalist">
+
+                                            @php
+                                                $questions = $sessions->questions;
+                                            @endphp
+
+                                            @foreach ($questions as $key => $question)
+
                                                 <li class="dw-title text-capitalize mb-3">
-                                                    <span>1.</span>
-                                                    <span>SG 2017 WELCOME ADDRESS FRENCH</span>
+                                                    <span>{{$key+1}}. </span>
+                                                    <span>{{$question->text}}</span>
                                                     <span>
-                                                        <a href="{{URL::asset('/files/documents/')}}/name">
-                                                            <i class="fas fa-trash-alt"></i>
-                                                        </a>
+                                                        <form action="{{action('QuestionController@destroy', $question->id)}}" method="post">
+
+                                                            @csrf
+                                                            <input name="_method" type="hidden" value="DELETE">
+                                                            <button class="text-small" type="submit"><i class="far fa-trash-alt"></i></button>
+
+                                                        </form>
                                                     </span>
                                                 </li>
-                            
-                                                <li class="dw-title text-capitalize mb-3">
-                                                    <span>2.</span>
-                                                    <span>SG WELCOME ADDRESS SECURITY SEMINAR</span>
-                                                    <span>
-                                                        <a href="{{URL::asset('/files/documents/')}}/name">
-                                                            <i class="fas fa-trash-alt"></i>
-                                                        </a>
-                                                    </span>
-                                                </li>
-                            
-                                                <li class="dw-title text-capitalize mb-3">
-                                                    <span>3.</span>
-                                                    <span>AFRICAN CONTINENTAL APPROACH AND CHALLENGES</span>
-                                                    <span>
-                                                        <a href="{{URL::asset('/files/documents/')}}/name">
-                                                            <i class="fas fa-trash-alt"></i>
-                                                        </a>
-                                                    </span>
-                                                </li>
-                            
-                                            </ul>
-                                        </div>
+
+                                            @endforeach
+
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
+
+                        @endif
+
+                    @endforeach
 
                 </div>
 
-            <div class="tab-pane fade" id="nav-3" role="tabpanel" aria-labelledby="nav-3-tab">
+        </div>
+        <div class="tab-pane fade" id="nav-3" role="tabpanel" aria-labelledby="nav-3-tab">
 
-                <div class="accordion aga-accordion" id="accod-3">
-                                <div class="qna">
-                            
-                                    <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#tab-3-collapseTwo" aria-expanded="false" aria-controls="tab-3-collapseTwo">
-                                        <div class="mb-0 text-left qa">
-                                            <span class="bg-gray afraa-red-text">9:00 - 15: 00</span>
-                                            <span class="pl-4">Delegates Tour</span>
-                                        </div>
-                                    </a>
-                            
-                                    <div id="tab-3-collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accod-3">
-                                        <div class="card-body">
-                                            <ul class="list-inline agalist">
-                            
-                                                <li class="dw-title text-capitalize mb-3">
-                                                    <span>1.</span>
-                                                    <span>SG 2017 WELCOME ADDRESS FRENCH</span>
-                                                    <span>
-                                                        <a href="{{URL::asset('/files/documents/')}}/name">
-                                                            <i class="fas fa-trash-alt"></i>
-                                                        </a>
-                                                    </span>
-                                                </li>
-                            
-                                                <li class="dw-title text-capitalize mb-3">
-                                                    <span>2.</span>
-                                                    <span>SG WELCOME ADDRESS SECURITY SEMINAR</span>
-                                                    <span>
-                                                        <a href="{{URL::asset('/files/documents/')}}/name">
-                                                            <i class="fas fa-trash-alt"></i>
-                                                        </a>
-                                                    </span>
-                                                </li>
-                            
-                                                <li class="dw-title text-capitalize mb-3">
-                                                    <span>3.</span>
-                                                    <span>AFRICAN CONTINENTAL APPROACH AND CHALLENGES</span>
-                                                    <span>
-                                                        <a href="{{URL::asset('/files/documents/')}}/name">
-                                                            <i class="fas fa-trash-alt"></i>
-                                                        </a>
-                                                    </span>
-                                                </li>
-                            
-                                            </ul>
-                                        </div>
+                <div class="accordion aga-accordion" id="accod-1">
+
+                    @foreach($session as $sessions)
+
+                        @php
+                            $date = date("j", strtotime($sessions->date));
+                            $start = date("h:i", strtotime($sessions->start_time));
+                            $stop = date("h:i", strtotime($sessions->end_time));
+                        @endphp
+
+                        @if ($date==27)
+
+                            <div class="qna">
+
+                                <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#{{$sessions->title}}_27" aria-expanded="false" aria-controls="collapseTwo">
+                                    <div class="mb-0 text-left qa">
+                                        <span class="bg-gray afraa-red-text">{{$start}} - {{$stop}}</span>
+                                        <span class="pl-4">{{$sessions->title}}</span>
                                     </div>
-                                </div>
-                            
-                                <div class="qna">
-                            
-                                    <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#tab-3-collapseThree" aria-expanded="false" aria-controls="tab-3-collapseThree">
-                                        <div class="mb-0 text-left qa">
-                                            <span class="bg-gray afraa-red-text">9:00 - 15: 00</span>
-                                            <span class="pl-4">Delegates Tour</span>
-                                        </div>
-                                    </a>
-                            
-                                    <div id="tab-3-collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accod-3">
-                                        <div class="card-body">
-                                            <ul class="list-inline agalist">
-                                                
+                                </a>
+
+                                <div id="{{$sessions->title}}_27" class="collapse show" aria-labelledby="headingTwo" data-parent="#accod-1">
+                                    <div class="card-body">
+                                        <ul class="list-inline agalist">
+
+                                            @php
+                                                $questions = $sessions->questions;
+                                            @endphp
+
+                                            @foreach ($questions as $key => $question)
+
                                                 <li class="dw-title text-capitalize mb-3">
-                                                    <span>1.</span>
-                                                    <span>SG 2017 WELCOME ADDRESS FRENCH</span>
+                                                    <span>{{$key+1}}. </span>
+                                                    <span>{{$question->text}}</span>
                                                     <span>
-                                                        <a href="{{URL::asset('/files/documents/')}}/name">
-                                                            <i class="fas fa-trash-alt"></i>
-                                                        </a>
+                                                        <form action="{{action('QuestionController@destroy', $question->id)}}" method="post">
+
+                                                            @csrf
+                                                            <input name="_method" type="hidden" value="DELETE">
+                                                            <button class="text-small" type="submit"><i class="far fa-trash-alt"></i></button>
+
+                                                        </form>
                                                     </span>
                                                 </li>
-                            
-                                                <li class="dw-title text-capitalize mb-3">
-                                                    <span>2.</span>
-                                                    <span>SG WELCOME ADDRESS SECURITY SEMINAR</span>
-                                                    <span>
-                                                        <a href="{{URL::asset('/files/documents/')}}/name">
-                                                            <i class="fas fa-trash-alt"></i>
-                                                        </a>
-                                                    </span>
-                                                </li>
-                            
-                                                <li class="dw-title text-capitalize mb-3">
-                                                    <span>3.</span>
-                                                    <span>AFRICAN CONTINENTAL APPROACH AND CHALLENGES</span>
-                                                    <span>
-                                                        <a href="{{URL::asset('/files/documents/')}}/name">
-                                                            <i class="fas fa-trash-alt"></i>
-                                                        </a>
-                                                    </span>
-                                                </li>
-                            
-                                            </ul>
-                                        </div>
+
+                                            @endforeach
+
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
 
+                        @endif
+
+                    @endforeach
+
                 </div>
-                
+
         </div>
     </div>
+</div>
 
 </div>
