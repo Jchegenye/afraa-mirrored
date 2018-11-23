@@ -14,12 +14,12 @@
             <ul class="dropdown-menu dropdown-user border-1">
                 <li class="dropdown-item" ><a href="{{action('Users\UsersController@edit', Auth::id())}}" class="pt-5"><i class="fa fa-user fa-fw"></i> User Profile</a>
                 </li>
-                <li class="divider"></li>
-                <li class="dropdown-item" >
+                <li class="divider d-none"></li>
+                <li class="dropdown-item">
                     <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">
-                                  <i class="fa fa-sign-out fa-fw"></i>
+                                  <i class="fas fa-sign-out-alt pr-1 ml-1"></i>
                      {{ __('Logout') }}
                     </a>
 
@@ -31,9 +31,6 @@
         </li>
     </ul>
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+        <span><i class="fa fa-bars fa-1x"></i></span>
     </button>
 </nav>

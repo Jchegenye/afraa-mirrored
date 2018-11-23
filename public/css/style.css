@@ -1140,6 +1140,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 		min-width: 100% !important;
 		width: 100%;
     }
+    .navbar-toggle{
+	    color: #3c68b0;
+		border: none;
+		background-color: transparent;
+		font-size: 2.1em;
+		outline: 0 !important;
+	}
 
 /*
 * @author Dan
@@ -1149,3 +1156,4 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
     cursor: pointer;
     text-decoration: none;
 }
+
