@@ -1,3 +1,103 @@
+/* Extra Small Devices, .visible-xs-* */
+@media (max-width: 350px) {
+
+}
+@media (max-width: 767px) {
+	.sidebar {
+		height: auto !important;
+		padding-bottom: 0px !important;
+	}
+	#page-wrapper{
+		padding-top: 0px !important;
+	}
+	.loginpage .loginleft .content {
+		position: absolute;
+		top: 45%;
+		right: 0%;
+		left: 0%;
+		transform: translate(0%, 5%);
+	}	
+	.loginpage .loginleft .content h1{
+		font-size: 1.8em;
+		font-weight: 400;
+	}
+	.loginpage .loginleft .content p{
+		font-size: 0.8em;
+		padding-left: 10px !important;
+		padding-right: 10px !important;
+		line-height: 1.7em;
+	}
+	.loginpage .loginleft {
+		background-position: left;
+	}
+	.loginright {
+		padding-left: 0%;
+		padding-right: 2%;
+	}
+	.loginright p {
+		font-size: 12px;
+	}
+	.loginright .logo {
+		max-width: 170px;
+		margin-top: 10px;
+		margin-bottom: 15px;
+	}
+	.loginright input {
+		height: 40px;
+	}
+	.loginright .form-group p{
+		text-align: left;
+	}
+	.loginright .form-title p {
+		text-align: left;
+		padding-left: 16px;
+		font-size: 15px;
+	}
+	.loginpage .loginright {
+		margin: 10px;
+		height: 100vh;
+	}
+	.tb-sm-text{
+		margin-top: 10px;
+	}
+	.navbar{
+		padding-left: 10px !important;
+		padding-right: 10px !important;
+	}
+	.navbar-brand .logo {
+		max-width: 100px;
+	}
+	.navbar-default .myaccount .dropdown, .dropdown-item{
+		font-size: 10px;
+	}
+	.navbar-top-links li a {
+		margin-left: 0em;
+		margin-right: 0em !important;
+	}
+	.navbar-toggle {
+		font-size: 1.6em;
+	}
+	.navbar {
+		border-bottom: 0.3px solid rgba(0, 0, 0, 0.5);
+		padding-top:10px !important;
+	}
+	.dropdown-item {
+		padding: 0.1rem 0.1rem;
+	}
+	.sidebar-nav .card {
+		margin-right: 0px !important;
+	}
+	.navbar-top-links .dropdown-user {
+		right: auto;
+		left: auto;
+	}
+	.dropdown-user {
+		background-color: transparent;
+		border: none;
+		margin-left: -12px;
+	}
+
+}
 
 @media (min-width: 768px){
 	.sidebar {
@@ -10,12 +110,22 @@
 	.navbar-toggle{
 		display: none;
 	}
+
+	#loginleftsignin{
+		display: none;
+	}
 }
-@media (max-width: 768px){
-	.sidebar {
-	    height: auto !important;
-	}
-	#page-wrapper{
-		padding-top: 0px !important;
-	}
+/* Small Devices, .visible-sm-* */
+@media (min-width: 768px) and (max-width: 991px) { 
+
+}
+
+/* Medium Devices, .visible-md-* */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/* Large Devices, .visible-lg-* */
+@media (min-width: 1200px) {
+
 }
