@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="col-md-6">
-                    <a href="{{ url('/dashboard/admin/session/create') }}" class="btn btn-afraa-full-2">Add a Session</a>
+                    <a href="{{ url('/dashboard/admin/session/create') }}" class="btn btn-afraa-full-2 add-session">Add a Session</a>
                 </div>
             </div>
 
@@ -93,7 +93,7 @@
 
                                                 @csrf
                                                     <input name="_method" type="hidden" value="DELETE">
-                                                    <button class="text-small" type="submit"><i class="far fa-trash-alt"></i></button>
+                                                    <button class="text-small" type="submit"><i class="far fa-trash-alt pl-2"></i></button>
 
                                             </form>
 
@@ -180,7 +180,7 @@
 
                                                 @csrf
                                                     <input name="_method" type="hidden" value="DELETE">
-                                                    <button class="text-small" type="submit"><i class="far fa-trash-alt"></i></button>
+                                                    <button class="text-small" type="submit"><i class="far fa-trash-alt pl-2"></i></button>
 
                                             </form>
 
@@ -240,7 +240,7 @@
 
                                                 @csrf
                                                     <input name="_method" type="hidden" value="DELETE">
-                                                    <button class="text-small" type="submit"><i class="far fa-trash-alt"></i></button>
+                                                    <button class="text-small" type="submit"><i class="far fa-trash-alt pl-2"></i></button>
 
                                             </form>
 

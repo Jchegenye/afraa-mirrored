@@ -68,7 +68,7 @@
 		max-width: 100px;
 	}
 	.navbar-default .myaccount .dropdown, .dropdown-item{
-		font-size: 10px;
+		font-size: 11px;
 	}
 	.navbar-top-links li a {
 		margin-left: 0em;
@@ -97,6 +97,25 @@
 		margin-left: -12px;
 	}
 
+	#dashtabs .nav-tabs .nav-link{
+		width: 100%;
+		margin-bottom:10px;
+	}
+	.add-session{
+		width: 100%;
+	}
+	#dashtabs .table td, .table th {
+		padding: 10px;
+	}
+	#dashtabs .table td h6 {
+		font-size: 10px;
+	}
+	#dashtabs .nav-tabs .nav-link{
+		margin-right: 0px;
+	}
+	#dashtabs .table .tabtable .action-gray {
+		text-align: center;
+	}
 }
 
 @media (min-width: 768px){
