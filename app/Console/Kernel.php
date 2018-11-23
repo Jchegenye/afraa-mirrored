@@ -30,7 +30,9 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
         $schedule->command('afraa:initialize')->daily();
         $schedule->command('afraa:permissions')->daily();
-        $schedule->command('afraa:current-session')->dailyAt('09:38'); //Notify users Daily
+        $schedule->command('afraa:current-session')
+            ->dailyAt('09:38'); //Notify users Daily at start time
+            //->timezone('America/New_York'); 
 
     }
 
