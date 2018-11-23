@@ -4,9 +4,13 @@ namespace Afraa\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Afraa\Legibra\ReusableCodes\Dashboard\RetrieveSessions;
 
 class Kernel extends ConsoleKernel
 {
+
+    use RetrieveSessions;
+    
     /**
      * The Artisan commands provided by your application.
      *
@@ -26,13 +30,46 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
-        $schedule->command('afraa:initialize')->daily();
-        $schedule->command('afraa:permissions')->daily();
-        $schedule->command('afraa:current-session')
-            ->dailyAt('09:38'); //Notify users Daily at start time
-            //->timezone('America/New_York'); 
+        // $schedule->command('inspire')->hourly();
+        // $schedule->command('afraa:initialize')->daily();
+        // $schedule->command('afraa:permissions')->daily();
+
+        //$schedule->command('afraa:current-session')
+        //    ->dailyAt('03:30'); //Notify users Daily at start time
+            //->between('8:00', '17:00');
+
+        $sessions = $this->CurrentSessions(); //Trait session object
+        
+        //dd($sessions);
+
+        //$schedule->command('afraa:current-session')->dailyAt('19:15','22:00');
+            
+            foreach($sessions as $session){
+                
+                $startTime = date("H:i", strtotime($session->start_time));
+
+                echo $startTime;
+
+                //$schedule->command('afraa:current-session')->dailyAt($startTime);
+
+           }
+
+        //dd($getTime);
+
+        // $schedule->command('afraa:current-session')
+        //     ->dailyAt('09:38'); //Notify users Daily at start time
+            //->timezone('America/New_York');
+
+        //$schedule->command(SendCurrentSessionEmail::class, ['afraa:current-session'])->daily();
+
+        // $schedule->call(function () {
+
+        //     DB::table('recent_users')->delete();
+            
+        // })->daily();
+
+        // $schedule->call('Full\Namespace\YourController@method')
+        //         ->hourly();
 
     }
 

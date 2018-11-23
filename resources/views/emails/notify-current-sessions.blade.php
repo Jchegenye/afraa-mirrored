@@ -1,4 +1,4 @@
-@if (empty(!$sessionsData->isEmpty()))
+{{-- @if (empty(!$sessionsData->isEmpty()))
 
     <p>Dear User,</p>
 
@@ -6,21 +6,23 @@
 
     <p>Thank you,</p>
     
-@else
+@else --}}
 
     <p>Dear user,</p>
         
         <p>
             The following session is currently on going:-
             <br>
+            <ul>
             @foreach ($sessionsData as $session)
-                <b>{{$session->title}}</b>
+                <li><b>{{$session->title}}</b></li>
             @endforeach
+        </ul>
             
         </p>
 
     <p>Thank you,</p>
     
-@endif
+{{-- @endif --}}
 
 
