@@ -12,7 +12,13 @@
 
     <div class="row">
         <div class="col-md-12">
-            <h3 class="page-header">Downloads</h3>
+            <h3 class="page-header">
+                @if (Auth::user()->role == "admin")
+                    Uploads
+                @else
+                    Downloads
+                @endif
+            </h3>
         </div>
     </div>
 

@@ -83,7 +83,11 @@ $(document).ready(function(){
     //     format: 'yyyy'
     //   });
 
-    $('#txtHint').DataTable();
+    $('#txtHint').DataTable({
+        "columnDefs": [
+            { "targets": [1,2,3,4], "orderable": false }
+        ]
+    });
 
 });
 
@@ -91,7 +95,7 @@ $(document).ready(function(){
 var textarea = document.querySelector('textarea');
 
 textarea.addEventListener('keydown', autosize);
-             
+
 function autosize(){
   var el = this;
   setTimeout(function(){

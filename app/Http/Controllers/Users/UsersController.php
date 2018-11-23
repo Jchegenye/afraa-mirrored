@@ -8,6 +8,7 @@ use Afraa\Model\Users;
 use Afraa\Profile;
 use Afraa\ProgrammeSession;
 use Afraa\Speaker;
+use Afraa\Events;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -79,9 +80,13 @@ class UsersController extends Controller
 
         $get_users = new Users();
 
+        $events = new Events;
+
+        $event = $events->checkRegisteredEvent($id);
+
         $user_by_id = $get_users->getUserById($id);
 
-        return view('layouts.dashboard.profile.edit',compact('user_by_id','session'));
+        return view('layouts.dashboard.profile.edit',compact('user_by_id','session','event'));
     }
 
     /**
@@ -101,6 +106,14 @@ class UsersController extends Controller
             $speakers = new Speaker;
 
             $speakers = $speakers->setSpeaker($request->get('session'),$id);
+
+        }
+
+        if( $request->get('next_event') !== null ){
+
+            $events = new Events;
+
+            $event = $events->saveEvent($id);
 
         }
 

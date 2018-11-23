@@ -29,7 +29,7 @@
     <div class="table_body">
         <form class="" method="post" action="{{action('ProgrammeSession\ProgrammeSessionController@update', $session->id)}}">
             @csrf
-            
+
             @if (\Session::has('success'))
                 <div class="alert alert-success px-5">
                     {!! \Session::get('success') !!}
@@ -54,9 +54,13 @@
                     <label for="number">Speaker / Moderator:</label>
 
                     <select class="form-control selectpicker" data-show-subtext="true" data-live-search="true" name="user_id">
-                            <option value="0" selected>Choose Option</option>
+                            <option value="0">Choose Option</option>
                             @foreach( $users as $user )
-                                <option data-subtext ="{{ $user->name }}" value="{{ $user->uid }}" >{{ $user->name }}</option>
+                                <option data-subtext ="{{ $user->name }}" value="{{ $user->uid }}"
+                                    @if ($session->user_id == $user->uid )
+                                        selected
+                                    @endif
+                                >{{ $user->name }}</option>
                             @endforeach
                         </select>
                 </div>
@@ -126,7 +130,7 @@
                 <div class="col-md-6 form-group align-self-end">
                     <button type="submit" class="btn btn-afraa-full-2 mb-2">Update</button>
                 </div>
-                
+
             </div>
 
         </form>
