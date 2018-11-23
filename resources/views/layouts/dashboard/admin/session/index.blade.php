@@ -31,7 +31,7 @@
                 </div>
 
                 <div class="col-md-6">
-                    <a href="{{ url('/dashboard/admin/session/create') }}" class="btn btn-afraa-full-2">Add a Session</a>
+                    <a href="{{ url('/dashboard/admin/session/create') }}" class="btn btn-afraa-full-2 add-session">Add a Session</a>
                 </div>
             </div>
 
@@ -84,7 +84,7 @@
                                         </div>
                                     </td>
                                     <td class="action-gray">
-                                        <div>
+                                        <div class="editmanagerprog">
                                             <a href="#" data-toggle="modal" data-target="#{{$sessions->title}}"><i class="far fa-eye d-none"></i></a>
 
                                             <a href="{{action('ProgrammeSession\ProgrammeSessionController@edit', $sessions->id)}}" class="edit"><i class="far fa-edit"></i></a>
@@ -172,7 +172,7 @@
                                         </div>
                                     </td>
                                     <td class="action-gray">
-                                        <div>
+                                        <div class="editmanagerprog">
 
                                             <a href="{{action('ProgrammeSession\ProgrammeSessionController@edit', $sessions->id)}}" class="edit"><i class="far fa-edit"></i></a>
 
@@ -232,7 +232,7 @@
                                         </div>
                                     </td>
                                     <td class="action-gray">
-                                        <div>
+                                        <div class="editmanagerprog">
 
                                             <a href="{{action('ProgrammeSession\ProgrammeSessionController@edit', $sessions->id)}}" class="edit"><i class="far fa-edit"></i></a>
 

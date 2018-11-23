@@ -68,7 +68,7 @@
 		max-width: 100px;
 	}
 	.navbar-default .myaccount .dropdown, .dropdown-item{
-		font-size: 10px;
+		font-size: 12px;
 	}
 	.navbar-top-links li a {
 		margin-left: 0em;
@@ -97,6 +97,49 @@
 		margin-left: -12px;
 	}
 
+	#dashtabs .nav-tabs .nav-link{
+		width: 100%;
+		margin-bottom:10px;
+	}
+	.add-session{
+		width: 100%;
+	}
+	#dashtabs .table td, .table th {
+		padding: 10px;
+	}
+	#dashtabs .table td h6 {
+		font-size: 10px;
+	}
+	#dashtabs .nav-tabs .nav-link{
+		margin-right: 0px;
+	}
+	#dashtabs .table .tabtable .action-gray {
+		text-align: center;
+	}
+
+	#adminTable{
+		margin-left: 0px;
+		overflow-x: scroll;
+		width: 100%;
+	}
+	.custom-file-label, .custom-file-label::after, .contents form input, .contents select {
+		height: 46px !important;
+	}
+	#adminTable .table_body {
+		padding: 0px;
+	}
+	#adminTable form {
+		padding: 10px 20px;
+	}
+	#statistics .stats-card {
+		margin: 15px 0px;
+	}
+	#dashtabs .action-gray a {
+		padding-right: 0px;
+	}
+	.editmanagerprog{
+		display:inline-flex;
+	}
 }
 
 @media (min-width: 768px){
