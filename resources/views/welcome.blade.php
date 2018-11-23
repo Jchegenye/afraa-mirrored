@@ -35,7 +35,9 @@
     <div class="col-md-6 loginright pt-3 shadow">
         <div class="row text-center">
             <div class="col-md-12">
-              <img class="img-fluid logo" src="{{URL::asset('/images/logo.png')}}" alt="logo">
+				<a href="{{ url('/') }}">
+					<img class="img-fluid logo" src="{{URL::asset('/images/logo.png')}}" alt="logo">
+				</a>
             </div>
 
           @yield('content')

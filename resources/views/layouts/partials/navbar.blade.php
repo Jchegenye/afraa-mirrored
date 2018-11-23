@@ -1,10 +1,23 @@
 <!-- Top Navigation bar -->
 <nav class="navbar navbar-default navbar-static-top p-4" role="navigation">
     <div class="navbar-header pl-0">
-        <a class="navbar-brand" href="{{ url('/') }}">
-            <img class="img-fluid logo" src="{{ asset('images/logo.png') }}" alt="logo">
-        </a>
+
+        @if (Auth::user()->role == "admin")
+
+            <a class="navbar-brand" href="{{ url('/dashboard/admin') }}">
+                <img class="img-fluid logo" src="{{URL::asset('/images/logo.png')}}" alt="logo">
+            </a>
+        
+        @elseif(Auth::user()->role == "delegate")
+
+            <a class="navbar-brand" href="{{ url('/dashboard/delegate') }}">
+                <img class="img-fluid logo" src="{{URL::asset('/images/logo.png')}}" alt="logo">
+            </a>
+
+        @endif
+
     </div>
+
     <ul class="nav navbar-top-links navbar-right myaccount">
         <li class="dropdown">
             <a class="dropdown-toggle mr-4" data-toggle="dropdown" href="#">
@@ -30,6 +43,7 @@
             </ul>
         </li>
     </ul>
+    
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>

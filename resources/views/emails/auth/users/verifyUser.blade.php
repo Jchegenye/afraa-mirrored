@@ -85,9 +85,9 @@
 			<!-- fix for gmail -->
 			<tr>
 				<td class="hide">
-					<table width="100%" cellpadding="0" cellspacing="0" style="width:100% !important;">
+					<table width="600" cellpadding="0" cellspacing="0" style="width:600px !important;">
 						<tr>
-							<td style="min-width:100%; font-size:0; line-height:0;">&nbsp;</td>
+							<td style="min-width:600px; font-size:0; line-height:0;">&nbsp;</td>
 						</tr>
 					</table>
 				</td>
@@ -98,17 +98,20 @@
 					<table data-module="module-1" data-thumb="thumbnails/01.png" width="100%" cellpadding="0" cellspacing="0">
 						<tr>
 							<td data-bgcolor="bg-module" bgcolor="#eaeced">
-								<table class="flexible" width="100%" align="center" style="margin:0 auto;" cellpadding="0" cellspacing="0">
+								<table class="flexible" width="600" align="center" style="margin:0 auto;" cellpadding="0" cellspacing="0">
 									<tr>
-										<td style=" background: #f9f9f9; position: relative; width: 100%;">
-											<table width="100%" cellpadding="0" cellspacing="0" style=" padding: 5px 15px 5px 0px;">
+										<td style="background: #f9f9f9;
+                                        position: relative;
+                                        width: 600px;
+                                        border-bottom: 1px solid #00000030;">
+											<table width="100%" cellpadding="0" cellspacing="0" style=" padding: 25px;">
 												<tr>
 													<th class="flex" width="113" align="left" style="padding:0;">
 														<table class="center" cellpadding="0" cellspacing="0">
 															<tr>
 																<td style="line-height:0;">
                                                                     <a target="_blank" style="text-decoration:none;" href="https://www.afraa.org/">
-                                                                    <img src="https://legibratest.com/demo/afraa-imgs/logo1.png" border="0" style="font:bold 12px/12px Arial, Helvetica, sans-serif; color:#606060; object-fit: contain; width: 100%; height: 80px;" align="left" vspace="0" hspace="0" width="113" height="12" alt="afraa" /></a>
+                                                                    <img src="http://afraa.or.ke/images/logo.png" border="0" style="font:bold 12px/12px Arial, Helvetica, sans-serif; color:#606060; object-fit: contain; width: 100%; height: 80px;" align="left" vspace="0" hspace="0" width="113" height="12" alt="afraa" /></a>
 																</td>
 															</tr>
 														</table>
@@ -116,7 +119,7 @@
 													<th class="flex" align="left" style="padding:0;">
 														<table width="100%" cellpadding="0" cellspacing="0">
 															<tr>
-																<td data-color="text" data-size="size navigation" data-min="10" data-max="22" data-link-style="text-decoration:none; color:#888;" class="nav" align="right" style="font:bold 13px/15px Arial, Helvetica, sans-serif; color:#888;">
+																<td data-color="text" data-size="size navigation" data-min="10" data-max="22" data-link-style="text-decoration:none; color:#888;" class="nav" align="right" style="font:bold 15px/17px Arial, Helvetica, sans-serif, Helvetica, sans-serif; color:#888;">
 																	<a target="_blank" style="text-decoration:none; color:#888;" href="#">Home</a> &nbsp; &nbsp; <a target="_blank" style="text-decoration:none; color:#888;" href="#">Blog</a> &nbsp; &nbsp; <a target="_blank" style="text-decoration:none; color:#888;" href="#">Contact</a>
 																</td>
 															</tr>
@@ -134,10 +137,8 @@
 					<table data-module="module-2" data-thumb="thumbnails/02.png" width="100%" cellpadding="0" cellspacing="0">
 						<tr>
 							<td data-bgcolor="bg-module" bgcolor="#eaeced">
-								<table class="flexible" width="100%" align="center" style="margin:0 auto;" cellpadding="0" cellspacing="0">
-									<!-- <tr>
-										<td class="img-flex"><img src="https://legibratest.com/demo/afraa-imgs/img-01.jpg" style="vertical-align:top; object-fit:cover;" width="100%" height="240" alt="" /></td>
-									</tr> -->
+								<table class="flexible" width="600" align="center" style="margin:0 auto;" cellpadding="0" cellspacing="0">
+									
 									<tr>
 										<td data-bgcolor="bg-block" class="holder" style="padding:58px 60px 52px;" bgcolor="#f9f9f9">
 											<table width="100%" cellpadding="0" cellspacing="0">
@@ -149,38 +150,21 @@
 												<tr>
 													<td data-color="text" data-size="size text" data-min="10" data-max="26" data-link-color="link text color" data-link-style="font-weight:bold; text-decoration:underline; color:#40aceb;" align="left" style="color:#675C5C; padding:0 0 23px;">
 														Welcome, you have successfully joined us.
-
-														{{-- @isset($user['password'])
+														
 														<br/><br/>
-															This is your password:-
-																<br/>
-																<span style="color: #3b68b1; cursor: pointer;">{{$user['password']}}</span>
-														@endisset --}}
-
-														{{-- @php Crypt::decrypt($user['password']) @endphp --}}
-
+														We hope that this is your email <span style="color: #3b68b1; cursor: pointer;">{{$user['email']}}</span>
+														
 														<br/><br/>
 														Kindly <a href="{{url('user/verify', $user->verifyUser->token)}}" target="_blunk" style="color: #3b68b1; cursor: pointer; text-decoration: none;">click here</a> to verify your account. We just need to know that your the owner of this account.
-
+														
 														<br/><br/>
 														If you have any issues, kindly contact our <a href="http://afraa.org/index.php?option=com_contact&view=contact&id=3&Itemid=431" target="_blunk" style="color: #3b68b1; cursor: pointer; text-decoration: none;">Support Team</a>
-
+														
 														<br/><br/>
 														Best regards,<br/>
 														Afraa Support Team
 													</td>
 												</tr>
-												<!-- <tr>
-													<td style="padding:0 0 20px;">
-														<table width="134" align="left" style="margin:0 auto;" cellpadding="0" cellspacing="0">
-															<tr>
-																<td data-bgcolor="bg-button" data-size="size button" data-min="10" data-max="16" class="btn" align="center" style="font:12px/14px Arial, Helvetica, sans-serif; color:#f8f9fb; text-transform:uppercase; mso-padding-alt:12px 10px 10px; border-radius:2px;" bgcolor="#7bb84f">
-																	<a target="_blank" style="text-decoration:none; color:#f8f9fb; display:block; padding:12px 10px 10px;" href="#">Learn More</a>
-																</td>
-															</tr>
-														</table>
-													</td>
-												</tr> -->
 											</table>
 										</td>
 									</tr>
@@ -189,38 +173,21 @@
 							</td>
 						</tr>
                     </table>
-
+                    
 					<!-- module 7 -->
 					<table data-module="module-7" data-thumb="thumbnails/07.png" width="100%" cellpadding="0" cellspacing="0">
 						<tr>
 							<td data-bgcolor="bg-module" bgcolor="#eaeced">
-								<table class="flexible" width="100%" align="center" style="margin:0 auto;" cellpadding="0" cellspacing="0">
+								<table class="flexible" width="600" align="center" style="margin:0 auto;" cellpadding="0" cellspacing="0">
 									<tr>
-										<td class="footer" style="background: #f9f9f9; padding: 20px 15px 10px 15px;">
+										<td class="footer" style="background: #f9f9f9; padding: 25px 25px 15px 25px;">
 											<table width="100%" cellpadding="0" cellspacing="0">
 												<tr class="table-holder">
 													<th class="tfoot" width="400" align="left" style="vertical-align:top; padding:0;">
 														<table width="100%" cellpadding="0" cellspacing="0">
 															<tr>
 																<td data-color="text" data-link-color="link text color" data-link-style="text-decoration:underline; color:#797c82;" class="aligncenter" style="font:12px/16px Arial, Helvetica, sans-serif; color:#797c82; padding:0 0 10px;">
-																	<a href="https://legibra.com" target="_blank" style="text-decoration:none;     font: 12px/16px Arial, Helvetica, sans-serif; color: #797c82;">Legibra</a>, {{date ('Y') }}. &nbsp; All Rights Reserved. <a target="_blank" style="text-decoration:underline; color:#797c82;" href="afraa_unsubscribe">Unsubscribe.</a>
-																</td>
-															</tr>
-														</table>
-													</th>
-													<th class="thead" width="200" align="left" style="vertical-align:top; padding:0;">
-														<table class="center" align="right" cellpadding="0" cellspacing="0">
-															<tr>
-																<td class="btn" valign="top" style="line-height:0; padding:3px 0 0;">
-																	<a target="_blank" style="text-decoration:none;" href="http://www.facebook.com/pages/African-Airlines-Association/152312251503428"><img src="https://legibratest.com/demo/afraa-imgs/ico-facebook.png" border="0" style="font:12px/15px Arial, Helvetica, sans-serif; color:#797c82;" align="left" vspace="0" hspace="0" width="6" height="13" alt="fb" /></a>
-																</td>
-																<td width="20"></td>
-																<td class="btn" valign="top" style="line-height:0; padding:3px 0 0;">
-																	<a target="_blank" style="text-decoration:none;" href="https://twitter.com/#!/AfricanAirlines"><img src="https://legibratest.com/demo/afraa-imgs/ico-twitter.png" border="0" style="font:12px/15px Arial, Helvetica, sans-serif; color:#797c82;" align="left" vspace="0" hspace="0" width="13" height="11" alt="tw" /></a>
-																</td>
-																<td width="20"></td>
-																<td class="btn" valign="top" style="line-height:0; padding:3px 0 0;">
-																	<a target="_blank" style="text-decoration:none;" href="#"><img src="https://legibratest.com/demo/afraa-imgs/ico-linkedin.png" border="0" style="font:12px/15px Arial, Helvetica, sans-serif; color:#797c82;" align="left" vspace="0" hspace="0" width="13" height="11" alt="in" /></a>
+																	<a href="http://www.afraa.org/" target="_blank" style="text-decoration:none;     font: 12px/16px Arial, Helvetica, sans-serif; color: #797c82;">African Airlines Association</a>, {{date ('Y') }}. &nbsp;All Rights Reserved.
 																</td>
 															</tr>
 														</table>
