@@ -5,7 +5,7 @@
 @section('content')
 
 <div id="adminTable">
-    
+
     <div class="table_header ">
         <div class="row ">
             <div class="col-md-4">
@@ -29,7 +29,7 @@
     <div class="table_body">
         <form class="" method="post" action="{{url('dashboard/admin/session')}}" enctype="multipart/form-data">
             @csrf
-            
+
             <div class="row">
                 <div class="col-md-6 form-group">
                     <div class="form-group col-md-12">
@@ -84,9 +84,9 @@
                     <div class="form-group col-md-12">
                         <p>Day</p>
                         <select class="form-control date" name="date">
-                            <option value="2018-10-25" >Day One</option>
-                            <option value="2018-10-26" >Day Two</option>
-                            <option value="2018-10-27" >Day Three</option>
+                            <option value="2018-11-25" >Day One</option>
+                            <option value="2018-11-26" >Day Two</option>
+                            <option value="2018-11-27" >Day Three</option>
                         </select>
                         <small class="error">{{$errors->first('date')}}</small>
                     </div>
@@ -95,7 +95,7 @@
                     <button type="submit" class="btn btn-afraa-full-2 mb-4 ml-3">Submit</button>
                 </div>
             </div>
-            
+
       </form>
     </div>
 
