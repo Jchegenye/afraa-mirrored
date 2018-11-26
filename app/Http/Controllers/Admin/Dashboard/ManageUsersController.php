@@ -214,6 +214,7 @@ class ManageUsersController extends Controller
 
         if($queryPermissions){
 
+            $myPhoto = "";
             //Check existing photo
             if($request->hasfile('photo'))
             {
