@@ -160,6 +160,8 @@ return [
         // Afraa\Providers\BroadcastServiceProvider::class,
         Afraa\Providers\EventServiceProvider::class,
         Afraa\Providers\RouteServiceProvider::class,
+        Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
     ],
 
@@ -211,6 +213,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'StringHelper'=> Afraa\Legibra\ReusableCodes\Helpers\StringHelper::class,
+        'Recaptcha' => Greggilbert\Recaptcha\Facades\Recaptcha::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 

@@ -41,25 +41,25 @@
                         <input id="email" type="email" placeholder="Email" class="w-100 rounded-0 form-control-lg{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" >
 
                         @if ($errors->has('email'))
-                            <span class="invalid-feedback" role="alert">
+                            <span class="" role="alert">
                                 <strong>{{ $errors->first('email') }}</strong>
                             </span>
                         @endif
                     </div>
-                         {{-- <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="g-recaptcha" data-sitekey="
-                                @if (env('APP_ENV')!='Production')
-                                {{ env('GOOGLE_RECAPTCHA_KEY') }}
-                                @endif
-                                "></div>
-                                @if ($errors->has('g-recaptcha-response'))
-                                    <span class="invalid-feedback" style="display: block;">
-                                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div> --}}
+
+                    @if (app()->environment('production'))
+                        <div class="form-group ml-3">
+                            <div class="g-recaptcha" data-sitekey="
+                            {{ env('GOOGLE_RECAPTCHA_KEY') }}
+                            " ></div>
+                            @if ($errors->has('g-recaptcha-response'))
+                                <span class="invalid-feedback" style="display: block;">
+                                    <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    @endif
+
                     <div class="form-group row">
                         <div class="col-md-6 offset-md-2">
                         <button type="submit" class="btn btn btn-afraa-full-2">

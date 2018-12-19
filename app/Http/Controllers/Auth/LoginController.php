@@ -40,6 +40,35 @@ class LoginController extends Controller
     }
 
     /**
+     * Handle a login request to the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function validateLogin(Request $request)
+    {
+        if (app()->environment('production')) {
+            $this->validate($request, [
+                $this->username() => 'required',
+                'password' => 'required',
+
+                // new rules here
+                'g-recaptcha-response' => 'required|recaptcha',
+
+            ]);
+        }else{
+            $this->validate($request, [
+                $this->username() => '',
+                'email'=> '',
+                'password' => '',
+                // new rules here
+                'g-recaptcha-response' => '',
+
+            ]);
+        }
+    }
+
+    /**
      * Restricting User Access for Un-Verified Users
      * 
      * @author Jackson A. Chegenye
