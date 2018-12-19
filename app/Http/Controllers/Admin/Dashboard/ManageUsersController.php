@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
 
+use Maatwebsite\Excel\Facades\Excel;
+use Afraa\Exports\ExportList;
+
 class ManageUsersController extends Controller
 {
 
@@ -65,6 +68,32 @@ class ManageUsersController extends Controller
         $user_type = "delegate";
         return view('layouts.dashboard.admin.users',compact('user_type'))->with($data);
 
+    }
+
+    /**
+     * Export to csv
+     */
+    public function exportCSV()
+    {
+        Excel::create('Delegates List Export', function($excel) {
+            $excel->sheet('Delegates', function($sheet) {
+
+                //$user = User::all();
+                $user = User::where('verified', '=', 1)->get();
+
+                foreach ($user as $key => $value) {
+                    $payload[] = array(
+                        'Name' => $value['name'],
+                        'Email' => $value['email'],
+                        'Phone' => $value['phone'],
+                        'Country' => $value['country']
+                        // 'created_at' => $value['Date Joined']
+                    );
+                }
+                $sheet->fromArray($payload);
+            });
+        })->download('xls');
+        //return Excel::download(new ExportList, 'delegates.csv');
     }
 
     /**

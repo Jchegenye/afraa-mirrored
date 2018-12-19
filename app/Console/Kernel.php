@@ -5,6 +5,7 @@ namespace Afraa\Console;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Afraa\Legibra\ReusableCodes\Dashboard\RetrieveSessions;
+use Carbon\Carbon;
 
 class Kernel extends ConsoleKernel
 {
@@ -34,25 +35,55 @@ class Kernel extends ConsoleKernel
         // $schedule->command('afraa:initialize')->daily();
         // $schedule->command('afraa:permissions')->daily();
 
-        //$schedule->command('afraa:current-session')
-        //    ->dailyAt('03:30'); //Notify users Daily at start time
-            //->between('8:00', '17:00');
+        $getSchedule = $schedule->command('afraa:current-session --force')->everyMinute();
 
-        $sessions = $this->CurrentSessions(); //Trait session object
-        
-        //dd($sessions);
+        if($getSchedule){
 
-        //$schedule->command('afraa:current-session')->dailyAt('19:15','22:00');
+            $sessions = $this->CurrentSessions(); //Trait session object
             
             foreach($sessions as $session){
-                
-                $startTime = date("H:i", strtotime($session->start_time));
 
-                echo $startTime;
+                //echo $session->title;
+                //echo Carbon::create($session->start_time)->subMinutes(10)->format('H:i');
 
-                //$schedule->command('afraa:current-session')->dailyAt($startTime);
+                //check if session already exists
+                //if($session->title == $session->title){
+                    //do nothing
+                //}else{
 
-           }
+                    // if('jack' == 'jack' && '12:00:00' == '12:01:00'){
+                    //     echo "same";
+                    // }else{
+                    //     echo "not";
+                    // }
+
+                    $schedule->command('afraa:current-session')
+                        ->dailyAt(Carbon::create($session->start_time)
+                        //->subMinutes(2)
+                        ->format('H:i'));
+
+                //}
+
+            }
+
+        }
+    
+        // $schedule->call(function () {
+
+        //     $sessions = $this->CurrentSessions(); //Trait session object
+            
+        //     foreach($sessions as $session){
+
+        //         echo $session->title;
+
+        //         echo Carbon::create($session->start_time)->subMinutes(10)->format('H:i');
+
+        //         $schedule->command('afraa:current-session')->dailyAt(Carbon::create($session->start_time)->subMinutes(10)->format('H:i'));
+        //         //Subtract 10 minutes before event starts
+
+        //    }
+
+        // })->everyMinute();
 
         //dd($getTime);
 
@@ -60,7 +91,7 @@ class Kernel extends ConsoleKernel
         //     ->dailyAt('09:38'); //Notify users Daily at start time
             //->timezone('America/New_York');
 
-        //$schedule->command(SendCurrentSessionEmail::class, ['afraa:current-session'])->daily();
+        //$schedule->command(RetrieveSessions::class, ['afraa:current-session'])->everyMinute();
 
         // $schedule->call(function () {
 

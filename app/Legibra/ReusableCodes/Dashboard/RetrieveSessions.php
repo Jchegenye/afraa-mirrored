@@ -31,19 +31,18 @@ use Carbon\Carbon;
             $currentDate = Carbon::now()->format('Y-m-d'); //Get current date
             $currentTime = Carbon::now()->format('H:i:s'); //Get current time
 
+            // $currentTimeStart = '8:00:00';
+            // $currentTimeEnd = '10:00:00';
+
             //echo $currentTime;
 
             $sessions = DB::table('programme_sessions') //Compare current date, time with a given session.
                 ->whereDate('date', $currentDate) 
-                ->where('start_time', '<=', $currentTime)
-                ->where('end_time', '=>', $currentTime)
+                ->where('start_time', '<=', $currentTime) // start_time is less than or equal to $currentTime
+                ->where('end_time', '>=', $currentTime)
+                ->orderBy('start_time','DESC') //
                 ->get();
 
-            // $data = [
-
-            //     'sessions' => $sessions,
-
-            // ];
             return $sessions;
 
         }

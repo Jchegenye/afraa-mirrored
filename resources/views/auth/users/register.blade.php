@@ -4,10 +4,6 @@
 
 @section('register', 'Register')
 
-{{-- @section('head')
-    <script src='https://www.google.com/recaptcha/api.js'></script>
-@endsection --}}
-
 @section('content')
 
 <div class="row pt-5 pb-2 pl-5 pr-5 ">
@@ -65,7 +61,6 @@
             @endif
         </div>
         <div class="form-group ml-3 shadow-xm">
-
             <input id="password-confirm" type="password" placeholder="Confirm Password"  class="form-control-lg rounded-0 form-control" name="password_confirmation">
             @if ($errors->has('password_confirmation'))
                 <span class="invalid-feedback" role="alert">
@@ -73,6 +68,20 @@
                 </span>
             @endif
         </div>
+        
+        @if (app()->environment('production'))
+            <div class="form-group ml-3">
+                <div class="g-recaptcha" data-sitekey="
+                {{ env('GOOGLE_RECAPTCHA_KEY') }}
+                " ></div>
+                @if ($errors->has('g-recaptcha-response'))
+                    <span class="invalid-feedback" style="display: block;">
+                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                    </span>
+                @endif
+            </div>
+        @endif
+
         <div class="form-group ml-3 shadow-xm">
 
         </div>
@@ -81,7 +90,7 @@
         </div>
         <div class="form-group ml-3 text-right">
             <button type="submit" class="bg-transparent border-0 cursor-pointer">
-                <span class="text-black pr-4">{{ __('Register') }}</span><i class="fas fa-sign-in-alt"></i>
+                <span class="text-black pr-4">{{ __('Submit') }}</span><i class="fas fa-sign-in-alt"></i>
             </button>
         </div>
     </form>

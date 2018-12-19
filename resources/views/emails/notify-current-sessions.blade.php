@@ -2,7 +2,7 @@
 
     <p>Dear User,</p>
 
-    <p>There is no active session at the moment!</p>
+    <p>Your session is about to ended!</p>
 
     <p>Thank you,</p>
     
@@ -11,13 +11,26 @@
     <p>Dear user,</p>
         
         <p>
-            The following session is currently on going:-
-            <br>
+            Session(s) reminder.
             <ul>
-            @foreach ($sessionsData as $session)
-                <li><b>{{$session->title}}</b></li>
-            @endforeach
-        </ul>
+                @php
+                    $currentTime = date("H:i");
+                @endphp
+
+                @foreach ($sessionsData as $session)
+                    
+                    @if (date("H:i", strtotime($session->start_time)) == date("H:i"))
+
+                        <li><b>{{$session->title}}</b> ({{$session->start_time}}) - New session about to start</li>
+
+                    @else
+
+                        <li><b>{{$session->title}}</b> ({{$session->start_time}}) - Ongoing Session</li>
+
+                    @endif
+
+                @endforeach
+            </ul>
             
         </p>
 
