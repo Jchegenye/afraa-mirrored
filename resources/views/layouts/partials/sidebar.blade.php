@@ -229,13 +229,13 @@
         @else
 
             <div class="row buttons text-left ml-3 mb-4 mt-4 pt-3">
-                <div class="col-12 pb-3"><h6>More</h6></div>
+                {{--  <div class="col-12 pb-3"><h6>More</h6></div>
                 <div class="col-12 pb-3"><a href="#">General Event Infomation</a></div>
                 <div class="col-12 pb-3"><a href="#">Exhibition Floor Plan</a></div>
                 <div class="col-12 pb-3"><a href="#">Social Events</a></div>
                 <div class="col-12 pb-3"><a href="#">Host Airline</a></div>
                 <div class="col-12 pb-3"><a href="#">Media Entities</a></div>
-                <div class="col-12 pb-3	"><a href="#">Organisers</a></div>
+                <div class="col-12 pb-3	"><a href="#">Organisers</a></div>  --}}
             </div>
 
         @endif

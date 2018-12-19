@@ -41,10 +41,14 @@ use Illuminate\Support\Facades\DB;
 
             $search = request()->uid; //get query id
             //$usersSearch = User::where('name','LIKE',"%{$search}%")->paginate(4); //Get search results by name
-            $usersSearch = User::withTrashed()
-                        ->where('name','LIKE',"%{$search}%")
+            // $usersSearch = User::withTrashed()
+            // ->where('name','LIKE',"%{$search}%")
+            // ->orderBy('uid', 'desc')
+            // ->paginate(4);
+
+            $usersSearch = User::where('name','LIKE',"%{$search}%")
                         ->orderBy('uid', 'desc')
-                        ->paginate(4);
+                        ->get();
             /**
              * Permissions Modal
              *
