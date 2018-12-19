@@ -28,23 +28,16 @@
     <tbody>
         @foreach ($usersSearch as $index => $user)
             @if($user->deleted_at)
-                <tr style="opacity: 0.6; background-color: #ffa5004d;">
-                    @if ($user_type = "manager")
-                        <td><div class="bg">{{$index +1}}</div></td>
-                        <td><div class="bg">{{ $user->name }}</div></td>
+                {{--  <tr>
+                    <td><div class="bg">{{$index +1}}</div></td>
+                    <td><div class="bg">{{ $user->name }}</div></td>
+
+                    @if ($user_type == "manager")
                         <td><div class="bg">{{ $user->email }}</div></td>
-                        <td><div class="bg">{{ $user->role }}</div></td>
-                        <td>
-                        <td><div class="bg">{{ $user->Job_Title }}</div></td>
-                        <td><div class="bg">{{ $user->Company_Name }}</div></td>
                     @else
-
-                        <td><div class="bg">{{$index +1}}</div></td>
-                        <td><div class="bg">{{ $user->name }}</div></td>
                         <td><div class="bg">{{ $user->Job_Title }}</div></td>
                         <td><div class="bg">{{ $user->Company_Name }}</div></td>
-
-                    @endif
+                    @endif  --}}
                     {{--  <td>
                         <div class="bg">
                             @if($user->verified === 1)
@@ -54,17 +47,17 @@
                             @endif
                         </div>
                     </td>  --}}
-                    <td>
-                        <div class="btn-group btn-group-toggle pull-right" >
-                            <label class="" >
-                                Trashed - &nbsp;
-                            </label>
-                            <a href="{!! url('dashboard/users/trash/' . $user->uid) !!}" title="Recycle">
-                                Recycle
+                    {{--  <td class="mx-auto" style="display: inline;">
+                        <div class="">
+                            <a href="{{action('Users\UsersController@edit', $user->uid)}}" title="Edit" class="text-darkred">
+                                <i class="far fa-edit pr-3"></i>
+                            </a>
+                            <a href="{!! url('dashboard/users/trash/' . $user->uid) !!}" title="Trash">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
                             </a>
                         </div>
                     </td>
-                </tr>
+                </tr>  --}}
             @else
                 <tr>
                         <td><div class="bg">{{$index +1}}</div></td>

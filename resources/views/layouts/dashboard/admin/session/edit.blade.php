@@ -102,7 +102,7 @@
 
                     <select class="form-control date" name="date">
                         @php
-                            $dates = ["2018-10-25","2018-10-26","2018-10-27"];
+                            $dates = ["2018-11-25","2018-11-26","2018-11-27"];
                             $i=0;
                         @endphp
 
@@ -113,11 +113,11 @@
                                     selected="selected"
                                 @endif
                                 >
-                                @if ($dates[$i] == "2018-10-25")
+                                @if ($dates[$i] == "2018-11-25")
                                     Day One
-                                @elseif($dates[$i] == "2018-10-26")
+                                @elseif($dates[$i] == "2018-11-26")
                                     Day Two
-                                @elseif($dates[$i] == "2018-10-27")
+                                @elseif($dates[$i] == "2018-11-27")
                                     Day Three
                                 @endif
                             </option>
