@@ -17,7 +17,7 @@
     <div class="row mt-4">
         <div class="col-md-12">
 
-            <div class="delegate-box afraa-white-box ">
+            {{-- <div class="delegate-box afraa-white-box ">
                 <table class="table">
                     <tr>
                         <th>
@@ -42,7 +42,8 @@
                         </td>
                     </tr>
                 </table>
-            </div>
+            </div> --}}
+            No event!
 
         </div>
     </div>

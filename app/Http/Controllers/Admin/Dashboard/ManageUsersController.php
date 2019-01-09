@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
 
 use Maatwebsite\Excel\Facades\Excel;
-use Afraa\Exports\ExportList;
+//use Afraa\Exports\ExportList;
 
 class ManageUsersController extends Controller
 {
@@ -87,7 +87,7 @@ class ManageUsersController extends Controller
                         'Email' => $value['email'],
                         'Phone' => $value['phone'],
                         'Country' => $value['country']
-                        // 'created_at' => $value['Date Joined']
+                        // 'Date Joined' => $value['created_at']
                     );
                 }
                 $sheet->fromArray($payload);
