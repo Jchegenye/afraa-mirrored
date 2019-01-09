@@ -31,7 +31,7 @@
             </a>
 
             <a href="#" class="aga aviation mt-4 ">
-                <img src="{{URL::asset('/images/asc-logo.jpg')}}" alt="" class="img-fluid col-md-2">
+                <img src="{{URL::asset('/images/logo.png')}}" alt="" class="img-fluid col-md-2">
                 <span class="col-md-10">AVIATION STAKEHOLDERS CONVENTION</span>
             </a>
 
