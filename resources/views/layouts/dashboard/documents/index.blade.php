@@ -26,7 +26,7 @@
         <div class="col-md-12">
 
             <a href="{{url('dashboard/delegate/aga')}}" class="aga">
-                <img src="{{URL::asset('/images/logo.png')}}" alt="" class="img-fluid col-md-2">
+                <img src="{{URL::asset('/images/logo2.png')}}" alt="" class="img-fluid col-md-2">
                 <span class="col-md-10">ANNUAL GENERAL ASSEMBLY</span>
             </a>
 

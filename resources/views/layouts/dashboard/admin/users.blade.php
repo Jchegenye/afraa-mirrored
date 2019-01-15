@@ -23,7 +23,7 @@
 
                 <div class="col-md-8">
                     <div class="row">
-                        <div class="col-md-6 offset-md-2 ">
+                        <div class="col-md-6">asda
                             {{--  <div class="input-group custom-search-form">
                                 <input type="text" class="form-control bg-danger text-white rounded-left" autocomplete="off" id="search" placeholder="Seach...">
                                 <span class="input-group-btn border-0">
@@ -36,6 +36,11 @@
                         <div class="col-md-3">
                             <a href="{{url('/dashboard/users/create/'. $user_type)}}" class="btn btn-afraa tb-sm-text text-capitalize">
                                 <i class="fas fa-user-plus"></i> Add {{$user_type}}
+                            </a>
+                        </div>
+                        <div class="col-md-3">
+                            <a href="{{url('/dashboard/delegates/exportCSV')}}" class="btn btn-afraa tb-sm-text text-capitalize">
+                                <i class="fas fa-user-plus"></i> Export to CSV
                             </a>
                         </div>
                     </div>

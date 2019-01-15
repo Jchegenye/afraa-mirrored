@@ -140,7 +140,7 @@
             @csrf
             <div class="form-title pt-3 ml-3"><p class="pl-4">LOGIN</p></div>
             <div class="form-group ml-3 shadow-xm">
-                <input id="email" type="email" placeholder="Email" class="form-control-lg rounded-0 form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                <input id="email" type="email" placeholder="Email" class="form-control-lg rounded-0 form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}"  >
 
                 @if ($errors->has('email'))
                     <span class="invalid-feedback" role="alert">
@@ -150,7 +150,7 @@
             </div>
             <div class="form-group ml-3 shadow-xm">
                 {{-- <input type="password" class="form-control-lg  rounded-0" id="inputEmail4" placeholder="Password"> --}}
-                <input id="password" type="password"  placeholder="Password" class="form-control-lg  rounded-0 form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                <input id="password" type="password"  placeholder="Password" class="form-control-lg  rounded-0 form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" >
 
                 @if ($errors->has('password'))
                     <span class="invalid-feedback" role="alert">
@@ -158,6 +158,20 @@
                     </span>
                 @endif
             </div>
+
+            @if (app()->environment('production'))
+                <div class="form-group ml-3">
+                    <div class="g-recaptcha" data-sitekey="
+                    {{ env('GOOGLE_RECAPTCHA_KEY') }}
+                    " ></div>
+                    @if ($errors->has('g-recaptcha-response'))
+                        <span class="invalid-feedback" style="display: block;">
+                            <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                        </span>
+                    @endif
+                </div>
+            @endif
+
             <div class="forgot text-right">
                 <a class="btn btn-link" href="{{ route('passw.request') }}">
                     {{ __('Forgot?') }}

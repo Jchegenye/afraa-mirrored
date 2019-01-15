@@ -57,10 +57,18 @@ class ForgotPasswordController extends Controller
 
         $getCode = $this->generatePermissionsCode();
 
-        $rules = array(
-            'email' => 'required|email|max:255',
-            //'g-recaptcha-response' => 'required'
-        );
+        if (app()->environment('production')) {
+            $rules = array(
+                'email' => 'required|email|max:255',
+                'g-recaptcha-response' => 'required'
+            );
+        }else{
+
+            $rules = array(
+                'g-recaptcha-response' => ''
+            );
+
+        }
 
         $validator = Validator::make(Input::all(), $rules);
 
@@ -178,12 +186,19 @@ class ForgotPasswordController extends Controller
         $getCode = $this->generatePermissionsCode();
 
         $reset = Input::all();
-        $rules = array(
-            'email' => 'required|email|max:255',
-            // //'g-recaptcha-response' => 'required',
-            'password' => 'min:6|required_with:password_confirmation|same:password_confirmation|unique:users,password',
-            'password_confirmation' => 'min:6',
-        );
+
+        if (app()->environment('production')) {
+            $rules = array(
+                'email' => 'required|email|max:255',
+                'g-recaptcha-response' => 'required',
+                'password' => 'min:6|required_with:password_confirmation|same:password_confirmation|unique:users,password',
+                'password_confirmation' => 'min:6',
+            );
+        }else{
+            $rules = array(
+                'g-recaptcha-response' => '',
+            );
+        }
 
         $validator = Validator::make ($reset, $rules);
 

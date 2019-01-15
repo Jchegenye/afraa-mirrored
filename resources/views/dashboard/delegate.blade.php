@@ -17,7 +17,7 @@
     <div class="row mt-4">
         <div class="col-md-12">
 
-            <div class="delegate-box afraa-white-box ">
+            {{-- <div class="delegate-box afraa-white-box ">
                 <table class="table">
                     <tr>
                         <th>
@@ -42,10 +42,36 @@
                         </td>
                     </tr>
                 </table>
-            </div>
+            </div> --}}
+            No event!
 
         </div>
     </div>
+
+    @foreach($mysessions as $session)
+
+        {{-- @php
+            $date = date("Y-m-d", strtotime($sessions['date']));
+            $start_time = date("H:i:s", strtotime($sessions['date']));
+        @endphp --}}
+
+        {{$session->title}}<br>
+
+        {{-- @if ()
+            
+        @endif --}}
+
+        {{-- {{$sessions['start_time']}} {{$sessions['title']}} --}}
+
+        {{-- 
+        {{$date}}
+        <span class="pl-3 pr-3">
+            {{$start_time}}
+        </span> --}}
+
+    @endforeach
+
+    
 
     <div class="row mt-5">
         <div class="col-md-12">

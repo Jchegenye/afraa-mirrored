@@ -75,6 +75,9 @@ Route::group(['middleware' => 'auth'], function()
             ]);
             Route::resource('/permissions','ManagePermissionsController');
 
+            // Export to csv
+            Route::get('/delegates/exportCSV','ManageUsersController@exportCSV');
+
             //CRUD
             Route::get('/users/trash/{uid}', [
 				'uses' => 'ManageUsersController@trash',

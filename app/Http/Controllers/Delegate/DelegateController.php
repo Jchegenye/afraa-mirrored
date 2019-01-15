@@ -10,9 +10,12 @@ use Afraa\Model\Users;
 use Afraa\Speaker;
 use Afraa\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Afraa\Legibra\ReusableCodes\Dashboard\RetrieveSessions;
 
 class DelegateController extends Controller
 {
+
+    use RetrieveSessions;
 
     /**
      * Create a new controller instance.
@@ -55,7 +58,9 @@ class DelegateController extends Controller
 
         $isSpeaker = $isSpeakerBool->isSpeaker($user);
 
-        return view('dashboard/delegate',compact('session','featured_session','programme','user_by_id','isSpeaker'));
+        $mysessions = $this->CurrentSessions();
+
+        return view('dashboard/delegate',compact('session','featured_session','programme','user_by_id','isSpeaker', 'mysessions'));
     }
 
     public function viewPrograme(){

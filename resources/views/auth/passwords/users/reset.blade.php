@@ -39,44 +39,47 @@
                         <div class="form-title pt-3 ml-3"><p>{{ __('Reset Password') }}</p></div>
                        
                         <div class="form-group ml-3 shadow-xm">
-                                <input id="email" type="email" placeholder="{{ __('E-Mail Address') }}" class="w-100 rounded-0 form-control-lg{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $email ?? old('email') }}" autofocus>
+                            <input id="email" type="email" placeholder="{{ __('E-Mail Address') }}" class="w-100 rounded-0 form-control-lg{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $email ?? old('email') }}" autofocus>
 
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
+                            @if ($errors->has('email'))
+                                <span class="error-msg" role="alert">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
                         </div>
 
                         <div class="form-group ml-3 shadow-xm">
-                                <input id="password" type="password" placeholder="{{ __('Password') }}" class="w-100 rounded-0 form-control-lg{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password">
+                            <input id="password" type="password" placeholder="{{ __('Password') }}" class="w-100 rounded-0 form-control-lg{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password">
 
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
+                            @if ($errors->has('password'))
+                                <span class="error-msg" role="alert">
+                                    <strong>{{ $errors->first('password') }}</strong>
+                                </span>
+                            @endif
                         </div>
 
                         <div class="form-group ml-3  shadow-xm">
-                                <input id="password-confirm" type="password" placeholder="{{ __('Confirm Password') }}" class="w-100 rounded-0 form-control-lg" name="password_confirmation">
-                        
+                            <input id="password_confirmation" type="password" placeholder="{{ __('Confirm Password') }}" class="w-100 rounded-0 form-control-lg" name="password_confirmation">
+                            
+                            @if ($errors->has('password_confirmation'))
+                                <span class="error-msg" role="alert">
+                                    <strong>{{ $errors->first('password_confirmation') }}</strong>
+                                </span>
+                            @endif
                         </div>
 
-                        {{-- <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
+                        @if (app()->environment('production'))
+                            <div class="form-group ml-3">
                                 <div class="g-recaptcha" data-sitekey="
-                                @if (env('APP_ENV')!='Production')
                                 {{ env('GOOGLE_RECAPTCHA_KEY') }}
-                                @endif
-                                "></div>
+                                " ></div>
                                 @if ($errors->has('g-recaptcha-response'))
                                     <span class="invalid-feedback" style="display: block;">
                                         <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
                                     </span>
                                 @endif
                             </div>
-                        </div> --}}
+                        @endif
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-3">

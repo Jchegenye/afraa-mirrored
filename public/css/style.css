@@ -323,13 +323,18 @@ input:checked + .slider:before {
  }
 
   .loginright span{
-	font-weight: 300;
 	text-align: left;
 	margin-left: 5px;
  }
   .loginright a{
  	color: #3c68b1;
  	text-decoration: none;
+ }
+ .error-msg{
+	font-size: 12px;
+	color: #dc3545;
+    text-align: left;
+    display: block;
  }
  .forgot a{
  	color: rgba(0, 0, 0, 0.80);
@@ -1152,7 +1157,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', e
 	.editmanagerprog{
 		display:inline-flex;
 	}
-
 
 /*
 * @author Dan

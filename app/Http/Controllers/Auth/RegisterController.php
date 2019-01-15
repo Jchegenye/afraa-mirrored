@@ -73,13 +73,24 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'name' => 'required|unique:users,name|min:4',
-            'email' => 'email|unique:users,email|required',
-            'password' => 'min:6|required_with:password_confirmation|same:password_confirmation|unique:users,password',
-            'password_confirmation' => 'min:6',
-            // 'g-recaptcha-response' => 'required',
-        ]);
+
+        if (app()->environment('production')) {
+            return Validator::make($data, [
+                'name' => 'required|unique:users,name|min:4',
+                'email' => 'email|unique:users,email|required',
+                'password' => 'min:6|required_with:password_confirmation|same:password_confirmation|unique:users,password',
+                'password_confirmation' => 'min:6',
+                'g-recaptcha-response' => 'required',
+            ]);
+        }else{
+            return Validator::make($data, [
+                'name' => '',
+                'email' => '',
+                'password' => '',
+                'password_confirmation' => '',
+                'g-recaptcha-response' => '',
+            ]);
+        }
     }
 
     /**
