@@ -150,6 +150,8 @@ Route::group(['middleware' => 'auth'], function()
 
         Route::resource('documents','DocumentController');
 
+        Route::resource('payment','PaymentController');
+
         Route::get('all', [
             'uses' => 'Delegate\DelegateController@allDelegates',
         ]);
@@ -160,6 +162,13 @@ Route::group(['middleware' => 'auth'], function()
 
         Route::resource('questions-and-answers','QuestionController');
 
+        Route::get('/asc', [
+            'uses' => 'DocumentController@asc'
+        ]);
+        Route::get('/single/asc/{year}', [
+            'uses' => 'DocumentController@ascAll'
+        ]);
+
         Route::get('/aga', [
             'uses' => 'DocumentController@aga'
         ]);
@@ -168,7 +177,7 @@ Route::group(['middleware' => 'auth'], function()
         ]);
 
     });
-    
+
 });
 
 // Route::resource('programme', 'Programme\ProgrammeController');

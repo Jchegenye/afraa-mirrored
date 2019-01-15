@@ -156,23 +156,55 @@ use Illuminate\Support\Facades\DB;
              * @author Jackson A. Chegenye
              * @return array
              **/
+            // $users = User::where('role','delegate')
+            //     ->join('profiles', function ($join)  use ( &$id ) {
+
+            //         $join->on('profiles.user_id', '=', 'users.uid')
+            //             ->orderBy('uid', 'DES')
+            //             ->where('role','delegate');
+            //     })
+            //     ->get();
+
+
+
             $users = User::where('role','delegate')
-                ->join('profiles', function ($join)  use ( &$id ) {
+                ->select("uid","name","username","email","email_verified_at","password","role","permissions","phone","bio","photo","country","confirmation_code","verified","confirmed_date","profiles.user_id","Company_Name","your_title","Job_Title","Member_Airline","AFRAA_Partner","other","Passport_Number","Business_Address","Fax","documentation_language","Spouse_Name","Spouse_Nationality","Spouse_Passport_Number","ArrivalDate","FlightNumber","ArrivalTime","DepartureDate","DepartureFlightNumber","DepartureTime","Social_Functions","payment_status")
+                ->whereExists(function ($query) {
+                    $query->select(DB::raw(1))
+                        ->from('events')
+                        ->whereRaw('users.uid = events.user_id');
+                })
+                ->leftJoin('profiles', function ($join)  use ( &$id ) {
 
                     $join->on('profiles.user_id', '=', 'users.uid')
-                        ->orderBy('uid', 'DES')
-                        ->where('role','delegate');
+                        ->orderBy('uid', 'DES');
+                })
+                ->leftJoin('events', function ($join)  use ( &$id ) {
+
+                    $join->on('events.user_id', '=', 'users.uid')
+                        ->orderBy('uid', 'DES');
                 })
                 ->get();
 
             $search = request()->uid; //get query id
             //$usersSearch = User::where('name','LIKE',"%{$search}%")->paginate(4); //Get search results by name
             $usersSearch = User::withTrashed()
+                        ->select("uid","name","username","email","email_verified_at","password","role","permissions","phone","bio","photo","country","confirmation_code","verified","confirmed_date","profiles.user_id","Company_Name","your_title","Job_Title","Member_Airline","AFRAA_Partner","other","Passport_Number","Business_Address","Fax","documentation_language","Spouse_Name","Spouse_Nationality","Spouse_Passport_Number","ArrivalDate","FlightNumber","ArrivalTime","DepartureDate","DepartureFlightNumber","DepartureTime","Social_Functions","payment_status")
                         ->where('name','LIKE',"%{$search}%")
                         ->where('role','=','delegate')
+                        ->whereExists(function ($query) {
+                            $query->select(DB::raw(1))
+                                ->from('events')
+                                ->whereRaw('users.uid = events.user_id');
+                        })
                         ->leftJoin('profiles', function ($join)  use ( &$id ) {
 
                             $join->on('profiles.user_id', '=', 'users.uid')
+                                ->orderBy('uid', 'DES');
+                        })
+                        ->leftJoin('events', function ($join)  use ( &$id ) {
+
+                            $join->on('events.user_id', '=', 'users.uid')
                                 ->orderBy('uid', 'DES');
                         })
                         ->get();

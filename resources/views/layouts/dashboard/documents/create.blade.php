@@ -54,6 +54,14 @@
                         </div>
                     </div> --}}
                     <div class="form-group col-md-6">
+                        <p>Event</p>
+                        <select  type="text" class="form-control" name="event_type">
+                            <option value="AGA" >AGA</option>
+                            <option value="ASC" >ASC</option>
+                        </select>
+                        <small class="error">{{$errors->first('event_type')}}</small>
+                    </div>
+                    <div class="form-group col-md-12">
                         <p>File</p>
                         <input type="file" class="form-control" name="document_file"  accept=".xlsx,.xls,.doc, .docx,.ppt, .pptx,.pdf">
                         <small class="error">{{$errors->first('document_file')}}</small>
@@ -63,7 +71,7 @@
                         <button type="submit" class="btn btn-afraa-full-2">Submit</button>
                     </div>
                 </div>
-            
+
         </form>
     </div>
 

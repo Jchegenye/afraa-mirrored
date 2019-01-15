@@ -51,11 +51,34 @@
                 </div>
             </div>
             <div class="col-md-8 text-center">
-                <div class="alert alert-info mb-0">
 
-                    <strong class="pr-2 text-info">Notice!</strong> Please Update your profile to successfully register!
+                @if(Auth::user()->role == 'delegate')
 
-                </div>
+                    @if ($event == false && $isProfileUpdated == false)
+
+                        <div class="alert alert-info mb-0">
+
+                            <strong class="pr-2 text-info">Notice!</strong> Please Update your profile to successfully register!
+
+                        </div>
+
+                    @endif
+
+                @endif
+
+                @if(Auth::user()->role == 'delegate')
+
+                    @if ($event == true && $hasPaid == false)
+
+                        <div class="alert alert-danger mb-0">
+
+                            <strong class="pr-2 text-danger">Notice!</strong> Please click <a href="{{url('dashboard/delegate/payment')}}">here</a> {{ __('to pay for the ASC!') }}
+
+                        </div>
+
+                    @endif
+
+                @endif
             </div>
 
             <div class="col-md-2">

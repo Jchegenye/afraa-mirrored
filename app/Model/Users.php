@@ -26,6 +26,11 @@ class Users extends Model
 
         $users = DB::table('users')
             ->where('users.role','delegate')
+            ->whereExists(function ($query) {
+                $query->select(DB::raw(1))
+                    ->from('events')
+                    ->whereRaw('users.uid = events.user_id');
+            })
             ->leftJoin('profiles', function ($join)  use ( &$id ) {
 
                 $join->on('profiles.user_id', '=', 'users.uid');
@@ -33,6 +38,16 @@ class Users extends Model
             ->get();
 
         return $users;
+    }
+
+    public function isProfileUpdated($id){
+
+        $profiles = DB::table('profiles')->where('user_id', '=', $id)->count();
+
+        if ($profiles > 0) {
+            return true;
+        }
+        return false;
     }
 
     //

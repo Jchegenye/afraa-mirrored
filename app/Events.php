@@ -8,22 +8,51 @@ use Illuminate\Support\Facades\DB;
 class Events extends Model
 {
     //
-    public function saveEvent($id){
+    public function saveEvent($id,$unique){
 
         $event = DB::table('events')
 
             ->insert(
 
                 [
-                    'name' => 'asc_8',
-                    'type' => 'ASC',
+                    'event_name' => 'asc_8',
+                    'event_type' => 'ASC',
+                    'unique_id' => $unique,
                     'user_id' => $id
                 ]
 
             );
     }
 
-    public function checkRegisteredEvent($id){
+    public function updatePaymentStatus($status){
+
+        $event = DB::table('events')
+
+            ->update(
+
+                [
+                    'payment_status' => $status
+                ]
+
+            );
+    }
+
+    public function registerForEvent($id){
+
+        $event = DB::table('events')
+
+            ->insert(
+
+                [
+                    'event_name' => 'asc_8',
+                    'event_type' => 'ASC',
+                    'user_id' => $id
+                ]
+
+            );
+    }
+
+    public function isRegisteredForEvent($id){
 
         $count = DB::table('events')
             ->where('user_id', $id)
@@ -31,6 +60,24 @@ class Events extends Model
 
         if ($count > 0) {
             return true;
+        }else{
+            return false;
+        }
+
+        return false;
+    }
+
+    public function hasPaidForEvent($id){
+
+        $count = DB::table('events')
+            ->where('user_id', $id)
+            ->where('payment_status', 'PAID')
+            ->count();
+
+        if ($count > 0) {
+            return true;
+        }else{
+            return false;
         }
 
         return false;

@@ -20,11 +20,15 @@
             @else
                 <th>Position</th>
                 <th>Company</th>
+                <th>Status</th>
             @endif
                 <th>Action</th>
         </tr>
     </thead>
 
+    @php
+        //dd($usersSearch);
+    @endphp
     <tbody>
         @foreach ($usersSearch as $index => $user)
             @if($user->deleted_at)
@@ -68,6 +72,7 @@
                     @else
                         <td><div class="bg">{{ $user->Job_Title }}</div></td>
                         <td><div class="bg">{{ $user->Company_Name }}</div></td>
+                        <td><div class="bg">{{ $user->payment_status }}</div></td>
                     @endif
                     {{--  <td>
                         <div class="bg">

@@ -19,6 +19,7 @@ class CreateDocumentsTable extends Migration
             $table->string('name');
             $table->string('category');
             $table->string('year');
+            $table->string('event_type');
             $table->timestamps();
         });
     }

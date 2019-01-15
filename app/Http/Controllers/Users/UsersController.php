@@ -4,6 +4,7 @@ namespace Afraa\Http\Controllers\Users;
 
 use Illuminate\Http\Request;
 use Afraa\Http\Controllers\Controller;
+use Afraa\Http\Controllers\UtilController;
 use Afraa\Model\Users;
 use Afraa\Profile;
 use Afraa\ProgrammeSession;
@@ -73,7 +74,7 @@ class UsersController extends Controller
     public function edit($id)
     {
         //
-        //$id = Auth::id();
+        $id = Auth::id();
 
         $sessions = new ProgrammeSession();
         $session = $sessions->getSessions();
@@ -82,11 +83,15 @@ class UsersController extends Controller
 
         $events = new Events;
 
-        $event = $events->checkRegisteredEvent($id);
+        $event = $events->isRegisteredForEvent($id);
+
+        $hasPaid = $events->hasPaidForEvent($id);
 
         $user_by_id = $get_users->getUserById($id);
 
-        return view('layouts.dashboard.profile.edit',compact('user_by_id','session','event'));
+        $isProfileUpdated = $get_users->isProfileUpdated($id);
+
+        return view('layouts.dashboard.profile.edit',compact('user_by_id','session','event','hasPaid','isProfileUpdated'));
     }
 
     /**
@@ -113,7 +118,9 @@ class UsersController extends Controller
 
             $events = new Events;
 
-            $event = $events->saveEvent($id);
+            $unique = new UtilController();
+
+            $event = $events->saveEvent($id,$unique->uniqueString($id));
 
         }
 

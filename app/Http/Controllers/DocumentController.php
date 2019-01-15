@@ -21,16 +21,40 @@ class DocumentController extends Controller
         return view('layouts.dashboard.documents.index',compact('documents'));
     }
 
+    public function asc(){
+
+        $documents = \Afraa\Document::select('year')->where('event_type','ASC')->distinct()->get();
+
+        //dd($documents);
+
+        return view('layouts.dashboard.documents.innerpages.asc',compact('documents'));
+    }
+
     public function aga(){
 
-        $documents = \Afraa\Document::select('year')->distinct()->get();
+        $documents = \Afraa\Document::select('year')->where('event_type','AGA')->distinct()->get();
+
+        //dd($documents);
 
         return view('layouts.dashboard.documents.innerpages.aga',compact('documents'));
     }
 
+    public function ascAll($year){
+
+        $documents = \Afraa\Document::where([
+            'year'=>$year,
+            'event_type'=>'ASC'
+            ])->get();
+
+        return view('layouts.dashboard.documents.innerpages.singleasc',compact('documents'));
+    }
+
     public function agaAll($year){
 
-        $documents = \Afraa\Document::where('year',$year)->get();
+        $documents = \Afraa\Document::where([
+            'year'=>$year,
+            'event_type'=>'AGA'
+            ])->get();
 
         return view('layouts.dashboard.documents.innerpages.singleaga',compact('documents'));
     }
@@ -81,6 +105,7 @@ class DocumentController extends Controller
         $document->title = $request->get('title');
         $document->category = $request->get('category');
         $document->year = $request->get('year');
+        $document->event_type = $request->get('event_type');
         $document->name = $name;
 
         $document->save();
