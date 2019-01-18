@@ -89,6 +89,16 @@ $(document).ready(function(){
         ]
     });
 
+    //bootstrap 4 all file inputs, show there file names
+    $('.custom-file input').change(function (e) {
+        var files = [];
+        for (var i = 0; i < $(this)[0].files.length; i++) {
+            files.push($(this)[0].files[i].name);
+        }
+        $(this).next('.custom-file-label').html(files.join(', '));
+    });
+
+
 });
 
 

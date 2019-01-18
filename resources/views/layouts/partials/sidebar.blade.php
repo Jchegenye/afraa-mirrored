@@ -222,8 +222,7 @@
         @if(Auth::user()->role == 'admin')
 
             <div class="row buttons text-left ml-3 mb-4 mt-4 pt-3">
-                <div class="col-12"><a href="#">Edit AGA</a></div>
-                <div class="col-12"><a href="#">Edit ASC</a></div>
+                <div class="col-12"><a href="{{ route('customize.create') }}">Edit AGA/ASC</a></div>
             </div>
 
         @else

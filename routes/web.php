@@ -58,6 +58,14 @@ Route::group(['middleware' => 'auth'], function()
             return view('layouts.dashboard.sponsors.index');
         });
 
+        // Route::prefix('settings/')->group(function () {
+
+        //     Route::get('/customize', function () {
+        //         return view('layouts.dashboard.settings.index');
+        //     });
+
+        // });
+
         //Admin Dashboard - Internal Pages
         Route::namespace('Admin\Dashboard')->group(function () {
 
@@ -118,6 +126,7 @@ Route::group(['middleware' => 'auth'], function()
 
 });
 
+Route::resource('customize', 'Settings\SettingsController');
 
 Route::group(['middleware' => 'auth'], function()
 {

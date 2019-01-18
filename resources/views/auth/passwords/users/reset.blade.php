@@ -38,7 +38,7 @@
                         @csrf
                         <div class="form-title pt-3 ml-3"><p>{{ __('Reset Password') }}</p></div>
                        
-                        <div class="form-group ml-3 shadow-xm">
+                        {{-- <div class="form-group ml-3 shadow-xm">
                             <input id="email" type="email" placeholder="{{ __('E-Mail Address') }}" class="w-100 rounded-0 form-control-lg{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ $email ?? old('email') }}" autofocus>
 
                             @if ($errors->has('email'))
@@ -46,7 +46,7 @@
                                     <strong>{{ $errors->first('email') }}</strong>
                                 </span>
                             @endif
-                        </div>
+                        </div> --}}
 
                         <div class="form-group ml-3 shadow-xm">
                             <input id="password" type="password" placeholder="{{ __('Password') }}" class="w-100 rounded-0 form-control-lg{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password">
