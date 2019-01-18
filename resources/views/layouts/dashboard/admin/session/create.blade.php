@@ -49,7 +49,7 @@
                     <div class="form-group col-md-12">
                         <p>Speaker / Moderator:</p>
 
-                        <select class="form-control selectpicker" data-show-subtext="true" data-live-search="true" name="user_id">
+                        <select class="form-control selectpicker" show-menu-arrow="true" data-show-subtext="true" data-live-search="true" name="user_id[]" multiple>
                             <option value="0" selected>Choose Option</option>
                             @foreach( $users as $user )
                                 <option data-subtext ="{{ $user->name }}" value="{{ $user->uid }}" >{{ $user->name }}</option>
@@ -84,9 +84,9 @@
                     <div class="form-group col-md-12">
                         <p>Day</p>
                         <select class="form-control date" name="date">
-                            <option value="2018-11-25" >Day One</option>
-                            <option value="2018-11-26" >Day Two</option>
-                            <option value="2018-11-27" >Day Three</option>
+                            <option value="2019-05-12" >Day One</option>
+                            <option value="2019-05-13" >Day Two</option>
+                            <option value="2019-05-14" >Day Three</option>
                         </select>
                         <small class="error">{{$errors->first('date')}}</small>
                     </div>

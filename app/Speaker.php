@@ -8,13 +8,23 @@ use Illuminate\Support\Facades\DB;
 class Speaker extends Model
 {
     //
+    public function saveSpeakers($programme_sessions_id,$user_id,$event_type){
+
+        $speakers = DB::table('speakers')
+                ->insert([
+                    'programme_sessions_id' => $programme_sessions_id,
+                    'user_id' => $user_id,
+                    'event_type' => $event_type
+                ]);
+
+        return $speakers;
+    }
+
     public function getSpeakers(){
 
-        $speakers = DB::table('users')
-                ->join('programme_sessions', function ($join) {
-
-                    $join->on('programme_sessions.user_id', '=', 'users.uid');
-                })
+        $speakers = DB::table('speakers')
+                ->leftJoin('programme_sessions', 'speakers.user_id', '=', 'programme_sessions.user_id')
+                ->leftJoin('users', 'speakers.user_id', '=', 'users.uid')
                 ->get();
 
         return $speakers;
