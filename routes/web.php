@@ -155,9 +155,14 @@ Route::group(['middleware' => 'auth'], function()
 
         Route::resource('payment','PaymentController');
 
+        Route::get('payment_code', 'PaymentController@payment_code');
+
+        Route::post('payment_index', 'PaymentController@payment_index');
+
         Route::get('all', [
             'uses' => 'Delegate\DelegateController@allDelegates',
         ]);
+
 
         // Route::get('/questions-and-answers', function () {
         //     return view('layouts.dashboard.qna.index');

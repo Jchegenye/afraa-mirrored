@@ -19,6 +19,7 @@ class CreateEventsTable extends Migration
             $table->string('event_type');
             $table->string('unique_id')->nullable();
             $table->string('payment_status')->nullable();
+            $table->string('payment_code')->nullable();
             $table->string('amount')->nullable();
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('uid')->on('users');
