@@ -44,9 +44,13 @@
             <div class="row">
 
                 <div class="col-md-12 form-group">
-                    <label for="account_number" class="col-form-label text-md-right">{{ __('Account Number:') }}</label>
+                    <label for="account_number" class="col-form-label text-md-right">{{ __('Card Number:') }}</label>
                     <input type="number" class="form-control" name="account_number" placeholder="" value="" required>
                     <small class="error">{{$errors->first('account_number')}}</small>
+                </div>
+
+                <div class="col-md-12 form-group">
+                    <input type="hidden" class="form-control" name="payment_code" placeholder="" value="{{$get_payment_code}}" />
                 </div>
 
                 <div class="col-md-6 form-group ">

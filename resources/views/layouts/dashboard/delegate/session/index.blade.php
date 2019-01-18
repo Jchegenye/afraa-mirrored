@@ -46,9 +46,9 @@
     <div class="row mt-5" id="dashtabs">
         <nav class="col-md-12">
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Sunday, 25 November 2018</a>
-                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Monday, 26th November 2018</a>
-                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Tuesday, 27 November 2018</a>
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Sunday, 12th May 2019</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Monday, 13th May 2019</a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Tuesday, 14th May 2019</a>
             </div>
         </nav>
         <div class="tab-content col-md-12 mt-3" id="nav-tabContent">
@@ -67,7 +67,7 @@
                                 $stop = date("h:i a", strtotime($sessions->end_time));
                             @endphp
 
-                            @if ($date==25)
+                            @if ($date==12)
 
                                 <tr class="tabtable">
                                     <td class="clr-gray">
@@ -207,7 +207,7 @@
                                 $stop = date("h:i a", strtotime($sessions->end_time));
                             @endphp
 
-                            @if ($date==26)
+                            @if ($date==13)
 
                             <tr class="tabtable">
                                     <td class="clr-gray">
@@ -353,7 +353,7 @@
                                 $stop = date("h:i a", strtotime($sessions->end_time));
                             @endphp
 
-                            @if ($date==27)
+                            @if ($date==14)
 
                             <tr class="tabtable">
                                     <td class="clr-gray">

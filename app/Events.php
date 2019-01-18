@@ -17,6 +17,7 @@ class Events extends Model
                 [
                     'event_name' => 'asc_8',
                     'event_type' => 'ASC',
+                    'payment_status' => 'NOT PAID',
                     'unique_id' => $unique,
                     'user_id' => $id
                 ]
@@ -24,9 +25,11 @@ class Events extends Model
             );
     }
 
-    public function updatePaymentStatus($status){
+    public function updatePaymentStatus($status,$id){
 
         $event = DB::table('events')
+
+            ->where("user_id",$id)
 
             ->update(
 

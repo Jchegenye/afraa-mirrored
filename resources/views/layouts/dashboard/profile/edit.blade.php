@@ -72,7 +72,7 @@
 
                         <div class="alert alert-danger mb-0">
 
-                            <strong class="pr-2 text-danger">Notice!</strong> Please click <a href="{{url('dashboard/delegate/payment')}}">here</a> {{ __('to pay for the ASC!') }}
+                            <strong class="pr-2 text-danger">Notice!</strong> Please click <a href="{{url('dashboard/delegate/payment_code')}}">here</a> {{ __('to pay for the ASC!') }}
 
                         </div>
 

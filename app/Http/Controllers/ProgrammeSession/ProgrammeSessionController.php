@@ -4,6 +4,7 @@ namespace Afraa\Http\Controllers\ProgrammeSession;
 
 use Afraa\ProgrammeSession;
 use Afraa\FeaturedSession;
+use Afraa\Speaker;
 use Afraa\Model\Users;
 use Illuminate\Http\Request;
 use Afraa\Http\Controllers\Controller;
@@ -84,6 +85,7 @@ class ProgrammeSessionController extends Controller
     public function store(Request $request)
     {
         //
+
         $session= new \Afraa\ProgrammeSession;
 
         $this->validate(
@@ -102,7 +104,7 @@ class ProgrammeSessionController extends Controller
 
         $session->title=$request->get('title');
         $session->description=$request->get('description');
-        $session->user_id=$request->get('user_id');
+        $session->user_id=$request->get('user_id')[0];
         $session->session_type=$request->get('session_type');
 
         $session->start_time = DATE("H:i", STRTOTIME($request->get('start_time')));
@@ -110,6 +112,12 @@ class ProgrammeSessionController extends Controller
         $session->date = $request->get('date');
 
         $session->save();
+
+        $speaker = new Speaker();
+
+        foreach ($request->get('user_id') as $key => $speaker_value) {
+            $speaker->saveSpeakers($session->id, $speaker_value, 'asc_8');
+        }
 
         return redirect('dashboard/admin/session')->with('success', 'Information has been added');
     }

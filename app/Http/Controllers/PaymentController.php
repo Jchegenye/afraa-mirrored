@@ -17,19 +17,88 @@ class PaymentController extends Controller
     private $accountNumber;
     private $expirationMonth;
     private $expirationYear;
-    private $grandTotalAmount = "1";
+    private $grandTotalAmount;
     private $currency = "USD";
     private $current_event = "asc_8";
 
+    private $payment_code;
+    private $payment_code_array = array(
+        'CODE1' => '30',
+        'CODE2' => '20',
+        'CODE3' => '0'
+    );
+
     /**
      * Display a listing of the resource.
+     *
+     * @param  \Illuminate\Http\Request  $request
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
 
-        return view('layouts.dashboard.payment.index');
+        //dd($request);
+        //return view('layouts.dashboard.payment.index');
+
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     *
+     * @return \Illuminate\Http\Response
+    */
+    public function payment_index(Request $request){
+
+        if (empty($request->get('no_payment_code')) || $request->get('no_payment_code') == "") {
+
+            if (empty($request->get('payment_code')) || $request->get('payment_code') == "") {
+
+                return redirect()->back()->with('warning', 'Sorry! Please Try Again');
+
+            } else {
+
+                $get_payment_code = $request->get('payment_code');
+
+                if ($get_payment_code == "CODE3") {
+
+                    $id = Auth::id();
+
+                    $status = "PAID";
+
+                    $event = new Events();
+
+                    $event->updatePaymentStatus($status,$id);
+
+                    return redirect()->back()->with('success', 'Registration Successful');
+
+                } else {
+                    return view('layouts.dashboard.payment.index',compact('get_payment_code'));
+                }
+            }
+
+        } else {
+
+            if ($request->get('no_payment_code') == "no_payment_code") {
+
+                $get_payment_code = "no_payment_code";
+
+                return view('layouts.dashboard.payment.index',compact('get_payment_code'));
+
+            } else {
+                return redirect()->back()->with('warning', 'Sorry! Please Try Again');
+            }
+
+
+        }
+
+    }
+
+    public function payment_code(){
+
+        return view('layouts.dashboard.payment.code');
 
     }
 
@@ -45,10 +114,17 @@ class PaymentController extends Controller
         $this->accountNumber = $request->get('account_number');
         $this->expirationMonth = $request->get('expiration_month');
         $this->expirationYear = $request->get('expiration_year');
+        $this->payment_code = $request->get('payment_code');
+
+        if (array_key_exists($this->payment_code,$this->payment_code_array)) {
+
+            $this->grandTotalAmount = $this->payment_code_array[$this->payment_code];
+
+        }
 
         if($this->makePayment() == true){
 
-            return redirect()->back()->with('success', 'Payment Successful');
+            return redirect('dashboard/delegate/session')->with('success', 'Payment Successful');
 
         }
 
@@ -200,6 +276,7 @@ class PaymentController extends Controller
     */
     public function savePaymentData($data){
 
+        $id = Auth::id();
 
         $event = new Events();
         //get data response
@@ -222,8 +299,6 @@ class PaymentController extends Controller
 
         if($decision !== "REJECT"){
 
-            $id = Auth::id();
-
             $payment = new Payment;
 
             $payment->user_id = $id;
@@ -241,14 +316,14 @@ class PaymentController extends Controller
 
             if ($decision === "ACCEPT") {
                 $status = "PAID";
-                $event->updatePaymentStatus($status);
+                $event->updatePaymentStatus($status,$id);
             }
 
             return true;
 
         }else{
 
-            $event->updatePaymentStatus($decision);
+            $event->updatePaymentStatus($decision,$id);
 
             return false;
 
