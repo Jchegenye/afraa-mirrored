@@ -23,6 +23,7 @@ class PaymentController extends Controller
 
     private $payment_code;
     private $payment_code_array = array(
+        'NO_PAYMENT_CODE' => '50',
         'CODE1' => '30',
         'CODE2' => '20',
         'CODE3' => '0'
@@ -52,6 +53,8 @@ class PaymentController extends Controller
     */
     public function payment_index(Request $request){
 
+        $code_array = $this->payment_code_array;
+
         if (empty($request->get('no_payment_code')) || $request->get('no_payment_code') == "") {
 
             if (empty($request->get('payment_code')) || $request->get('payment_code') == "") {
@@ -72,10 +75,10 @@ class PaymentController extends Controller
 
                     $event->updatePaymentStatus($status,$id);
 
-                    return redirect()->back()->with('success', 'Registration Successful');
+                    return view('layouts.dashboard.payment.success');
 
                 } else {
-                    return view('layouts.dashboard.payment.index',compact('get_payment_code'));
+                    return view('layouts.dashboard.payment.index',compact('get_payment_code','code_array'));
                 }
             }
 
@@ -85,7 +88,7 @@ class PaymentController extends Controller
 
                 $get_payment_code = "no_payment_code";
 
-                return view('layouts.dashboard.payment.index',compact('get_payment_code'));
+                return view('layouts.dashboard.payment.index',compact('get_payment_code','code_array'));
 
             } else {
                 return redirect()->back()->with('warning', 'Sorry! Please Try Again');
