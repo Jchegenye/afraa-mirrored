@@ -27,7 +27,7 @@
 
             <a class="btn-aga" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                 <div class="mb-0 text-left">
-                    <img src="{{URL::asset('/images/logo.png')}}" alt="" class="img-fluid col-md-2"> SPEECHES
+                    <img src="{{URL::asset('/images/logo2.png')}}" alt="" class="img-fluid col-md-2"> SPEECHES
                 </div>
             </a>
 
@@ -73,7 +73,7 @@
 
                 <a class="btn-aga" data-toggle="collapse" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                     <div class="mb-0 text-left">
-                        <img src="{{URL::asset('/images/logo.png')}}" alt="" class="img-fluid col-md-2 text-capitalize"> PRESENTATION
+                        <img src="{{URL::asset('/images/logo2.png')}}" alt="" class="img-fluid col-md-2 text-capitalize"> PRESENTATION
                     </div>
                 </a>
 
@@ -118,7 +118,7 @@
 
                 <a class="btn-aga" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                     <div class="mb-0 text-left">
-                        <img src="{{URL::asset('/images/logo.png')}}" alt="" class="img-fluid col-md-2 text-capitalize"> REPORTS
+                        <img src="{{URL::asset('/images/logo2.png')}}" alt="" class="img-fluid col-md-2 text-capitalize"> REPORTS
                     </div>
                 </a>
 
@@ -163,7 +163,7 @@
 
                 <a class="btn-aga" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseThree">
                     <div class="mb-0 text-left">
-                        <img src="{{URL::asset('/images/logo.png')}}" alt="" class="img-fluid col-md-2 text-capitalize"> PRESS RELEASES
+                        <img src="{{URL::asset('/images/logo2.png')}}" alt="" class="img-fluid col-md-2 text-capitalize"> PRESS RELEASES
                     </div>
                 </a>
 

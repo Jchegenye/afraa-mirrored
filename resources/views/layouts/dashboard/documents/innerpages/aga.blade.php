@@ -26,7 +26,7 @@
 
         @foreach ($documents as $document)
             <a href="{{url('dashboard/delegate/single/aga',$document->year)}}" class="aga mb-4">
-                <img src="{{URL::asset('/images/logo.png')}}" alt="" class="img-fluid col-md-2">
+                <img src="{{URL::asset('/images/logo2.png')}}" alt="" class="img-fluid col-md-2">
                 <span class="col-md-10">AFRAA AGA 50<sup>th</sup>
                     @if (Auth::user()->role == "admin")
                         Uploads

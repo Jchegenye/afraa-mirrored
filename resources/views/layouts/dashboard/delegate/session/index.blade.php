@@ -158,11 +158,11 @@
                                             </div>
                                             <span class="time_interval">{{$sessions->start_time}} - {{$sessions->end_time}}</span>
                                             <div class="modal-body row">
-                                                <div class="col-md-12 left_modal pr-5 align-self-center">
+                                                <div class="col-md-8 left_modal pr-5 align-self-center">
                                                         {!!$sessions->description!!}
                                                 </div>
-                                                {{-- <div class="col-md-4 text-center pl-4 right_profile">
-                                                    <h4>{{$sessions->session_type}}</h4>
+                                                <div class="col-md-4 text-center pl-4 right_profile">
+                                                    <!-- <h4>{{$sessions->session_type}}</h4>
 
                                                     @if(empty($sessions->photo))
                                                         <img src="{{ asset('images/') }}/placeholder.png"  class="img-fluid pb-3 rounded">
@@ -172,12 +172,40 @@
 
                                                     <h6>{{$sessions->name}}</h6>
                                                     <h5>{{$sessions->Job_Title}}</h5>
-                                                    <span>{{$sessions->Company_Name}}</span>
-                                                </div> --}}
+                                                    <span>{{$sessions->Company_Name}}</span> -->
+
+                                                    <div class="owl-carousel owl-theme" id="programmes_modal">
+                                                        <div class="card item">
+                                                                <h4 class="card-title">{{$sessions->session_type}}</h4>
+                                                                @if(empty($sessions->photo))
+                                                                    <img src="{{ asset('images/') }}/placeholder.png"  class="img-fluid pb-3 rounded">
+                                                                @else
+                                                                    <img src="{{ asset('images/') }}/{{$sessions->photo}} "  class="img-fluid pb-3 rounded">
+                                                                @endif      
+                                                              <div class="card-body p-0">     
+                                                                <h6>{{$sessions->name}}</h6>
+                                                                <h5>{{$sessions->Job_Title}}</h5>
+                                                                <span>{{$sessions->Company_Name}}</span>
+                                                              </div>
+                                                        </div>
+                                                        <div class="card item">
+                                                                <h4 class="card-title">{{$sessions->session_type}}</h4>
+                                                                @if(empty($sessions->photo))
+                                                                    <img src="{{ asset('images/') }}/placeholder.png"  class="img-fluid pb-3 rounded">
+                                                                @else
+                                                                    <img src="{{ asset('images/') }}/{{$sessions->photo}} "  class="img-fluid pb-3 rounded">
+                                                                @endif      
+                                                              <div class="card-body p-0">     
+                                                                <h6>{{$sessions->name}}</h6>
+                                                                <h5>{{$sessions->Job_Title}}</h5>
+                                                                <span>{{$sessions->Company_Name}}</span>
+                                                              </div>
+                                                        </div>
+                                                    </div>
+                                                </div> 
                                             </div>
                                             <div class="modal-footer d-none">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
                                             </div>
                                         </div>
                                 <tr>
