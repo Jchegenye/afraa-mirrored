@@ -5,6 +5,7 @@ namespace Afraa\Http\Controllers\Speaker;
 use Illuminate\Http\Request;
 use Afraa\Http\Controllers\Controller;
 use Afraa\Speaker;
+use Afraa\ProgrammeSession;
 use Afraa\Model\Users;
 use Afraa\User;
 use Illuminate\Support\Facades\Auth;
@@ -30,9 +31,15 @@ class SpeakerController extends Controller
     public function index()
     {
 
+
+        $sessions = new ProgrammeSession();
+        $session = $sessions->getSessions();
+
         $speakers_list = new Speaker;
 
         $speakers = $speakers_list->getSpeakers();
+
+        $sessions = $speakers_list->getSpeakerSession();
 
         $role = Auth::user()->role;
 
@@ -44,7 +51,24 @@ class SpeakerController extends Controller
 
         $user_by_id = $get_users->getUserById($id);
 
-        return view('layouts.dashboard.speakers.index',compact('speakers','user_by_id','all_users'));
+        $sessions_arr = array();
+
+        foreach ($speakers as $key => $value) {
+
+           foreach ($sessions as $key => $sessions_value) {
+               if ($value->uid == $sessions_value->user_id) {
+                   array_push($sessions_arr, $sessions_value->programme_sessions_id);
+               }
+            }
+
+            $value->sessions_array = $sessions_arr;
+            $sessions_arr = [];
+
+        }
+
+        //dd($speakers);
+
+        return view('layouts.dashboard.speakers.index',compact('speakers','session','user_by_id','all_users'));
 
     }
 
