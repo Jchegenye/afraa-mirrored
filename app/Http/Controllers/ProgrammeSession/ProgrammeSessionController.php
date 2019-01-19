@@ -39,6 +39,27 @@ class ProgrammeSessionController extends Controller
 
         $user_by_id = $get_users->getUserById($id);
 
+        $speakers_list = new Speaker;
+
+        $speakers = $speakers_list->getSpeakerSession();
+
+        $speakers_arr = array();
+
+        foreach ($session as $key => $value) {
+
+           foreach ($speakers as $key => $speakers_value) {
+               if ($value->id == $speakers_value->programme_sessions_id) {
+                   array_push($speakers_arr, $speakers_value->user_id);
+               }
+            }
+
+            $value->speakers_array = $speakers_arr;
+            $speakers_arr = [];
+
+        }
+
+        //dd($session);
+
         if ($role == 'admin') {
             return view('layouts.dashboard.admin.session.index',compact('session','featured_session','users','user_by_id'));
         } else {
