@@ -117,7 +117,7 @@ class PaymentController extends Controller
         $this->accountNumber = $request->get('account_number');
         $this->expirationMonth = $request->get('expiration_month');
         $this->expirationYear = $request->get('expiration_year');
-        $this->payment_code = $request->get('payment_code');
+        $this->payment_code = strtoupper($request->get('payment_code'));
 
         if (array_key_exists($this->payment_code,$this->payment_code_array)) {
 
@@ -131,7 +131,7 @@ class PaymentController extends Controller
 
         }
 
-        return redirect()->back()->with('warning', 'Sorry! Payment not Successful, Please Try Again');
+        return redirect('dashboard/delegate/payment_code')->with('warning', 'Sorry! Payment not Successful, Please Try Again');
 
     }
 

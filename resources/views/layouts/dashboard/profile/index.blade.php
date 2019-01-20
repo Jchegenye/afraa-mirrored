@@ -28,14 +28,19 @@
         </div>
     </div>
 
-    <div class=""> <!-- table_body -->
+    <div class="profile w-75 mx-auto mb-5 mt-2"> <!-- table_body -->
 
         @foreach ($user as $user_)
-            {{$user_->photo}}
-            {{$user_->name}}
-            {{$user_->country}}
-            {{$user_->your_title}}
-            {{$user_->bio}}
+        <div class="card border-none mb-5 p-4 rounded">
+            <div class="card-img-top text-center">
+                <img class="img-fluid logo w-75" src="{{URL::asset('/images/' . $user_->photo)}}" alt="prof pic">
+            </div>
+            <div class="card-body text-center">
+                <h3  class="card-text  mb-0"> <span>{{$user_->your_title}} </span>{{$user_->name}}</h3>
+                <h5 class="card-text text-center pr-4"><b><i>{{$user_->country}}</i></b></h5>
+                <p class="text-justify p-2 border-top card-footer">{{$user_->bio}}</p>
+            </div>
+        </div>
         @endforeach
 
     </div>

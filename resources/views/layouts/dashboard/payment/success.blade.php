@@ -28,7 +28,14 @@
     </div>
 
     <div class="table_body">
-
+        <div class="card border-none mb-5 p-4 rounded">
+            <div class="card-img-top text-center">
+                <div class="alert alert-success"><h3  class="card-text  mb-0">Payment Successful</h3></div>
+            </div>
+                <div class="card-body text-center">
+                    <p class=" p-2 border-top card-footer">Thank you for paying for the 8<sup>th</sup> ASC </p>
+                </div>
+        </div>
     </div>
 
 </div>
