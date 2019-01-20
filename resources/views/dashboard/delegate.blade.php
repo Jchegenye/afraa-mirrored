@@ -34,7 +34,7 @@
                         </tr>
                     @endforeach
                 @else
-                    {{ "There is no event happening now!" }}
+                    {{ "There is no current session happening now!" }}
                 @endif
 
                 @if (!$next_sessions == null)
@@ -52,7 +52,7 @@
                         </tr>
                     @endforeach
                 @else
-                    {{ "There is no upcoming event at the moment!" }}
+                    {{ "There is no upcoming session at the moment!" }}
                 @endif
 
                 </table>
