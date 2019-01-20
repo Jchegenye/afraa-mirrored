@@ -34,28 +34,41 @@ $(document).ready(function(){
         }
     });
 
-    $('.owl-carousel').owlCarousel({
-            items:4,
-            loop:true,
-            nav:true,
-            //center:true,
-            margin:10,
-            URLhashListener:true,
-            autoplayHoverPause:true,
-            startPosition: 'URLHash',
-            responsive:
-            {
-                0:{
-                    items:1
-                },
-                600:{
-                    items:2
-                },
-                1000:{
-                    items:3
-                }
-            }
-        });
+    // $('.owl-carousel').owlCarousel({
+    //         items:4,
+    //         loop:true,
+    //         nav:true,
+    //         //center:true,
+    //         margin:10,
+    //         URLhashListener:true,
+    //         autoplayHoverPause:true,
+    //         startPosition: 'URLHash',
+    //         responsive:
+    //         {
+    //             0:{
+    //                 items:1
+    //             },
+    //             600:{
+    //                 items:2
+    //             },
+    //             1000:{
+    //                 items:3
+    //             }
+    //         }
+    //     });
+
+    $(".owl-carousel").owlCarousel({
+        items:1,
+        loop:true,
+        nav:true,
+        center:true,
+        margin: 10,
+        autoplay:true,
+        autoplayTimeout:3000,
+        URLhashListener:true,
+        autoplayHoverPause:false,
+        startPosition: 'URLHash'
+    });
 
     // window.location.href = "login.html"
 

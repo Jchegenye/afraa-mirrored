@@ -37,21 +37,21 @@
         @if(Auth::user()->role == 'admin')
 
             <div class="col-12">
-                <a href="{{url('/dashboard/admin')}}" class="btn btn-block
+                <a href="{{url('/dashboard/admin')}}#page-wrapper" class="btn btn-block
                    @if ($uri == "dashboard/admin")
                        active
                    @endif
                 text-left "><i class="fas fa-user-cog pr-2"></i>Dashboard</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/admin/managers')}}" class="btn btn-block
+                <a href="{{url('/dashboard/admin/managers')}}#page-wrapper" class="btn btn-block
                 @if ($uri == "dashboard/admin/managers")
                     active
                 @endif
               btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Manage Managers</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/admin/delegates')}}" class="button btn btn-shadow btn-block
+                <a href="{{url('/dashboard/admin/delegates')}}#page-wrapper" class="button btn btn-shadow btn-block
                 @if ($uri == "dashboard/admin/delegates")
                     active
                 @endif
@@ -65,14 +65,14 @@
                btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Manage Programme</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/delegate/speakers')}}" class="btn btn-block
+                <a href="{{url('/dashboard/delegate/speakers')}}#page-wrapper" class="btn btn-block
                 @if ($uri == "dashboard/delegate/speakers")
                     active
                 @endif
                 btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Manage Speakers</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/admin/documents')}}" class="btn btn-block
+                <a href="{{url('/dashboard/admin/documents')}}#page-wrapper" class="btn btn-block
                 @if ($uri == "dashboard/admin/documents")
                     active
                 @endif
@@ -80,7 +80,7 @@
             </div>
 
             <div class="col-12">
-                <a href="{{url('/dashboard/delegate/exhibitors')}}" class="btn btn-block
+                <a href="{{url('/dashboard/delegate/exhibitors')}}#page-wrapper" class="btn btn-block
                 @if ($uri == "dashboard/delegate/exhibitors")
                     active
                 @endif
@@ -95,7 +95,7 @@
             </div>{{-- {{url('/dashboard/delegate/exhibitors')}} --}}
 
             <div class="col-12">
-                <a href="{{url('/dashboard/delegate/questions-and-answers')}}" class="btn btn-block
+                <a href="{{url('/dashboard/delegate/questions-and-answers')}}#page-wrapper" class="btn btn-block
                 @if ($uri == "dashboard/delegate/questions-and-answers")
                     active
                 @endif
@@ -105,42 +105,42 @@
         @elseif(Auth::user()->role == 'delegate')
 
             <div class="col-12">
-                <a href="{{url('/dashboard/delegate')}}" class="button btn btn-shadow
+                <a href="{{url('/dashboard/delegate')}}#page-wrapper" class="button btn btn-shadow
                 @if ($uri == "dashboard/delegate")
                     active
                 @endif
                btn-block text-left "><i class="fas fa-user-cog pr-2"></i>Dashboard</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/delegate/session')}}" class="button btn btn-shadow
+                <a href="{{url('/dashboard/delegate/session')}}#page-wrapper" class="button btn btn-shadow
                 @if ($uri == "dashboard/delegate/session")
                     active
                 @endif
                btn-block text-left "><i class="fas fa-user-cog pr-2"></i>Programme</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/delegate/all')}}" class="btn btn-block
+                <a href="{{url('/dashboard/delegate/all')}}#page-wrapper" class="btn btn-block
                 @if ($uri == "dashboard/delegate/all")
                     active
                 @endif
                 btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Delegates</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/delegate/speakers')}}" class="btn btn-block
+                <a href="{{url('/dashboard/delegate/speakers')}}#page-wrapper" class="btn btn-block
                 @if ($uri == "dashboard/delegate/speakers")
                     active
                 @endif
                 btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Speakers</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/delegate/exhibitors')}}" class="btn btn-block
+                <a href="{{url('/dashboard/delegate/exhibitors')}}#page-wrapper" class="btn btn-block
                 @if ($uri == "dashboard/delegate/exhibitors")
                     active
                 @endif
                 btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Exhibitors</a>
             </div>
             <div class="col-12">
-                <a href="{{url('/dashboard/delegate/documents')}}" class="btn btn-block
+                <a href="{{url('/dashboard/delegate/documents')}}#page-wrapper" class="btn btn-block
                 @if ($uri == "dashboard/delegate/documents")
                     active
                 @endif
@@ -148,7 +148,7 @@
             </div>
 
             {{-- <div class="col-12">
-                -- <a href="{{url('/dashboard/delegate/social-events')}}" class="btn btn-block --
+                -- <a href="{{url('/dashboard/delegate/social-events')}}#page-wrapper" class="btn btn-block --
                 <a href="#" class="btn btn-block
                 @if ($uri == "dashboard/delegate/social-event")
                     active
@@ -160,7 +160,7 @@
                 @if ($isSpeaker)
 
                     <div class="col-12">
-                        <a href="{{url('/dashboard/delegate/questions-and-answers')}}" class="btn btn-block
+                        <a href="{{url('/dashboard/delegate/questions-and-answers')}}#page-wrapper" class="btn btn-block
                         @if ($uri == "dashboard/delegate/questions-and-answers")
                             active
                         @endif
@@ -176,10 +176,10 @@
 
             <ul class="list-unstyled">
                 <li>
-                    <a href="{{url('/dashboard/manager/')}}">Dashboard</a>
+                    <a href="{{url('/dashboard/manager/')}}#page-wrapper">Dashboard</a>
                 </li>
                 <li>
-                    <a href="{{url('/dashboard/delegates/example')}}">manager Example </a>
+                    <a href="{{url('/dashboard/delegates/example')}}#page-wrapper">manager Example </a>
                 </li>
             </ul>
 
@@ -187,10 +187,10 @@
 
             <ul class="list-unstyled">
                 <li>
-                    <a href="{{url('/dashboard/exibitor/')}}">Dashboard</a>
+                    <a href="{{url('/dashboard/exibitor/')}}#page-wrapper">Dashboard</a>
                 </li>
                 <li>
-                    <a href="{{url('/dashboard/delegates/example')}}">exibitor Example </a>
+                    <a href="{{url('/dashboard/delegates/example')}}#page-wrapper">exibitor Example </a>
                 </li>
             </ul>
 
@@ -198,10 +198,10 @@
 
             <ul class="list-unstyled">
                 <li>
-                    <a href="{{url('/dashboard/speaker/')}}">Dashboard</a>
+                    <a href="{{url('/dashboard/speaker/')}}#page-wrapper">Dashboard</a>
                 </li>
                 <li>
-                    <a href="{{url('/dashboard/delegates/example')}}">speaker Example</a>
+                    <a href="{{url('/dashboard/delegates/example')}}#page-wrapper">speaker Example</a>
                 </li>
             </ul>
 
@@ -209,10 +209,10 @@
 
             <ul class="list-unstyled">
                 <li>
-                    <a href="{{url('/dashboard/author/')}}">Dashboard</a>
+                    <a href="{{url('/dashboard/author/')}}#page-wrapper">Dashboard</a>
                 </li>
                 <li>
-                    <a href="{{url('/dashboard/delegates/example')}}">author Example</a>
+                    <a href="{{url('/dashboard/delegates/example')}}#page-wrapper">author Example</a>
                 </li>
             </ul>
 
@@ -222,7 +222,7 @@
         @if(Auth::user()->role == 'admin')
 
             <div class="row buttons text-left ml-3 mb-4 mt-4 pt-3">
-                <div class="col-12"><a href="{{ route('customize.create') }}">Edit AGA/ASC</a></div>
+                <div class="col-12"><a href="{{ route('customize.create') }}#page-wrapper">Edit AGA/ASC</a></div>
             </div>
 
         @else

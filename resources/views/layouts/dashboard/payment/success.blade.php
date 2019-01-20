@@ -1,22 +1,21 @@
 @extends('layouts.app')
 
-@section('title', 'Show Profile')
+@section('title', 'Success Payment')
 
 @section('content')
-
 
 <div id="adminTable">
     <div class="table_header ">
         <div class="row ">
             <div class="col-md-2">
                 <div class="mx-auto mt-2 intro1">
-                    <h6 class="text-capitalize">Profile</h6>
+                    <h6 class="text-capitalize">Success</h6>
                 </div>
             </div>
-            <div class="col-md-8 text-center">
-            </div>
 
-            <div class="col-md-2">
+            <div class="col-md-8"></div>
+
+            <div class="col-md-2 pull-right">
                 <div class="row">
                     <div class="col-md-12 text-right">
                         <a href="{{url()->previous()}}" class="btn btn-afraa tb-sm-text">
@@ -28,21 +27,15 @@
         </div>
     </div>
 
-    <div class="profile w-75 mx-auto mb-5 mt-2"> <!-- table_body -->
-
-        @foreach ($user as $user_)
+    <div class="table_body p-5">
         <div class="card border-none mb-5 p-4 rounded">
             <div class="card-img-top text-center">
-                <img class="img-fluid logo w-75" src="{{URL::asset('/images/' . $user_->photo)}}" alt="prof pic">
+                <div class="alert alert-success pt-4"><h3  class="card-text  mb-0">Payment Successful!!</h3></div>
             </div>
-            <div class="card-body text-center">
-                <h3  class="card-text  mb-0"> <span>{{$user_->your_title}} </span>{{$user_->name}}</h3>
-                <h5 class="card-text text-center pr-4"><b><i>{{$user_->country}}</i></b></h5>
-                <p class="text-justify p-2 border-top card-footer">{{$user_->bio}}</p>
-            </div>
+                <div class="card-body text-center pb-0">
+                    <p class="p-2 border-top card-footer pt-4">Thank you for paying for the 8<sup>th</sup> ASC </p>
+                </div>
         </div>
-        @endforeach
-
     </div>
 
 </div>

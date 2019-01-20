@@ -2,9 +2,9 @@
 
     <nav class="col-md-12">
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-1-tab" data-toggle="tab" href="#nav-1" role="tab" aria-controls="nav-home" aria-selected="true">Sunday, 25 November 2018</a>
-            <a class="nav-item nav-link" id="nav-2-tab" data-toggle="tab" href="#nav-2" role="tab" aria-controls="nav-profile" aria-selected="false">Monday, 26th November 2018</a>
-            <a class="nav-item nav-link" id="nav-3-tab" data-toggle="tab" href="#nav-3" role="tab" aria-controls="nav-contact" aria-selected="false">Tuesday, 27 November 2018</a>
+            <a class="nav-item nav-link active" id="nav-1-tab" data-toggle="tab" href="#nav-1" role="tab" aria-controls="nav-home" aria-selected="true">Sunday, 12<sup>th</sup> May 2019</a>
+            <a class="nav-item nav-link" id="nav-2-tab" data-toggle="tab" href="#nav-2" role="tab" aria-controls="nav-profile" aria-selected="false">Monday, 13<sup>th</sup> May 2019</a>
+            <a class="nav-item nav-link" id="nav-3-tab" data-toggle="tab" href="#nav-3" role="tab" aria-controls="nav-contact" aria-selected="false">Tuesday, 14<sup>th</sup> May 2019</a>
         </div>
     </nav>
 
@@ -23,18 +23,18 @@
                         $stop = date("h:i", strtotime($sessions->end_time));
                     @endphp
 
-                    @if ($date==25)
+                    @if ($date==12)
 
                         <div class="qna">
 
-                            <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#{{$sessions->title}}_25" aria-expanded="false" aria-controls="collapseTwo">
+                            <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#{{$sessions->title}}_12" aria-expanded="false" aria-controls="collapseTwo">
                                 <div class="mb-0 text-left qa">
                                     <span class="bg-gray afraa-red-text">{{$start}} - {{$stop}}</span>
                                     <span class="pl-4">{{$sessions->title}}</span>
                                 </div>
                             </a>
 
-                            <div id="{{$sessions->title}}_25" class="collapse show" aria-labelledby="headingTwo" data-parent="#accod-1">
+                            <div id="{{$sessions->title}}_12" class="collapse show" aria-labelledby="headingTwo" data-parent="#accod-1">
                                 <div class="card-body">
                                     <ul class="list-inline agalist">
 
@@ -85,18 +85,18 @@
                             $stop = date("h:i", strtotime($sessions->end_time));
                         @endphp
 
-                        @if ($date==26)
+                        @if ($date==13)
 
                             <div class="qna">
 
-                                <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#{{$sessions->title}}_26" aria-expanded="false" aria-controls="collapseTwo">
+                                <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#{{$sessions->title}}_13" aria-expanded="false" aria-controls="collapseTwo">
                                     <div class="mb-0 text-left qa">
                                         <span class="bg-gray afraa-red-text">{{$start}} - {{$stop}}</span>
                                         <span class="pl-4">{{$sessions->title}}</span>
                                     </div>
                                 </a>
 
-                                <div id="{{$sessions->title}}_26" class="collapse show" aria-labelledby="headingTwo" data-parent="#accod-1">
+                                <div id="{{$sessions->title}}_13" class="collapse show" aria-labelledby="headingTwo" data-parent="#accod-1">
                                     <div class="card-body">
                                         <ul class="list-inline agalist">
 
@@ -146,18 +146,18 @@
                             $stop = date("h:i", strtotime($sessions->end_time));
                         @endphp
 
-                        @if ($date==27)
+                        @if ($date==14)
 
                             <div class="qna">
 
-                                <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#{{$sessions->title}}_27" aria-expanded="false" aria-controls="collapseTwo">
+                                <a class="btn-aga bg-white" data-toggle="collapse" data-toggle="collapse" data-target="#{{$sessions->title}}_14" aria-expanded="false" aria-controls="collapseTwo">
                                     <div class="mb-0 text-left qa">
                                         <span class="bg-gray afraa-red-text">{{$start}} - {{$stop}}</span>
                                         <span class="pl-4">{{$sessions->title}}</span>
                                     </div>
                                 </a>
 
-                                <div id="{{$sessions->title}}_27" class="collapse show" aria-labelledby="headingTwo" data-parent="#accod-1">
+                                <div id="{{$sessions->title}}_14" class="collapse show" aria-labelledby="headingTwo" data-parent="#accod-1">
                                     <div class="card-body">
                                         <ul class="list-inline agalist">
 

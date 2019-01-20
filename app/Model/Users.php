@@ -10,7 +10,7 @@ class Users extends Model
     //
     public function getAllUsers(){
 
-        $users = DB::table('users')->select('uid','name', 'email', 'role')->get();
+        $users = DB::table('users')->select('uid','name', 'email', 'role','photo')->get();
 
         return $users;
     }

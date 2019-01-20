@@ -17,7 +17,7 @@
 <body>
 
 <section class="container">
-  <div class="row loginpage">
+  <div class="row loginpage flex-column-reverse flex-md-row">
     <div class="col-md-6 loginleft text-center p-0 text-white m-0 shadow-sm">
       <div class="dark-overlay">
         <div class="content">

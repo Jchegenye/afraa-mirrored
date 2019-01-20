@@ -20,12 +20,26 @@ class Speaker extends Model
         return $speakers;
     }
 
-    public function getSpeakers(){
+    public function getSpeakerSession(){
 
         $speakers = DB::table('speakers')
-                ->leftJoin('programme_sessions', 'speakers.user_id', '=', 'programme_sessions.user_id')
-                ->leftJoin('users', 'speakers.user_id', '=', 'users.uid')
-                ->get();
+            ->groupBy('id')
+            ->distinct()
+            ->get();
+
+        return $speakers;
+    }
+
+    public function getSpeakers(){
+
+        $speakers = DB::table('users')
+            ->whereExists(function ($query) {
+                $query->select(DB::raw(1))
+                    ->from('speakers')
+                    ->whereRaw('users.uid = speakers.user_id');
+            })
+            ->get();
+
 
         return $speakers;
     }

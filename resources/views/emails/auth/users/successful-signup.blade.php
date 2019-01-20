@@ -120,7 +120,7 @@
 														<table width="100%" cellpadding="0" cellspacing="0">
 															<tr>
 																<td data-color="text" data-size="size navigation" data-min="10" data-max="22" data-link-style="text-decoration:none; color:#888;" class="nav" align="right" style="font:bold 15px/17px Arial, Helvetica, sans-serif, Helvetica, sans-serif; color:#888;">
-																	<a target="_blank" style="text-decoration:none; color:#888;" href="#">Home</a> &nbsp; &nbsp; <a target="_blank" style="text-decoration:none; color:#888;" href="#">Blog</a> &nbsp; &nbsp; <a target="_blank" style="text-decoration:none; color:#888;" href="#">Contact</a>
+													<!-- 				<a target="_blank" style="text-decoration:none; color:#888;" href="#">Home</a> &nbsp; &nbsp; <a target="_blank" style="text-decoration:none; color:#888;" href="#">Blog</a> &nbsp; &nbsp; <a target="_blank" style="text-decoration:none; color:#888;" href="#">Contact</a> -->
 																</td>
 															</tr>
 														</table>

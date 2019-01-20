@@ -120,7 +120,7 @@
 														<table width="100%" cellpadding="0" cellspacing="0">
 															<tr>
 																<td data-color="text" data-size="size navigation" data-min="10" data-max="22" data-link-style="text-decoration:none; color:#888;" class="nav" align="right" style="font:bold 15px/17px Arial, Helvetica, sans-serif, Helvetica, sans-serif; color:#888;">
-																	<a target="_blank" style="text-decoration:none; color:#888;" href="#">Home</a> &nbsp; &nbsp; <a target="_blank" style="text-decoration:none; color:#888;" href="#">Blog</a> &nbsp; &nbsp; <a target="_blank" style="text-decoration:none; color:#888;" href="#">Contact</a>
+																	<!-- <a target="_blank" style="text-decoration:none; color:#888;" href="#">Home</a> &nbsp; &nbsp; <a target="_blank" style="text-decoration:none; color:#888;" href="#">Blog</a> &nbsp; &nbsp; <a target="_blank" style="text-decoration:none; color:#888;" href="#">Contact</a> -->
 																</td>
 															</tr>
 														</table>
@@ -144,25 +144,28 @@
 											<table width="100%" cellpadding="0" cellspacing="0">
 												<tr>
 													<td data-color="title" data-size="size title" data-min="25" data-max="45" data-link-color="link title color" data-link-style="text-decoration:none; color:#292c34;" class="title" align="left" style="color:#675C5C; padding:0 0 24px;">
-														Dear {{$name}},
+														Hi {{$name}},
 													</td>
 												</tr>
 												<tr>
 													<td data-color="text" data-size="size text" data-min="10" data-max="26" data-link-color="link text color" data-link-style="font-weight:bold; text-decoration:underline; color:#40aceb;" align="left" style="color:#675C5C; padding:0 0 23px;">
-                                                        You are receiving this email because we received a password reset request for your account.
-														
-														<br/><br/>
-														Kindly <a href="{{$reset_url}}" target="_blunk" style="color: #3b68b1; cursor: pointer; text-decoration: none;">click here</a> to reset your password.
-                                                        
-                                                        <br/><br/>
-                                                        If you did not request a password reset, no further action is required.
+                                                        We've received a request to reset your password. If you didn't make the request, just ignore this email. Otherwise, you can reset you password using this link:
+                                                        <br/>
+													</td>
+												</tr>
+												<tr align="center" style="width:100%">                                                    
+                                                        <a href="{{$reset_url}}" target="_blunk" style="cursor: pointer;">
+                                                        	<button type="button" style="width:100%; padding:12px; border:none; background-color: #3c68b1; color:#fff; font-size:15px; text-decoration:none; font-weight:700;">Click here to reset your password
+                                                        	</button>
+                                                    	</a>
+                                                </tr>
 
-														<br/><br/>
+                                                <tr style="color:#675C5C;">														<br/><br/>
 														If you have any issues, kindly contact our <a href="http://afraa.org/index.php?option=com_contact&view=contact&id=3&Itemid=431" target="_blunk" style="color: #3b68b1; cursor: pointer; text-decoration: none;">Support Team</a>
 														
 														<br/><br/>
 														Best regards,<br/>
-														Afraa Support Team
+														Afraa Team
 													</td>
 												</tr>
 											</table>

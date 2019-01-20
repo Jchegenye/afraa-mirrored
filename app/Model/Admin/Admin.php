@@ -10,7 +10,13 @@ class Admin extends Model
     //
     public function getAllStats(){
 
-        $delegates = DB::table('users')->where('role','delegate')->count();
+        $delegates = DB::table('users')
+            ->where('role','delegate')
+            ->whereExists(function ($query) {
+                $query->select(DB::raw(1))
+                ->from('events')
+                ->whereRaw('users.uid = events.user_id');
+        })->count();
 
         $managers = DB::table('users')->where('role','manager')->count();
 

@@ -4,6 +4,10 @@
 
 @section('content')
 
+@php
+    $amount = $code_array[strtoupper($get_payment_code)];
+@endphp
+
 <div class="row">
 
     @if (session('success'))
@@ -42,6 +46,10 @@
             @csrf
 
             <div class="row">
+
+                <div class="col-md-12 form-group">
+                    <b>Please enter your card details below to pay USD {{$amount}}</b>
+                </div>
 
                 <div class="col-md-12 form-group">
                     <label for="account_number" class="col-form-label text-md-right">{{ __('Card Number:') }}</label>

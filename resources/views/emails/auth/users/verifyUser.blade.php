@@ -120,7 +120,7 @@
 														<table width="100%" cellpadding="0" cellspacing="0">
 															<tr>
 																<td data-color="text" data-size="size navigation" data-min="10" data-max="22" data-link-style="text-decoration:none; color:#888;" class="nav" align="right" style="font:bold 15px/17px Arial, Helvetica, sans-serif, Helvetica, sans-serif; color:#888;">
-																	<a target="_blank" style="text-decoration:none; color:#888;" href="#">Home</a> &nbsp; &nbsp; <a target="_blank" style="text-decoration:none; color:#888;" href="#">Blog</a> &nbsp; &nbsp; <a target="_blank" style="text-decoration:none; color:#888;" href="#">Contact</a>
+																	<!-- <a target="_blank" style="text-decoration:none; color:#888;" href="#">Home</a> &nbsp; &nbsp; <a target="_blank" style="text-decoration:none; color:#888;" href="#">Blog</a> &nbsp; &nbsp; <a target="_blank" style="text-decoration:none; color:#888;" href="#">Contact</a> -->
 																</td>
 															</tr>
 														</table>
@@ -138,28 +138,36 @@
 						<tr>
 							<td data-bgcolor="bg-module" bgcolor="#eaeced">
 								<table class="flexible" width="600" align="center" style="margin:0 auto;" cellpadding="0" cellspacing="0">
-									
+
 									<tr>
 										<td data-bgcolor="bg-block" class="holder" style="padding:58px 60px 52px;" bgcolor="#f9f9f9">
 											<table width="100%" cellpadding="0" cellspacing="0">
 												<tr>
 													<td data-color="title" data-size="size title" data-min="25" data-max="45" data-link-color="link title color" data-link-style="text-decoration:none; color:#292c34;" class="title" align="left" style="color:#675C5C; padding:0 0 24px;">
-														Dear {{$user['name']}},
+														Hi {{$user['name']}},
 													</td>
 												</tr>
 												<tr>
 													<td data-color="text" data-size="size text" data-min="10" data-max="26" data-link-color="link text color" data-link-style="font-weight:bold; text-decoration:underline; color:#40aceb;" align="left" style="color:#675C5C; padding:0 0 23px;">
-														Welcome, you have successfully joined us.
-														
+														Welcome to Afraa! In order to get started, you need to confirm your email address.
+
 														<br/><br/>
-														We hope that this is your email <span style="color: #3b68b1; cursor: pointer;">{{$user['email']}}</span>
-														
+                                                        {{--  We hope that this is your email <span style="color: #3b68b1; cursor: pointer;">{{$user['email']}}</span>  --}}
+                                                        <a href="{{url('user/verify', $user->verifyUser->token)}}" target="_blunk" style="cursor: pointer;">
+                                                                <button type="button" style="width:100%; padding:12px; border:none; background-color: #3c68b1; color:#fff; font-size:15px; text-decoration:none; font-weight:700;">Confirm Email
+                                                                </button>
+                                                        </a>
+{{--
 														<br/><br/>
-														Kindly <a href="{{url('user/verify', $user->verifyUser->token)}}" target="_blunk" style="color: #3b68b1; cursor: pointer; text-decoration: none;">click here</a> to verify your account. We just need to know that your the owner of this account.
-														
-														<br/><br/>
+														Kindly <a href="{{url('user/verify', $user->verifyUser->token)}}" target="_blunk" style="color: #3b68b1; cursor: pointer; text-decoration: none;">click here</a> to verify your account. We just need to know that your the owner of this account.  --}}
+
+                                                        <br/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="color:#675C5C;">
 														If you have any issues, kindly contact our <a href="http://afraa.org/index.php?option=com_contact&view=contact&id=3&Itemid=431" target="_blunk" style="color: #3b68b1; cursor: pointer; text-decoration: none;">Support Team</a>
-														
+
 														<br/><br/>
 														Best regards,<br/>
 														Afraa Support Team
@@ -173,7 +181,7 @@
 							</td>
 						</tr>
                     </table>
-                    
+
 					<!-- module 7 -->
 					<table data-module="module-7" data-thumb="thumbnails/07.png" width="100%" cellpadding="0" cellspacing="0">
 						<tr>

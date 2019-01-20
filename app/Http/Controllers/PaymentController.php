@@ -23,6 +23,7 @@ class PaymentController extends Controller
 
     private $payment_code;
     private $payment_code_array = array(
+        'NO_PAYMENT_CODE' => '50',
         'CODE1' => '30',
         'CODE2' => '20',
         'CODE3' => '0'
@@ -52,6 +53,8 @@ class PaymentController extends Controller
     */
     public function payment_index(Request $request){
 
+        $code_array = $this->payment_code_array;
+
         if (empty($request->get('no_payment_code')) || $request->get('no_payment_code') == "") {
 
             if (empty($request->get('payment_code')) || $request->get('payment_code') == "") {
@@ -72,10 +75,10 @@ class PaymentController extends Controller
 
                     $event->updatePaymentStatus($status,$id);
 
-                    return redirect()->back()->with('success', 'Registration Successful');
+                    return view('layouts.dashboard.payment.success');
 
                 } else {
-                    return view('layouts.dashboard.payment.index',compact('get_payment_code'));
+                    return view('layouts.dashboard.payment.index',compact('get_payment_code','code_array'));
                 }
             }
 
@@ -85,7 +88,7 @@ class PaymentController extends Controller
 
                 $get_payment_code = "no_payment_code";
 
-                return view('layouts.dashboard.payment.index',compact('get_payment_code'));
+                return view('layouts.dashboard.payment.index',compact('get_payment_code','code_array'));
 
             } else {
                 return redirect()->back()->with('warning', 'Sorry! Please Try Again');
@@ -114,7 +117,7 @@ class PaymentController extends Controller
         $this->accountNumber = $request->get('account_number');
         $this->expirationMonth = $request->get('expiration_month');
         $this->expirationYear = $request->get('expiration_year');
-        $this->payment_code = $request->get('payment_code');
+        $this->payment_code = strtoupper($request->get('payment_code'));
 
         if (array_key_exists($this->payment_code,$this->payment_code_array)) {
 
@@ -124,11 +127,11 @@ class PaymentController extends Controller
 
         if($this->makePayment() == true){
 
-            return redirect('dashboard/delegate/session')->with('success', 'Payment Successful');
+            return view('layouts.dashboard.payment.success');
 
         }
 
-        return redirect()->back()->with('warning', 'Sorry! Payment not Successful, Please Try Again');
+        return redirect('dashboard/delegate/payment_code')->with('warning', 'Sorry! Payment not Successful, Please Try Again');
 
     }
 

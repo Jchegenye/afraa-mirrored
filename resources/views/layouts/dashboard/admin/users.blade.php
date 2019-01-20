@@ -23,7 +23,7 @@
 
                 <div class="col-md-8">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             {{--  <div class="input-group custom-search-form">
                                 <input type="text" class="form-control bg-danger text-white rounded-left" autocomplete="off" id="search" placeholder="Seach...">
                                 <span class="input-group-btn border-0">
