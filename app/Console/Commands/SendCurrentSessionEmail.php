@@ -44,30 +44,43 @@ class SendCurrentSessionEmail extends Command
     public function handle()
     {
 
-        $sessions = $this->CurrentSessions(); //Trait session object
+        $sessions = $this->getCurrentSessions()->first(); //Trait session object
+        $toAllEmails = ['chegenyejackson@gmail.com']; //Get all emails
 
-        $allEmails = ['chegenyejackson@gmail.com']; //Get all emails
+        $from = env('MAIL_FROM_ADDRESS');
+        Mail::send('emails.notify-current-sessions', ['sessionsData' => $sessions], function ($message) use ($toAllEmails, $from) {
+            $message->from($from, 'African Airlines Associations');
+            $message->to($toAllEmails)->subject('Sessions Notification');
+        });
 
-            if(empty(!$sessions->isEmpty())){
+        // if(empty(!$sessions->isEmpty())){
 
-                //Do nothing
+        //     //Do nothing
+        
+        // }else{
+
+        //             //Notify user via email
+        //             // Mail::send('emails.notify-current-sessions', ['sessionsData' => $sessions], function($message) use ($allEmails) {
+                        
+        //             //     //$message->to(env('MAIL_FROM_ADDRESS'));
+
+        //             //     // foreach ($allEmails as $email) {
+        //             //     //     //$message->cc($email);
+        //             //     //     $message->to($email);
+        //             //     // }
+        //             //     $message->to($allEmails);
+                        
+        //             //     $message->subject('Session');
+
+        //             // });
             
-            }else{
+        //     $from = env('MAIL_FROM_ADDRESS');
+        //     Mail::send('emails.notify-current-sessions', ['sessionsData' => $sessions], function ($message) use ($toAllEmails, $from) {
+        //         $message->from($from, 'African Airlines Associations');
+        //         $message->to($toAllEmails)->subject('Sessions Notification');
+        //     });
 
-                //Notify user via email
-                Mail::send('emails.notify-current-sessions', ['sessionsData' => $sessions], function($message) use ($allEmails) {
-                    
-                    $message->to(env('MAIL_FROM_ADDRESS'));
-
-                    foreach ($allEmails as $email) {
-                        $message->cc($email);
-                    }
-                    
-                    $message->subject('Session');
-
-                });
-
-            }
+        // }
 
         //$this->info('Session successfully activated!');
         

@@ -6,6 +6,8 @@ use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Afraa\Legibra\ReusableCodes\Dashboard\RetrieveSessions;
 use Carbon\Carbon;
+use Mail;
+use Afraa\User;
 
 class Kernel extends ConsoleKernel
 {
@@ -18,9 +20,9 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        Commands\InitilizeApp::class,
-        Commands\Permissions::class,
-        Commands\SendCurrentSessionEmail::class,
+        //Commands\InitilizeApp::class,
+        //Commands\Permissions::class,
+        //Commands\SendCurrentSessionEmail::class,
     ];
 
     /**
@@ -29,19 +31,73 @@ class Kernel extends ConsoleKernel
      * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
+
+    public $next;
+    public $current;
+    public $myemail;
+
     protected function schedule(Schedule $schedule)
     {
+
+        //$users = User::pluck('email');
+        // $this->myemail = $users;
+
+        //dd(json_decode($users));
+        // $users = User::all();
+        // foreach($users as $user){
+        //     dd($user['email']);
+        // }
+
+        //Current Event
+        //$currentSessionData = $this->getCurrentSessions()->first();
+        if($this->getCurrentSessions()->first() !== null){
+
+            //dd(Carbon::create($this->getCurrentSessions()->first()->start_time)->format('H:i'));
+
+            $schedule->call('Afraa\Legibra\ReusableCodes\Dashboard\SendMails@notifyCurrentSession')
+                ->dailyAt(Carbon::create($this->getCurrentSessions()->first()->start_time)->format('H:i'));
+
+        }
+
+        //Next Event
+        //$nextSessionData = $this->getNextSessions()->first();
+        if(!$this->getNextSessions() == null){
+
+            //dd(Carbon::create($this->getNextSessions()->first()->start_time)->subMinutes(98)->format('H:i'));
+
+            $schedule->call('Afraa\Legibra\ReusableCodes\Dashboard\SendMails@notifyNextSession')
+                ->dailyAt(Carbon::create($this->getNextSessions()->first()->start_time)->subMinutes(15)->format('H:i'));
+                
+        }
+
+        // if(!$this->current == null){
+
+        //     $schedule->call(function () {
+                
+        //         $from = env('MAIL_FROM_ADDRESS');
+        //         Mail::send('emails.notify-current-sessions', ['sessionsData' => $this->current], function ($message) use ($toAllEmails, $from) {
+        //             $message->from($from, 'African Airlines Associations');
+        //             $message->to($toAllEmails)->subject('Sessions Notification');
+        //         });
+
+        //     })->dailyAt('00:44');
+
+        // }else{
+
+        //     dd("No next event!");
+
+        // }
+
         // $schedule->command('inspire')->hourly();
         // $schedule->command('afraa:initialize')->daily();
         // $schedule->command('afraa:permissions')->daily();
 
-        $getSchedule = $schedule->command('afraa:current-session --force')->everyMinute();
+        //$getSchedule = $schedule->command('afraa:current-session --force')->everyMinute();
 
-        if($getSchedule){
+        //if($getSchedule){
 
-            $sessions = $this->CurrentSessions(); //Trait session object
-            
-            foreach($sessions as $session){
+            //$sessions = $this->getCurrentSessions(); //Trait session object
+            //foreach($sessions as $session){
 
                 //echo $session->title;
                 //echo Carbon::create($session->start_time)->subMinutes(10)->format('H:i');
@@ -57,20 +113,32 @@ class Kernel extends ConsoleKernel
                     //     echo "not";
                     // }
 
-                    $schedule->command('afraa:current-session')
-                        ->dailyAt(Carbon::create($session->start_time)
-                        //->subMinutes(2)
-                        ->format('H:i'));
+        // $schedule->command('afraa:current-session')
+        //     ->dailyAt(Carbon::create($session->start_time)
+        //     //->subMinutes(30)
+        //     ->format('H:i'));
+
+                    // $sessionTime = Carbon::create($session->start_time)->format('H:i'); //Ongoing
+                    // dd($sessionTime . " - Current event");
+
+                    // $sessionTime = Carbon::create($session->end_time)->addMinutes(15)->format('H:i'); //Ongoing
+                    // dd($sessionTime . " - Next event " .  $session->title);
+                    
+        //$currentTime = Carbon::now()->format('H:i');
+
+                        // dd(Carbon::create($session->start_time)
+                        // ->subMinutes(1)
+                        // ->format('H:i'));
 
                 //}
 
-            }
+    //     }
 
-        }
+    // }
     
         // $schedule->call(function () {
 
-        //     $sessions = $this->CurrentSessions(); //Trait session object
+        //     $sessions = $this->getCurrentSessions(); //Trait session object
             
         //     foreach($sessions as $session){
 
