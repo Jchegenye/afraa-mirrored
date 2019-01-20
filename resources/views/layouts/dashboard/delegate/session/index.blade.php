@@ -103,10 +103,10 @@
                                                 <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"></a>
 
                                                 @if ($sessions->id == '37' || $sessions->id == '44' || $sessions->id == '6' || $sessions->id == '39')
-                                                    <a href="#"><span class="ask_question" data-toggle="modal" data-target="#{{$sessions->title}}_q_25">Ask A Question</span></a>
+                                                    <a href="#"><span class="ask_question" data-toggle="modal" data-target="#{{$sessions->title}}_q_12">Ask A Question</span></a>
                                                 @endif
 
-                                                <div class="modal modal_ask fade" id="{{$sessions->title}}_q_25" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal modal_ask fade" id="{{$sessions->title}}_q_12" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content p-5">
                                                             <div class="modal-header">
@@ -132,8 +132,8 @@
                                                 </div>
 
                                                 <div title="Add to Calendar" class="addeventatc" style="box-shadow: none !important; background: transparent;">
-                                                    <span class="start">2018-10-25 {{$start}} </span>
-                                                    <span class="end">2018-10-25 {{$stop}}</span>
+                                                    <span class="start">2019-05-12 {{$start}} </span>
+                                                    <span class="end">2019-05-12 {{$stop}}</span>
                                                     <span class="timezone">Greenwich Mean Time</span>
                                                     <span class="title">{{$sessions->title}}</span>
                                                     <span class="description">{{$sessions->description}}</span>
@@ -163,34 +163,25 @@
                                                 </div>
                                                 <div class="col-md-4 text-center pl-4 right_profile">
                                                     <div class="owl-carousel owl-theme" id="programmes_modal">
-                                                        <div class="card item">
-                                                                <h4 class="card-title">{{$sessions->session_type}}</h4>
-                                                                @if(empty($sessions->photo))
-                                                                    <img src="{{ asset('images/') }}/placeholder.png"  class="img-fluid pb-3 rounded">
-                                                                @else
-                                                                    <img src="{{ asset('images/') }}/{{$sessions->photo}} "  class="img-fluid pb-3 rounded">
-                                                                @endif      
-                                                              <div class="card-body p-0">     
-                                                                <h6>{{$sessions->name}}</h6>
-                                                                <h5>{{$sessions->Job_Title}}</h5>
-                                                                <span>{{$sessions->Company_Name}}</span>
-                                                              </div>
-                                                        </div>
-                                                        <div class="card item">
-                                                                <h4 class="card-title">{{$sessions->session_type}}</h4>
-                                                                @if(empty($sessions->photo))
-                                                                    <img src="{{ asset('images/') }}/placeholder.png"  class="img-fluid pb-3 rounded">
-                                                                @else
-                                                                    <img src="{{ asset('images/') }}/{{$sessions->photo}} "  class="img-fluid pb-3 rounded">
-                                                                @endif      
-                                                              <div class="card-body p-0">     
-                                                                <h6>{{$sessions->name}}</h6>
-                                                                <h5>{{$sessions->Job_Title}}</h5>
-                                                                <span>{{$sessions->Company_Name}}</span>
-                                                              </div>
-                                                        </div>
+                                                            @foreach ($users as $user)
+                                                                @if (in_array($user->uid , $sessions->speakers_array))
+                                                                    <div class="card item">
+                                                                            <h4 class="card-title">{{$sessions->session_type}}</h4>
+                                                                            @if(empty($user->photo))
+                                                                                <a href="{{url('/dashboard/delegate/showprofile/'.$user->uid)}}"><img src="{{ asset('images/') }}/placeholder.png"  class="img-fluid pb-3 rounded"></a>
+                                                                            @else
+                                                                                <a href="{{url('/dashboard/delegate/showprofile/'.$user->uid)}}"><img src="{{ asset('images/') }}/{{$user->photo}} "  class="img-fluid pb-3 rounded"></a>
+                                                                            @endif
+                                                                        <div class="card-body p-0">
+                                                                            <h6><a href="{{url('/dashboard/delegate/showprofile/'.$user->uid)}}">{{$user->name}}</a></h6>
+                                                                            <h5>{{$sessions->Job_Title}}</h5>
+                                                                            <span>{{$sessions->Company_Name}}</span>
+                                                                        </div>
+                                                                    </div>
+                                                                @endif
+                                                            @endforeach
                                                     </div>
-                                                </div> 
+                                                </div>
                                             </div>
                                             <div class="modal-footer d-none">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -234,7 +225,7 @@
                                     <td class="clr-blk">
                                         <div>
                                             @if ($sessions->session_type !== "Master of Ceremony")
-                                                <h6 class="d-inline" data-toggle="modal" data-target="#{{$sessions->title}}_26"> <i class="far fa-eye pr-2"></i></h6>
+                                                <h6 class="d-inline" data-toggle="modal" data-target="#{{$sessions->title}}_13"> <i class="far fa-eye pr-2"></i></h6>
                                             @endif
                                             <h6 class="d-inline">{{$sessions->title}}</h6>
                                         </div>
@@ -259,10 +250,10 @@
                                                 <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"></a>
 
                                                 @if ($sessions->id == '37' || $sessions->id == '44' || $sessions->id == '6' || $sessions->id == '39')
-                                                    <a href="#"><span class="ask_question" data-toggle="modal" data-target="#{{$sessions->title}}_q_26">Ask A Question</span></a>
+                                                    <a href="#"><span class="ask_question" data-toggle="modal" data-target="#{{$sessions->title}}_q_13">Ask A Question</span></a>
                                                 @endif
 
-                                                <div class="modal modal_ask fade" id="{{$sessions->title}}_q_26" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal modal_ask fade" id="{{$sessions->title}}_q_13" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content p-5">
                                                             <div class="modal-header">
@@ -288,8 +279,8 @@
                                                 </div>
 
                                                 <div title="Add to Calendar" class="addeventatc" style="box-shadow: none !important; background: transparent;">
-                                                    <span class="start">2018-10-25 {{$start}} </span>
-                                                    <span class="end">2018-10-25 {{$stop}}</span>
+                                                    <span class="start">2019-05-12 {{$start}} </span>
+                                                    <span class="end">2019-05-12 {{$stop}}</span>
                                                     <span class="timezone">Greenwich Mean Time</span>
                                                     <span class="title">{{$sessions->title}}</span>
                                                     <span class="description">{{$sessions->description}}</span>
@@ -303,7 +294,7 @@
                                 </tr>
 
                                 <div class="afraa-modal">
-                                        <div class="modal fade rounded" id="{{$sessions->title}}_26" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                        <div class="modal fade rounded" id="{{$sessions->title}}_13" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                             <div class="modal-content p-3">
                                                 <div class="modal-header mt-4">
@@ -319,34 +310,25 @@
                                                     </div>
                                                     <div class="col-md-4 text-center pl-4 right_profile">
                                                         <div class="owl-carousel owl-theme" id="programmes_modal">
-                                                            <div class="card item">
-                                                                    <h4 class="card-title">{{$sessions->session_type}}</h4>
-                                                                    @if(empty($sessions->photo))
-                                                                        <img src="{{ asset('images/') }}/placeholder.png"  class="img-fluid pb-3 rounded">
-                                                                    @else
-                                                                        <img src="{{ asset('images/') }}/{{$sessions->photo}} "  class="img-fluid pb-3 rounded">
-                                                                    @endif      
-                                                                  <div class="card-body p-0">     
-                                                                    <h6>{{$sessions->name}}</h6>
-                                                                    <h5>{{$sessions->Job_Title}}</h5>
-                                                                    <span>{{$sessions->Company_Name}}</span>
-                                                                  </div>
-                                                            </div>
-                                                            <div class="card item">
-                                                                    <h4 class="card-title">{{$sessions->session_type}}</h4>
-                                                                    @if(empty($sessions->photo))
-                                                                        <img src="{{ asset('images/') }}/placeholder.png"  class="img-fluid pb-3 rounded">
-                                                                    @else
-                                                                        <img src="{{ asset('images/') }}/{{$sessions->photo}} "  class="img-fluid pb-3 rounded">
-                                                                    @endif      
-                                                                  <div class="card-body p-0">     
-                                                                    <h6>{{$sessions->name}}</h6>
-                                                                    <h5>{{$sessions->Job_Title}}</h5>
-                                                                    <span>{{$sessions->Company_Name}}</span>
-                                                                  </div>
-                                                            </div>
+                                                                @foreach ($users as $user)
+                                                                    @if (in_array($user->uid , $sessions->speakers_array))
+                                                                        <div class="card item">
+                                                                                <h4 class="card-title">{{$sessions->session_type}}</h4>
+                                                                                @if(empty($user->photo))
+                                                                                    <a href="{{url('/dashboard/delegate/showprofile/'.$user->uid)}}"><img src="{{ asset('images/') }}/placeholder.png"  class="img-fluid pb-3 rounded"></a>
+                                                                                @else
+                                                                                    <a href="{{url('/dashboard/delegate/showprofile/'.$user->uid)}}"><img src="{{ asset('images/') }}/{{$user->photo}} "  class="img-fluid pb-3 rounded"></a>
+                                                                                @endif
+                                                                            <div class="card-body p-0">
+                                                                                <h6><a href="{{url('/dashboard/delegate/showprofile/'.$user->uid)}}">{{$user->name}}</a></h6>
+                                                                                <h5>{{$sessions->Job_Title}}</h5>
+                                                                                <span>{{$sessions->Company_Name}}</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    @endif
+                                                                @endforeach
                                                         </div>
-                                                    </div> 
+                                                    </div>
                                                 </div>
                                                 <div class="modal-footer d-none">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -397,7 +379,7 @@
                                     <td class="clr-blk">
                                     <div>
                                         @if ($sessions->session_type !== "Master of Ceremony")
-                                            <h6 class="d-inline" data-toggle="modal" data-target="#{{$sessions->title}}_27"> <i class="far fa-eye pr-2"></i></h6>
+                                            <h6 class="d-inline" data-toggle="modal" data-target="#{{$sessions->title}}_14"> <i class="far fa-eye pr-2"></i></h6>
                                         @endif
                                         <h6 class="d-inline">{{$sessions->title}}</h6>
                                     </div>
@@ -422,10 +404,10 @@
                                                 <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"></a>
 
                                                 @if ($sessions->id == '37' || $sessions->id == '44' || $sessions->id == '6' || $sessions->id == '39')
-                                                    <a href="#"><span class="ask_question" data-toggle="modal" data-target="#{{$sessions->title}}_q_27">Ask A Question</span></a>
+                                                    <a href="#"><span class="ask_question" data-toggle="modal" data-target="#{{$sessions->title}}_q_14">Ask A Question</span></a>
                                                 @endif
 
-                                                <div class="modal modal_ask fade" id="{{$sessions->title}}_q_27" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal modal_ask fade" id="{{$sessions->title}}_q_14" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content p-5">
                                                             <div class="modal-header">
@@ -451,8 +433,8 @@
                                                 </div>
 
                                                 <div title="Add to Calendar" class="addeventatc" style="box-shadow: none !important; background: transparent;">
-                                                    <span class="start">2018-10-25 {{$start}} </span>
-                                                    <span class="end">2018-10-25 {{$stop}}</span>
+                                                    <span class="start">2019-05-12 {{$start}} </span>
+                                                    <span class="end">2018-05-12 {{$stop}}</span>
                                                     <span class="timezone">Greenwich Mean Time</span>
                                                     <span class="title">{{$sessions->title}}</span>
                                                     <span class="description">{{$sessions->description}}</span>
@@ -466,7 +448,7 @@
                                 </tr>
 
                                 <div class="afraa-modal">
-                                        <div class="modal fade rounded" id="{{$sessions->title}}_27" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                        <div class="modal fade rounded" id="{{$sessions->title}}_14" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                                             <div class="modal-dialog" role="document">
                                             <div class="modal-content p-3">
                                                 <div class="modal-header mt-4">
@@ -482,34 +464,25 @@
                                                     </div>
                                                     <div class="col-md-4 text-center pl-4 right_profile">
                                                         <div class="owl-carousel owl-theme" id="programmes_modal">
-                                                            <div class="card item">
-                                                                    <h4 class="card-title">{{$sessions->session_type}}</h4>
-                                                                    @if(empty($sessions->photo))
-                                                                        <img src="{{ asset('images/') }}/placeholder.png"  class="img-fluid pb-3 rounded">
-                                                                    @else
-                                                                        <img src="{{ asset('images/') }}/{{$sessions->photo}} "  class="img-fluid pb-3 rounded">
-                                                                    @endif      
-                                                                  <div class="card-body p-0">     
-                                                                    <h6>{{$sessions->name}}</h6>
-                                                                    <h5>{{$sessions->Job_Title}}</h5>
-                                                                    <span>{{$sessions->Company_Name}}</span>
-                                                                  </div>
-                                                            </div>
-                                                            <div class="card item">
-                                                                    <h4 class="card-title">{{$sessions->session_type}}</h4>
-                                                                    @if(empty($sessions->photo))
-                                                                        <img src="{{ asset('images/') }}/placeholder.png"  class="img-fluid pb-3 rounded">
-                                                                    @else
-                                                                        <img src="{{ asset('images/') }}/{{$sessions->photo}} "  class="img-fluid pb-3 rounded">
-                                                                    @endif      
-                                                                  <div class="card-body p-0">     
-                                                                    <h6>{{$sessions->name}}</h6>
-                                                                    <h5>{{$sessions->Job_Title}}</h5>
-                                                                    <span>{{$sessions->Company_Name}}</span>
-                                                                  </div>
-                                                            </div>
+                                                                @foreach ($users as $user)
+                                                                    @if (in_array($user->uid , $sessions->speakers_array))
+                                                                        <div class="card item">
+                                                                                <h4 class="card-title">{{$sessions->session_type}}</h4>
+                                                                                @if(empty($user->photo))
+                                                                                    <a href="{{url('/dashboard/delegate/showprofile/'.$user->uid)}}"><img src="{{ asset('images/') }}/placeholder.png"  class="img-fluid pb-3 rounded"></a>
+                                                                                @else
+                                                                                    <a href="{{url('/dashboard/delegate/showprofile/'.$user->uid)}}"><img src="{{ asset('images/') }}/{{$user->photo}} "  class="img-fluid pb-3 rounded"></a>
+                                                                                @endif
+                                                                            <div class="card-body p-0">
+                                                                                <h6><a href="{{url('/dashboard/delegate/showprofile/'.$user->uid)}}">{{$user->name}}</a></h6>
+                                                                                <h5>{{$sessions->Job_Title}}</h5>
+                                                                                <span>{{$sessions->Company_Name}}</span>
+                                                                            </div>
+                                                                        </div>
+                                                                    @endif
+                                                                @endforeach
                                                         </div>
-                                                    </div> 
+                                                    </div>
                                                 </div>
                                                 <div class="modal-footer d-none">
                                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

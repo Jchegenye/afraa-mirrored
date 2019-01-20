@@ -127,7 +127,7 @@ class PaymentController extends Controller
 
         if($this->makePayment() == true){
 
-            return redirect('dashboard/delegate/session')->with('success', 'Payment Successful');
+            return view('layouts.dashboard.payment.success');
 
         }
 

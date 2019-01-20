@@ -160,6 +160,10 @@ Route::group(['middleware' => 'auth'], function()
 
         Route::resource('profile','Users\UsersController');
 
+        Route::get('showprofile/{id}', [
+            'uses' => 'Users\UsersController@show',
+        ]);
+
         Route::resource('documents','DocumentController');
 
         Route::resource('payment','PaymentController');

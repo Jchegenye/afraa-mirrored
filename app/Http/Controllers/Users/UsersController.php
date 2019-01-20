@@ -63,6 +63,10 @@ class UsersController extends Controller
     public function show($id)
     {
         //
+        $users = new Users;
+        $user = $users->getUserById($id);
+
+        return view('layouts.dashboard.profile.index',compact('user'));
     }
 
     /**
