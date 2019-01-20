@@ -36,7 +36,7 @@
         <div class="row text-center">
             <div class="col-md-12">
 				<a href="{{ url('/') }}">
-					<img class="img-fluid logo" src="{{URL::asset('/images/logo.png')}}" alt="logo">
+					<img class="img-fluid logo pt-5 pb-3" src="{{URL::asset('/images/logo.png')}}" alt="logo">
 				</a>
             </div>
 

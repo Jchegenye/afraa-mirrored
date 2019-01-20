@@ -9,7 +9,7 @@
 <div class="row pt-5 pb-2 pl-5 pr-5 ">
     <div class="col-md-12 text-left">
         <h4>Hi there!</h4>
-        <p class="pr-2">Sign up to be part of the AGA50 conference. We are glad to host you.</p>
+        <p class="pr-2">Sign in to be part of be part of the conference. We are glad to host you.</p>
     </div>
     <div>
         @if (session('information'))
@@ -68,7 +68,7 @@
                 </span>
             @endif
         </div>
-        
+
         @if (app()->environment('production'))
             <div class="form-group ml-3">
                 <div class="g-recaptcha" data-sitekey="
