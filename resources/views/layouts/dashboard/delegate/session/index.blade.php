@@ -102,7 +102,7 @@
                                             @elseif (Auth::user()->role == 'delegate')
                                                 <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"></a>
 
-                                                @if ($sessions->id == '37' || $sessions->id == '44' || $sessions->id == '6' || $sessions->id == '39')
+                                                @if ($sessions->session_type == 'moderator')
                                                     <a href="#"><span class="ask_question" data-toggle="modal" data-target="#{{$sessions->title}}_q_12">Ask A Question</span></a>
                                                 @endif
 
@@ -249,7 +249,7 @@
                                             @elseif (Auth::user()->role == 'delegate')
                                                 <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"></a>
 
-                                                @if ($sessions->id == '37' || $sessions->id == '44' || $sessions->id == '6' || $sessions->id == '39')
+                                                @if ($sessions->session_type == 'moderator' )
                                                     <a href="#"><span class="ask_question" data-toggle="modal" data-target="#{{$sessions->title}}_q_13">Ask A Question</span></a>
                                                 @endif
 
@@ -403,7 +403,7 @@
                                             @elseif (Auth::user()->role == 'delegate')
                                                 <a href="javascript:void()" class="edit" data-toggle="modal" data-target="#{{$sessions->title}}"></a>
 
-                                                @if ($sessions->id == '37' || $sessions->id == '44' || $sessions->id == '6' || $sessions->id == '39')
+                                                @if ($sessions->session_type == 'moderator')
                                                     <a href="#"><span class="ask_question" data-toggle="modal" data-target="#{{$sessions->title}}_q_14">Ask A Question</span></a>
                                                 @endif
 
