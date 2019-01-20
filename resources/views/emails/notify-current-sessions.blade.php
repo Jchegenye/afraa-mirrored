@@ -8,10 +8,11 @@
     
 @else --}}
 
-    <p>Dear user,</p>
-        
+    <p>Dear {{$users['name']}},</p>
+
         <p>
-            Session(s) reminder.
+            Session reminder.
+
             <ul>
                 @php
                     $currentTime = date("H:i");
@@ -19,15 +20,15 @@
 
                 @foreach ($sessionsData as $session)
                     
-                    @if (date("H:i", strtotime($session->start_time)) == date("H:i"))
+                    {{-- @if (date("H:i", strtotime($session->start_time)) == date("H:i")) --}}
 
-                        <li><b>{{$session->title}}</b> ({{$session->start_time}}) - New session about to start</li>
+                        <li>This session <b>{{$session->title}}</b> has started.</li>
 
-                    @else
+                    {{-- @else
 
                         <li><b>{{$session->title}}</b> ({{$session->start_time}}) - Ongoing Session</li>
 
-                    @endif
+                    @endif --}}
 
                 @endforeach
             </ul>

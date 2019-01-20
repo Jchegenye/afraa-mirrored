@@ -17,45 +17,58 @@
     <div class="row mt-4">
         <div class="col-md-12">
 
-            {{-- <div class="delegate-box afraa-white-box ">
+            <div class="delegate-box afraa-white-box ">
                 <table class="table">
-                    <tr>
-                        <th>
-                            <h6 class="afraa-red-text">CURRENT SESSION</h6>
-                        </th>
-                        <td>
-                            <div class="afraa-red-box">
-                                <span>9:00 - 15: 00</span>
-                                <span>Chairman’s Opening Remarks</span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            <h6>CURRENT SESSION</h6>
-                        </th>
-                        <td>
-                            <div class="afraa-white-box ">
-                                <span>9:00 - 15: 00</span>
-                                <span>Delegates Tour</span>
-                            </div>
-                        </td>
-                    </tr>
+                @if (!$current_sessions == null)
+                    @foreach ($current_sessions as $current_session)
+                        <tr>
+                            <th>
+                                <h6 class="afraa-red-text">CURRENT SESSION</h6>
+                            </th>
+                            <td>
+                                <div class="afraa-red-box">
+                                    <span>{{date("H:i", strtotime($current_session->start_time))}} - {{date("H:i", strtotime($current_session->end_time))}}</span>
+                                    <span>{{$current_session->title}}</span>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                @else
+                    {{ "There is no current session happening now!" }}
+                @endif
+
+                @if (!$next_sessions == null)
+                    @foreach ($next_sessions as $next_session)
+                        <tr>
+                            <th>
+                                <h6>NEXT SESSION</h6>
+                            </th>
+                            <td>
+                                <div class="afraa-white-box ">
+                                    <span>{{date("H:i", strtotime($next_session->start_time))}} - {{date("H:i", strtotime($next_session->end_time))}}</span>
+                                    <span>{{$next_session->title}}</span>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                @else
+                    {{ "There is no upcoming session at the moment!" }}
+                @endif
+
                 </table>
-            </div> --}}
-            No event!
+            </div>
 
         </div>
     </div>
 
-    @foreach($mysessions as $session)
+    {{-- @foreach($mysessions as $session) --}}
 
         {{-- @php
             $date = date("Y-m-d", strtotime($sessions['date']));
             $start_time = date("H:i:s", strtotime($sessions['date']));
         @endphp --}}
 
-        {{$session->title}}<br>
+        {{-- {{$session->title}}<br> --}}
 
         {{-- @if ()
             
@@ -69,7 +82,7 @@
             {{$start_time}}
         </span> --}}
 
-    @endforeach
+   {{--  @endforeach --}}
 
     
 

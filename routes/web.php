@@ -146,7 +146,7 @@ Route::group(['middleware' => 'auth'], function()
 
     });
 
-    Route::prefix('dashboard/delegate')->group(function () {
+    Route::prefix('dashboard/delegate')->group( function () {
 
         Route::resource('programme', 'Programme\ProgrammeController');
 
@@ -235,3 +235,7 @@ Route::namespace('Auth\Users')->group(function () {
 Auth::routes();
 
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
+
+Route::get('/notification/sessions', array(
+    'uses' => 'NotificationSessionsController@getNotifications',
+));

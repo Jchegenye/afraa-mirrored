@@ -32,8 +32,9 @@ class DelegateController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+
         $user = Auth::id();
 
         $programme_instance = new Programme();
@@ -58,9 +59,10 @@ class DelegateController extends Controller
 
         $isSpeaker = $isSpeakerBool->isSpeaker($user);
 
-        $mysessions = $this->CurrentSessions();
+        $current_sessions = $this->getCurrentSessions();
+        $next_sessions = $this->getNextSessions();
 
-        return view('dashboard/delegate',compact('session','featured_session','programme','user_by_id','isSpeaker', 'mysessions'));
+        return view('dashboard/delegate',compact('session','featured_session','programme','user_by_id','isSpeaker', 'current_sessions', 'next_sessions'));
     }
 
     public function viewPrograme(){
