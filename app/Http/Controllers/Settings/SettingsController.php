@@ -28,8 +28,7 @@ class SettingsController extends Controller
      */
     public function create()
     {
-        return view('layouts.dashboard.settings.index', ['customize' => Settings::all()->first()]);
-        //return view('layouts.dashboard.settings.index');
+        return view('layouts.dashboard.settings.index', ['customize' => Settings::all()]);
     }
 
     /**
@@ -42,52 +41,105 @@ class SettingsController extends Controller
     public function store(Request $request)
     {
 
-        $request->validate([
-            'theme_type'=>'required',
-            'title_login'=>'required',
-            'desc_login'=> 'required',
-            //'photo_login' => 'required|unique:settings', //'photo_asc' => 'required', 'photo_aga' => 'required',
-            //'bg_photo_login' => 'required',
-        ],[
-            'required' => 'This field is required.'
-        ]);
+        if($request->get('update') == 'update'){
 
-        $file = $request->file('photo_login');
-        $photo_login = time().$file->getClientOriginalName();
-        $file->move(public_path().'/images/settings', $photo_login);
+            // $request->validate([
+            //     'status_activate'=> 'required|integer',
+            //     'theme_type_activate'=> 'required'
+            // ]);
 
-        $file = $request->file('bg_photo_login');
-        $bg_photo_login = time().$file->getClientOriginalName();
-        $file->move(public_path().'/images/settings', $bg_photo_login);
+            // $settings = Settings::where('status', '=', $request->get('status_activate'))
+            //     ->get();
+
+            $settings = Settings::all();
+            foreach($settings as $key => $setting){
+                
+                if((int)$settings[0]['status']  == "0" AND (int)$settings[1]['status'] == "0"){ //give zero 0
+
+                    $data = Settings::where('theme_type', '=', $request->get('theme_type_activate'))->first();
+                    $data->status = (int)$request->get('status_activate');
+                    $data->save();
+
+                    return redirect()->back()->success(''.$setting->theme_type.' theme has been activated!');
+                    
+                }
+                elseif((int)$request->get('status_activate') == (int)$setting->status && $request->get('theme_type_activate') ==  $setting->theme_type){
+
+                    return redirect()->back()->warning('Current theme is already activated!');
+
+                }
+                elseif((int)$request->get('status_activate') == (int)0 && $request->get('theme_type_activate') ==  $setting->theme_type){
+
+                    $data = Settings::where('theme_type', '=', $request->get('theme_type_activate'))->first();
+                    $data->status = (int)0;
+                    $data->save();
+                    return redirect()->back()->warning('Current theme has been deactivated!');
+
+                }
+
+                elseif((int)$setting->status == (int)0 && $setting->theme_type == $request->get('theme_type_activate')){
+
+                    return redirect()->back()->warning('Deactivate current theme first!');
+
+                }
+
+            }
+
         
-        $data = Settings::where('theme_type', '=', $request->get('theme_type'))->first();
-        if(!empty($data->theme_type)){
-            
-            $data->title_login = $request->get('title_login');
-            $data->desc_login = $request->get('desc_login');
-            $data->photo_login = $photo_login;
-            $data->bg_photo_login = $bg_photo_login;
-            $data->save();
+    //echo $request->get('theme_type_activate') . "-" . (int)$request->get('status_activate');
 
-            return redirect()->back()->with('success', 'Theme setup has been updated!');
-        
         }else{
-            
-            $customize = new Settings([
-                'theme_type' => $request->get('theme_type'),
-                'title_login' => $request->get('title_login'),
-                'desc_login'=> $request->get('desc_login'),
-                'photo_login' => $photo_login,
-                'bg_photo_login' => $bg_photo_login
-            ]);
-            $customize->save();
 
-            return redirect()->back()->with('success', 'Theme setup has been stored!');
+            $request->validate([
+                'theme_type'=>'required',
+                'title_login'=>'required',
+                'desc_login'=> 'required',
+                //'photo_login' => 'required|unique:settings', //'photo_asc' => 'required', 'photo_aga' => 'required',
+                //'bg_photo_login' => 'required',
+                //'status'=> 'required|integer',
+            ],[
+                'required' => 'This field is required.'
+            ]);
+    
+            // $file = $request->file('photo_login');
+            // $photo_login = time().$file->getClientOriginalName();
+            // $file->move(public_path().'/images/settings', $photo_login);
+    
+            // $file = $request->file('bg_photo_login');
+            // $bg_photo_login = time().$file->getClientOriginalName();
+            // $file->move(public_path().'/images/settings', $bg_photo_login);
+            
+            $data = Settings::where('theme_type', '=', $request->get('theme_type'))->first();
+            if(!empty($data)){
+                
+                $data->title_login = $request->get('title_login');
+                $data->desc_login = $request->get('desc_login');
+                // $data->photo_login = $photo_login;
+                // $data->bg_photo_login = $bg_photo_login;
+                // $data->status = (int)$request->get('status');
+                $data->save();
+            
+                return redirect()->back()->with('success', 'Theme setup has been updated!');
+            
+            }else{
+                
+                $customize = new Settings([
+                    'theme_type' => $request->get('theme_type'),
+                    'title_login' => $request->get('title_login'),
+                    'desc_login'=> $request->get('desc_login'),
+                    // 'photo_login' => $photo_login,
+                    // 'bg_photo_login' => $bg_photo_login,
+                    //'status' => (int)$request->get('status')
+                ]);
+                $customize->save();
+            
+                return redirect()->back()->with('success', 'Theme setup has been stored!');
+            
+            }
 
         }
         
-
-}
+    }
 
     /**
      * Display the specified resource.

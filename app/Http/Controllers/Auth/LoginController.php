@@ -6,6 +6,9 @@ use Afraa\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
+use Afraa\Settings;
+
+
 class LoginController extends Controller
 {
     /*
@@ -37,6 +40,14 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function showLoginForm()
+    {
+        
+        $customize = Settings::all();
+
+        return view('auth.login', compact('customize'));
     }
 
     /**

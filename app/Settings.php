@@ -13,6 +13,7 @@ class Settings extends Model
         'desc_login',
         'photo_login',
         'photo_asc',
-        'photo_aga'
+        'photo_aga',
+        'status'
     ];
 }

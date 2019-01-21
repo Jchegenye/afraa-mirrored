@@ -9,6 +9,7 @@
         "fideloper/proxy": "^4.0",
         "greggilbert/recaptcha": "dev-master",
         "guzzlehttp/guzzle": "^6.3",
+        "jchegenye/myflashalert": "^1.0",
         "kylekatarnls/laravel-carbon-2": "^1.0.0",
         "laracasts/utilities": "^3.0",
         "laravel/framework": "5.7.*",

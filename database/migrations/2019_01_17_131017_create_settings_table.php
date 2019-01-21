@@ -15,6 +15,7 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('status')->default(0);
             $table->string('theme_type');
             $table->string('title_login')->nullable();
             $table->text('desc_login')->nullable();

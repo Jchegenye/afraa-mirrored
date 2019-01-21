@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dcec50362aa18e53e6b5f01f63649110",
+    "content-hash": "d5088d09e66a9fdcf3957aca892ed928",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -688,6 +688,66 @@
             ],
             "description": "Highlight PHP code in terminal",
             "time": "2018-09-29T18:48:56+00:00"
+        },
+        {
+            "name": "jchegenye/myflashalert",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Jchegenye/myflashalert.git",
+                "reference": "15a5d523aa34be2a958d9013d9b18156ce9dea50"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Jchegenye/myflashalert/zipball/15a5d523aa34be2a958d9013d9b18156ce9dea50",
+                "reference": "15a5d523aa34be2a958d9013d9b18156ce9dea50",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5",
+                "php": ">=5.6.4"
+            },
+            "require-dev": {
+                "mockery/mockery": "dev-master",
+                "phpunit/phpunit": "^6.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Jchegenye\\MyFlashAlert\\MyFlashAlertServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Jchegenye\\MyFlashAlert\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Chegenye A. Jackson",
+                    "email": "chegenyejackson@gmail.com",
+                    "homepage": "https://jchegenye.me",
+                    "role": "Software Developer"
+                }
+            ],
+            "description": "A simplified flash messaging alert for your Laravel application using Twitter Bootstrap 4",
+            "homepage": "https://github.com/jchegenye/myflashalert",
+            "keywords": [
+                "alert",
+                "bootsrap",
+                "flash",
+                "laravel",
+                "message",
+                "myflashalert",
+                "sessions"
+            ],
+            "time": "2018-12-24T16:49:25+00:00"
         },
         {
             "name": "jeremeamia/SuperClosure",
