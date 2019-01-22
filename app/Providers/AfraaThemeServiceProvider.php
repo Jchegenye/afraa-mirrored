@@ -17,11 +17,15 @@ class AfraaThemeServiceProvider extends ServiceProvider
     public function boot()
     {
         $settings = Settings::where('status', (int)1)->first();
-        $data = [
-            'customizes' => $settings,
-            //'notifications' =>  //add more collections here
-        ];
-        View::share($data);
+
+        if(!empty($settings)){
+            $data = [
+                'customizes' => $settings,
+                //'notifications' =>  //add more collections here
+            ];
+            View::share($data);
+        }
+        
     }
 
     /**
