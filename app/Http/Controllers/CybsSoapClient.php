@@ -20,8 +20,8 @@ class CybsSoapClient extends SoapClient{
 
         // if (env('APP_ENV') == "local") {
 
-            $this->wsdl = env('SANDBOX_WSDL');
-            $this->transactionKey = env('SANDBOX_TRANSACTION_KEY');
+            $this->wsdl = "https://ics2wstesta.ic3.com/commerce/1.x/transactionProcessor/CyberSourceTransaction_1.109.wsdl";
+            $this->transactionKey = "gsAN62dsI+Qio7M4WaWwbBFVhq8hdtkJwQGvQaLQ50VdIeAtF3PLzOro2tk5ngaPddL7PISAONSBNd0gYJ0n2+/RBjA0W7sCauZZe6CFtk1OgthrD6nhtuuZ9NUyAAnZwmrz8n1rwlg4DMT8qWpcPQqliN6cp8gzXNB3hBIMpMYDCWN3QZnt7A3gxYwmMYOLDOfH48zbNJwTNCJi/I1fsJe6LnWFPKlivroU7OLwuxFmiKx94C1HMIEcjRYlHsVlRZW6zMBPz43lknSlOS1oYxdnULj/hn086WhFoDmk58ScNRZTry5Pv/6fOxelqqewGz9G7rK8/EHmXVbKJVdOUw==";
 
         // } else{
 
@@ -32,7 +32,7 @@ class CybsSoapClient extends SoapClient{
 
         parent::__construct($this->wsdl, $options);
 
-        $this->merchantId = env('MERCHANT_ID');
+        $this->merchantId = "bbk_afraa_7319874_usd";
 
         $nameSpace = "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd";
 
