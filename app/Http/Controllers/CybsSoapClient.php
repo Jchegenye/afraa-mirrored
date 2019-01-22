@@ -18,17 +18,17 @@ class CybsSoapClient extends SoapClient{
 
     function __construct($options=array()){
 
-        if (env('APP_ENV') == "local") {
+        // if (env('APP_ENV') == "local") {
 
             $this->wsdl = env('SANDBOX_WSDL');
             $this->transactionKey = env('SANDBOX_TRANSACTION_KEY');
 
-        } else{
+        // } else{
 
-            $this->wsdl = env('LIVE_WSDL');
-            $this->transactionKey = env('LIVE_TRANSACTION_KEY');
+        //     $this->wsdl = env('LIVE_WSDL');
+        //     $this->transactionKey = env('LIVE_TRANSACTION_KEY');
 
-        }
+        // }
 
         parent::__construct($this->wsdl, $options);
 
