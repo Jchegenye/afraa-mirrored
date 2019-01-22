@@ -16,7 +16,7 @@ class CybsSoapClient extends SoapClient{
 
     private $wsdl;
 
-    function __construct($options){
+    function __construct($options = array()){
 
         $options=array(
             'uri' => $this->wsdl,
