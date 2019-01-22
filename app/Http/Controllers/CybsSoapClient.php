@@ -16,7 +16,12 @@ class CybsSoapClient extends SoapClient{
 
     private $wsdl;
 
-    function __construct($options=array()){
+    function __construct($options){
+
+        $options=array(
+            'uri' => $this->wsdl,
+            'location' => $this->wsdl
+        );
 
         if (env('APP_ENV') == "local") {
 
@@ -30,7 +35,7 @@ class CybsSoapClient extends SoapClient{
 
         }
 
-        parent::__construct($this->wsdl, $options);
+        parent::__construct(null, $options);
 
         $this->merchantId = env('MERCHANT_ID');
 
