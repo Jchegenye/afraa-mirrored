@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('/phpinfo', function () {
+    echo phpinfo();
+});
+
 //Route::get('/','Auth\LoginController@showLoginForm');
 
 /*
