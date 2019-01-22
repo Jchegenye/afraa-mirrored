@@ -163,6 +163,11 @@ return [
         Greggilbert\Recaptcha\RecaptchaServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
 
+        /*
+         * Afraa Theme Service Provider...
+         */
+        Afraa\Providers\AfraaThemeServiceProvider::class,
+
     ],
 
     /*

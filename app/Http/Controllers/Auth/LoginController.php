@@ -42,13 +42,12 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function showLoginForm()
-    {
+    // public function showLoginForm()
+    // {
         
-        $customize = Settings::all();
+    //     return view('auth.login');
 
-        return view('auth.login', compact('customize'));
-    }
+    // }
 
     /**
      * Handle a login request to the application.

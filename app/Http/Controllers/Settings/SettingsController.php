@@ -14,7 +14,7 @@ class SettingsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($customize = '')
     {
         $customize = Settings::all();
 
@@ -43,13 +43,10 @@ class SettingsController extends Controller
 
         if($request->get('update') == 'update'){
 
-            // $request->validate([
-            //     'status_activate'=> 'required|integer',
-            //     'theme_type_activate'=> 'required'
-            // ]);
-
-            // $settings = Settings::where('status', '=', $request->get('status_activate'))
-            //     ->get();
+            $request->validate([
+                'status_activate'=> 'required|integer',
+                'theme_type_activate'=> 'required'
+            ]);
 
             $settings = Settings::all();
             foreach($settings as $key => $setting){
@@ -62,22 +59,18 @@ class SettingsController extends Controller
 
                     return redirect()->back()->success(''.$setting->theme_type.' theme has been activated!');
                     
-                }
-                elseif((int)$request->get('status_activate') == (int)$setting->status && $request->get('theme_type_activate') ==  $setting->theme_type){
+                }elseif((int)$request->get('status_activate') == (int)$setting->status && $request->get('theme_type_activate') ==  $setting->theme_type){
 
                     return redirect()->back()->warning('Current theme is already activated!');
 
-                }
-                elseif((int)$request->get('status_activate') == (int)0 && $request->get('theme_type_activate') ==  $setting->theme_type){
+                }elseif((int)$request->get('status_activate') == (int)0 && $request->get('theme_type_activate') ==  $setting->theme_type){
 
                     $data = Settings::where('theme_type', '=', $request->get('theme_type_activate'))->first();
                     $data->status = (int)0;
                     $data->save();
                     return redirect()->back()->warning('Current theme has been deactivated!');
 
-                }
-
-                elseif((int)$setting->status == (int)0 && $setting->theme_type == $request->get('theme_type_activate')){
+                }elseif((int)$setting->status == (int)0 && $setting->theme_type == $request->get('theme_type_activate')){
 
                     return redirect()->back()->warning('Deactivate current theme first!');
 
@@ -85,41 +78,36 @@ class SettingsController extends Controller
 
             }
 
-        
-    //echo $request->get('theme_type_activate') . "-" . (int)$request->get('status_activate');
-
         }else{
 
             $request->validate([
                 'theme_type'=>'required',
                 'title_login'=>'required',
                 'desc_login'=> 'required',
-                //'photo_login' => 'required|unique:settings', //'photo_asc' => 'required', 'photo_aga' => 'required',
-                //'bg_photo_login' => 'required',
-                //'status'=> 'required|integer',
+                'photo_login' => 'required',
+                'bg_photo_login' => 'required',
             ],[
                 'required' => 'This field is required.'
             ]);
     
-            // $file = $request->file('photo_login');
-            // $photo_login = time().$file->getClientOriginalName();
-            // $file->move(public_path().'/images/settings', $photo_login);
+            $file = $request->file('photo_login');
+            $photo_login = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/settings', $photo_login);
     
-            // $file = $request->file('bg_photo_login');
-            // $bg_photo_login = time().$file->getClientOriginalName();
-            // $file->move(public_path().'/images/settings', $bg_photo_login);
+            $file = $request->file('bg_photo_login');
+            $bg_photo_login = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/settings', $bg_photo_login);
             
             $data = Settings::where('theme_type', '=', $request->get('theme_type'))->first();
             if(!empty($data)){
                 
                 $data->title_login = $request->get('title_login');
                 $data->desc_login = $request->get('desc_login');
-                // $data->photo_login = $photo_login;
-                // $data->bg_photo_login = $bg_photo_login;
-                // $data->status = (int)$request->get('status');
+                $data->photo_login = $photo_login;
+                $data->bg_photo_login = $bg_photo_login;
                 $data->save();
             
-                return redirect()->back()->with('success', 'Theme setup has been updated!');
+                return redirect()->back()->success('Theme setup has been updated!');
             
             }else{
                 
@@ -127,13 +115,12 @@ class SettingsController extends Controller
                     'theme_type' => $request->get('theme_type'),
                     'title_login' => $request->get('title_login'),
                     'desc_login'=> $request->get('desc_login'),
-                    // 'photo_login' => $photo_login,
-                    // 'bg_photo_login' => $bg_photo_login,
-                    //'status' => (int)$request->get('status')
+                    'photo_login' => $photo_login,
+                    'bg_photo_login' => $bg_photo_login
                 ]);
                 $customize->save();
             
-                return redirect()->back()->with('success', 'Theme setup has been stored!');
+                return redirect()->back()->success('Theme setup has been setup!');
             
             }
 

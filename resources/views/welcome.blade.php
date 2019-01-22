@@ -15,41 +15,57 @@
 </head>
 
 <body>
-
-{{-- @foreach ($customize as $settings) --}}
-    
-  <section class="container">
+        
+<section class="container">
     <div class="row loginpage flex-column-reverse flex-md-row">
-      <div class="col-md-6 loginleft text-center p-0 text-white m-0 shadow-sm">
+    
+        @if(empty($customizes->bg_photo_login))
+            <div class="col-md-6 loginleft text-center p-0 text-white m-0 shadow-sm">
+        @else
+            <div class="col-md-6 loginleft text-center p-0 text-white m-0 shadow-sm" style="background-image: url({{URL::asset('/images/settings/' . $customizes->bg_photo_login)}}) ;">
+        @endif
+
         <div class="dark-overlay">
-          <div class="content">
-            <h1><strong>WELCOME TO THE 8<sup>th</sup> ASC</strong></h1>
-            <p class="p-3 pb-2 pl-5 pr-5">The AGA and Summit is a high profile air transport event dedicated to airline CEOs and top executives in the aviation industry.</p>
-            <p id="loginleftsignin"> <a href="#loginright" class="btn btn-afraa-full-2 mb-2">Sign In</a></p>
-            @if(View::hasSection('register'))
-                <span>Already have an account? <a href="{{ route('login') }}">Login</a></span>
-            @else
-                <span>Not yet registered? <a href="{{ route('register') }}">Signup</a></span>
-            @endif
-          </div>
+            <div class="content">
+                @if(empty($customizes->title_login))
+                    <h1><strong>WELCOME TO THE 8<sup>th</sup> ASC</strong></h1>
+                @else
+                    <h1><strong>{{$customizes->title_login}}</strong></h1>
+                @endif
+
+                <p class="p-3 pb-2 pl-5 pr-5">
+                    @if(empty($customizes->desc_login))
+                        The AGA and Summit is a high profile air transport event dedicated to airline CEOs and top executives in the aviation industry.
+                    @else
+                        {{$customizes->desc_login}}
+                    @endif
+                </p>
+                <p id="loginleftsignin"> <a href="#loginright" class="btn btn-afraa-full-2 mb-2">Sign In</a></p>
+                @if(View::hasSection('register'))
+                    <span>Already have an account? <a href="{{ route('login') }}">Login</a></span>
+                @else
+                    <span>Not yet registered? <a href="{{ route('register') }}">Signup</a></span>
+                @endif
+            </div>
         </div>
-      </div>
-      <div class="col-md-6 loginright pt-3 shadow" id="loginright">
-          <div class="row text-center">
-              <div class="col-md-12">
-          <a href="{{ url('/') }}">
-            <img class="img-fluid logo pt-5 pb-3" src="{{URL::asset('/images/logo.png')}}" alt="logo">
-          </a>
-              </div>
+    </div>
+    <div class="col-md-6 loginright pt-3 shadow" id="loginright">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <a href="{{ url('/') }}">
+                    @if(empty($customizes->photo_login))
+                        <img class="img-fluid logo pt-5 pb-3" src="{{URL::asset('/images/logo.png')}}" alt="logo">
+                    @else
+                        <img class="img-fluid logo pt-5 pb-3" src="{{URL::asset('/images/settings/' . $customizes->photo_login)}}" alt="logo">
+                    @endif
+                </a>
+            </div>
 
             @yield('content')
 
-          </div>
-      </div>
+        </div>
     </div>
-  </section>
-{{-- 
-@endforeach --}}
+</section>
 
 @include('layouts.partials.scripts')
 

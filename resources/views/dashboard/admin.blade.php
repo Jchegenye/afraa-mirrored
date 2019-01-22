@@ -27,7 +27,11 @@
 
                     <div class="col-md-4">
                         <div class="stats-card">
-                            <div class="stats-card-cover">
+                            @if(empty($customizes->bg_photo_login))
+                                <div class="stats-card-cover">
+                            @else
+                                <div class="stats-card-cover" style="background:linear-gradient( #fffffff5, #fffffff5 ), url({{URL::asset('/images/settings/' . $customizes->photo_login)}}) no-repeat;">
+                            @endif 
                                 <h1>{{$statistics['managers']}}</h1>
                                 <h6>Manager</h6>
 
@@ -38,7 +42,11 @@
 
                     <div class="col-md-4">
                         <div class="stats-card">
-                            <div class="stats-card-cover">
+                            @if(empty($customizes->bg_photo_login))
+                                <div class="stats-card-cover">
+                            @else
+                                <div class="stats-card-cover" style="background:linear-gradient( #fffffff5, #fffffff5 ), url({{URL::asset('/images/settings/' . $customizes->photo_login)}}) no-repeat;">
+                            @endif
                                 <h1>{{$statistics['delegates']}}</h1>
                                 <h6>DELEGATES</h6>
 
@@ -49,7 +57,11 @@
 
                     <div class="col-md-4">
                         <div class="stats-card">
-                            <div class="stats-card-cover">
+                            @if(empty($customizes->bg_photo_login))
+                                <div class="stats-card-cover">
+                            @else
+                                <div class="stats-card-cover" style="background:linear-gradient( #fffffff5, #fffffff5 ), url({{URL::asset('/images/settings/' . $customizes->photo_login)}}) no-repeat;">
+                            @endif
                                 <h1>{{$statistics['sponsors']}}</h1>
                                 <h6>SPONSORS</h6>
 
@@ -63,7 +75,11 @@
                 <div class="row mt-5">
                     <div class="col-md-4">
                         <div class="stats-card">
-                            <div class="stats-card-cover">
+                            @if(empty($customizes->bg_photo_login))
+                                <div class="stats-card-cover">
+                            @else
+                                <div class="stats-card-cover" style="background:linear-gradient( #fffffff5, #fffffff5 ), url({{URL::asset('/images/settings/' . $customizes->photo_login)}}) no-repeat;">
+                            @endif
                                 <h1>{{$statistics['speakers']}}</h1>
                                 <h6>SPEAKERS</h6>
 
@@ -74,7 +90,11 @@
 
                     <div class="col-md-4">
                         <div class="stats-card">
-                            <div class="stats-card-cover">
+                            @if(empty($customizes->bg_photo_login))
+                                <div class="stats-card-cover">
+                            @else
+                                <div class="stats-card-cover" style="background:linear-gradient( #fffffff5, #fffffff5 ), url({{URL::asset('/images/settings/' . $customizes->photo_login)}}) no-repeat;">
+                            @endif
                                 <h1>{{$statistics['exhibitors']}}</h1>
                                 <h6>EXHIBITORS</h6>
 

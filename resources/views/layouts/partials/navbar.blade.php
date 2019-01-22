@@ -5,13 +5,21 @@
         @if (Auth::user()->role == "admin")
 
             <a class="navbar-brand" href="{{ url('/dashboard/admin') }}">
-                <img class="img-fluid logo" src="{{URL::asset('/images/logo.png')}}" alt="logo">
+                @if(empty($customizes->photo_login))
+                    <img class="img-fluid logo" src="{{URL::asset('/images/logo2.png')}}" alt="logo">
+                @else
+                    <img class="img-fluid logo" src="{{URL::asset('/images/settings/' . $customizes->photo_login)}}" alt="logo">
+                @endif
             </a>
         
         @elseif(Auth::user()->role == "delegate")
 
             <a class="navbar-brand" href="{{ url('/dashboard/delegate') }}">
-                <img class="img-fluid logo" src="{{URL::asset('/images/logo.png')}}" alt="logo">
+                @if(empty($customizes->photo_login))
+                    <img class="img-fluid logo" src="{{URL::asset('/images/logo2.png')}}" alt="logo">
+                @else
+                    <img class="img-fluid logo" src="{{URL::asset('/images/settings/' . $customizes->photo_login)}}" alt="logo">
+                @endif
             </a>
 
         @endif

@@ -606,13 +606,18 @@ input:checked + .slider:before {
 	.custom-search-form .form-control::-webkit-input-placeholder {
 		color: #fff; font-size: 0.8rem;
 	}
+	textarea,
 	.custom-file-label,
 	.custom-file-label::after,
 	.contents form input,
 	.contents select{
-		height: 55px !important;
-		border: none;
+		border: none !important;
 		box-shadow: 1px 1px 10px #8c8c8c75;
+	}
+	.custom-file-label,
+	.contents form input,{
+		height: 50px !important;
+		padding: 15px;
 	}
 	#adminTable .dataTables_length select{
 		background-color: transparent;
@@ -629,9 +634,9 @@ input:checked + .slider:before {
 	.content .bootstrap-select>select{
 		height: 55px !important;
 	}
-	.custom-file-label::after{
+	/* .custom-file-label::after{
 		line-height: 3.5 !important;
-	}
+	} */
 	.bootstrap-select>.dropdown-toggle {
 		height: 55px;
 		line-height: 2.8;
@@ -754,12 +759,12 @@ input:checked + .slider:before {
 		cursor: pointer;
 	}
 	#statistics .stats-card-cover{
-		position: relative;
+		position: relative !important;
 		background: linear-gradient( #fffffff5, #fffffff5 ), url(../images/logo.png) no-repeat;
 		-webkit-background-size: contain;
 		-moz-background-size: contain;
 		-o-background-size: contain;
-		background-size: contain;
+		background-size: contain !important;
 	}
 	#statistics .stats-card:hover{
 		color: #3c68b1;

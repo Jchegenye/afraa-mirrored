@@ -10,8 +10,15 @@
             <p></p>
         </div>
     </div>
+                        
+    @include('myflashalert::message')
 
     <div id="accordion">
+
+        @php
+            $customize0 = empty($customize[0]['status']);
+            $customize1 = empty($customize[1]['status']);
+        @endphp
 
         <div class="card">
             <div class="card-header" id="headingOne">
@@ -21,11 +28,9 @@
                     </button>
                 </h5>
             </div>
-      
+    
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body">
-                    
-                    @include('myflashalert::message')
 
                     @foreach($customize as $customized)
                         @if ($customized->status == 1)
@@ -63,16 +68,6 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                {{-- <div class="form-check-inline">
-                                    <label class="form-check-label">
-                                        <input type="radio" name="status_activate" class="form-check-input" value="1"> Activate
-                                    </label>
-                                </div> 
-                                <div class="form-check-inline">
-                                    <label class="form-check-label">
-                                        <input type="radio" name="status_activate" class="form-check-input" value="0"> Deactivate
-                                    </label>
-                                </div> --}}
                                 
                                 @foreach($customize as $customized)
                                     
@@ -91,20 +86,6 @@
 
                                     @endif
 
-                                    {{-- @if($customized->status == 1 AND $customized->theme_type == "asc")
-
-                                        <div class="form-check-inline">
-                                            <label class="form-check-label">
-                                                <input type="radio" name="status_activate" class="form-check-input" value="0"> Deactivate
-                                            </label>
-                                        </div>
-                                    @elseif ($customized->status == 0 AND $customized->theme_type == "asc")
-                                        <div class="form-check-inline">
-                                            <label class="form-check-label">
-                                                <input type="radio" name="status_activate" class="form-check-input" value="1"> Activate
-                                            </label>
-                                        </div>
-                                    @endif --}}
                                 @endforeach
 
                                 @if($customize[0]['status']  == "0" AND $customize[1]['status'] == "0")
@@ -153,8 +134,6 @@
                 </ul>
 
                 <div class="card-body">
-
-                    @include('myflashalert::message')
 
                     <form enctype='multipart/form-data' class="bg-white" method="post" action="{{ route('customize.store') }}">
                         @csrf
@@ -217,7 +196,7 @@
                         <div class="row">
                             <div class="col-md-6 form-group align-self-end mt-3">
                                 <button type="submit" class="btn btn-afraa-full-2 mb-2">
-                                {{ __('Submit') }}
+                                    {{ __('Submit') }}
                                 </button>
                             </div>
                         </div>
