@@ -32,10 +32,13 @@ class CybsSoapClient extends SoapClient{
 
         }
 
-        $this->options=array('location' => $this->wsdl,
-        'uri'      => "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd");
+        // $this->options=array('location' => $this->wsdl,
+        // 'uri'      => "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd");
 
-        parent::__construct(null, $this->options);
+        parent::__construct(null, array(
+            'location' => $this->wsdl,
+            'uri'      => "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd")
+        );
 
         $this->merchantId = env('MERCHANT_ID');
 
