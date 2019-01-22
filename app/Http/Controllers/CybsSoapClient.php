@@ -32,7 +32,7 @@ class CybsSoapClient extends SoapClient{
 
         }
 
-        $this->$options=array('location' => $this->wsdl,
+        $this->options=array('location' => $this->wsdl,
         'uri'      => "http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd");
 
         parent::__construct(null, $this->$options);
