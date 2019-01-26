@@ -53,6 +53,7 @@ class Kernel extends ConsoleKernel
         if($this->getCurrentSessions()->first() !== null){
 
             //dd(Carbon::create($this->getCurrentSessions()->first()->start_time)->format('H:i'));
+            //dd(Carbon::create('13:35')->format('H:i'));
 
             $schedule->call('Afraa\Legibra\ReusableCodes\Dashboard\SendMails@notifyCurrentSession')
                 ->dailyAt(Carbon::create($this->getCurrentSessions()->first()->start_time)->format('H:i'));
@@ -63,7 +64,7 @@ class Kernel extends ConsoleKernel
         //$nextSessionData = $this->getNextSessions()->first();
         if(!$this->getNextSessions() == null){
 
-            //dd(Carbon::create($this->getNextSessions()->first()->start_time)->subMinutes(98)->format('H:i'));
+            //dd(Carbon::create($this->getNextSessions()->first()->start_time)->subMinutes(39)->format('H:i'));
 
             $schedule->call('Afraa\Legibra\ReusableCodes\Dashboard\SendMails@notifyNextSession')
                 ->dailyAt(Carbon::create($this->getNextSessions()->first()->start_time)->subMinutes(15)->format('H:i'));
