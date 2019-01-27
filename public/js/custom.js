@@ -6,17 +6,17 @@ $(document).ready(function(){
         success: function(data){
             //console.log(data.current_session);
 
-            $.growl.notice({ 
-                title: "Current Session", 
-                message: "" + data.current_sessions[0].title + " event is happening now.", 
+            $.growl.notice({
+                title: "Current Session",
+                message: "" + data.current_sessions[0].title + " event is happening now.",
                 url: "/dashboard/delegate",
                 duration: 60500,
                 location: 'br'
             });
 
-            $.growl.error({ 
-                title: "Next Session", 
-                message: "" + data.next_sessions[0].title + " is happening in next 15 minute(s).", 
+            $.growl.error({
+                title: "Next Session",
+                message: "" + data.next_sessions[0].title + " is happening in next 15 minute(s).",
                 url: "/dashboard/delegate",
                 duration: 60000,
                 location: 'br'
@@ -27,7 +27,7 @@ $(document).ready(function(){
     // $.growl.error({ message: "The kitten is attacking!" });
     // $.growl.notice({ message: "The kitten is cute!" });
     // $.growl.warning({ message: "The kitten is ugly!" });
-    
+
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -114,7 +114,7 @@ $(document).ready(function(){
     });
 
 
-    var time = ['.start_time','.end_time'];
+    var time = ['.start_time','.end_time','.timeslot_from','.timeslot_to','.timeslot_step'];
 
     for (let i = 0; i <= time.length; i++) {
         $(time[i]).timepicker();
@@ -156,7 +156,7 @@ $(document).ready(function(){
       liveSearch: true,
       maxOptions: 1
     });
-    
+
 
 });
 
