@@ -2,7 +2,7 @@
 <!-- Side Navigation Menu -->
 <div class="navbar-default sidebar pb-5 pt-4" role="navigation">
     <div class="sidebar-nav navbar-collapse">
-        <div class="card text-center mr-5">
+        <div class="card text-center ">{{-- mr-5 --}}
             <div class="card-img">
 
                 @php
@@ -28,7 +28,7 @@
             </div>
         </div>
 
-        <div class="row buttons pl-2 pr-5">
+        <div class="row buttons pl-2 pr-2">
 
             @php
                 $uri = request()->route()->uri;
@@ -102,6 +102,14 @@
                 btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Manage Q&A</a>
             </div>
 
+            <div class="col-12">
+                <a href="{{ route('oneonone.meetings') }}#page-wrapper" class="btn btn-block
+                @if ($uri == "dashboard/delegate/meetings")
+                    active
+                @endif
+                btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>One On One Meeting(s)</a>
+            </div>
+
         @elseif(Auth::user()->role == 'delegate')
 
             <div class="col-12">
@@ -145,6 +153,14 @@
                     active
                 @endif
                 btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Downloads</a>
+            </div>
+            
+            <div class="col-12">
+                <a href="{{ route('oneonone.meetings') }}#page-wrapper" class="btn btn-block
+                @if ($uri == "dashboard/delegate/meetings")
+                    active
+                @endif
+                btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>One On One Meeting(s)</a>
             </div>
 
             {{-- <div class="col-12">

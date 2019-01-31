@@ -22,6 +22,8 @@
 	<!-- Dashboard Body Content Area -->
     <div id="page-wrapper" class="contents">
 
+        @include('myflashalert::message')
+
         @if (session('status'))
             <div class="alert alert-primary">
                 {{ session('status') }}

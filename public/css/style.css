@@ -56,6 +56,16 @@ body{
  	transition: 1.0s;
     box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.35);
 }
+.sidebar-nav.navbar-collapse .buttons .btn:hover{
+	transition: 1.0s;
+   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.35);
+}
+.sidebar-nav.navbar-collapse .buttons .btn{
+	transition: 1.0s;
+    box-shadow:0 5px 20px 0 rgba(0, 0, 0, 0.02);
+    padding-right: 20px;
+}
+
 .buttons .btn,.a .btn{
 	margin-top: 10px;
 	color: rgba(0, 0, 0, 0.80);
@@ -234,9 +244,9 @@ input:checked + .slider:before {
 	position: relative;
 	bottom: 0;
 }
-.contents form{
+/* .contents form{
 	background-color: #80808013;
-}
+} */
 .contents .form-row.heading{
 	background-color: #fff;
 	margin: 0px 2px 0px 2px;
@@ -1213,4 +1223,37 @@ button{
     color: #3c68b1;
     font-size: 15px;
     background: transparent;
+}
+
+/* One on One Meeting */
+.oneonone .card img{
+	/* height: 150px; */
+    object-fit: contain;
+}
+.oneonone .card .card-body p{
+	font-size:12px;
+}
+.oneonone .card .card-body button,
+.oneonone .card .card-body a{
+	font-size: 12px;
+    color: #ffffff;
+}
+.oneonone .card-title {
+    margin-bottom: 0.3rem;
+}
+
+#allmeetings .table td, #allmeetings .table th {
+    padding: 15px !important;
+}
+#allmeetings .table td{
+	font-weight: 100;
+}
+
+.text-line-through{
+	text-decoration: line-through;
+	opacity:.6;
+}
+.btn-disable{
+	pointer-events: none;
+	opacity:.6;
 }

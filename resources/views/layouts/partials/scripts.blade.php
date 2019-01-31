@@ -4,8 +4,8 @@
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 
 <script src="{{ asset('vendor/jquery.growl/javascripts/jquery.growl.js') }}"></script>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.3/js/bootstrap-select.min.js"></script>
+
 <!-- Telephone with Flug Input plugin -->
 <script src="{{ asset('plugin/intl-tel-input/build/js/intlTelInput-jquery.js') }}"></script>
 <script src="{{ asset('plugin/intl-tel-input/build/js/intlTelInput.js') }}"></script>

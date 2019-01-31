@@ -1,5 +1,43 @@
 $(document).ready(function(){
 
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    });
+
+    $.ajax({
+        method: 'GET',
+        url: '/dashboard/delegate/ajaxoneonone',
+        success: function(data){ 
+            data.forEach(element => {
+                
+                $('.btn-ts-trigger-' + element['id']).popover({ 
+                    placement : 'top',
+                    html : true,
+                    title: function() {
+                    return $("#popover-header").html();
+                    },
+                    content: function() {
+                    return $("#popover-content-" + element['id']).html();
+                    }
+                });
+                
+            });
+
+              
+        
+        }
+    });
+
+  
+
+    // $('.btn-ts-trigger-afraa').on('click', function () {
+
+    //     //$('.testi').addClass("active");
+    //     var data = $(".btn-ts-trigger-afraa").attr('href');
+    //     console.log(data)
+        
+    // });
+    
     $.ajax({
         method: 'GET',
         url: '/notification/sessions',

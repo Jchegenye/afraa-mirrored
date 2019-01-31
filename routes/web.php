@@ -182,11 +182,6 @@ Route::group(['middleware' => 'auth'], function()
             'uses' => 'Delegate\DelegateController@allDelegates',
         ]);
 
-
-        // Route::get('/questions-and-answers', function () {
-        //     return view('layouts.dashboard.qna.index');
-        // });
-
         Route::resource('questions-and-answers','QuestionController');
 
         Route::get('/asc', [
@@ -202,6 +197,31 @@ Route::group(['middleware' => 'auth'], function()
         Route::get('/single/aga/{year}', [
             'uses' => 'DocumentController@agaAll'
         ]);
+        
+        // One on One Meetings
+        Route::namespace('OneonOne')->group(function () {
+
+            Route::post('oneonone', [
+                'uses' => 'OneonOneController@oneononeStore',
+                'as' => 'oneonone.store'
+            ]);
+
+            Route::resource('tables','OneonOneController');
+            Route::get('meetings', [
+                'uses' => 'OneonOneController@meetings',
+                'as' => 'oneonone.meetings'
+            ]);
+
+            Route::resource('timeslots','TimeSlotsController');
+
+            Route::get('mymeetings', [
+                'uses' => 'OneonOneController@myMeetings',
+                'as' => 'oneonone.mymeetings'
+            ]);
+
+            Route::get('/ajaxoneonone','OneonOneController@ajaxOneOnOne');
+
+        });
 
     });
 

@@ -50,7 +50,7 @@
                                 <a href="{{action('Users\UsersController@edit', $speaker->uid)}}" class="edit">
                                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
                                 </a>
-                                <a href="{{url('dashboard/admin/delete_speaker/')}}/{{$speaker->id}}/{{$speaker->uid}}" class="delete">
+                                <a href="{{url('dashboard/admin/delete_speaker/')}}/{{$speaker->uid}}" class="delete">
                                     <i class="fa fa-trash-o" aria-hidden="true"></i> Remove
                                 </a>
                             </div>
