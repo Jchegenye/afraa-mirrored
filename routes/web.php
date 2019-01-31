@@ -150,6 +150,16 @@ Route::group(['middleware' => 'auth'], function()
             'uses' => 'Speaker\SpeakerController@updateSpeaker',
         ]);
 
+        Route::resource('oneonone','OneOnOneController');
+
+        Route::post('one_on_one/timeslots/', [
+            'uses' => 'OneOnOneController@insertTimeSlots',
+        ]);
+
+        Route::get('/one_on_one/timeslots/', [
+            'uses' => 'OneOnOneController@slotIndex'
+        ]);
+
     });
 
     Route::prefix('dashboard/delegate')->group( function () {

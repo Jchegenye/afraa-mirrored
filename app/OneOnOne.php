@@ -13,3 +13,4 @@ class OneOnOne extends Model
      */
     protected $table = 'one_on_one';
 }
+

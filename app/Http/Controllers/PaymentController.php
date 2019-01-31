@@ -7,7 +7,8 @@ use Afraa\Events;
 use Afraa\Model\Users;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Mail;
+use Afraa\Mail\PaymentMail;
 use Afraa\Http\Controllers\CybsSoapClient;
 use Afraa\Http\Controllers\CountryCodes;
 
@@ -23,7 +24,7 @@ class PaymentController extends Controller
 
     private $payment_code;
     private $payment_code_array = array(
-        'NO_PAYMENT_CODE' => '50',
+        'NO_PAYMENT_CODE' => '40',
         'CODE1' => '30',
         'CODE2' => '20',
         'CODE3' => '0'
@@ -74,6 +75,8 @@ class PaymentController extends Controller
                     $event = new Events();
 
                     $event->updatePaymentStatus($status,$id);
+
+                    $this->sendSuccessEmail("30", "asc");
 
                     return view('layouts.dashboard.payment.success');
 
@@ -320,6 +323,8 @@ class PaymentController extends Controller
             if ($decision === "ACCEPT") {
                 $status = "PAID";
                 $event->updatePaymentStatus($status,$id);
+
+                $this->sendSuccessEmail("30", "asc");
             }
 
             return true;
@@ -328,10 +333,26 @@ class PaymentController extends Controller
 
             $event->updatePaymentStatus($decision,$id);
 
+            $this->sendSuccessEmail($request, $amount, $event);
+
             return false;
 
         }
 
         return false;
+    }
+
+    public function sendSuccessEmail($amount, $event){
+
+        $id = Auth::id();
+
+        $get_user = new Users();
+
+        $user = $get_user->getUserById($id);
+
+        $email = $user->pluck('email')->all()[0];
+
+        Mail::to($email)->send(new PaymentMail($user, $amount, $event));
+
     }
 }
