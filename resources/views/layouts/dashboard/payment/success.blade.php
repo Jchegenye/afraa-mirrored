@@ -18,7 +18,7 @@
             <div class="col-md-2 pull-right">
                 <div class="row">
                     <div class="col-md-12 text-right">
-                        <a href="{{url()->previous()}}" class="btn btn-afraa tb-sm-text">
+                        <a href="{{url('dashboard/delegate')}}" class="btn btn-afraa tb-sm-text">
                             <i class="fas fa-arrow-left pr-2"></i> Back
                         </a>
                     </div>
