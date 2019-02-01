@@ -134,12 +134,30 @@ class PaymentController extends Controller
 
         }
 
-        $payment_error = 'payment_error';
+        $id = Auth::id();
 
-        return redirect('dashboard/delegate/payment_code')->with([
-            'warning' => 'Sorry! Payment not Successful, Please update the following fields:',
-            'payment_error' => $payment_error
+        $get_users = new Users();
+
+        $user_by_id = $get_users->getUserById($id);
+
+        $bs = $user_by_id->pluck('Business_Address')[0];
+
+        if($bs == ""){
+
+
+            $payment_error = 'payment_error';
+
+            return redirect('dashboard/delegate/payment_code')->with([
+                'warning' => 'Sorry! Payment not Successful, Please update the following fields:',
+                'payment_error' => $payment_error
             ]);
+
+        }else{
+            return redirect('dashboard/delegate/payment_code')->with([
+                'warning' => 'Sorry! Payment not Successful, Please check your card details and try again:'
+            ]);
+
+        }
 
     }
 
