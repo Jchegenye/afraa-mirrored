@@ -770,7 +770,7 @@ input:checked + .slider:before {
 	}
 	#statistics .stats-card-cover{
 		position: relative !important;
-		background: linear-gradient( #fffffff5, #fffffff5 ), url(../images/logo.png) no-repeat;
+		/* background: linear-gradient( #fffffff5, #fffffff5 ), url(../images/logo.png) no-repeat; */
 		-webkit-background-size: contain;
 		-moz-background-size: contain;
 		-o-background-size: contain;

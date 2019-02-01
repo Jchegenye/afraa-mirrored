@@ -93,14 +93,16 @@
             <div class="row mt-4">
                 <div class="col-md-5">
                     <div class="delegate-box-reg afraa-white-box text-center afraa-box-inactive">
-                        <img src="{{URL::asset('/images/logo.png')}}" alt="">
+                        <img src="{{URL::asset('/images/logo2.png')}}" alt="">
                         <h6 class="afraa-red-text">ANNUAL GENERAL ASSEMBLY </h6>
+                        <button class="btn btnbtn btn-afraa-full-2 mt-3 d-none">Click Here</button>
                     </div>
                 </div>
                 <div class="col-md-5 offset-md-1">
                     <div class="delegate-box-reg afraa-white-box text-center"  data-toggle="modal" data-target="#modal-1">
-                        <img src="{{URL::asset('/images/asc-logo.jpg')}}" alt="">
+                        <img src="{{URL::asset('/images/settings/' . $customizes->photo_login)}}" alt="">
                         <h6 class="afraa-red-text">AVIATION STAKEHOLDERS CONVENTION</h6>
+                        <button class="btn btnbtn btn-afraa-full-2 mt-3 ">Click Here</button>
                     </div>
                 </div>
             </div>

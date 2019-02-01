@@ -4,6 +4,7 @@ namespace Afraa\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Afraa\Http\Controllers\Controller;
+use Afraa\Legibra\ReusableCodes\Dashboard\OneOnOneMeetings;
 use App\ProgrammeSession;
 use Afraa\Model\Users;
 use Afraa\Model\Admin\Admin;
@@ -11,6 +12,8 @@ use Afraa\Http\Controllers\Controller\Programme\ProgrammeController;
 
 class AdminController extends Controller
 {
+
+    use OneOnOneMeetings;
 
     /**
      * Create a new controller instance.
@@ -42,7 +45,9 @@ class AdminController extends Controller
 
         $user_by_id = $get_users->getUserById(1);
 
-        return view('dashboard/admin',compact('session','users','user_by_id','statistics'));
+        $oneonones = $this->retrieveOneOnOneMeetings();
+
+        return view('dashboard/admin',compact('session','users','user_by_id','statistics', 'oneonones'));
     }
 
 }

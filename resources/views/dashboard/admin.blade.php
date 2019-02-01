@@ -103,6 +103,21 @@
                         </div>
                     </div>
 
+                    <div class="col-md-4">
+                        <div class="stats-card">
+                            @if(!empty($customizes->bg_photo_login))
+                                <div class="stats-card-cover">
+                            @else
+                                <div class="stats-card-cover" style="background:linear-gradient( #fffffff5, #fffffff5 ), url({{URL::asset('/images/settings/' . $customizes->photo_login)}}) no-repeat;">
+                            @endif
+                                <h1>{{$oneonones['oneononetotalmeetingcount']}}</h1>
+                                <h6>One on One Meetings</h6>
+
+                                <a href="{{url('/dashboard/delegate/meetings')}}" class="btn btn-afraa-full-2">View all</a>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
         </div>
