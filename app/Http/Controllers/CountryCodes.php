@@ -13,10 +13,14 @@ class CountryCodes{
      */
     public function getCodeName($code){
 
-        $names = json_decode(file_get_contents("http://country.io/names.json"), true);
+        if($code == ""){
+            return "";
+        }else{
+            $names = json_decode(file_get_contents("http://country.io/names.json"), true);
 
-        $countryName = $names[$code];
-
-        return $countryName;
+            $countryName = $names[$code];
+    
+            return $countryName;
+        }
     }
 }
