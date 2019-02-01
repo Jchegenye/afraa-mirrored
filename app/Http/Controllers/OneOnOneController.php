@@ -16,7 +16,7 @@ class OneOnOneController extends Controller
     public function index()
     {
         //
-        echo "dsdasdas";
+        //echo "dsdasdas";
     }
 
     /**
