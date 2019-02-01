@@ -13,6 +13,21 @@
     @endif
 </div>
 
+@if (session('payment_error'))
+    <div class="alert alert-danger">
+
+        <ul>
+            <li>Business_Address*</li>
+            <li>Country*</li>
+        </ul>
+
+        <a href="{{action('Users\UsersController@edit', Auth::id())}}" class="btn btn-afraa-full-2 tb-sm-text">
+            Click here to update
+        </a>
+
+    </div>
+@endif
+
 <div id="adminTable">
     <div class="table_header ">
         <div class="row ">

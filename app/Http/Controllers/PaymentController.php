@@ -134,7 +134,12 @@ class PaymentController extends Controller
 
         }
 
-        return redirect('dashboard/delegate/payment_code')->with('warning', 'Sorry! Payment not Successful, Please Try Again');
+        $payment_error = 'payment_error';
+
+        return redirect('dashboard/delegate/payment_code')->with([
+            'warning' => 'Sorry! Payment not Successful, Please update the following fields:',
+            'payment_error' => $payment_error
+            ]);
 
     }
 
@@ -160,15 +165,27 @@ class PaymentController extends Controller
 
             list($firstName, $lastName) = explode(" ", $user->name);
 
-            $billTo->firstName = $firstName;
-            $billTo->lastName = $lastName;
-            $billTo->street1 = $user->Business_Address;
-            $billTo->city = $countryCode->getCodeName($user->country);
-            $billTo->state = $countryCode->getCodeName($user->country);
-            $billTo->postalCode = $countryCode->getCodeName($user->country);
-            $billTo->country = $countryCode->getCodeName($user->country);
-            $billTo->email = $user->email;
-            $billTo->ipAddress = $this->getClientIP();
+            if(!empty($user->Business_Address)){
+                $billTo->firstName = $firstName;
+                $billTo->lastName = $lastName;
+                $billTo->street1 = $user->Business_Address;
+                $billTo->city = $countryCode->getCodeName($user->country);
+                $billTo->state = $countryCode->getCodeName($user->country);
+                $billTo->postalCode = $countryCode->getCodeName($user->country);
+                $billTo->country = $countryCode->getCodeName($user->country);
+                $billTo->email = $user->email;
+                $billTo->ipAddress = $this->getClientIP();
+            }else{
+                $billTo->firstName = $firstName;
+                $billTo->lastName = $lastName;
+                $billTo->street1 = "";
+                $billTo->city = "";
+                $billTo->state = "";
+                $billTo->postalCode = "";
+                $billTo->country = "";
+                $billTo->email = $user->email;
+                $billTo->ipAddress = $this->getClientIP();
+            }
 
         }
 
