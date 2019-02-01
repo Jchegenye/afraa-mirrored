@@ -24,9 +24,9 @@ class PaymentController extends Controller
 
     private $payment_code;
     private $payment_code_array = array(
-        'NO_PAYMENT_CODE' => '40',
-        'CODE1' => '30',
-        'CODE2' => '20',
+        'NO_PAYMENT_CODE' => '4',
+        'CODE1' => '3',
+        'CODE2' => '2',
         'CODE3' => '0'
     );
 
@@ -333,7 +333,7 @@ class PaymentController extends Controller
 
             $event->updatePaymentStatus($decision,$id);
 
-            $this->sendSuccessEmail($request, $amount, $event);
+            //$this->sendSuccessEmail($request, $amount, $event);
 
             return false;
 
