@@ -48,14 +48,13 @@
                                 @foreach ($oneononetimeslots as $slots)
                                     @if ($tables->timeslot_id == $slots->timeslot_id)
 
-                                        <span class="start">{{$slots->date}} {{substr($slots->time,0,5)}}  </span>
-                                        <span class="end">{{$slots->date}} {{substr($slots->time,8)}}  </span>
+                                        <span class="start">12 May 2019 {{substr($slots->time,0,5)}}  </span>
+                                        <span class="end">12 May 2019 {{substr($slots->time,8)}}  </span>
                                         <span class="timezone">Greenwich Mean Time</span>
                                         <span class="title">One on One Meeting - {{$tables->company}}</span>
                                         <span class="description">
-                                            {{$tables->name}}
-                                            {{$tables->position}}
                                             {{$tables->company}}
+                                            {{$tables->name}} - {{$tables->position}}
                                         </span>
                                     @endif
                                 @endforeach
