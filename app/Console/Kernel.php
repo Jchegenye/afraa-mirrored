@@ -20,8 +20,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //Commands\InitilizeApp::class,
-        //Commands\Permissions::class,
+        Commands\InitilizeApp::class,
+        Commands\Permissions::class,
         //Commands\SendCurrentSessionEmail::class,
     ];
 
