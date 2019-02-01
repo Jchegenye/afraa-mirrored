@@ -152,7 +152,7 @@ $(document).ready(function(){
     });
 
 
-    var time = ['.start_time','.end_time','.timeslot_from','.timeslot_to','.timeslot_step'];
+    var time = ['.start_time','.end_time'];
 
     for (let i = 0; i <= time.length; i++) {
         $(time[i]).timepicker();
