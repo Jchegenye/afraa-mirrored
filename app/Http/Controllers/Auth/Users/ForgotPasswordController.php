@@ -189,7 +189,7 @@ class ForgotPasswordController extends Controller
 
         if (app()->environment('production')) {
             $rules = array(
-                'email' => 'required|email|max:255',
+                // 'email' => 'required|email|max:255',
                 'g-recaptcha-response' => 'required',
                 'password' => 'min:6|required_with:password_confirmation|same:password_confirmation|unique:users,password',
                 'password_confirmation' => 'min:6',
