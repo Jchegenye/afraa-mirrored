@@ -116,7 +116,7 @@ class RegisterController extends Controller
         $user->email = Input::get('email');
         $user->password = Hash::make(Input::get('password'));
         $user->remember_token = Input::get('_token');
-
+        $user->verified = 1;
         $user->role = $queryPermissions->role;
 
         $user->permissions = $queryPermissions->permissions;
@@ -183,7 +183,8 @@ class RegisterController extends Controller
 
         $this->guard()->logout();
 
-        return redirect('/login')->with('status', 'We sent you an activation code. Check your email and click on the link to verify.');
+        //return redirect('/login')->with('status', 'We sent you an activation code. Check your email and click on the link to verify.');
+        return redirect('/login')->with('status', 'Registration is successful, you can now login');
 
     }
 

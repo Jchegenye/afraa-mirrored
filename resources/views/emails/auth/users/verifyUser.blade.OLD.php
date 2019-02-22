@@ -149,12 +149,12 @@
 												</tr>
 												<tr>
 													<td data-color="text" data-size="size text" data-min="10" data-max="26" data-link-color="link text color" data-link-style="font-weight:bold; text-decoration:underline; color:#40aceb;" align="left" style="color:#675C5C; padding:0 0 23px;">
-														Thank you for registering with Africa Airlines Association (AFRAA) for the 8th Aviation Stakeholders Convention (ASC).
+														Welcome to Afraa! In order to get started, you need to confirm your email address.
 
 														<br/><br/>
                                                         {{--  We hope that this is your email <span style="color: #3b68b1; cursor: pointer;">{{$user['email']}}</span>  --}}
-                                                        <a href="http://afraa.or.ke" target="_blunk" style="cursor: pointer;">
-                                                                <button type="button" style="width:100%; padding:12px; border:none; background-color: #3c68b1; color:#fff; font-size:15px; text-decoration:none; font-weight:700;"> Visit Website
+                                                        <a href="{{url('user/verify', $user->verifyUser->token)}}" target="_blunk" style="cursor: pointer;">
+                                                                <button type="button" style="width:100%; padding:12px; border:none; background-color: #3c68b1; color:#fff; font-size:15px; text-decoration:none; font-weight:700;">Confirm Email
                                                                 </button>
                                                         </a>
 {{--

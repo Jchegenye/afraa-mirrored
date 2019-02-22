@@ -225,12 +225,11 @@ class ManageUsersController extends Controller
     public function store(Request $request){
 
         request()->validate([
-
-            // 'name' => 'required|unique:users,name|min:4',
-            // 'email' => 'email|unique:users,email|required',
-            // 'phone' => 'required|unique:users|numeric|digits_between:1,14',
-            // 'bio' => 'required',
-            // 'photo' => 'required|mimes:doc,docx,xls,xlsx,ppt,pdf,zip|max:10048',
+            'name' => 'required|unique:users,name|min:4',
+            'email' => 'email|unique:users,email|required',
+            'phone' => 'required|unique:users|numeric|digits_between:1,14',
+            //'bio' => 'required',
+            'photo' => 'mimes:jpg,png|max:10048',
         ]);
 
         $role = $request->input('roleselector');
@@ -260,6 +259,7 @@ class ManageUsersController extends Controller
                 $user->phone = $request->input('phone');
                 $user->bio = $request->input('bio');
                 $user->photo = $myPhoto;
+                $user->verified = 1;
                 $user->country = $request->input('country');
                 $user->remember_token = $request->input('_token');
                 $user->role = $request->input('roleselector');
@@ -276,7 +276,7 @@ class ManageUsersController extends Controller
 
                 \Mail::to($user->email)->send(new VerifyMail($user, $decrypted));
 
-                Session::flash('successful', 'Profile successfully updated!');
+                Session::flash('successful', 'Registration successful.');
                 return redirect()->back()->withInput();
 
         }
