@@ -227,7 +227,7 @@ class ManageUsersController extends Controller
         request()->validate([
             'name' => 'required|unique:users,name|min:4',
             'email' => 'email|unique:users,email|required',
-            'phone' => 'required|unique:users|numeric|digits_between:1,14',
+            'phone' => 'unique:users|numeric|digits_between:1,14',
             //'bio' => 'required',
             'photo' => 'mimes:jpg,png|max:10048',
         ]);
