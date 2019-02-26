@@ -153,7 +153,7 @@
 
 														<br/><br/>
                                                         {{--  We hope that this is your email <span style="color: #3b68b1; cursor: pointer;">{{$user['email']}}</span>  --}}
-                                                        <a href="http://afraa.or.ke" target="_blunk" style="cursor: pointer;">
+                                                        <a href="https://afraa.or.ke" target="_blunk" style="cursor: pointer;">
                                                                 <button type="button" style="width:100%; padding:12px; border:none; background-color: #3c68b1; color:#fff; font-size:15px; text-decoration:none; font-weight:700;"> Visit Website
                                                                 </button>
                                                         </a>
