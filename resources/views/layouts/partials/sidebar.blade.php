@@ -126,13 +126,13 @@
                 @endif
                btn-block text-left "><i class="fas fa-user-cog pr-2"></i>Programme</a>
             </div>
-            <div class="col-12">
+            {{-- <div class="col-12">
                 <a href="{{url('/dashboard/delegate/all')}}#page-wrapper" class="btn btn-block
                 @if ($uri == "dashboard/delegate/all")
                     active
                 @endif
                 btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Delegates</a>
-            </div>
+            </div> --}}
             <div class="col-12">
                 <a href="{{url('/dashboard/delegate/speakers')}}#page-wrapper" class="btn btn-block
                 @if ($uri == "dashboard/delegate/speakers")
@@ -185,8 +185,6 @@
 
                 @endif
             @endisset
-
-
 
         @elseif(Auth::user()->role == 'manager')
 
