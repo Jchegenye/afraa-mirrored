@@ -107,7 +107,7 @@
                 @if ($uri == "dashboard/delegate/meetings")
                     active
                 @endif
-                btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>One On One Meeting(s)</a>
+                btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>One To One Meeting(s)</a>
             </div>
 
         @elseif(Auth::user()->role == 'delegate')
@@ -140,13 +140,13 @@
                 @endif
                 btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Speakers</a>
             </div>
-            <div class="col-12">
+            {{-- <div class="col-12">
                 <a href="{{url('/dashboard/delegate/exhibitors')}}#page-wrapper" class="btn btn-block
                 @if ($uri == "dashboard/delegate/exhibitors")
                     active
                 @endif
                 btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Exhibitors</a>
-            </div>
+            </div> --}}
             <div class="col-12">
                 <a href="{{url('/dashboard/delegate/documents')}}#page-wrapper" class="btn btn-block
                 @if ($uri == "dashboard/delegate/documents")
@@ -155,13 +155,13 @@
                 btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>Downloads</a>
             </div>
             
-            <div class="col-12">
+            {{-- <div class="col-12">
                 <a href="{{ route('oneonone.meetings') }}#page-wrapper" class="btn btn-block
                 @if ($uri == "dashboard/delegate/meetings")
                     active
                 @endif
-                btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>One On One Meeting(s)</a>
-            </div>
+                btn-shadow text-left"><i class="fas fa-user-cog pr-2"></i>One To One Meeting(s)</a>
+            </div> --}}
 
             {{-- <div class="col-12">
                 -- <a href="{{url('/dashboard/delegate/social-events')}}#page-wrapper" class="btn btn-block --
